@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR - KONTE Ingeniería</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -29,10 +28,10 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             max-width: 500px;
             width: 100%;
+            text-align: center;
         }
         
         .header {
-            text-align: center;
             margin-bottom: 30px;
         }
         
@@ -59,10 +58,14 @@
             padding: 20px;
         }
         
+        .qr-container {
+            position: relative;
+            display: inline-block;
+        }
+        
         #qrcode {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            max-width: 300px;
+            max-height: 300px;
         }
         
         .helmet-logo {
@@ -76,10 +79,12 @@
             align-items: center;
             z-index: 10;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         
         .text-below {
-            text-align: center;
             margin-top: 20px;
             color: #333;
             font-size: 18px;
@@ -127,7 +132,6 @@
         }
         
         .info-text {
-            text-align: center;
             color: #999;
             font-size: 12px;
             margin-top: 20px;
@@ -171,24 +175,26 @@
         </div>
         
         <div class="qr-wrapper">
-            <div id="qrcode"></div>
-            <div class="helmet-logo">
-                <svg width="60" height="60" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Hard Hat White -->
-                    <g fill="none" stroke="#333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <!-- Main helmet dome -->
-                        <path d="M 20 50 Q 20 30 50 25 Q 80 30 80 50" fill="#f0f0f0"/>
-                        <!-- Front brim -->
-                        <path d="M 15 50 L 85 50 Q 85 55 50 58 Q 15 55 15 50" fill="#f0f0f0"/>
-                        <!-- Center stripes -->
-                        <line x1="50" y1="28" x2="50" y2="48"/>
-                        <line x1="40" y1="32" x2="40" y2="48"/>
-                        <line x1="60" y1="32" x2="60" y2="48"/>
-                        <!-- Side details -->
-                        <circle cx="30" cy="45" r="2" fill="#333"/>
-                        <circle cx="70" cy="45" r="2" fill="#333"/>
-                    </g>
-                </svg>
+            <div class="qr-container">
+                <img id="qrcode" alt="QR Code">
+                <div class="helmet-logo">
+                    <svg width="60" height="60" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Hard Hat White -->
+                        <g fill="none" stroke="#333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Main helmet dome -->
+                            <path d="M 20 50 Q 20 30 50 25 Q 80 30 80 50" fill="#f0f0f0"/>
+                            <!-- Front brim -->
+                            <path d="M 15 50 L 85 50 Q 85 55 50 58 Q 15 55 15 50" fill="#f0f0f0"/>
+                            <!-- Center stripes -->
+                            <line x1="50" y1="28" x2="50" y2="48"/>
+                            <line x1="40" y1="32" x2="40" y2="48"/>
+                            <line x1="60" y1="32" x2="60" y2="48"/>
+                            <!-- Side details -->
+                            <circle cx="30" cy="45" r="2" fill="#333"/>
+                            <circle cx="70" cy="45" r="2" fill="#333"/>
+                        </g>
+                    </svg>
+                </div>
             </div>
         </div>
         
@@ -207,24 +213,15 @@
     </div>
     
     <script>
-        // Generate QR Code
-        const qrCode = new QRCode(document.getElementById('qrcode'), {
-            text: 'https://konte-ingenieria.vercel.app',
-            width: 300,
-            height: 300,
-            colorDark: '#000000',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-        });
+        // Generate QR Code using QR Server API
+        const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://konte-ingenieria.vercel.app';
+        document.getElementById('qrcode').src = qrUrl;
         
         function downloadQR() {
-            const canvas = document.querySelector('#qrcode canvas');
-            if (canvas) {
-                const link = document.createElement('a');
-                link.download = 'QR_KONTE_Ingenieria.png';
-                link.href = canvas.toDataURL();
-                link.click();
-            }
+            const link = document.createElement('a');
+            link.download = 'QR_KONTE_Ingenieria.png';
+            link.href = qrUrl;
+            link.click();
         }
         
         function printQR() {
