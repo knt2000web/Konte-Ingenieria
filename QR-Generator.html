@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador QR - KONTE Ingeniería</title>
     
+    <!-- qrcode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    
-    <!-- EasyQRCodeJS Library -->
-    <script src="https://cdn.jsdelivr.net/gh/ushelp/EasyQRCodeJS@master/dist/easy.qrcode.min.js"></script>
     
     <style>
         :root {
@@ -30,173 +30,194 @@
             padding: 20px;
         }
 
-        .container {
+        .card {
             background-color: var(--white);
             padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             text-align: center;
-            max-width: 400px;
+            max-width: 420px;
             width: 100%;
-        }
-
-        .header {
-            margin-bottom: 30px;
+            border: 1px solid rgba(0, 51, 153, 0.05);
         }
 
         .header h1 {
             color: var(--primary-blue);
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
             margin: 0;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
         }
 
         .header p {
-            color: #666;
+            color: #64748b;
             font-size: 0.875rem;
             margin-top: 8px;
+            margin-bottom: 32px;
         }
 
-        #qrcode-container {
+        #qr-wrapper {
+            position: relative;
             display: inline-block;
-            padding: 15px;
             background: white;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            padding: 16px;
+            border-radius: 20px;
+            border: 2px solid #f1f5f9;
+        }
+
+        #qrcode {
+            width: 280px;
+            height: 280px;
+        }
+
+        /* Ocultamos el canvas original de qrcodejs para mostrar el nuestro procesado si fuera necesario, 
+           pero qrcodejs pone un canvas y un img dentro. Trabajaremos sobre el canvas directamente. */
+        #qrcode img {
+            display: none !important;
         }
 
         .brand-text {
             color: var(--primary-blue);
             font-weight: 700;
-            font-size: 1.25rem;
-            margin-top: 15px;
-            letter-spacing: 0.5px;
+            font-size: 1.35rem;
+            margin-top: 24px;
+            letter-spacing: -0.01em;
         }
 
-        .controls {
-            margin-top: 30px;
+        .buttons {
+            margin-top: 32px;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
         .btn {
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 12px;
+            padding: 16px 24px;
+            border-radius: 14px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
+            border: none;
+            outline: none;
         }
 
-        .btn:hover {
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
             background-color: #002266;
             transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(0,51,153,0.2);
+            box-shadow: 0 10px 20px -5px rgba(0, 51, 153, 0.3);
         }
 
-        .btn-outline {
+        .btn-secondary {
             background-color: transparent;
             color: var(--primary-blue);
             border: 2px solid var(--primary-blue);
         }
 
-        .btn-outline:hover {
-            background-color: var(--primary-blue);
-            color: white;
+        .btn-secondary:hover {
+            background-color: rgba(0, 51, 153, 0.05);
+            transform: translateY(-2px);
         }
 
-        /* Helmet SVG Icon Style for the Center */
-        .helmet-svg {
-            display: none;
+        .icon {
+            width: 20px;
+            height: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="card">
         <div class="header">
             <h1>KONTE</h1>
-            <p>Generador de Código QR Corporativo</p>
+            <p>Infraestructura & Ingeniería</p>
         </div>
 
-        <div id="qrcode-container">
+        <div id="qr-wrapper">
             <div id="qrcode"></div>
         </div>
 
         <div class="brand-text">Konte - Ingenieria</div>
 
-        <div class="controls">
-            <button onclick="downloadQR()" class="btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                Descargar PNG
+        <div class="buttons">
+            <button id="download-btn" class="btn btn-primary">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Descargar Código QR
             </button>
-            <a href="https://konte-ingenieria.vercel.app/" target="_blank" class="btn btn-outline">
-                Ver Sitio Web
+            <a href="https://konte-ingenieria.vercel.app/" target="_blank" class="btn btn-secondary">
+                Ver Sitio Web Oficial
             </a>
         </div>
     </div>
 
-    <!-- Engineer Helmet SVG Path (White) -->
-    <svg class="helmet-svg" id="helmet-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <path fill="#FFFFFF" d="M256 32c-88.4 0-160 71.6-160 160v16h320v-16c0-88.4-71.6-160-160-160zm160 176H96v16c0 17.7 14.3 32 32 32h256c17.7 0 32-14.3 32-32v-16zm-320 64v16c0 88.4 71.6 160 160 160s160-71.6 160-160v-16H96z"/>
-    </svg>
-
     <script>
-        // Engineer Helmet SVG converted to data URI for EasyQRCodeJS
-        const helmetSvgData = `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDAzMzk5IiBkPSJNMjU2IDMyQzg4LjQgMzIgMzIgODguNCAzMiAxOTZ2MTRoNDQ4di0xNGMwLTEwNy42LTU2LjQtMTY0LTE2MC0xNjR6bTE2MCAyMDhIOTZ2MTZjMCAxNy43IDE0LjMgMzIgMzIgMzJoMjU2YzE3LjcgMCAzMi0xNC4zIDMyLTMydi0xNnptLTMyMCA2NHYxNmMwIDg4LjQgNzEuNiAxNjAgMTYwIDE2MHMxNjAtNzEuNiAxNjAtMTYwdi0xNkg5NnoiLz48L3N2Zz4=`;
+        document.addEventListener("DOMContentLoaded", function() {
+            const url = "https://konte-ingenieria.vercel.app/";
+            const qrSize = 280;
+            const logoSize = 74; // Un poco más grande para el margen blanco
 
-        const options = {
-            text: "https://konte-ingenieria.vercel.app/",
-            width: 280,
-            height: 280,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H, // High correction level to ensure scannability with logo
-            
-            // Logo Settings
-            logo: helmetSvgData,
-            logoWidth: 70,
-            logoHeight: 70,
-            logoBackgroundColor: '#ffffff',
-            logoBackgroundTransparent: false,
-            
-            // UI improvements
-            quietZone: 15,
-            quietZoneColor: '#ffffff'
-        };
+            // 1. Generar QR base
+            const qrcodeContainer = document.getElementById("qrcode");
+            const qrcode = new QRCode(qrcodeContainer, {
+                text: url,
+                width: qrSize,
+                height: qrSize,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H // Nivel alto para soportar el logo central
+            });
 
-        // Create the QR Code
-        const qrcode = new QRCode(document.getElementById("qrcode"), options);
+            // 2. Esperar un instante a que se renderice y procesar el Canvas
+            setTimeout(() => {
+                const canvas = qrcodeContainer.querySelector('canvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
 
-        function downloadQR() {
-            const canvas = document.querySelector('#qrcode canvas');
-            if (canvas) {
-                const link = document.createElement('a');
-                link.download = 'QR_Konte_Ingenieria.png';
-                link.href = canvas.toDataURL("image/png");
-                link.click();
-            } else {
-                // If it rendered as an image instead of canvas
-                const img = document.querySelector('#qrcode img');
-                if (img) {
+                // 3. Dibujar fondo blanco para el logo (Círculo o Cuadrado)
+                ctx.fillStyle = "#ffffff";
+                // Dibujamos un círculo blanco de fondo
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, logoSize / 2, 0, Math.PI * 2);
+                ctx.fill();
+
+                // 4. Dibujar el Casco de Ingeniero (SVG path)
+                // Usamos un color azul para el casco para que destaque
+                ctx.fillStyle = "#003399";
+                
+                // Path simplificado de un casco de seguridad
+                const helmetPath = new Path2D("M256 128c-70.7 0-128 57.3-128 128v16h256v-16c0-70.7-57.3-128-128-128zm128 144H128v16c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-16zm-256 64v16c0 70.7 57.3 128 128 128s128-57.3 128-128v-16H128z");
+                
+                ctx.save();
+                // Escalar y centrar el path (Original es 512x512)
+                const scale = (logoSize * 0.7) / 512;
+                ctx.translate(centerX - (256 * scale), centerY - (256 * scale));
+                ctx.scale(scale, scale);
+                ctx.fill(helmetPath);
+                ctx.restore();
+
+                // 5. Función de descarga
+                document.getElementById('download-btn').onclick = function() {
                     const link = document.createElement('a');
                     link.download = 'QR_Konte_Ingenieria.png';
-                    link.href = img.src;
+                    link.href = canvas.toDataURL("image/png");
                     link.click();
-                }
-            }
-        }
+                };
+            }, 100);
+        });
     </script>
 </body>
 </html>
