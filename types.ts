@@ -1,0 +1,45 @@
+export interface Service {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  images?: string[];
+  features: string[];
+  icon: string;
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  location: string;
+  type: string;
+  year: string;
+  image: string;
+  images?: string[];
+  video?: string;
+  status: 'Completed' | 'In Progress' | 'Planning';
+  description?: string;
+  area?: string;
+}
+
+export interface ClientData {
+  name: string;
+  company: string;
+  projects: {
+    name: string;
+    progress: number;
+    budgetConsumed: number;
+    nextMilestone: string;
+  }[];
+}
+
+export enum Page {
+  HOME = 'HOME',
+  ABOUT = 'ABOUT',
+  SERVICES = 'SERVICES',
+  SERVICE_ANI = 'SERVICE_ANI',
+  PROJECTS = 'PROJECTS',
+  CONTACT = 'CONTACT',
+  DASHBOARD = 'DASHBOARD'
+}
