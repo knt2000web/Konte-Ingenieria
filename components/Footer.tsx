@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Linkedin, Youtube, Twitter, MapPin, Phone, Mail } from 'lucide-react';
+import { Facebook, Linkedin, Youtube, Twitter, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import { Page } from '../types';
 
 interface FooterProps {
@@ -89,7 +89,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
 
           <div>
             <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Contacto</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 mb-6">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />
                 <span className="text-sm text-gray-600">Calle 14 # 16 48 Ofc 402, Duitama, Boyaca </span>
@@ -103,6 +103,20 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
                 <span className="text-sm text-gray-600">konte2000@gmail.com</span>
               </li>
             </ul>
+
+            {/* Functional WhatsApp Button */}
+            <a 
+              href="https://wa.me/573204468049" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-3 rounded-xl font-bold transition-all shadow-md hover:shadow-lg w-full justify-center md:justify-start transform hover:-translate-y-1"
+            >
+              <MessageCircle className="w-6 h-6 fill-current" />
+              <div className="flex flex-col items-start leading-none">
+                <span className="text-[0.65rem] uppercase tracking-wider opacity-90 mb-0.5">¿Necesitas ayuda?</span>
+                <span className="text-sm whitespace-nowrap">Contactar por WhatsApp</span>
+              </div>
+            </a>
           </div>
         </div>
 
