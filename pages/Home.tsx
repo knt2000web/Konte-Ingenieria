@@ -245,19 +245,19 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
 
       {/* Intro Stats */}
       <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 mb-12">
-        <div className="bg-white rounded-xl shadow-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8 border-b-4 border-primary">
+        <div className="bg-white dark:bg-bg-dark-card rounded-xl shadow-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8 border-b-4 border-primary dark:border-blue-500">
           {[
             { icon: Award, label: 'Experiencia', value: '+15 Años' },
             { icon: Users, label: 'Profesionales', value: 'Personal Certificado' },
             { icon: Globe, label: 'Cobertura', value: 'Nivel Nacional' },
           ].map((stat, idx) => (
-            <div key={idx} className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
-              <div className="bg-blue-50 p-4 rounded-full text-primary">
+            <div key={idx} className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+              <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-full text-primary dark:text-blue-400">
                 <stat.icon className="w-8 h-8" />
               </div>
               <div>
-                <p className="text-gray-500 text-sm font-medium uppercase tracking-wide">{stat.label}</p>
-                <p className="text-xl font-bold text-gray-900">{stat.value}</p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm font-medium uppercase tracking-wide">{stat.label}</p>
+                <p className="text-xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
               </div>
             </div>
           ))}
@@ -265,7 +265,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
       </div>
 
       {/* Moving Image Gallery Strip - Interactive */}
-      <section className="w-full bg-white border-b border-gray-100 py-10 mb-20 overflow-hidden">
+      <section className="w-full bg-white dark:bg-bg-dark border-b border-gray-100 dark:border-gray-800 py-10 mb-20 overflow-hidden">
         <div className="relative w-full">
             <div className="flex animate-scroll hover:pause">
                 {/* Image Set 1 */}
@@ -273,7 +273,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                     {SCROLL_IMAGES.map((img, idx) => (
                          <div 
                             key={`s1-${idx}`} 
-                            className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 cursor-pointer"
+                            className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer"
                             onClick={() => openLightbox(img)}
                          >
                              <img 
@@ -292,7 +292,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                      {SCROLL_IMAGES.map((img, idx) => (
                          <div 
                             key={`s2-${idx}`} 
-                            className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 cursor-pointer"
+                            className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer"
                             onClick={() => openLightbox(img)}
                          >
                              <img 
@@ -329,12 +329,12 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Servicios de Consultoría y Construcción</h2>
-            <div className="h-1 w-20 bg-primary rounded-full"></div>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Servicios de Consultoría y Construcción</h2>
+            <div className="h-1 w-20 bg-primary dark:bg-blue-500 rounded-full"></div>
           </div>
           <button 
             onClick={() => setPage(Page.SERVICES)}
-            className="hidden md:flex items-center text-primary font-bold hover:text-secondary transition-colors"
+            className="hidden md:flex items-center text-primary dark:text-blue-400 font-bold hover:text-secondary dark:hover:text-blue-300 transition-colors"
           >
             VER TODOS <ArrowRight className="w-5 h-5 ml-1" />
           </button>
@@ -350,10 +350,10 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                 : service.image;
 
               return (
-                <div key={service.id} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-primary/10 flex flex-col h-full">
+                <div key={service.id} className="bg-white dark:bg-bg-dark-card rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-primary/10 dark:border-blue-500/20 flex flex-col h-full">
                    {/* Image Carousel Header */}
                    <div 
-                      className="h-64 relative overflow-hidden bg-gray-200 cursor-pointer"
+                      className="h-64 relative overflow-hidden bg-gray-200 dark:bg-gray-700 cursor-pointer"
                       onClick={() => openLightbox(currentBgImage)}
                    >
                      <img 
@@ -381,22 +381,22 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    
                    <div className="relative p-6 flex flex-col flex-grow">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="material-icons text-primary">{service.icon || 'layers'}</span>
-                        <span className="text-xs font-bold text-primary tracking-widest uppercase">{service.category}</span>
+                        <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'layers'}</span>
+                        <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                         {service.title}
                       </h3>
                       
                       {/* Dynamic Content Area */}
                       <div className="flex-grow flex flex-col mb-4">
-                        <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-primary h-full">
+                        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
                             <div key={featureIndex} className="animate-in fade-in slide-in-from-bottom-2 duration-500">
-                              <h4 className="text-primary font-bold text-sm uppercase mb-2">
+                              <h4 className="text-primary dark:text-blue-400 font-bold text-sm uppercase mb-2">
                                  {currentFeature.title}
                               </h4>
-                              <p className="text-gray-600 text-sm leading-relaxed">
+                              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                                 {currentFeature.desc}
                               </p>
                             </div>
@@ -406,7 +406,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                           {SPECIALIZED_SUB_SERVICES.map((_, i) => (
                             <div 
                               key={i} 
-                              className={`h-1 rounded-full transition-all duration-500 ${i === featureIndex ? 'w-4 bg-primary' : 'w-1 bg-gray-200'}`} 
+                              className={`h-1 rounded-full transition-all duration-500 ${i === featureIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200 dark:bg-gray-600'}`} 
                             />
                           ))}
                         </div>
@@ -414,7 +414,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
 
                       <button 
                         onClick={() => setPage(Page.SERVICES)}
-                        className="w-full py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary transition-all text-sm uppercase tracking-wide shadow-md"
+                        className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         Ver Detalles Completos
                       </button>
@@ -431,10 +431,10 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                 : service.image;
 
               return (
-                <div key={service.id} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-primary/10 flex flex-col h-full">
+                <div key={service.id} className="bg-white dark:bg-bg-dark-card rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-primary/10 dark:border-blue-500/20 flex flex-col h-full">
                    {/* Image Carousel Header */}
                    <div 
-                      className="h-64 relative overflow-hidden bg-gray-200 cursor-pointer"
+                      className="h-64 relative overflow-hidden bg-gray-200 dark:bg-gray-700 cursor-pointer"
                       onClick={() => openLightbox(currentBgImage)}
                    >
                      <img 
@@ -462,22 +462,22 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    
                    <div className="relative p-6 flex flex-col flex-grow">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="material-icons text-primary">{service.icon || 'verified_user'}</span>
-                        <span className="text-xs font-bold text-primary tracking-widest uppercase">{service.category}</span>
+                        <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'verified_user'}</span>
+                        <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                         {service.title}
                       </h3>
                       
                       {/* Dynamic Content Area */}
                       <div className="flex-grow flex flex-col mb-4">
-                        <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-primary h-full">
+                        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
                             <div key={aniFeatureIndex} className="animate-in fade-in slide-in-from-bottom-2 duration-500">
-                              <h4 className="text-primary font-bold text-sm uppercase mb-2">
+                              <h4 className="text-primary dark:text-blue-400 font-bold text-sm uppercase mb-2">
                                  {currentFeature.title}
                               </h4>
-                              <p className="text-gray-600 text-sm leading-relaxed">
+                              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                                 {currentFeature.desc}
                               </p>
                             </div>
@@ -487,7 +487,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                           {ANI_SUB_SERVICES.map((_, i) => (
                             <div 
                               key={i} 
-                              className={`h-1 rounded-full transition-all duration-500 ${i === aniFeatureIndex ? 'w-4 bg-primary' : 'w-1 bg-gray-200'}`} 
+                              className={`h-1 rounded-full transition-all duration-500 ${i === aniFeatureIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200 dark:bg-gray-600'}`} 
                             />
                           ))}
                         </div>
@@ -495,7 +495,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
 
                       <button 
                         onClick={() => setPage(Page.SERVICE_ANI)}
-                        className="w-full py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary transition-all text-sm uppercase tracking-wide shadow-md"
+                        className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         Ver Detalles Completos
                       </button>
@@ -512,10 +512,10 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                 : service.image;
 
               return (
-                <div key={service.id} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-primary/10 flex flex-col h-full">
+                <div key={service.id} className="bg-white dark:bg-bg-dark-card rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-primary/10 dark:border-blue-500/20 flex flex-col h-full">
                    {/* Image Carousel Header */}
                    <div 
-                      className="h-64 relative overflow-hidden bg-gray-200 cursor-pointer"
+                      className="h-64 relative overflow-hidden bg-gray-200 dark:bg-gray-700 cursor-pointer"
                       onClick={() => openLightbox(currentBgImage)}
                    >
                      <img 
@@ -543,22 +543,22 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    
                    <div className="relative p-6 flex flex-col flex-grow">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="material-icons text-primary">{service.icon || 'local_hospital'}</span>
-                        <span className="text-xs font-bold text-primary tracking-widest uppercase">{service.category}</span>
+                        <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'local_hospital'}</span>
+                        <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                         {service.title}
                       </h3>
                       
                       {/* Dynamic Content Area */}
                       <div className="flex-grow flex flex-col mb-4">
-                        <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-primary h-full">
+                        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
                             <div key={healthFeatureIndex} className="animate-in fade-in slide-in-from-bottom-2 duration-500">
-                              <h4 className="text-primary font-bold text-sm uppercase mb-2">
+                              <h4 className="text-primary dark:text-blue-400 font-bold text-sm uppercase mb-2">
                                  {currentFeature.title}
                               </h4>
-                              <p className="text-gray-600 text-sm leading-relaxed">
+                              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                                 {currentFeature.desc}
                               </p>
                             </div>
@@ -568,7 +568,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                           {HEALTH_SUB_SERVICES.map((_, i) => (
                             <div 
                               key={i} 
-                              className={`h-1 rounded-full transition-all duration-500 ${i === healthFeatureIndex ? 'w-4 bg-primary' : 'w-1 bg-gray-200'}`} 
+                              className={`h-1 rounded-full transition-all duration-500 ${i === healthFeatureIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200 dark:bg-gray-600'}`} 
                             />
                           ))}
                         </div>
@@ -576,7 +576,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
 
                       <button 
                         onClick={() => setPage(Page.SERVICES)}
-                        className="w-full py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary transition-all text-sm uppercase tracking-wide shadow-md"
+                        className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         Ver Detalles Completos
                       </button>
@@ -593,10 +593,10 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                 : service.image;
 
               return (
-                <div key={service.id} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-primary/10 flex flex-col h-full">
+                <div key={service.id} className="bg-white dark:bg-bg-dark-card rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-primary/10 dark:border-blue-500/20 flex flex-col h-full">
                    {/* Image Carousel Header */}
                    <div 
-                      className="h-64 relative overflow-hidden bg-gray-200 cursor-pointer"
+                      className="h-64 relative overflow-hidden bg-gray-200 dark:bg-gray-700 cursor-pointer"
                       onClick={() => openLightbox(currentBgImage)}
                    >
                      <img 
@@ -624,22 +624,22 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    
                    <div className="relative p-6 flex flex-col flex-grow">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="material-icons text-primary">{service.icon || 'architecture'}</span>
-                        <span className="text-xs font-bold text-primary tracking-widest uppercase">{service.category}</span>
+                        <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'architecture'}</span>
+                        <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                         {service.title}
                       </h3>
                       
                       {/* Dynamic Content Area */}
                       <div className="flex-grow flex flex-col mb-4">
-                        <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-primary h-full">
+                        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
                             <div key={techFeatureIndex} className="animate-in fade-in slide-in-from-bottom-2 duration-500">
-                              <h4 className="text-primary font-bold text-sm uppercase mb-2">
+                              <h4 className="text-primary dark:text-blue-400 font-bold text-sm uppercase mb-2">
                                  {currentFeature.title}
                               </h4>
-                              <p className="text-gray-600 text-sm leading-relaxed">
+                              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                                 {currentFeature.desc}
                               </p>
                             </div>
@@ -649,7 +649,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                           {TECHNICAL_SUB_SERVICES.map((_, i) => (
                             <div 
                               key={i} 
-                              className={`h-1 rounded-full transition-all duration-500 ${i === techFeatureIndex ? 'w-4 bg-primary' : 'w-1 bg-gray-200'}`} 
+                              className={`h-1 rounded-full transition-all duration-500 ${i === techFeatureIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200 dark:bg-gray-600'}`} 
                             />
                           ))}
                         </div>
@@ -657,7 +657,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
 
                       <button 
                         onClick={() => setPage(Page.SERVICES)}
-                        className="w-full py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary transition-all text-sm uppercase tracking-wide shadow-md"
+                        className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         Ver Detalles Completos
                       </button>
@@ -668,7 +668,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
 
             // Standard Card Render (For other services)
             return (
-              <div key={service.id} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <div key={service.id} className="bg-white dark:bg-bg-dark-card rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
                 <div 
                   className="h-48 overflow-hidden relative cursor-pointer"
                   onClick={() => openLightbox(service.image)}
@@ -686,18 +686,18 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                 </div>
                 <div className="p-8">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="material-icons text-primary">{service.icon || 'verified'}</span>
-                    <span className="text-xs font-bold text-primary tracking-widest uppercase">{service.category}</span>
+                    <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'verified'}</span>
+                    <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors min-h-[3.5rem]">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors min-h-[3.5rem]">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-6 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm leading-relaxed line-clamp-3">
                     {service.description}
                   </p>
                   <button 
                      onClick={() => setPage(Page.SERVICES)}
-                     className="w-full py-3 border border-primary text-primary rounded-lg font-bold hover:bg-primary hover:text-white transition-all text-sm uppercase tracking-wide"
+                     className="w-full py-3 border border-primary dark:border-blue-500 text-primary dark:text-blue-400 rounded-lg font-bold hover:bg-primary dark:hover:bg-blue-600 hover:text-white transition-all text-sm uppercase tracking-wide"
                   >
                     Más Información
                   </button>
@@ -728,7 +728,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                   'Gestión Transparente de Proyectos'
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <CheckCircle className="text-primary w-6 h-6" />
+                    <CheckCircle className="text-primary dark:text-blue-400 w-6 h-6" />
                     <span className="font-medium">{item}</span>
                   </li>
                 ))}
@@ -736,10 +736,10 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
             </div>
             <div className="relative">
               <div 
-                className="bg-white p-2 rounded-lg transform rotate-3 shadow-2xl cursor-pointer hover:scale-105 transition-transform"
+                className="bg-white dark:bg-gray-800 p-2 rounded-lg transform rotate-3 shadow-2xl cursor-pointer hover:scale-105 transition-transform"
                 onClick={() => openLightbox("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800")}
               >
-                 <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800" className="rounded border border-gray-200" alt="Construction Site" />
+                 <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800" className="rounded border border-gray-200 dark:border-gray-700" alt="Construction Site" />
                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                     <ZoomIn className="text-white w-12 h-12 drop-shadow-xl" />
                  </div>

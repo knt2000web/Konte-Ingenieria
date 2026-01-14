@@ -1,15 +1,18 @@
+
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types';
-import { Menu, X, User, Search, Globe, Phone } from 'lucide-react';
+import { Menu, X, User, Search, Globe, Phone, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: Page;
   setPage: (page: Page) => void;
   onLoginClick: () => void;
   isLoggedIn: boolean;
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isLoggedIn }) => {
+const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isLoggedIn, isDarkMode, toggleDarkMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -28,15 +31,15 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 backdrop-blur-sm py-3 border-b border-gray-100'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white dark:bg-bg-dark/95 shadow-lg py-2' : 'bg-white/95 dark:bg-bg-dark/80 backdrop-blur-sm py-3 border-b border-gray-100 dark:border-gray-800'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo with Slogan */}
           <div className="flex flex-col cursor-pointer group" onClick={() => setPage(Page.HOME)}>
-            <span className="text-3xl font-extrabold text-primary tracking-tighter leading-none group-hover:text-secondary transition-colors">
+            <span className="text-3xl font-extrabold text-primary dark:text-blue-400 tracking-tighter leading-none group-hover:text-secondary dark:group-hover:text-blue-300 transition-colors">
               KONTE
             </span>
-            <span className="text-[0.6rem] font-bold text-gray-500 tracking-[0.15em] uppercase -mt-0.5 group-hover:text-primary transition-colors">
+            <span className="text-[0.6rem] font-bold text-gray-500 dark:text-gray-400 tracking-[0.15em] uppercase -mt-0.5 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
               Construcción, Consultoría & Tecnología
             </span>
           </div>
@@ -48,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
                 key={link.label}
                 onClick={() => setPage(link.page)}
                 className={`text-sm font-bold transition-colors ${
-                  currentPage === link.page ? 'text-primary border-b-2 border-primary' : 'text-gray-600 hover:text-primary'
+                  currentPage === link.page ? 'text-primary dark:text-blue-400 border-b-2 border-primary dark:border-blue-400' : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400'
                 }`}
               >
                 {link.label}
@@ -65,25 +68,40 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
             </button>
             
             {/* Action Icons */}
-            <div className="flex items-center space-x-4 border-l pl-6 border-gray-200">
-              <div className="flex items-center text-gray-500 cursor-pointer hover:text-primary text-xs font-medium">
+            <div className="flex items-center space-x-4 border-l pl-6 border-gray-200 dark:border-gray-700">
+              {/* Dark Mode Toggle */}
+              <button 
+                onClick={toggleDarkMode}
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-300 transition-colors"
+                aria-label="Alternar modo oscuro"
+              >
+                {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
+
+              <div className="flex items-center text-gray-500 dark:text-gray-400 cursor-pointer hover:text-primary dark:hover:text-blue-400 text-xs font-medium">
                 <Globe className="w-4 h-4 mr-1" />
                 <span>ES</span>
               </div>
-              <Search className="w-5 h-5 text-gray-500 cursor-pointer hover:text-primary" />
+              <Search className="w-5 h-5 text-gray-500 dark:text-gray-400 cursor-pointer hover:text-primary dark:hover:text-blue-400" />
               <button 
                 onClick={isLoggedIn ? () => setPage(Page.DASHBOARD) : onLoginClick}
-                className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-secondary transition-all shadow-md hover:shadow-lg"
+                className="flex items-center gap-2 bg-primary dark:bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
               >
                 <User className="w-4 h-4" />
-                {isLoggedIn ? 'MI CUENTA' : 'ACCESO CLIENTES'}
+                {isLoggedIn ? 'MI CUENTA' : 'ACCESO'}
               </button>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-600">
+          <div className="md:hidden flex items-center gap-4">
+             <button 
+                onClick={toggleDarkMode}
+                className="p-1 rounded-full text-gray-600 dark:text-gray-300"
+              >
+                {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+             </button>
+             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-600 dark:text-gray-300">
                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
              </button>
           </div>
@@ -92,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 absolute w-full shadow-xl">
           <div className="px-4 pt-2 pb-6 space-y-2">
             {navLinks.map((link) => (
               <button
@@ -102,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
                   setMobileMenuOpen(false);
                 }}
                 className={`block w-full text-left px-3 py-3 rounded-md text-base font-medium ${
-                   currentPage === link.page ? 'bg-primary/10 text-primary' : 'text-gray-700 hover:bg-gray-50'
+                   currentPage === link.page ? 'bg-primary/10 dark:bg-blue-900/30 text-primary dark:text-blue-400' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
               >
                 {link.label}
@@ -113,18 +131,18 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
                   setPage(Page.CONTACT);
                   setMobileMenuOpen(false);
                 }}
-                className="block w-full text-left px-3 py-3 rounded-md text-base font-bold text-orange-600 bg-orange-50 hover:bg-orange-100"
+                className="block w-full text-left px-3 py-3 rounded-md text-base font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 dark:text-orange-400 hover:bg-orange-100 dark:hover:bg-orange-900/30"
               >
                 CONTÁCTENOS
             </button>
-            <div className="border-t border-gray-100 mt-4 pt-4">
+            <div className="border-t border-gray-100 dark:border-gray-800 mt-4 pt-4">
                <button 
                 onClick={() => {
                   if (isLoggedIn) setPage(Page.DASHBOARD);
                   else onLoginClick();
                   setMobileMenuOpen(false);
                 }}
-                className="w-full bg-primary text-white px-4 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2"
+                className="w-full bg-primary dark:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2"
               >
                 <User className="w-4 h-4" />
                 {isLoggedIn ? 'IR AL DASHBOARD' : 'ACCESO CLIENTES'}

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -20,6 +21,8 @@
               secondary: "#002266",
               accent: "#0056D2",
               "bg-light": "#F5F7FA",
+              "bg-dark": "#111827", /* Gray 900 */
+              "bg-dark-card": "#1F2937", /* Gray 800 */
               "text-main": "#111827",
               "text-muted": "#6B7280",
             }
@@ -32,12 +35,18 @@
         font-family: 'Inter', sans-serif;
         background-color: #F5F7FA;
       }
+      .dark body {
+        background-color: #111827;
+      }
       /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
         background: #f1f1f1;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1f2937;
       }
       ::-webkit-scrollbar-thumb {
         background: #003399;

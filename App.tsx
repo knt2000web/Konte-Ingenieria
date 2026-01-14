@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -18,6 +18,34 @@ const App: React.FC = () => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+  // Dark Mode Logic
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check local storage or system preference on initial load
+    if (typeof window !== 'undefined') {
+        const savedTheme = localStorage.getItem('konte-theme');
+        if (savedTheme) {
+            return savedTheme === 'dark';
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDarkMode) {
+      root.classList.add('dark');
+      localStorage.setItem('konte-theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('konte-theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -50,12 +78,14 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-text-main bg-bg-light relative">
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${isDarkMode ? 'bg-bg-dark text-gray-100' : 'bg-bg-light text-text-main'} relative`}>
       <Navbar 
         currentPage={currentPage} 
         setPage={setCurrentPage} 
         onLoginClick={() => setLoginModalOpen(true)}
         isLoggedIn={isLoggedIn}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
       />
       
       <main className="flex-grow">
@@ -113,7 +143,7 @@ const App: React.FC = () => {
             </p>
             <button 
               onClick={(e) => e.currentTarget.parentElement?.parentElement?.remove()}
-              className="px-6 py-2 bg-white text-primary rounded font-bold hover:bg-gray-100 transition-colors whitespace-nowrap shadow-sm"
+              className="px-6 py-2 bg-white text-primary rounded font-bold hover:bg-gray-100 transition-colors whitespace-nowrap shadow-sm text-gray-900"
             >
               Acepto
             </button>
