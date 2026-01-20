@@ -7,7 +7,7 @@ export const SERVICES: Service[] = [
     category: 'GESTIÓN NORMATIVA',
     title: 'Proyectos ante la ANI y Entes Gubernamentales',
     description: 'Expertos en destrabar procesos administrativos ante Curadurías, ANI e INVIAS. Gestión especializada para Permisos de Ocupación de Vía (accesos, carriles de aceleración) y Licenciamiento Urbanístico integral (Licencias de Construcción, Reconocimiento, Demolición y Cerramiento).',
-    image: 'https://i.imgur.com/jDYUdIe.jpeg',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
     images: [
       'https://i.imgur.com/0cakZKT.jpeg',
       'https://i.imgur.com/ZUrsq3i.jpeg',
@@ -95,7 +95,7 @@ export const SERVICES: Service[] = [
     id: '4',
     category: 'INFRAESTRUCTURA DE SALUD',
     title: 'Diseño y Construcción Hospitalario',
-    description: 'Expertos en infraestructura clínica de alta complejidad. Diseñamos entornos que fusionan el cumplimiento normativo riguroso (Res. 3100) con la humanización de espacios, garantizando asepsia, flujos eficientes y confort para pacientes y personal médico.',
+    description: 'Expertos en infraestructura clínica de alta complejidad. Diseñamos entornos que fusionan el cumplimiento normativo riguroso (Res. 3100) con la humanización de espacios, garantizando asepsia y eficiencia.',
     image: 'https://i.imgur.com/2MSg8r8.jpeg',
     images: [
       'https://i.imgur.com/ufW0oT0.jpeg',
@@ -176,7 +176,35 @@ export const PROJECTS: Project[] = [
     area: '350 m²',
     description: 'Ampliación de infraestructura comercial y reforzamiento estructural.'
   },
-  // Proyectos Hospitalarios (Nuevo)
+  // Proyectos Hospitalarios
+  {
+    id: 'hosp-sogamoso',
+    title: 'Hospital Regional de Sogamoso',
+    location: 'Sogamoso, Boyacá',
+    type: 'Infraestructura Hospitalaria',
+    year: '2023',
+    image: 'https://i.imgur.com/sUx531d.jpeg',
+    images: [
+      'https://i.imgur.com/sUx531d.jpeg', 'https://i.imgur.com/GewT0iT.jpeg', 'https://i.imgur.com/H2i7p30.jpeg', 'https://i.imgur.com/YOUwhVK.jpeg',
+      'https://i.imgur.com/IiFeSS6.jpeg', 'https://i.imgur.com/hpZ854Q.jpeg', 'https://i.imgur.com/sDSMnbi.jpeg', 'https://i.imgur.com/ax6qsg5.jpeg',
+      'https://i.imgur.com/T1DUIJU.jpeg', 'https://i.imgur.com/iCLcaji.jpeg', 'https://i.imgur.com/YUryW75.jpeg', 'https://i.imgur.com/PuCXns4.jpeg',
+      'https://i.imgur.com/VAB5pSu.jpeg', 'https://i.imgur.com/b5Vqy6O.jpeg', 'https://i.imgur.com/XC1KNH3.jpeg', 'https://i.imgur.com/UeThtyU.jpeg',
+      'https://i.imgur.com/EA78jsm.jpeg', 'https://i.imgur.com/d8NExZt.jpeg', 'https://i.imgur.com/IPuwtzr.jpeg', 'https://i.imgur.com/OsQj91z.jpeg',
+      'https://i.imgur.com/bD5CeLD.jpeg', 'https://i.imgur.com/V2ldBEc.jpeg', 'https://i.imgur.com/UqyISDP.jpeg', 'https://i.imgur.com/HTM6N17.jpeg',
+      'https://i.imgur.com/7eHZ7QY.jpeg', 'https://i.imgur.com/Fw8QeIk.jpeg', 'https://i.imgur.com/tliv7KW.jpeg', 'https://i.imgur.com/HQf1FFx.jpeg',
+      'https://i.imgur.com/7xHFIHi.jpeg', 'https://i.imgur.com/58lUwEn.jpeg', 'https://i.imgur.com/CXj12rj.jpeg', 'https://i.imgur.com/G2LbwXe.jpeg',
+      'https://i.imgur.com/FQDUs7N.jpeg', 'https://i.imgur.com/bdo0GRV.jpeg', 'https://i.imgur.com/7Iq78j1.jpeg', 'https://i.imgur.com/z6t2Hlx.jpeg',
+      'https://i.imgur.com/gih0yMm.jpeg', 'https://i.imgur.com/y6rZ2jm.jpeg', 'https://i.imgur.com/03n7Yyq.jpeg', 'https://i.imgur.com/IFpyVDt.jpeg',
+      'https://i.imgur.com/oyFN2CO.jpeg', 'https://i.imgur.com/z6AsHdS.jpeg', 'https://i.imgur.com/jJjAhk4.jpeg', 'https://i.imgur.com/SBIjcnN.jpeg',
+      'https://i.imgur.com/ts2M3kZ.jpeg', 'https://i.imgur.com/fgLJcdu.jpeg', 'https://i.imgur.com/B4TNq2R.jpeg', 'https://i.imgur.com/ZVMU7cv.jpeg',
+      'https://i.imgur.com/Fvn1CSc.jpeg', 'https://i.imgur.com/ncGmXsp.jpeg', 'https://i.imgur.com/W2JgKSw.jpeg', 'https://i.imgur.com/9SHJB64.jpeg',
+      'https://i.imgur.com/ghz3kUX.jpeg', 'https://i.imgur.com/0aG7rr9.jpeg', 'https://i.imgur.com/Dno1Gii.jpeg',
+      'https://i.imgur.com/dqOQcTE.jpeg', 'https://i.imgur.com/H7aPnQx.jpeg', 'https://i.imgur.com/WY6QaTP.jpeg', 'https://i.imgur.com/8qdwhY6.jpeg',
+      'https://i.imgur.com/knvEgct.jpeg'
+    ],
+    status: 'Completed',
+    description: 'Mejoramiento integral de infraestructura en áreas críticas: UCI Neonatal, Urgencias y Diseño Especializado de Central de Mezclas. Cumplimiento estricto de normativa de habilitación en salud.'
+  },
   {
     id: '16',
     title: 'Infraestructura Clínica y Hospitalaria',

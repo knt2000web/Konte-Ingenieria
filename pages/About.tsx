@@ -210,7 +210,7 @@ const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
                    'Elementos eléctricos',
                    'Computadoras y monitoreo',
                    'Libros y papelería',
-                   'Implementos deportivos',
+                   'Cortinería hospitalaria',
                    'Maquinaria de construcción'
                  ].map((item, i) => (
                    <div key={i} className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-slate-200">
