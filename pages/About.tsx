@@ -5,7 +5,7 @@ import { Target, Building2, HardHat, CheckCircle, Truck, Briefcase, Ruler, Arrow
 
 interface AboutProps {
   setPage: (page: Page) => void;
-  openLightbox: (src: string) => void;
+  openLightbox: (index: number, images: string[]) => void;
 }
 
 const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
@@ -14,7 +14,7 @@ const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
       {/* Hero Section */}
       <div 
         className="relative h-[400px] w-full overflow-hidden group cursor-pointer"
-        onClick={() => openLightbox("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=2000")}
+        onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=2000"])}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-primary/80 z-10 group-hover:from-gray-900/80 transition-all" />
         <img 
@@ -73,7 +73,7 @@ const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
               </div>
             </div>
           </div>
-          <div className="relative group cursor-pointer" onClick={() => openLightbox("https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=1000")}>
+          <div className="relative group cursor-pointer" onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=1000"])}>
              <div className="absolute top-0 right-0 -mr-8 -mt-8 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
              <img 
                src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=1000" 
@@ -222,7 +222,7 @@ const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
              </div>
              <div 
                 className="w-full md:w-1/2 relative cursor-pointer group"
-                onClick={() => openLightbox("https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000")}
+                onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000"])}
              >
                <div className="absolute inset-0 bg-primary/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
                <img 

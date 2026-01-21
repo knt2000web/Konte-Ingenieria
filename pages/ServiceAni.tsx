@@ -5,7 +5,7 @@ import { CheckCircle2, AlertTriangle, FileText, Clock, Trophy, ShieldCheck, Arro
 
 interface ServiceAniProps {
   setPage: (page: Page) => void;
-  openLightbox: (src: string) => void;
+  openLightbox: (index: number, images: string[]) => void;
 }
 
 const ServiceAni: React.FC<ServiceAniProps> = ({ setPage, openLightbox }) => {
@@ -14,7 +14,7 @@ const ServiceAni: React.FC<ServiceAniProps> = ({ setPage, openLightbox }) => {
       {/* Hero Header */}
       <div 
         className="relative h-[500px] w-full overflow-hidden group cursor-pointer"
-        onClick={() => openLightbox("https://images.unsplash.com/photo-1465447142348-e9952c393d50?auto=format&fit=crop&q=80&w=2000")}
+        onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1465447142348-e9952c393d50?auto=format&fit=crop&q=80&w=2000"])}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 z-10 group-hover:from-primary/80 transition-all" />
         <img 

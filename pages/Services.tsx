@@ -6,10 +6,10 @@ import { Page } from '../types';
 
 interface ServicesProps {
   setPage: (page: Page) => void;
-  openLightbox: (src: string) => void;
+  openLightbox: (index: number, images: string[]) => void;
 }
 
-const ServiceImageCarousel = ({ images, title, openLightbox }: { images: string[], title: string, openLightbox: (src: string) => void }) => {
+const ServiceImageCarousel = ({ images, title, openLightbox }: { images: string[], title: string, openLightbox: (index: number, images: string[]) => void }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const ServiceImageCarousel = ({ images, title, openLightbox }: { images: string[
   return (
     <div 
       className="relative w-full h-80 md:h-[400px] group cursor-pointer"
-      onClick={() => openLightbox(images[currentIndex])}
+      onClick={() => openLightbox(currentIndex, images)}
     >
        {images.map((img, idx) => (
          <img
@@ -103,7 +103,7 @@ const Services: React.FC<ServicesProps> = ({ setPage, openLightbox }) => {
                   ) : (
                     <div 
                       className="cursor-pointer relative group" 
-                      onClick={() => openLightbox(service.image)}
+                      onClick={() => openLightbox(0, [service.image])}
                     >
                       <img src={service.image} alt={service.title} className="w-full h-80 md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-primary/10 hover:bg-transparent transition-colors"></div>

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,17 +11,21 @@ import Contact from './pages/Contact';
 import ClientDashboard from './pages/ClientDashboard';
 import LoginModal from './components/LoginModal';
 import { Page } from './types';
-import { MessageCircle, X } from 'lucide-react';
+import { MessageCircle, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.HOME);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  
+  // Lightbox State: Now holds an array of images and the current index
+  const [lightboxState, setLightboxState] = useState<{
+    images: string[];
+    currentIndex: number;
+  } | null>(null);
 
   // Dark Mode Logic
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check local storage or system preference on initial load
     if (typeof window !== 'undefined') {
         const savedTheme = localStorage.getItem('konte-theme');
         if (savedTheme) {
@@ -52,9 +56,55 @@ const App: React.FC = () => {
     setCurrentPage(Page.DASHBOARD);
   };
 
-  const openLightbox = (src: string) => {
-    setLightboxImage(src);
+  // Updated function signature to accept index and array
+  const openLightbox = (index: number, images: string[]) => {
+    setLightboxState({
+      images: images,
+      currentIndex: index
+    });
   };
+
+  // Allow calling with single string for backward compatibility helper (converts to array)
+  const openLightboxSingle = (src: string) => {
+    openLightbox(0, [src]);
+  };
+
+  const closeLightbox = () => {
+    setLightboxState(null);
+  };
+
+  const nextImage = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (lightboxState) {
+      setLightboxState(prev => prev ? ({
+        ...prev,
+        currentIndex: (prev.currentIndex + 1) % prev.images.length
+      }) : null);
+    }
+  }, [lightboxState]);
+
+  const prevImage = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (lightboxState) {
+      setLightboxState(prev => prev ? ({
+        ...prev,
+        currentIndex: (prev.currentIndex - 1 + prev.images.length) % prev.images.length
+      }) : null);
+    }
+  }, [lightboxState]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxState) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxState, nextImage, prevImage]);
 
   const renderPage = () => {
     switch (currentPage) {
@@ -100,24 +150,54 @@ const App: React.FC = () => {
         onLogin={handleLogin}
       />
 
-      {/* Global Lightbox Modal */}
-      {lightboxImage && (
+      {/* Global Lightbox Modal with Navigation */}
+      {lightboxState && (
         <div 
           className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300"
-          onClick={() => setLightboxImage(null)}
+          onClick={closeLightbox}
         >
+          {/* Close Button */}
           <button 
             className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors bg-white/10 p-2 rounded-full hover:bg-white/20 z-50"
-            onClick={() => setLightboxImage(null)}
+            onClick={closeLightbox}
           >
             <X className="w-8 h-8" />
           </button>
+
+          {/* Prev Button */}
+          {lightboxState.images.length > 1 && (
+            <button
+              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors bg-white/10 p-3 rounded-full hover:bg-white/20 z-50"
+              onClick={prevImage}
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+          )}
+
+          {/* Next Button */}
+          {lightboxState.images.length > 1 && (
+            <button
+              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors bg-white/10 p-3 rounded-full hover:bg-white/20 z-50"
+              onClick={nextImage}
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+          )}
+
+          {/* Main Image */}
           <img 
-            src={lightboxImage} 
-            alt="Vista completa" 
+            src={lightboxState.images[lightboxState.currentIndex]} 
+            alt={`Vista completa ${lightboxState.currentIndex + 1}`} 
             className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300 select-none"
             onClick={(e) => e.stopPropagation()} 
           />
+
+          {/* Counter */}
+          {lightboxState.images.length > 1 && (
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 px-4 py-2 rounded-full text-white text-sm font-medium backdrop-blur-sm">
+              {lightboxState.currentIndex + 1} / {lightboxState.images.length}
+            </div>
+          )}
         </div>
       )}
 

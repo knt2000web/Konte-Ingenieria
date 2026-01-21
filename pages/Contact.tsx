@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ZoomIn } from 'lucide-react';
 
 interface ContactProps {
-  openLightbox?: (src: string) => void;
+  openLightbox?: (index: number, images: string[]) => void;
 }
 
 const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
@@ -164,7 +164,7 @@ const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
                 <h3 className="text-xl font-bold mb-4">Ubicación</h3>
                 <div 
                    className="rounded-lg overflow-hidden h-48 bg-gray-800 relative group cursor-pointer"
-                   onClick={() => openLightbox && openLightbox("https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=600")}
+                   onClick={() => openLightbox && openLightbox(0, ["https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=600"])}
                 >
                    {/* Placeholder for Map */}
                    <img 

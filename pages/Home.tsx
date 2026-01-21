@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle, Award, Users, Globe, ZoomIn } from 'lucide-rea
 
 interface HomeProps {
   setPage: (page: Page) => void;
-  openLightbox: (src: string) => void;
+  openLightbox: (index: number, images: string[]) => void;
 }
 
 // Images for the infinite scroll marquee
@@ -197,7 +197,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
     <div className="animate-in fade-in duration-500">
       
       {/* Hero Section */}
-      <div className="relative w-full h-[600px] overflow-hidden group cursor-pointer" onClick={() => openLightbox("https://i.imgur.com/gy1Wtmv.jpeg")}>
+      <div className="relative w-full h-[600px] overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["https://i.imgur.com/gy1Wtmv.jpeg"])}>
         <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-colors" />
         <img
           src="https://i.imgur.com/gy1Wtmv.jpeg"
@@ -274,7 +274,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                          <div 
                             key={`s1-${idx}`} 
                             className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer"
-                            onClick={() => openLightbox(img)}
+                            onClick={() => openLightbox(idx, SCROLL_IMAGES)}
                          >
                              <img 
                                src={img} 
@@ -293,7 +293,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                          <div 
                             key={`s2-${idx}`} 
                             className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer"
-                            onClick={() => openLightbox(img)}
+                            onClick={() => openLightbox(idx, SCROLL_IMAGES)}
                          >
                              <img 
                                src={img} 
@@ -354,7 +354,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    {/* Image Carousel Header */}
                    <div 
                       className="h-64 relative overflow-hidden bg-gray-200 dark:bg-gray-700 cursor-pointer"
-                      onClick={() => openLightbox(currentBgImage)}
+                      onClick={() => openLightbox(bgImageIndex, service.images || [service.image])}
                    >
                      <img 
                        key={currentBgImage} // Key forces re-render for animation
@@ -435,7 +435,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    {/* Image Carousel Header */}
                    <div 
                       className="h-64 relative overflow-hidden bg-gray-200 dark:bg-gray-700 cursor-pointer"
-                      onClick={() => openLightbox(currentBgImage)}
+                      onClick={() => openLightbox(aniBgImageIndex, service.images || [service.image])}
                    >
                      <img 
                        key={currentBgImage} 
@@ -516,7 +516,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    {/* Image Carousel Header */}
                    <div 
                       className="h-64 relative overflow-hidden bg-gray-200 dark:bg-gray-700 cursor-pointer"
-                      onClick={() => openLightbox(currentBgImage)}
+                      onClick={() => openLightbox(healthBgImageIndex, service.images || [service.image])}
                    >
                      <img 
                        key={currentBgImage} 
@@ -597,7 +597,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    {/* Image Carousel Header */}
                    <div 
                       className="h-64 relative overflow-hidden bg-gray-200 dark:bg-gray-700 cursor-pointer"
-                      onClick={() => openLightbox(currentBgImage)}
+                      onClick={() => openLightbox(techBgImageIndex, service.images || [service.image])}
                    >
                      <img 
                        key={currentBgImage} 
@@ -671,7 +671,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
               <div key={service.id} className="bg-white dark:bg-bg-dark-card rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
                 <div 
                   className="h-48 overflow-hidden relative cursor-pointer"
-                  onClick={() => openLightbox(service.image)}
+                  onClick={() => openLightbox(0, [service.image])}
                 >
                    <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
                    <img 
@@ -737,7 +737,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
             <div className="relative">
               <div 
                 className="bg-white dark:bg-gray-800 p-2 rounded-lg transform rotate-3 shadow-2xl cursor-pointer hover:scale-105 transition-transform"
-                onClick={() => openLightbox("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800")}
+                onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800"])}
               >
                  <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800" className="rounded border border-gray-200 dark:border-gray-700" alt="Construction Site" />
                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">

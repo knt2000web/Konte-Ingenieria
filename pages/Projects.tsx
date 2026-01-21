@@ -4,7 +4,11 @@ import { PROJECTS } from '../constants';
 import { Project } from '../types';
 import { MapPin, Calendar, Maximize2, Play, X, ZoomIn } from 'lucide-react';
 
-const ProjectCard: React.FC<{ project: Project; openLightbox: (src: string) => void }> = ({ project, openLightbox }) => {
+interface ProjectsProps {
+  openLightbox: (index: number, images: string[]) => void;
+}
+
+const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, images: string[]) => void }> = ({ project, openLightbox }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -34,9 +38,9 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (src: string) => v
   };
 
   const handleImageClick = (e: React.MouseEvent) => {
-     // If not showing video, open lightbox
+     // If not showing video, open lightbox with current index and ALL images
      if (!showVideo) {
-        openLightbox(images[currentImageIndex]);
+        openLightbox(currentImageIndex, images);
      }
   };
 
@@ -85,7 +89,6 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (src: string) => v
           </div>
         ) : (
           <>
-            {/* Image Container with Fade Effect logic could be added here, currently simply switching src */}
             <img 
               src={images[currentImageIndex]} 
               alt={project.title} 
@@ -177,7 +180,7 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (src: string) => v
   );
 };
 
-const Projects: React.FC<{ openLightbox: (src: string) => void }> = ({ openLightbox }) => {
+const Projects: React.FC<ProjectsProps> = ({ openLightbox }) => {
   return (
     <div className="pt-20 pb-12 animate-in fade-in duration-500">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-12">
