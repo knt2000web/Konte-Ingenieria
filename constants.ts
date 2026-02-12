@@ -27,17 +27,14 @@ export const SERVICES: Service[] = [
     description: 'Soluciones integrales para la valorización de copropiedades. Especialistas en restauración de fachadas, impermeabilización técnica de cubiertas, obras civiles en zonas comunes y modernización de infraestructuras bajo normativa PH (Ley 675).',
     image: 'https://i.imgur.com/uWQ2lnV.jpeg',
     images: [
-      // Fachadas
       'https://i.imgur.com/uWQ2lnV.jpeg',
       'https://i.imgur.com/VQds1N0.jpeg',
       'https://i.imgur.com/sv5JNpt.jpeg',
-      // Impermeabilización
       'https://i.imgur.com/VzAhdFh.jpeg',
       'https://i.imgur.com/VQv31Cd.jpeg',
       'https://i.imgur.com/Q5WLYgH.jpeg',
       'https://i.imgur.com/1F6zccP.jpeg',
       'https://i.imgur.com/NXfmcyv.jpeg',
-      // Zonas Comunes
       'https://i.imgur.com/qzumOZg.jpeg',
       'https://i.imgur.com/rpIFIjZ.jpeg',
       'https://i.imgur.com/N6MH44G.jpeg'
@@ -139,11 +136,26 @@ export const SERVICES: Service[] = [
     ],
     features: ['Habilitación en Salud y Normativa 3100', 'Redes de Gases Medicinales y Aire Acondicionado', 'Arquitectura Humanizada y Funcional'],
     icon: 'local_hospital'
+  },
+  {
+    id: '6',
+    category: 'SOLUCIONES ESPECIALIZADAS',
+    title: 'KONTE Fuel-Shield',
+    description: 'Diagnóstico, limpieza y micro-filtración de tanques de almacenamiento de diésel. Garantizamos la calidad del combustible para flotas modernas, previniendo daños en inyectores y asegurando el cumplimiento de estándares internacionales ISO 4406.',
+    image: 'https://i.imgur.com/eZh9AGz.jpeg', 
+    images: [
+       'https://i.imgur.com/eZh9AGz.jpeg', 
+       'https://i.imgur.com/MYOBl48.jpeg',
+       'https://i.imgur.com/52vI0Sk.jpeg',
+       'https://i.imgur.com/ENyFxia.jpeg',
+       'https://i.imgur.com/TalpuBW.jpeg'
+    ],
+    features: ['Micro-filtración (2 micras)', 'Limpieza de Tanques', 'Certificación ISO 4406'],
+    icon: 'water_drop'
   }
 ];
 
 export const PROJECTS: Project[] = [
-  // Diseños Estructurales y Construcción
   {
     id: '1',
     title: 'Lavanderías Institucionales y Hospitalarias',
@@ -206,7 +218,6 @@ export const PROJECTS: Project[] = [
     area: '350 m²',
     description: 'Ampliación de infraestructura comercial y reforzamiento estructural.'
   },
-  // Proyectos Hospitalarios
   {
     id: 'hosp-sogamoso',
     title: 'Hospital Regional de Sogamoso',
@@ -255,7 +266,6 @@ export const PROJECTS: Project[] = [
     status: 'Completed',
     description: 'Diseño, construcción y adecuación de espacios hospitalarios de alta especificación. Quirófanos, salas de recuperación y áreas comunes bajo normativa vigente.'
   },
-  // Vulnerabilidad Sísmica
   {
     id: '4',
     title: 'Vulnerabilidad Sísmica y Reconocimiento Edificio Salome',
@@ -296,7 +306,6 @@ export const PROJECTS: Project[] = [
     area: '275 m²',
     description: 'Estudio de vulnerabilidad sísmica para planta industrial.'
   },
-  // Estaciones de Servicio
   {
     id: '7',
     title: 'EDS Balcones de la Ceiba',
@@ -396,7 +405,6 @@ export const PROJECTS: Project[] = [
     status: 'In Progress',
     description: 'Consultoría para el reforzamiento estructural de estación existente.'
   },
-  // Redes Contra Incendio
   {
     id: '13',
     title: 'Red Contra Incendios Superservicios',

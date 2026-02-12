@@ -7,6 +7,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import ServiceAni from './pages/ServiceAni';
 import ServicePH from './pages/ServicePH';
+import ServiceDiesel from './pages/ServiceDiesel';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import ClientDashboard from './pages/ClientDashboard';
@@ -17,9 +18,21 @@ import { MessageCircle, X, ChevronLeft, ChevronRight } from 'lucide-react';
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.HOME);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
-  // Lightbox State: Now holds an array of images and the current index
+  // Initialize Login State from LocalStorage
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('konte-auth') === 'true';
+    }
+    return false;
+  });
+  
+  // Scroll to top whenever page changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  // Lightbox State
   const [lightboxState, setLightboxState] = useState<{
     images: string[];
     currentIndex: number;
@@ -54,20 +67,21 @@ const App: React.FC = () => {
 
   const handleLogin = () => {
     setIsLoggedIn(true);
+    localStorage.setItem('konte-auth', 'true'); // Persist Login
     setCurrentPage(Page.DASHBOARD);
   };
 
-  // Updated function signature to accept index and array
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('konte-auth'); // Clear Persistence
+    setCurrentPage(Page.HOME);
+  };
+
   const openLightbox = (index: number, images: string[]) => {
     setLightboxState({
       images: images,
       currentIndex: index
     });
-  };
-
-  // Allow calling with single string for backward compatibility helper (converts to array)
-  const openLightboxSingle = (src: string) => {
-    openLightbox(0, [src]);
   };
 
   const closeLightbox = () => {
@@ -119,16 +133,20 @@ const App: React.FC = () => {
         return <ServiceAni setPage={setCurrentPage} openLightbox={openLightbox} />;
       case Page.SERVICE_PH:
         return <ServicePH setPage={setCurrentPage} openLightbox={openLightbox} />;
+      case Page.SERVICE_DIESEL:
+        return <ServiceDiesel setPage={setCurrentPage} openLightbox={openLightbox} />;
       case Page.PROJECTS:
         return <Projects openLightbox={openLightbox} />;
       case Page.CONTACT:
         return <Contact openLightbox={openLightbox} />;
       case Page.DASHBOARD:
-        return isLoggedIn ? <ClientDashboard /> : <Home setPage={setCurrentPage} openLightbox={openLightbox} />;
+        return isLoggedIn ? <ClientDashboard onLogout={handleLogout} /> : <Home setPage={setCurrentPage} openLightbox={openLightbox} />;
       default:
         return <Home setPage={setCurrentPage} openLightbox={openLightbox} />;
     }
   };
+
+  const generalWaLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20consultor%20sobre%20sus%20servicios%20de%20ingenier%C3%ADa%20y%20construcci%C3%B3n.";
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${isDarkMode ? 'bg-bg-dark text-gray-100' : 'bg-bg-light text-text-main'} relative`}>
@@ -153,13 +171,12 @@ const App: React.FC = () => {
         onLogin={handleLogin}
       />
 
-      {/* Global Lightbox Modal with Navigation */}
+      {/* Global Lightbox Modal */}
       {lightboxState && (
         <div 
           className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300"
           onClick={closeLightbox}
         >
-          {/* Close Button */}
           <button 
             className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors bg-white/10 p-2 rounded-full hover:bg-white/20 z-50"
             onClick={closeLightbox}
@@ -167,7 +184,6 @@ const App: React.FC = () => {
             <X className="w-8 h-8" />
           </button>
 
-          {/* Prev Button */}
           {lightboxState.images.length > 1 && (
             <button
               className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors bg-white/10 p-3 rounded-full hover:bg-white/20 z-50"
@@ -177,7 +193,6 @@ const App: React.FC = () => {
             </button>
           )}
 
-          {/* Next Button */}
           {lightboxState.images.length > 1 && (
             <button
               className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors bg-white/10 p-3 rounded-full hover:bg-white/20 z-50"
@@ -187,7 +202,6 @@ const App: React.FC = () => {
             </button>
           )}
 
-          {/* Main Image */}
           <img 
             src={lightboxState.images[lightboxState.currentIndex]} 
             alt={`Vista completa ${lightboxState.currentIndex + 1}`} 
@@ -195,7 +209,6 @@ const App: React.FC = () => {
             onClick={(e) => e.stopPropagation()} 
           />
 
-          {/* Counter */}
           {lightboxState.images.length > 1 && (
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 px-4 py-2 rounded-full text-white text-sm font-medium backdrop-blur-sm">
               {lightboxState.currentIndex + 1} / {lightboxState.images.length}
@@ -204,24 +217,25 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* Persistent Floating Contact Button */}
-      <button
-        onClick={() => setCurrentPage(Page.CONTACT)}
+      {/* Persistent Floating Contact Button - Direct WhatsApp Strategy */}
+      <a
+        href={generalWaLink}
+        target="_blank"
+        rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-300 group"
         aria-label="Contactar por WhatsApp"
       >
         <MessageCircle className="w-8 h-8 fill-current" />
         <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-gray-800 px-3 py-1 rounded-lg text-sm font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-          ¿Necesitas ayuda?
+          ¿Desea hablar con un consultor?
         </span>
-      </button>
+      </a>
 
-      {/* Persistent Cookie Banner Style CTA */}
       {!isLoggedIn && (
         <div className="fixed bottom-0 w-full bg-primary text-white p-4 z-30 shadow-lg border-t border-blue-800 animate-in slide-in-from-bottom-full duration-1000 delay-1000 fill-mode-forwards hidden md:block">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs md:text-sm">
             <p className="mb-3 md:mb-0 md:mr-6 text-center md:text-left">
-              Utilizamos cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra política de privacidad y tratamiento de datos.
+              Utilizamos cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra política de privacidad.
               <a href="#" className="underline hover:text-gray-200 ml-1">Más información</a>
             </p>
             <button 

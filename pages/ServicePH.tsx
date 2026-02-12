@@ -13,6 +13,9 @@ const ServicePH: React.FC<ServicePHProps> = ({ setPage, openLightbox }) => {
   const [impermeabilizacionIndex, setImpermeabilizacionIndex] = useState(0);
   const [zonasComunesIndex, setZonasComunesIndex] = useState(0);
   
+  // WhatsApp Link for Structural/Civil works
+  const waLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20requiero%20consultor%C3%ADa%20t%C3%A9cnica%20para%20un%20proyecto%20de%20Ingenier%C3%ADa%20Estructural%20(NSR-10).";
+
   const fachadasImages = [
     "https://i.imgur.com/uWQ2lnV.jpeg",
     "https://i.imgur.com/VQds1N0.jpeg",
@@ -440,12 +443,14 @@ const ServicePH: React.FC<ServicePHProps> = ({ setPage, openLightbox }) => {
                 <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8">
                   Ofrecemos soluciones que resuelven los retos de la convivencia y la infraestructura, garantizando que cada peso invertido por la copropiedad se traduzca en durabilidad, seguridad y bienestar.
                 </p>
-                <button 
-                  onClick={() => setPage(Page.CONTACT)}
-                  className="px-10 py-4 bg-white text-primary text-lg font-bold rounded-full hover:bg-gray-100 transition-all shadow-xl flex items-center gap-3 mx-auto"
+                <a 
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-10 py-4 bg-white text-primary text-lg font-bold rounded-full hover:bg-gray-100 transition-all shadow-xl flex items-center gap-3 mx-auto justify-center max-w-md"
                 >
                   SOLICITAR DIAGNÓSTICO <ArrowRight className="w-6 h-6" />
-                </button>
+                </a>
             </div>
         </div>
 

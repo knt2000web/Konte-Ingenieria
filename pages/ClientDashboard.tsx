@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-import { FileText, Download, Clock, AlertCircle } from 'lucide-react';
+import { FileText, Download, Clock, AlertCircle, LogOut } from 'lucide-react';
 
 const COLORS = ['#003399', '#0056D2', '#93C5FD', '#E5E7EB'];
 
@@ -16,7 +17,11 @@ const BUDGET_DATA = [
   { name: 'Otros', amount: 1000 },
 ];
 
-const ClientDashboard: React.FC = () => {
+interface ClientDashboardProps {
+  onLogout: () => void;
+}
+
+const ClientDashboard: React.FC<ClientDashboardProps> = ({ onLogout }) => {
   return (
     <div className="pt-24 pb-12 min-h-screen bg-bg-light animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,9 +31,18 @@ const ClientDashboard: React.FC = () => {
             <h1 className="text-3xl font-bold text-gray-900">Panel de Cliente</h1>
             <p className="text-gray-500">Bienvenido, <span className="font-semibold text-primary">Ing. Roberto Gómez (Constructora Bolívar)</span></p>
           </div>
-          <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            Proyecto Activo
+          <div className="flex items-center gap-3">
+            <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                Proyecto Activo
+            </div>
+            <button 
+                onClick={onLogout}
+                className="bg-red-50 hover:bg-red-100 text-red-600 px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-colors border border-red-200"
+            >
+                <LogOut className="w-4 h-4" />
+                Cerrar Sesión
+            </button>
           </div>
         </div>
 

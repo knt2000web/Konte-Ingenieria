@@ -9,6 +9,9 @@ interface ServiceAniProps {
 }
 
 const ServiceAni: React.FC<ServiceAniProps> = ({ setPage, openLightbox }) => {
+  // WhatsApp Link for EDS Design
+  const waLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20busco%20asesor%C3%ADa%20en%20dise%C3%B1o%20y%20normativa%20para%20una%20nueva%20Estaci%C3%B3n%20de%20Servicio.";
+
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
       {/* Hero Header */}
@@ -306,12 +309,14 @@ const ServiceAni: React.FC<ServiceAniProps> = ({ setPage, openLightbox }) => {
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
               La inversión en gestión normativa depende de la ubicación y tipo de trámite. Contáctenos para una evaluación personalizada de su caso.
             </p>
-            <button 
-              onClick={() => setPage(Page.CONTACT)}
-              className="px-10 py-4 bg-primary text-white text-lg font-bold rounded-lg hover:bg-secondary transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center gap-3 mx-auto"
+            <a 
+              href={waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-4 bg-primary text-white text-lg font-bold rounded-lg hover:bg-secondary transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center gap-3 mx-auto justify-center max-w-md"
             >
               CONTACTAR AHORA <ArrowRight className="w-6 h-6" />
-            </button>
+            </a>
             <p className="text-sm text-gray-500 mt-4">Respuesta garantizada en menos de 24 horas.</p>
           </div>
 

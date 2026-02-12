@@ -139,21 +139,28 @@ const Services: React.FC<ServicesProps> = ({ setPage, openLightbox }) => {
                     onClick={() => setPage(Page.SERVICE_ANI)}
                     className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-secondary transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
                   >
-                    Ver Detalles de Normativa ANI <ArrowRight className="w-5 h-5" />
+                    VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
                 ) : service.id === '5' ? (
                   <button 
                     onClick={() => setPage(Page.SERVICE_PH)}
                     className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-secondary transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
                   >
-                    Ver Soluciones para PH <ArrowRight className="w-5 h-5" />
+                    VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
+                  </button>
+                ) : service.id === '6' ? (
+                  <button 
+                    onClick={() => setPage(Page.SERVICE_DIESEL)}
+                    className="w-full md:w-auto px-8 py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all shadow-lg hover:shadow-orange-500/30 flex items-center justify-center gap-2"
+                  >
+                    VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
                 ) : (
                   <button 
                     onClick={() => setPage(Page.CONTACT)}
                     className="w-full md:w-auto px-8 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors shadow-sm"
                   >
-                    Solicitar Cotización
+                    SOLICITAR COTIZACIÓN
                   </button>
                 )}
               </div>

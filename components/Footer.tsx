@@ -14,6 +14,8 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const generalWaLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20consultor%20sobre%20sus%20servicios%20de%20ingenier%C3%ADa%20y%20construcci%C3%B3n.";
+
   return (
     <footer className="bg-white dark:bg-bg-dark border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,8 +57,8 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
                 </button>
               </li>
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.SERVICES)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
-                  Construcción
+                <button onClick={(e) => handleNavigation(e, Page.SERVICE_DIESEL)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                  Filtración Diésel
                 </button>
               </li>
             </ul>
@@ -107,7 +109,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
 
             {/* Functional WhatsApp Button */}
             <a 
-              href="https://wa.me/573204468049" 
+              href={generalWaLink} 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-3 rounded-xl font-bold transition-all shadow-md hover:shadow-lg w-full justify-center md:justify-start transform hover:-translate-y-1"

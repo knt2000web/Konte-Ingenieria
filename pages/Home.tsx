@@ -122,6 +122,26 @@ const TECHNICAL_SUB_SERVICES = [
   }
 ];
 
+// Sub-services specific data for animation for Service 6 (Fuel-Shield)
+const FUEL_SHIELD_SUB_SERVICES = [
+  {
+    title: "Diagnóstico Clear & Bright",
+    desc: "Pruebas de campo para detección visual inmediata de partículas y agua libre en el diésel."
+  },
+  {
+    title: "Micro-filtración (2 Micras)",
+    desc: "Tecnología de diálisis que elimina contaminantes sólidos microscópicos que dañan inyectores Euro VI."
+  },
+  {
+    title: "Limpieza de Tanques",
+    desc: "Remoción de lodos (sludge) y biopelículas del fondo del tanque para prevenir obstrucción de filtros."
+  },
+  {
+    title: "Certificación ISO 4406",
+    desc: "Análisis de laboratorio y certificado de limpieza de fluidos para respaldo legal y garantía."
+  }
+];
+
 const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
   // State for Specialized Engineering (ID 3)
   const [featureIndex, setFeatureIndex] = useState(0);
@@ -143,6 +163,10 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
   const [techFeatureIndex, setTechFeatureIndex] = useState(0);
   const [techBgImageIndex, setTechBgImageIndex] = useState(0);
 
+  // State for Fuel Shield (ID 6)
+  const [fuelFeatureIndex, setFuelFeatureIndex] = useState(0);
+  const [fuelBgImageIndex, setFuelBgImageIndex] = useState(0);
+
   // Find the services to get their image counts
   const specializedService = SERVICES.find(s => s.id === '3');
   const specializedImagesCount = specializedService?.images?.length || 0;
@@ -158,6 +182,9 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
 
   const techService = SERVICES.find(s => s.id === '2');
   const techImagesCount = techService?.images?.length || 0;
+
+  const fuelService = SERVICES.find(s => s.id === '6');
+  const fuelImagesCount = fuelService?.images?.length || 0;
 
   useEffect(() => {
     // --- Service 3 Intervals ---
@@ -220,6 +247,18 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
       }, 3500);
     }
 
+    // --- Service 6 (Fuel) Intervals ---
+    const fuelTextInterval = setInterval(() => {
+      setFuelFeatureIndex((prev) => (prev + 1) % FUEL_SHIELD_SUB_SERVICES.length);
+    }, 4500);
+
+    let fuelImageInterval: ReturnType<typeof setInterval>;
+    if (fuelImagesCount > 0) {
+      fuelImageInterval = setInterval(() => {
+        setFuelBgImageIndex((prev) => (prev + 1) % fuelImagesCount);
+      }, 3500);
+    }
+
     return () => {
       clearInterval(textInterval);
       if (imageInterval) clearInterval(imageInterval);
@@ -231,8 +270,10 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
       if (phImageInterval) clearInterval(phImageInterval);
       clearInterval(techTextInterval);
       if (techImageInterval) clearInterval(techImageInterval);
+      clearInterval(fuelTextInterval);
+      if (fuelImageInterval) clearInterval(fuelImageInterval);
     };
-  }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount]);
+  }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount, fuelImagesCount]);
 
   return (
     <div className="animate-in fade-in duration-500">
@@ -457,7 +498,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                         onClick={() => setPage(Page.SERVICES)}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
-                        Ver Detalles Completos
+                        VER DETALLES COMPLETOS
                       </button>
                    </div>
                 </div>
@@ -538,7 +579,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                         onClick={() => setPage(Page.SERVICE_ANI)}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
-                        Ver Detalles Completos
+                        VER DETALLES COMPLETOS
                       </button>
                    </div>
                 </div>
@@ -619,7 +660,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                         onClick={() => setPage(Page.SERVICE_PH)}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
-                        Ver Detalles Completos
+                        VER DETALLES COMPLETOS
                       </button>
                    </div>
                 </div>
@@ -700,7 +741,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                         onClick={() => setPage(Page.SERVICES)}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
-                        Ver Detalles Completos
+                        VER DETALLES COMPLETOS
                       </button>
                    </div>
                 </div>
@@ -781,7 +822,88 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                         onClick={() => setPage(Page.SERVICES)}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
-                        Ver Detalles Completos
+                        VER DETALLES COMPLETOS
+                      </button>
+                   </div>
+                </div>
+              );
+            }
+
+            // Logic for Service 6 (Fuel-Shield) - REEL CARD
+            if (service.id === '6') {
+              const currentFeature = FUEL_SHIELD_SUB_SERVICES[fuelFeatureIndex];
+              const currentBgImage = service.images && service.images.length > 0 
+                ? service.images[fuelBgImageIndex] 
+                : service.image;
+
+              return (
+                <div key={service.id} className="bg-white dark:bg-bg-dark-card rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 border-orange-500/20 dark:border-orange-500/20 flex flex-col h-full">
+                   {/* Image Carousel Header */}
+                   <div 
+                      className="h-64 relative overflow-hidden bg-gray-900 cursor-pointer"
+                      onClick={() => openLightbox(fuelBgImageIndex, service.images || [service.image])}
+                   >
+                     <img 
+                       key={currentBgImage} 
+                       src={currentBgImage} 
+                       alt="KONTE Fuel-Shield" 
+                       className="w-full h-full object-contain animate-in fade-in duration-700" 
+                       referrerPolicy="no-referrer"
+                     />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent group-hover:from-black/60 transition-all"></div>
+                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ZoomIn className="text-white w-6 h-6 drop-shadow-md" />
+                     </div>
+                     
+                     {/* Image Indicators */}
+                     <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10 pointer-events-none">
+                        {service.images?.map((_, idx) => (
+                          <div 
+                            key={idx} 
+                            className={`h-1.5 rounded-full transition-all duration-300 ${idx === fuelBgImageIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`} 
+                          />
+                        ))}
+                     </div>
+                   </div>
+                   
+                   <div className="relative p-6 flex flex-col flex-grow">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="material-icons text-orange-600 dark:text-orange-400">{service.icon || 'water_drop'}</span>
+                        <span className="text-xs font-bold text-orange-600 dark:text-orange-400 tracking-widest uppercase">{service.category}</span>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                        {service.title}
+                      </h3>
+                      
+                      {/* Dynamic Content Area */}
+                      <div className="flex-grow flex flex-col mb-4">
+                        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-orange-500 dark:border-orange-500 h-full">
+                            <div key={fuelFeatureIndex} className="animate-in fade-in slide-in-from-bottom-2 duration-500">
+                              <h4 className="text-orange-700 dark:text-orange-400 font-bold text-sm uppercase mb-2">
+                                 {currentFeature.title}
+                              </h4>
+                              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                                {currentFeature.desc}
+                              </p>
+                            </div>
+                        </div>
+                        {/* Text Progress Indicators */}
+                        <div className="flex gap-1 mt-2 justify-end">
+                          {FUEL_SHIELD_SUB_SERVICES.map((_, i) => (
+                            <div 
+                              key={i} 
+                              className={`h-1 rounded-full transition-all duration-500 ${i === fuelFeatureIndex ? 'w-4 bg-orange-600 dark:bg-orange-500' : 'w-1 bg-gray-200 dark:bg-gray-600'}`} 
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      <button 
+                        onClick={() => setPage(Page.SERVICE_DIESEL)}
+                        className="w-full py-3 bg-orange-600 text-white rounded-lg font-bold hover:bg-orange-700 transition-all text-sm uppercase tracking-wide shadow-md"
+                      >
+                        VER DETALLES COMPLETOS
                       </button>
                    </div>
                 </div>
@@ -818,10 +940,14 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                     {service.description}
                   </p>
                   <button 
-                     onClick={() => setPage(Page.SERVICES)}
+                     onClick={() => {
+                        // Logic for redirect if applicable, otherwise services page
+                        if (service.id === '6') setPage(Page.SERVICE_DIESEL);
+                        else setPage(Page.SERVICES);
+                     }}
                      className="w-full py-3 border border-primary dark:border-blue-500 text-primary dark:text-blue-400 rounded-lg font-bold hover:bg-primary dark:hover:bg-blue-600 hover:text-white transition-all text-sm uppercase tracking-wide"
                   >
-                    Más Información
+                    VER DETALLES COMPLETOS
                   </button>
                 </div>
               </div>
