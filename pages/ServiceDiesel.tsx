@@ -186,10 +186,10 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ setPage, openLightbox }) 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
                  <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 inline-block mb-2">
-                    <span className="text-white font-mono font-bold text-2xl">ISO 4406: 18/16/13</span>
-                    <span className="block text-gray-300 text-xs uppercase tracking-wider mt-1">Estándar Objetivo KONTE</span>
+                    <span className="block text-gray-300 text-xs uppercase tracking-wider mb-1">ESTÁNDAR DE LIMPIEZA KONTE</span>
+                    <span className="text-white font-mono font-bold text-2xl">ISO 4406: 15 / 13 / 10</span>
                  </div>
-                 <p className="text-white text-sm opacity-80">Garantizamos combustible más limpio que el de refinería.</p>
+                 <p className="text-white text-sm font-medium">Combustible certificado para motores Euro VI. <span className="text-orange-400 font-bold">Blindaje total, resultados garantizados.</span></p>
               </div>
            </div>
         </div>
