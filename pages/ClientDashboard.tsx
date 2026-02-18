@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-import { FileText, Download, Clock, AlertCircle, LogOut } from 'lucide-react';
+import { FileText, Download, Clock, AlertCircle, LogOut, Save } from 'lucide-react';
 
 const COLORS = ['#003399', '#0056D2', '#93C5FD', '#E5E7EB'];
 
@@ -22,6 +22,30 @@ interface ClientDashboardProps {
 }
 
 const ClientDashboard: React.FC<ClientDashboardProps> = ({ onLogout }) => {
+
+  const handleDownloadBackup = () => {
+    // Simula la creación de un paquete de datos del proyecto para respaldo
+    const projectData = {
+        timestamp: new Date().toISOString(),
+        client: "Constructora Bolívar",
+        project: "Infraestructura Hospitalaria - Fase 2",
+        financials: BUDGET_DATA,
+        status: CHART_DATA,
+        documents: [
+            { name: 'Informe_Tecnico_Octubre.pdf', status: 'Approved' },
+            { name: 'Planos_Hidraulicos_Rev3.dwg', status: 'Pending' }
+        ]
+    };
+
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projectData, null, 2));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "KONTE_Respaldo_Proyecto_" + new Date().toISOString().slice(0,10) + ".json");
+    document.body.appendChild(downloadAnchorNode);
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  };
+
   return (
     <div className="pt-24 pb-12 min-h-screen bg-bg-light animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,6 +60,16 @@ const ClientDashboard: React.FC<ClientDashboardProps> = ({ onLogout }) => {
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                 Proyecto Activo
             </div>
+            
+            <button 
+                onClick={handleDownloadBackup}
+                className="bg-blue-50 hover:bg-blue-100 text-primary px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-colors border border-blue-200"
+                title="Descargar copia local para subir a Drive"
+            >
+                <Save className="w-4 h-4" />
+                Respaldo
+            </button>
+
             <button 
                 onClick={onLogout}
                 className="bg-red-50 hover:bg-red-100 text-red-600 px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-colors border border-red-200"

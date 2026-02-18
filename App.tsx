@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import SEO from './components/SEO';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -121,6 +122,64 @@ const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxState, nextImage, prevImage]);
 
+  // Helper function to get SEO data based on page
+  const getPageSEO = (page: Page) => {
+    switch (page) {
+      case Page.HOME:
+        return { 
+          title: "Inicio - Consultoría y Construcción", 
+          description: "KONTE: Líderes en ingeniería, construcción de estaciones de servicio, consultoría normativa ANI y propiedad horizontal en Colombia."
+        };
+      case Page.ABOUT:
+        return { 
+          title: "Nosotros - Experiencia y Equipo", 
+          description: "Conozca a KONTE. Más de 15 años de experiencia en ingeniería civil, infraestructura hospitalaria y soluciones técnicas especializadas."
+        };
+      case Page.SERVICES:
+        return { 
+          title: "Servicios de Ingeniería", 
+          description: "Portafolio de servicios: Gestión normativa ANI, construcción hospitalaria, propiedad horizontal, estudios de suelos y topografía."
+        };
+      case Page.SERVICE_ANI:
+        return { 
+          title: "Gestión Normativa ANI y Licencias", 
+          description: "Expertos en permisos de ocupación de vía, trámites ante ANI e INVIAS y licenciamiento urbanístico para estaciones de servicio."
+        };
+      case Page.SERVICE_PH:
+        return { 
+          title: "Mantenimiento Propiedad Horizontal", 
+          description: "Restauración de fachadas, impermeabilización de cubiertas y obras civiles para conjuntos residenciales y edificios."
+        };
+      case Page.SERVICE_DIESEL:
+        return { 
+          title: "KONTE Fuel-Shield - Filtración Diésel", 
+          description: "Diagnóstico y limpieza de tanques de combustible. Micro-filtración y certificación ISO 4406 para protección de motores Euro VI."
+        };
+      case Page.PROJECTS:
+        return { 
+          title: "Proyectos Realizados", 
+          description: "Galería de proyectos KONTE: Estaciones de servicio, infraestructura clínica, reforzamiento estructural y obras civiles a nivel nacional."
+        };
+      case Page.CONTACT:
+        return { 
+          title: "Contáctenos", 
+          description: "Póngase en contacto con nuestros ingenieros. Cotizaciones y asesoría técnica en Duitama, Boyacá y toda Colombia."
+        };
+      case Page.DASHBOARD:
+        return { 
+          title: "Panel de Cliente", 
+          description: "Área privada para clientes KONTE. Gestión de proyectos y documentos."
+        };
+      default:
+        return { 
+          title: "Consultoría y Tecnología", 
+          description: "Soluciones integrales de ingeniería y construcción."
+        };
+    }
+  };
+
+  const seoData = getPageSEO(currentPage);
+
   const renderPage = () => {
     switch (currentPage) {
       case Page.HOME:
@@ -150,6 +209,9 @@ const App: React.FC = () => {
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${isDarkMode ? 'bg-bg-dark text-gray-100' : 'bg-bg-light text-text-main'} relative`}>
+      {/* Inject Dynamic SEO based on current page */}
+      <SEO title={seoData.title} description={seoData.description} />
+
       <Navbar 
         currentPage={currentPage} 
         setPage={setCurrentPage} 

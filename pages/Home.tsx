@@ -287,7 +287,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
             e.currentTarget.src = "https://images.unsplash.com/photo-1520694478166-daaaaec95b69?auto=format&fit=crop&q=80&w=1600";
             e.currentTarget.onerror = null; // Prevent infinite loop
           }}
-          alt="Estación de Servicio y Construcción"
+          alt="Ingenieros supervisando obra de construcción de estación de servicio KONTE"
           className="w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-110"
           referrerPolicy="no-referrer"
         />
@@ -360,7 +360,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                          >
                              <img 
                                src={img} 
-                               alt={`Project Gallery ${idx}`} 
+                               alt={`Galería de proyecto de construcción y obra civil ${idx}`} 
                                className="h-full w-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-500" 
                              />
                              <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-300 flex items-center justify-center">
@@ -379,7 +379,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                          >
                              <img 
                                src={img} 
-                               alt={`Project Gallery ${idx}`} 
+                               alt={`Galería de proyecto de construcción y obra civil ${idx}`} 
                                className="h-full w-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-500" 
                              />
                              <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-300 flex items-center justify-center">
@@ -441,7 +441,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                      <img 
                        key={currentBgImage} // Key forces re-render for animation
                        src={currentBgImage} 
-                       alt="Ingeniería Especializada" 
+                       alt={`Ingeniería especializada: ${service.title}`}
                        className="w-full h-full object-cover animate-in fade-in duration-700"
                        referrerPolicy="no-referrer"
                      />
@@ -522,7 +522,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                      <img 
                        key={currentBgImage} 
                        src={currentBgImage} 
-                       alt="Gestión ANI y Normativa" 
+                       alt={`Gestión normativa ANI: ${service.title}`}
                        className="w-full h-full object-cover animate-in fade-in duration-700" 
                        referrerPolicy="no-referrer"
                      />
@@ -603,7 +603,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                      <img 
                        key={currentBgImage} 
                        src={currentBgImage} 
-                       alt="Propiedad Horizontal" 
+                       alt={`Mantenimiento de propiedad horizontal: ${service.title}`}
                        className="w-full h-full object-cover animate-in fade-in duration-700" 
                        referrerPolicy="no-referrer"
                      />
@@ -684,7 +684,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                      <img 
                        key={currentBgImage} 
                        src={currentBgImage} 
-                       alt="Infraestructura Hospitalaria" 
+                       alt={`Infraestructura hospitalaria y clínica: ${service.title}`}
                        className="w-full h-full object-cover animate-in fade-in duration-700"
                        referrerPolicy="no-referrer"
                      />
@@ -765,7 +765,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                      <img 
                        key={currentBgImage} 
                        src={currentBgImage} 
-                       alt="Estudios Técnicos y Topografía" 
+                       alt={`Estudios técnicos y topográficos: ${service.title}`}
                        className="w-full h-full object-cover animate-in fade-in duration-700" 
                        referrerPolicy="no-referrer"
                      />
@@ -846,7 +846,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                      <img 
                        key={currentBgImage} 
                        src={currentBgImage} 
-                       alt="KONTE Fuel-Shield" 
+                       alt={`Filtración diésel y fuel-shield: ${service.title}`}
                        className="w-full h-full object-contain animate-in fade-in duration-700" 
                        referrerPolicy="no-referrer"
                      />
@@ -920,7 +920,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                    <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
                    <img 
                       src={service.image} 
-                      alt={service.title} 
+                      alt={`Servicio de ${service.title} - ${service.category}`}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                       referrerPolicy="no-referrer"
                    />
@@ -959,7 +959,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
       {/* Why Choose Us */}
       <section className="bg-gray-900 text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-           <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover grayscale" alt="Background" />
+           <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover grayscale" alt="Fondo construcción infraestructura" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -987,7 +987,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                 className="bg-white dark:bg-gray-800 p-2 rounded-lg transform rotate-3 shadow-2xl cursor-pointer hover:scale-105 transition-transform"
                 onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800"])}
               >
-                 <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800" className="rounded border border-gray-200 dark:border-gray-700" alt="Construction Site" />
+                 <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800" className="rounded border border-gray-200 dark:border-gray-700" alt="Sitio de construcción de obra civil" />
                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                     <ZoomIn className="text-white w-12 h-12 drop-shadow-xl" />
                  </div>

@@ -5,9 +5,58 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KONTE - Ingeniería y Consultoría</title>
+    <meta name="description" content="KONTE - Líderes en consultoría de ingeniería, construcción de estaciones de servicio, normativa ANI y propiedad horizontal en Boyacá y Colombia.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    
+    <!-- Schema.org LocalBusiness JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GeneralContractor",
+      "name": "KONTE Ingeniería y Consultoría",
+      "image": "https://i.imgur.com/gy1Wtmv.jpeg",
+      "description": "Expertos en consultoría de ingeniería, construcción de estaciones de servicio, gestión normativa ANI y mantenimiento de propiedad horizontal.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 14 # 16 48 Ofc 402",
+        "addressLocality": "Duitama",
+        "addressRegion": "Boyacá",
+        "postalCode": "150461",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 5.8239,
+        "longitude": -73.0335
+      },
+      "url": "https://konte-ingenieria.vercel.app/",
+      "telephone": "+573204468049",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ]
+    }
+    </script>
+
     <script>
       tailwind.config = {
         darkMode: "class",
