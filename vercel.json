@@ -1,8 +1,10 @@
 {
   "rewrites": [
-    {
-      "source": "/((?!.*\\.).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/nosotros", "destination": "/index.html" },
+    { "source": "/servicios", "destination": "/index.html" },
+    { "source": "/servicios/:path*", "destination": "/index.html" },
+    { "source": "/proyectos", "destination": "/index.html" },
+    { "source": "/proyectos/:path*", "destination": "/index.html" },
+    { "source": "/contacto", "destination": "/index.html" }
   ]
 }
