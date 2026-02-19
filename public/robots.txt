@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://konte-ingenieria.vercel.app/sitemap.xml
