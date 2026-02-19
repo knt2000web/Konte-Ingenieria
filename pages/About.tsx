@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
@@ -50,27 +49,27 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
               <span className="h-1 w-12 bg-primary"></span>
               <span className="text-primary font-bold tracking-widest text-sm uppercase">NUESTRA ESENCIA</span>
             </div>
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
               KONTE es una compañía proyectada para construir futuro basados en procesos de altísima calidad en donde nuestro principal objetivo es mejorar el nivel de vida de las personas o instituciones dándoles seguridad, confianza y respaldo.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
               En la compañía contamos con la colaboración de los más expertos ingenieros para los procesos de construcción, consultoría, proveeduría y todo aquello en lo concerniente a la ingeniería propiamente dicha.
             </p>
             
             <div className="space-y-4 mt-8">
-              <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-100 dark:border-blue-800">
                 <h3 className="font-bold text-primary flex items-center gap-2 mb-2">
                   <Building2 className="w-5 h-5" /> Sector Público
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-700 dark:text-gray-300">
                   Más de 15 años de experiencia en saneamiento básico, construcción y ampliación de instituciones hospitalarias, e instalación de estructuras.
                 </p>
               </div>
-              <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                <h3 className="font-bold text-gray-900 flex items-center gap-2 mb-2">
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                <h3 className="font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-2">
                   <Briefcase className="w-5 h-5" /> Sector Privado
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-700 dark:text-gray-300">
                   Ejecución de vivienda horizontal, mantenimiento de edificios, impermeabilización de cubiertas y reposición de redes sanitarias.
                 </p>
               </div>
@@ -86,8 +85,8 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
              <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
                 <ZoomIn className="text-white w-6 h-6 drop-shadow-lg" />
              </div>
-             <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-xl shadow-xl z-20 max-w-xs border-t-4 border-accent hidden md:block">
-               <p className="text-gray-800 italic font-medium">
+             <div className="absolute -bottom-10 -left-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl z-20 max-w-xs border-t-4 border-accent hidden md:block">
+               <p className="text-gray-800 dark:text-gray-200 italic font-medium">
                  "Nuestro principal objetivo es construir, proyectar y crear espacios donde se compartan emociones y se consoliden lazos inquebrantables."
                </p>
              </div>
@@ -113,18 +112,18 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
 
         {/* ANI & Normativa Callout */}
         <div className="mb-24">
-          <div className="bg-orange-50 border-l-8 border-orange-500 rounded-r-xl p-8 shadow-sm">
+          <div className="bg-orange-50 dark:bg-orange-900/20 border-l-8 border-orange-500 dark:border-orange-600 rounded-r-xl p-8 shadow-sm">
              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Expertos en Gestión ANI</h3>
-                  <p className="text-gray-700 mb-4 max-w-2xl">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Expertos en Gestión ANI</h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 max-w-2xl">
                     Logramos tramitar resoluciones en el menor tiempo posible. Nuestra experiencia nos permite identificar errores comunes y lograr trámites en menos de 1 año.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <span className="bg-white px-3 py-1 rounded border border-orange-200 text-orange-700 font-bold text-xs shadow-sm">
+                    <span className="bg-white dark:bg-gray-800 px-3 py-1 rounded border border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-400 font-bold text-xs shadow-sm">
                       RESOLUCIÓN 1361 DE 2012 (Ubicación EDS)
                     </span>
-                    <span className="bg-white px-3 py-1 rounded border-orange-200 text-orange-700 font-bold text-xs shadow-sm">
+                    <span className="bg-white dark:bg-gray-800 px-3 py-1 rounded border border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-400 font-bold text-xs shadow-sm">
                       RESOLUCIÓN 716 DE 2015
                     </span>
                   </div>
@@ -142,8 +141,8 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
         {/* Servicios Detallados */}
         <div className="mb-20">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Portafolio Integral de Servicios</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Portafolio Integral de Servicios</h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Cubrimos todas las áreas dentro de la construcción y reformas, garantizando materiales de alta calidad, excelentes acabados y rapidez.
             </p>
           </div>
@@ -181,14 +180,14 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
                 items: ['Movimientos de materiales', 'Estructuras en acero', 'Instalación de drywall', 'Trámites ante curaduría']
               }
             ].map((service, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow group">
-                <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+              <div key={idx} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow group">
+                <div className="bg-blue-50 dark:bg-blue-900/20 w-12 h-12 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
                   <service.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
                 <ul className="space-y-2">
                   {service.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
                       <span>{item}</span>
                     </li>

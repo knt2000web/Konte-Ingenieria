@@ -1,11 +1,9 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Linkedin, Youtube, Twitter, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
-import { Page } from '../types';
 
 interface FooterProps {
-  setPage?: (page: Page) => void;
+  setPage?: any; // Mantenido para compatibilidad con App.tsx
 }
 
 const Footer: React.FC<FooterProps> = () => {

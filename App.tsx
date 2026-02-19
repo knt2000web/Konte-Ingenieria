@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -87,26 +86,17 @@ const App: React.FC = () => {
   } | null>(null);
 
   // Dark Mode Logic
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-        const savedTheme = localStorage.getItem('konte-theme');
-        if (savedTheme) {
-            return savedTheme === 'dark';
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return false;
-  });
+  const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem('konte-theme') === 'dark');
 
   useEffect(() => {
-    const root = window.document.documentElement;
     if (isDarkMode) {
-      root.classList.add('dark');
-      localStorage.setItem('konte-theme', 'dark');
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
     } else {
-      root.classList.remove('dark');
-      localStorage.setItem('konte-theme', 'light');
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
     }
+    localStorage.setItem('konte-theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {

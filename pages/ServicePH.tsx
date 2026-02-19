@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
@@ -98,12 +97,12 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-30 mb-20">
         
         {/* Intro Card */}
-        <div className="bg-white rounded-xl shadow-xl p-8 md:p-12 border-t-4 border-accent mb-16">
-           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Gestión Técnica para Copropiedades</h2>
-           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 md:p-12 border-t-4 border-accent mb-16">
+           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Gestión Técnica para Copropiedades</h2>
+           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto mb-6">
              Las edificaciones bajo el régimen de propiedad horizontal enfrentan un desgaste acelerado debido al alto tráfico y la exposición constante de sus áreas comunes. En KONTE, entendemos que la conservación de estos espacios no es solo una necesidad estética, sino una obligación legal y técnica para preservar el patrimonio y la seguridad de los copropietarios.
            </p>
-           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto text-center">
+           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto text-center">
              Ejecutamos proyectos personalizados para edificios residenciales, centros comerciales y complejos industriales, garantizando el cumplimiento de la Ley 675 de 2001 y trabajando en estrecha colaboración con las administraciones y consejos.
            </p>
         </div>
@@ -112,53 +111,53 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
         <div className="flex flex-col md:flex-row gap-12 items-start mb-24">
            <div className="w-full md:w-1/2">
               <div className="flex items-center gap-3 mb-6">
-                 <div className="bg-blue-100 p-3 rounded-full text-primary">
+                 <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full text-primary">
                     <Paintbrush className="w-6 h-6" />
                  </div>
-                 <h3 className="text-2xl font-bold text-gray-900">Mantenimiento y Restauración de Fachadas: Protección y Valorización</h3>
+                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Mantenimiento y Restauración de Fachadas: Protección y Valorización</h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 La fachada es la piel de su edificio y su primera línea de defensa. La exposición constante a agentes climáticos, contaminación y humedad no solo deteriora la estética, sino que compromete la integridad estructural y la eficiencia térmica de la edificación.
               </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 En KONTE, transformamos el mantenimiento preventivo en una inversión estratégica para prolongar la vida útil de su propiedad y potenciar su valor comercial.
               </p>
               
-              <h4 className="font-bold text-gray-900 mb-4">¿Por qué elegir a KONTE?</h4>
+              <h4 className="font-bold text-gray-900 dark:text-white mb-4">¿Por qué elegir a KONTE?</h4>
               <ul className="space-y-4 mb-8">
                  <li className="flex gap-3">
                     <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1">1</div>
                     <div>
-                        <span className="font-bold text-gray-900 block">Evaluación Técnica Especializada</span>
-                        <span className="text-sm text-gray-600">No aplicamos soluciones genéricas. Analizamos la antigüedad del material y las condiciones ambientales para determinar el método óptimo (hidrolavado, productos biodegradables o técnicas de precisión), garantizando la preservación de la superficie.</span>
+                        <span className="font-bold text-gray-900 dark:text-white block">Evaluación Técnica Especializada</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">No aplicamos soluciones genéricas. Analizamos la antigüedad del material y las condiciones ambientales para determinar el método óptimo (hidrolavado, productos biodegradables o técnicas de precisión), garantizando la preservación de la superficie.</span>
                     </div>
                  </li>
                  <li className="flex gap-3">
                     <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1">2</div>
                     <div>
-                        <span className="font-bold text-gray-900 block">Seguridad Certificada (Trabajo en Alturas)</span>
-                        <span className="text-sm text-gray-600">Cumplimos estrictamente con la normativa legal vigente. Contamos con personal altamente calificado, equipos certificados y permisos de seguridad para garantizar proyectos con cero riesgos.</span>
+                        <span className="font-bold text-gray-900 dark:text-white block">Seguridad Certificada (Trabajo en Alturas)</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">Cumplimos estrictamente con la normativa legal vigente. Contamos con personal altamente calificado, equipos certificados y permisos de seguridad para garantizar proyectos con cero riesgos.</span>
                     </div>
                  </li>
                  <li className="flex gap-3">
                     <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1">3</div>
                     <div>
-                        <span className="font-bold text-gray-900 block">Materiales de Alto Desempeño</span>
-                        <span className="text-sm text-gray-600">Utilizamos insumos de primera línea y recubrimientos tecnológicos que ofrecen mayor resistencia a los rayos UV y a la polución, asegurando un acabado estético superior por más tiempo.</span>
+                        <span className="font-bold text-gray-900 dark:text-white block">Materiales de Alto Desempeño</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">Utilizamos insumos de primera línea y recubrimientos tecnológicos que ofrecen mayor resistencia a los rayos UV y a la polución, asegurando un acabado estético superior por más tiempo.</span>
                     </div>
                  </li>
                  <li className="flex gap-3">
                     <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1">4</div>
                     <div>
-                        <span className="font-bold text-gray-900 block">Atención al Detalle</span>
-                        <span className="text-sm text-gray-600">Nuestro enfoque combina la capacidad técnica con una ejecución minuciosa. Nos enfocamos en los remates y detalles que garantizan la excelencia en el resultado final.</span>
+                        <span className="font-bold text-gray-900 dark:text-white block">Atención al Detalle</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">Nuestro enfoque combina la capacidad técnica con una ejecución minuciosa. Nos enfocamos en los remates y detalles que garantizan la excelencia en el resultado final.</span>
                     </div>
                  </li>
               </ul>
               
-              <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-primary">
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-primary">
                  <p className="text-sm font-bold text-primary">Nuestras Soluciones Integrales:</p>
-                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm text-gray-700">
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-sm text-gray-700 dark:text-gray-300">
                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Lavado y Desmanchado Técnico</li>
                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Pintura y Recubrimientos</li>
                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Impermeabilización de Superficies</li>
@@ -204,21 +203,21 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
         <div className="flex flex-col md:flex-row-reverse gap-12 items-start mb-24">
            <div className="w-full md:w-1/2">
               <div className="flex items-center gap-3 mb-6">
-                 <div className="bg-cyan-100 p-3 rounded-full text-cyan-700">
+                 <div className="bg-cyan-100 dark:bg-cyan-900/30 p-3 rounded-full text-cyan-700 dark:text-cyan-300">
                     <Droplets className="w-6 h-6" />
                  </div>
-                 <h3 className="text-2xl font-bold text-gray-900">Impermeabilización Técnica de Cubiertas y Techos</h3>
+                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Impermeabilización Técnica de Cubiertas y Techos</h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 En KONTE, ofrecemos soluciones avanzadas en impermeabilización y protección de superficies, diseñadas bajo estándares de alta ingeniería. No solo prevenimos filtraciones; implementamos sistemas integrales que mejoran el aislamiento térmico y acústico, optimizando la eficiencia energética y la habitabilidad de cada inmueble.
               </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 Atendemos proyectos de alta complejidad en sectores industriales, comerciales y residenciales, adaptándonos a cubiertas planas e inclinadas, terrazas transitables y zonas verdes (Techos Verdes).
               </p>
 
-              <div className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm mb-8">
-                 <h4 className="font-bold text-gray-900 mb-4 border-b pb-2">Nuestro Protocolo de Ejecución con Garantía KONTE</h4>
-                 <ul className="space-y-3 text-sm text-gray-700">
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm mb-8">
+                 <h4 className="font-bold text-gray-900 dark:text-white mb-4 border-b pb-2">Nuestro Protocolo de Ejecución con Garantía KONTE</h4>
+                 <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
                     <li className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mt-1.5 shrink-0"></div>
                         <span><strong>Diagnóstico y Evaluación:</strong> Análisis técnico de la estructura para identificar patologías y puntos críticos.</span>
@@ -238,23 +237,23 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
                  </ul>
               </div>
 
-              <h4 className="font-bold text-gray-900 mb-4">Beneficios de una Protección Profesional</h4>
+              <h4 className="font-bold text-gray-900 dark:text-white mb-4">Beneficios de una Protección Profesional</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                 <div className="bg-cyan-50 p-3 rounded-lg">
-                    <span className="font-bold text-cyan-800 block mb-1">Integridad Estructural</span>
-                    <span className="text-xs text-gray-600">Blindaje total contra filtraciones y humedades que comprometen el acero y concreto.</span>
+                 <div className="bg-cyan-50 dark:bg-cyan-900/20 p-3 rounded-lg">
+                    <span className="font-bold text-cyan-800 dark:text-cyan-200 block mb-1">Integridad Estructural</span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400">Blindaje total contra filtraciones y humedades que comprometen el acero y concreto.</span>
                  </div>
-                 <div className="bg-cyan-50 p-3 rounded-lg">
-                    <span className="font-bold text-cyan-800 block mb-1">Salud y Habitabilidad</span>
-                    <span className="text-xs text-gray-600">Prevención de moho y microorganismos, asegurando ambientes internos óptimos.</span>
+                 <div className="bg-cyan-50 dark:bg-cyan-900/20 p-3 rounded-lg">
+                    <span className="font-bold text-cyan-800 dark:text-cyan-200 block mb-1">Salud y Habitabilidad</span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400">Prevención de moho y microorganismos, asegurando ambientes internos óptimos.</span>
                  </div>
-                 <div className="bg-cyan-50 p-3 rounded-lg">
-                    <span className="font-bold text-cyan-800 block mb-1">Valorización del Activo</span>
-                    <span className="text-xs text-gray-600">Incremento de la vida útil de la cubierta y reducción de costos correctivos.</span>
+                 <div className="bg-cyan-50 dark:bg-cyan-900/20 p-3 rounded-lg">
+                    <span className="font-bold text-cyan-800 dark:text-cyan-200 block mb-1">Valorización del Activo</span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400">Incremento de la vida útil de la cubierta y reducción de costos correctivos.</span>
                  </div>
-                 <div className="bg-cyan-50 p-3 rounded-lg">
-                    <span className="font-bold text-cyan-800 block mb-1">Eficiencia Energética</span>
-                    <span className="text-xs text-gray-600">Reducción de la carga térmica, disminuyendo el consumo de energía en climatización.</span>
+                 <div className="bg-cyan-50 dark:bg-cyan-900/20 p-3 rounded-lg">
+                    <span className="font-bold text-cyan-800 dark:text-cyan-200 block mb-1">Eficiencia Energética</span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400">Reducción de la carga térmica, disminuyendo el consumo de energía en climatización.</span>
                  </div>
               </div>
            </div>
@@ -295,55 +294,55 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
         <div className="flex flex-col md:flex-row gap-12 items-start mb-24">
            <div className="w-full md:w-1/2">
               <div className="flex items-center gap-3 mb-6">
-                 <div className="bg-orange-100 p-3 rounded-full text-orange-600">
+                 <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full text-orange-600">
                     <Hammer className="w-6 h-6" />
                  </div>
-                 <h3 className="text-2xl font-bold text-gray-900">Intervenciones Arquitectónicas y Obras en Propiedad Horizontal</h3>
+                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Intervenciones Arquitectónicas y Obras en Propiedad Horizontal</h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 Con el paso del tiempo, las edificaciones requieren intervenciones técnicas que aseguren su estabilidad estructural, funcionalidad y valorización. En KONTE, ejecutamos proyectos de mantenimiento y restauración en edificios y conjuntos residenciales, transformando patologías constructivas en soluciones duraderas bajo el estricto cumplimiento de la normativa vigente.
               </p>
               
               <div className="mb-8">
-                  <h4 className="font-bold text-gray-900 mb-3">Nuestras intervenciones abarcan:</h4>
+                  <h4 className="font-bold text-gray-900 dark:text-white mb-3">Nuestras intervenciones abarcan:</h4>
                   <ul className="grid grid-cols-1 gap-3">
-                     <li className="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                     <li className="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
                         <Building className="w-5 h-5 text-primary" />
                         <div>
-                            <span className="text-sm font-bold block text-gray-900">Restauración de Fachadas</span>
-                            <span className="text-xs text-gray-600">Corrección de fisuras, tratamiento de desprendimientos y acabados.</span>
+                            <span className="text-sm font-bold block text-gray-900 dark:text-white">Restauración de Fachadas</span>
+                            <span className="text-xs text-gray-600 dark:text-gray-400">Corrección de fisuras, tratamiento de desprendimientos y acabados.</span>
                         </div>
                      </li>
-                     <li className="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                     <li className="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
                         <Building className="w-5 h-5 text-primary" />
                         <div>
-                            <span className="text-sm font-bold block text-gray-900">Refuerzo Estructural</span>
-                            <span className="text-xs text-gray-600">Intervención técnica en columnas y elementos portantes comprometidos.</span>
+                            <span className="text-sm font-bold block text-gray-900 dark:text-white">Refuerzo Estructural</span>
+                            <span className="text-xs text-gray-600 dark:text-gray-400">Intervención técnica en columnas y elementos portantes comprometidos.</span>
                         </div>
                      </li>
-                     <li className="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                     <li className="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
                         <Building className="w-5 h-5 text-primary" />
                         <div>
-                            <span className="text-sm font-bold block text-gray-900">Obras Civiles en Áreas Comunes</span>
-                            <span className="text-xs text-gray-600">Reparación de muros perimetrales, cerramientos y renovación de acabados arquitectónicos.</span>
+                            <span className="text-sm font-bold block text-gray-900 dark:text-white">Obras Civiles en Áreas Comunes</span>
+                            <span className="text-xs text-gray-600 dark:text-gray-400">Reparación de muros perimetrales, cerramientos y renovación de acabados arquitectónicos.</span>
                         </div>
                      </li>
-                     <li className="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                     <li className="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
                         <Building className="w-5 h-5 text-primary" />
                         <div>
-                            <span className="text-sm font-bold block text-gray-900">Mampostería Especializada</span>
-                            <span className="text-xs text-gray-600">Reconstrucción y mantenimiento de muros con altos estándares de calidad.</span>
+                            <span className="text-sm font-bold block text-gray-900 dark:text-white">Mampostería Especializada</span>
+                            <span className="text-xs text-gray-600 dark:text-gray-400">Reconstrucción y mantenimiento de muros con altos estándares de calidad.</span>
                         </div>
                      </li>
                   </ul>
               </div>
 
-              <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
-                 <h4 className="font-bold text-orange-800 mb-2">Tecnología, Seguridad y Mano de Obra Calificada</h4>
-                 <p className="text-sm text-gray-700 mb-4">
+              <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl border border-orange-100 dark:border-orange-800">
+                 <h4 className="font-bold text-orange-800 dark:text-orange-200 mb-2">Tecnología, Seguridad y Mano de Obra Calificada</h4>
+                 <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
                     La ejecución en entornos de Propiedad Horizontal exige una logística impecable para minimizar el impacto en la vida diaria de los residentes. En KONTE, garantizamos la eficiencia operativa mediante:
                  </p>
-                 <div className="grid grid-cols-2 gap-2 text-xs font-bold text-gray-800">
+                 <div className="grid grid-cols-2 gap-2 text-xs font-bold text-gray-800 dark:text-gray-200">
                     <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-orange-600" /> Equipo Certificado</span>
                     <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-orange-600" /> Seguridad Industrial</span>
                     <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-orange-600" /> Personal Especializado</span>
@@ -366,7 +365,7 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
         </div>
 
         {/* Section 4: Mantenimiento Integral & Modernizacion (Reversed) */}
-        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 mb-20 border border-slate-200">
+        <div className="bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 md:p-12 mb-20 border border-slate-200 dark:border-slate-700">
            <div className="flex flex-col md:flex-row gap-12 items-start">
              <div className="w-full md:w-1/2 order-2 md:order-1">
                 
@@ -406,17 +405,17 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
              <div className="w-full md:w-1/2 order-1 md:order-2">
                 <div className="flex items-center gap-3 mb-6">
                    <Flower2 className="w-8 h-8 text-green-600" />
-                   <h3 className="text-2xl font-bold text-gray-900">Rehabilitación de Zonas Comunes y Sistemas Críticos</h3>
+                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Rehabilitación de Zonas Comunes y Sistemas Críticos</h3>
                 </div>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
                    Las áreas de uso compartido son las más vulnerables al deterioro. Intervenimos de manera oportuna para evitar sobrecostos por daños mayores en plataformas, parqueaderos, zonas de servicio, cerramientos y accesos.
                 </p>
                 
                 <div className="space-y-8">
                    <div>
                        <h4 className="font-bold text-primary flex items-center gap-2 mb-2"><Users className="w-5 h-5" /> Modernización de Recepciones y Porterías</h4>
-                       <p className="text-sm text-gray-700 mb-2">Transformamos accesos tradicionales en espacios modernos, seguros y funcionales. Nuestra intervención integral incluye:</p>
-                       <ul className="text-sm text-gray-600 list-disc pl-5 space-y-1">
+                       <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">Transformamos accesos tradicionales en espacios modernos, seguros y funcionales. Nuestra intervención integral incluye:</p>
+                       <ul className="text-sm text-gray-600 dark:text-gray-400 list-disc pl-5 space-y-1">
                            <li><strong>Arquitectura de Interiores:</strong> Demolición controlada, ampliación de áreas y acabados de alta gama.</li>
                            <li><strong>Seguridad y Tecnología:</strong> Instalación de ventanalería blindada, sistemas de ingreso automatizado y citofonía.</li>
                            <li><strong>Confort:</strong> Adecuación de salas de espera y mobiliario ergonómico.</li>
@@ -425,8 +424,8 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
 
                    <div>
                        <h4 className="font-bold text-primary flex items-center gap-2 mb-2"><Flower2 className="w-5 h-5" /> Ingeniería de Paisajismo y Espacios Verdes</h4>
-                       <p className="text-sm text-gray-700 mb-2">El entorno natural es clave para la valorización del inmueble. En KONTE, diseñamos y mantenemos áreas verdes bajo criterios de sostenibilidad:</p>
-                       <ul className="text-sm text-gray-600 list-disc pl-5 space-y-1">
+                       <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">El entorno natural es clave para la valorización del inmueble. En KONTE, diseñamos y mantenemos áreas verdes bajo criterios de sostenibilidad:</p>
+                       <ul className="text-sm text-gray-600 dark:text-gray-400 list-disc pl-5 space-y-1">
                            <li>Construcción de Paisajismo y jardineras en concreto.</li>
                            <li>Instalación de sistemas de riego eficientes.</li>
                            <li>Mantenimiento preventivo, poda y fertilización.</li>

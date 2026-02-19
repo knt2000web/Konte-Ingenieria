@@ -1,12 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Page } from '../types';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, User, Search, Globe, Phone, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
-  currentPage?: Page; // Deprecated but keeping for prop compatibility if needed
-  setPage?: (page: Page) => void; // Deprecated
+  currentPage?: any; // Mantenido para compatibilidad temporal
+  setPage?: any;     // Mantenido para compatibilidad temporal
   onLoginClick: () => void;
   isLoggedIn: boolean;
   isDarkMode: boolean;
@@ -17,7 +15,6 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -25,7 +22,11 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = (path: string) => location.pathname === path;
+  // Función para saber si un link está activo
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   const navLinks = [
     { label: 'INICIO', path: '/' },
@@ -38,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white dark:bg-bg-dark/95 shadow-lg py-2' : 'bg-white/95 dark:bg-bg-dark/80 backdrop-blur-sm py-3 border-b border-gray-100 dark:border-gray-800'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo with Slogan */}
+          {/* Logo con Link real */}
           <Link to="/" className="flex flex-col cursor-pointer group">
             <span className="text-3xl font-extrabold text-primary dark:text-blue-400 tracking-tighter leading-none group-hover:text-secondary dark:group-hover:text-blue-300 transition-colors">
               KONTE
@@ -48,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
             </span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Navegación Escritorio */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
@@ -62,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
               </Link>
             ))}
 
-            {/* Prominent Contact Button */}
+            {/* Botón Contacto */}
             <Link 
                 to="/contacto"
                 className="px-5 py-2.5 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
@@ -73,7 +74,6 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
             
             {/* Action Icons */}
             <div className="flex items-center space-x-4 border-l pl-6 border-gray-200 dark:border-gray-700">
-              {/* Dark Mode Toggle */}
               <button 
                 onClick={toggleDarkMode}
                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-300 transition-colors"
@@ -87,17 +87,28 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
                 <span>ES</span>
               </div>
               <Search className="w-5 h-5 text-gray-500 dark:text-gray-400 cursor-pointer hover:text-primary dark:hover:text-blue-400" />
-              <button 
-                onClick={isLoggedIn ? () => navigate('/dashboard') : onLoginClick}
-                className="flex items-center gap-2 bg-primary dark:bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
-              >
-                <User className="w-4 h-4" />
-                {isLoggedIn ? 'MI CUENTA' : 'ACCESO'}
-              </button>
+              
+              {isLoggedIn ? (
+                 <Link 
+                   to="/dashboard"
+                   className="flex items-center gap-2 bg-primary dark:bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
+                 >
+                   <User className="w-4 h-4" />
+                   MI CUENTA
+                 </Link>
+              ) : (
+                <button 
+                  onClick={onLoginClick}
+                  className="flex items-center gap-2 bg-primary dark:bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
+                >
+                  <User className="w-4 h-4" />
+                  ACCESO
+                </button>
+              )}
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Botón Menú Móvil */}
           <div className="md:hidden flex items-center gap-4">
              <button 
                 onClick={toggleDarkMode}
@@ -112,7 +123,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menú Móvil Desplegable */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 absolute w-full shadow-xl">
           <div className="px-4 pt-2 pb-6 space-y-2">
@@ -136,17 +147,27 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
                 CONTÁCTENOS
             </Link>
             <div className="border-t border-gray-100 dark:border-gray-800 mt-4 pt-4">
-               <button 
-                onClick={() => {
-                  if (isLoggedIn) navigate('/dashboard');
-                  else onLoginClick();
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full bg-primary dark:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2"
-              >
-                <User className="w-4 h-4" />
-                {isLoggedIn ? 'IR AL DASHBOARD' : 'ACCESO CLIENTES'}
-              </button>
+               {isLoggedIn ? (
+                  <Link 
+                    to="/dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full bg-primary dark:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2"
+                  >
+                    <User className="w-4 h-4" />
+                    IR AL DASHBOARD
+                  </Link>
+               ) : (
+                  <button 
+                    onClick={() => {
+                      onLoginClick();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full bg-primary dark:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2"
+                  >
+                    <User className="w-4 h-4" />
+                    ACCESO CLIENTES
+                  </button>
+               )}
             </div>
           </div>
         </div>

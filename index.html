@@ -4,11 +4,35 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google-site-verification" content="hosSdXfSHxIwQ798o1rm2wLazmYYWVaoLrcVUZX1saI" />
     <!-- Base tag removed to prevent conflict with HashRouter in subdirectories -->
     <title>KONTE - Ingeniería y Consultoría</title>
     <meta name="description" content="KONTE - Líderes en consultoría de ingeniería, construcción de estaciones de servicio, normativa ANI y propiedad horizontal en Boyacá y Colombia.">
+    
+    <!-- Tailwind Config MUST be defined before loading the CDN script -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif']
+            },
+            colors: {
+              primary: "#003399", 
+              secondary: "#002266",
+              accent: "#0056D2",
+              "bg-light": "#F5F7FA",
+              "bg-dark": "#111827",
+              "bg-dark-card": "#1F2937",
+              "text-main": "#111827",
+              "text-muted": "#6B7280"
+            }
+          }
+        }
+      };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     
@@ -59,28 +83,6 @@
     }
     </script>
 
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif']
-            },
-            colors: {
-              primary: "#003399", 
-              secondary: "#002266",
-              accent: "#0056D2",
-              "bg-light": "#F5F7FA",
-              "bg-dark": "#111827",
-              "bg-dark-card": "#1F2937",
-              "text-main": "#111827",
-              "text-muted": "#6B7280"
-            }
-          }
-        }
-      };
-    </script>
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -119,10 +121,12 @@
   }
 }
 </script>
-  </head>
+  <link rel="stylesheet" href="/index.css">
+</head>
   <body>
     <div id="root"></div>
     <!-- Use relative path for script -->
     <script type="module" src="./index.tsx"></script>
-  </body>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>

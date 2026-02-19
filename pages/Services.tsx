@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SERVICES } from '../constants';
@@ -100,7 +99,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
           {SERVICES.map((service, idx) => (
             <div key={service.id} className={`flex flex-col md:flex-row gap-12 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
               <div className="w-full md:w-1/2">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl group bg-gray-100">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl group bg-gray-100 dark:bg-gray-800">
                   {service.images && service.images.length > 1 ? (
                     <ServiceImageCarousel images={service.images} title={service.title} openLightbox={openLightbox} />
                   ) : (
@@ -119,19 +118,19 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
               </div>
               <div className="w-full md:w-1/2">
                 <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">{service.category}</span>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">{service.title}</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">{service.title}</h2>
+                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-8">
                   {service.description}
                 </p>
-                <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm mb-8">
-                  <h4 className="font-bold text-gray-900 mb-4">Incluye:</h4>
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm mb-8">
+                  <h4 className="font-bold text-gray-900 dark:text-white mb-4">Incluye:</h4>
                   <ul className="space-y-3">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-3">
-                        <span className="bg-green-100 text-green-600 rounded-full p-1">
+                        <span className="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full p-1">
                           <Check className="w-3 h-3" />
                         </span>
-                        <span className="text-gray-700 font-medium">{feature}</span>
+                        <span className="text-gray-700 dark:text-gray-300 font-medium">{feature}</span>
                       </li>
                     ))}
                   </ul>
