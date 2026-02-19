@@ -6,55 +6,47 @@ export const SERVICES: Service[] = [
     id: '1',
     category: 'GESTIÓN NORMATIVA',
     title: 'Licencias de Construcción y Gestión ANI',
-    description: 'Expertos en destrabar procesos administrativos ante Curadurías, ANI e INVIAS. Gestión especializada para Permisos de Ocupación de Vía (accesos, carriles de aceleración) y Licenciamiento Urbanístico integral (Licencias de Construcción, Reconocimiento, Demolición y Cerramiento).',
+    description: 'Expertos en destrabar procesos administrativos ante Curadurías, ANI e INVIAS. Gestión especializada para Permisos de Ocupación de Vía.',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
     images: [
       'https://i.imgur.com/0cakZKT.jpeg',
       'https://i.imgur.com/ZUrsq3i.jpeg',
       'https://i.imgur.com/SKOTGe5.jpeg',
       'https://i.imgur.com/DH3xrOm.jpeg',
-      'https://i.imgur.com/kFXSUGb.jpeg',
-      'https://i.imgur.com/EOTkdWh.jpeg',
-      'https://i.imgur.com/kTUKXXV.jpeg'
+      'https://i.imgur.com/kFXSUGb.jpeg'
     ],
     features: ['Permisos de Ocupación de Vía (ANI / INVIAS)', 'Licencias de Construcción (Obra Nueva, Ampliación)', 'Reconocimiento de Edificaciones y Demolición'],
+    detailedFeatures: [
+      { title: "Permisos de Ocupación de Vía", desc: "Gestión ante ANI, INVIAS y Concesionarios para accesos y carriles." },
+      { title: "Licenciamiento Urbanístico", desc: "Trámite integral de Licencias de Construcción, Reconocimiento y Demolición." },
+      { title: "Gestión ante Curadurías", desc: "Asesoría técnica y legal para destrabar procesos administrativos." }
+    ],
     icon: 'verified_user'
   },
   {
     id: '3',
     category: 'INGENIERÍA ESPECIALIZADA',
     title: 'Ingeniería y Diseño Especializado',
-    description: 'Desarrollamos ingeniería de detalle coordinada para garantizar la viabilidad constructiva y funcional de su proyecto, integrando tecnología BIM y normativa vigente.',
+    description: 'Desarrollamos ingeniería de detalle coordinada para garantizar la viabilidad constructiva y funcional de su proyecto, integrando tecnología BIM.',
     image: 'https://i.imgur.com/gy1Wtmv.jpeg',
     images: [
       'https://i.imgur.com/gy1Wtmv.jpeg',
       'https://i.imgur.com/kWPgJzL.jpeg',
       'https://i.imgur.com/lWor1n4.jpeg',
       'https://i.imgur.com/ZVY54xM.jpeg',
-      'https://i.imgur.com/3N0GclR.jpeg',
-      'https://i.imgur.com/2ZkWVha.jpeg',
-      'https://i.imgur.com/cGEKJ4Z.jpeg',
-      'https://i.imgur.com/cYB6XGF.jpeg',
-      'https://i.imgur.com/VmavSSe.jpeg',
-      'https://i.imgur.com/h8iXy5P.jpeg',
-      'https://i.imgur.com/ih3AnHi.jpeg',
-      'https://i.imgur.com/iHcADyk.jpeg',
-      'https://i.imgur.com/iOQmB1S.jpeg',
-      'https://i.imgur.com/OfgR16d.jpeg',
-      'https://i.imgur.com/L4KzsnF.jpeg',
-      'https://i.imgur.com/j79yfzb.jpeg',
-      'https://i.imgur.com/dcaFJac.jpeg',
-      'https://i.imgur.com/8XJn5qg.jpeg',
-      'https://i.imgur.com/kkauaER.jpeg',
-      'https://i.imgur.com/I4wbTb1.jpeg'
+      'https://i.imgur.com/3N0GclR.jpeg'
     ],
     features: [
       'Diseño Estructural y Vulnerabilidad',
       'Diseño de Redes Hidrosanitarias',
       'Diseños Eléctricos',
-      'Diseños de Redes de Gas',
-      'Sistemas Contra Incendio (NSR-10 / NFPA)',
       'Modelado BIM y Visualización 3D'
+    ],
+    detailedFeatures: [
+      { title: "Diseño Estructural y Vulnerabilidad", desc: "Análisis y diseño sismo-resistente optimizado según norma NSR-10." },
+      { title: "Diseño de Redes Hidrosanitarias", desc: "Redes de suministro, desagües y manejo de aguas lluvias optimizados." },
+      { title: "Sistemas Contra Incendio (NFPA)", desc: "Diseño hidráulico bajo norma NSR-10 y NFPA. Incluye tanques y redes." },
+      { title: "Modelado BIM y Visualización 3D", desc: "Renders fotorrealistas y coordinación de redes para prever conflictos." }
     ],
     icon: 'layers'
   },
@@ -62,59 +54,43 @@ export const SERVICES: Service[] = [
     id: '2',
     category: 'CONSULTORÍA TÉCNICA',
     title: 'Consultoría Técnica y Estudios de Campo',
-    description: 'Soporte técnico con equipos de precisión y laboratorios certificados. Realizamos Levantamientos Topográficos de alta precisión (GPS/Magna Sirgas segun IGAC), Estudios de Suelos y Geotecnia para cimentaciones seguras, Peritajes Técnicos de ingeniería forense y Avalúos Comerciales de inmuebles urbanos y rurales.',
+    description: 'Soporte técnico con equipos de precisión. Realizamos Levantamientos Topográficos, Estudios de Suelos y Peritajes Técnicos.',
     image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800',
     images: [
       'https://i.imgur.com/AoBxnOX.jpeg', 'https://i.imgur.com/Y4aW5ud.jpeg', 'https://i.imgur.com/yF6bs24.jpeg',
-      'https://i.imgur.com/taxhIth.jpeg', 'https://i.imgur.com/NwW89IY.jpeg', 'https://i.imgur.com/uC7X6Ip.jpeg',
-      'https://i.imgur.com/A9luB5K.jpeg', 'https://i.imgur.com/KcnRNVO.jpeg', 'https://i.imgur.com/aVimjbN.jpeg',
-      'https://i.imgur.com/G6tMhRO.jpeg', 'https://i.imgur.com/cnJyQLt.jpeg', 'https://i.imgur.com/61Ym3u6.jpeg',
-      'https://i.imgur.com/MCN6VRJ.jpeg', 'https://i.imgur.com/o88oMyn.jpeg', 'https://i.imgur.com/8nomM2N.jpeg',
-      'https://i.imgur.com/leAfufm.jpeg', 'https://i.imgur.com/dNygmgh.jpeg', 'https://i.imgur.com/sAImACh.jpeg',
-      'https://i.imgur.com/8tWPUKU.jpeg', 'https://i.imgur.com/sZkz0gJ.jpeg', 'https://i.imgur.com/d856eCs.jpeg',
-      'https://i.imgur.com/rM45Uyp.jpeg', 'https://i.imgur.com/3A2YnJv.jpeg', 'https://i.imgur.com/frwS0Cl.jpeg',
-      'https://i.imgur.com/IoG0eax.jpeg', 'https://i.imgur.com/oEEuzjh.jpeg', 'https://i.imgur.com/On1Xo8U.jpeg',
-      'https://i.imgur.com/2MyFD0k.jpeg', 'https://i.imgur.com/8RuyCj3.jpeg', 'https://i.imgur.com/wkxKARV.jpeg',
-      'https://i.imgur.com/u1LgYMm.jpeg', 'https://i.imgur.com/wYvqeqd.jpeg', 'https://i.imgur.com/G1UYDsy.jpeg',
-      'https://i.imgur.com/dsJxvEV.jpeg', 'https://i.imgur.com/6deAQhD.jpeg', 'https://i.imgur.com/5BN5pvl.jpeg',
-      'https://i.imgur.com/W3qdJkA.jpeg', 'https://i.imgur.com/WEK1hoG.jpeg', 'https://i.imgur.com/EqUCW9f.jpeg',
-      'https://i.imgur.com/xvGurX4.jpeg', 'https://i.imgur.com/0FwBt0X.jpeg', 'https://i.imgur.com/0equlv2.jpeg',
-      'https://i.imgur.com/Lq72UC4.jpeg', 'https://i.imgur.com/Kk2hsKb.jpeg', 'https://i.imgur.com/oK0q2q4.jpeg',
-      'https://i.imgur.com/PCXPmCE.jpeg', 'https://i.imgur.com/qQOWA3G.jpeg', 'https://i.imgur.com/7QTqOUT.jpeg',
-      'https://i.imgur.com/4KVnX74.jpeg', 'https://i.imgur.com/3zzsymi.jpeg', 'https://i.imgur.com/VDVh0z8.jpeg',
-      'https://i.imgur.com/unnoiqc.jpeg', 'https://i.imgur.com/S5eCaJq.jpeg', 'https://i.imgur.com/wpn5nwL.jpeg',
-      'https://i.imgur.com/p2XKqyL.jpeg', 'https://i.imgur.com/IiT5XkF.jpeg', 'https://i.imgur.com/2h8uDAb.jpeg',
-      'https://i.imgur.com/jrwEiza.jpeg', 'https://i.imgur.com/HPwFaMG.jpeg', 'https://i.imgur.com/Da8qvD5.jpeg',
-      'https://i.imgur.com/moPLdon.jpeg', 'https://i.imgur.com/tR8zaiN.jpeg', 'https://i.imgur.com/iqbGmFO.jpeg',
-      'https://i.imgur.com/dW9NauN.jpeg', 'https://i.imgur.com/6YdtCbW.jpeg'
+      'https://i.imgur.com/taxhIth.jpeg', 'https://i.imgur.com/NwW89IY.jpeg'
     ],
     features: ['Levantamientos Topográficos de Precisión', 'Estudios de Suelos y Geotecnia', 'Peritajes Técnicos y Avalúos Comerciales'],
+    detailedFeatures: [
+        { title: "Levantamientos Topográficos", desc: "Alta precisión con GPS y Estación Total, georreferenciación Magna Sirgas." },
+        { title: "Estudios de Suelos y Geotecnia", desc: "Análisis de capacidad portante para cimentaciones seguras." },
+        { title: "Peritajes Técnicos", desc: "Ingeniería forense para determinar causas de fallas y patologías." },
+        { title: "Avalúos Comerciales", desc: "Valoración técnica certificada de inmuebles urbanos y rurales." }
+    ],
     icon: 'architecture'
   },
   {
     id: '5',
     category: 'PROPIEDAD HORIZONTAL',
     title: 'Mantenimiento y Gestión de Propiedad Horizontal',
-    description: 'Soluciones integrales para la valorización de copropiedades. Especialistas en restauración de fachadas, impermeabilización técnica de cubiertas, obras civiles en zonas comunes y modernización de infraestructuras bajo normativa PH (Ley 675).',
+    description: 'Soluciones integrales para la valorización de copropiedades. Restauración de fachadas, impermeabilización y obras civiles.',
     image: 'https://i.imgur.com/uWQ2lnV.jpeg',
     images: [
       'https://i.imgur.com/uWQ2lnV.jpeg',
       'https://i.imgur.com/VQds1N0.jpeg',
       'https://i.imgur.com/sv5JNpt.jpeg',
-      'https://i.imgur.com/VzAhdFh.jpeg',
-      'https://i.imgur.com/VQv31Cd.jpeg',
-      'https://i.imgur.com/Q5WLYgH.jpeg',
-      'https://i.imgur.com/1F6zccP.jpeg',
-      'https://i.imgur.com/NXfmcyv.jpeg',
-      'https://i.imgur.com/qzumOZg.jpeg',
-      'https://i.imgur.com/rpIFIjZ.jpeg',
-      'https://i.imgur.com/N6MH44G.jpeg'
+      'https://i.imgur.com/VzAhdFh.jpeg'
     ],
     features: [
       'Mantenimiento y Restauración de Fachadas',
       'Impermeabilización Técnica de Cubiertas',
-      'Remodelación de Zonas Comunes y Porterías',
-      'Refuerzo Estructural y Paisajismo'
+      'Remodelación de Zonas Comunes'
+    ],
+    detailedFeatures: [
+        { title: "Mantenimiento de Fachadas", desc: "Limpieza técnica, pintura y restauración de acabados." },
+        { title: "Impermeabilización de Cubiertas", desc: "Sistemas técnicos garantizados para techos y terrazas." },
+        { title: "Obras Civiles en Zonas Comunes", desc: "Reparación y modernización de áreas de alto tráfico y porterías." },
+        { title: "Paisajismo y Porterías", desc: "Diseño de jardines sostenibles y adecuación de accesos seguros." }
     ],
     icon: 'apartment'
   },
@@ -122,35 +98,40 @@ export const SERVICES: Service[] = [
     id: '4',
     category: 'INFRAESTRUCTURA DE SALUD',
     title: 'Diseño y Construcción Hospitalario',
-    description: 'Expertos en infraestructura clínica de alta complejidad. Diseñamos entornos que fusionan el cumplimiento normativo riguroso (Res. 3100) con la humanización de espacios, garantizando asepsia y eficiencia.',
+    description: 'Expertos en infraestructura clínica. Diseñamos entornos que fusionan el cumplimiento normativo (Res. 3100) con la humanización de espacios.',
     image: 'https://i.imgur.com/2MSg8r8.jpeg',
     images: [
       'https://i.imgur.com/ufW0oT0.jpeg',
       'https://i.imgur.com/2MSg8r8.jpeg',
       'https://i.imgur.com/QdUq7DJ.jpeg',
-      'https://i.imgur.com/NMAw6HO.jpeg',
-      'https://i.imgur.com/vlqPgoZ.jpeg',
-      'https://i.imgur.com/mqpjTwy.jpeg',
-      'https://i.imgur.com/wz088yV.jpeg',
-      'https://i.imgur.com/cJ2scgB.jpeg'
+      'https://i.imgur.com/NMAw6HO.jpeg'
     ],
-    features: ['Habilitación en Salud y Normativa 3100', 'Redes de Gases Medicinales y Aire Acondicionado', 'Arquitectura Humanizada y Funcional'],
+    features: ['Habilitación en Salud y Normativa 3100', 'Redes de Gases Medicinales', 'Arquitectura Humanizada'],
+    detailedFeatures: [
+        { title: "Normativa y Habilitación (Res. 3100)", desc: "Diseño riguroso cumpliendo estándares de habilitación en salud." },
+        { title: "Redes Especializadas", desc: "Gases medicinales, aire acondicionado hospitalario y redes de soporte." },
+        { title: "Arquitectura Humanizada", desc: "Espacios diseñados para el bienestar del paciente y eficiencia médica." }
+    ],
     icon: 'local_hospital'
   },
   {
     id: '6',
     category: 'SOLUCIONES ESPECIALIZADAS',
     title: 'KONTE Fuel-Shield',
-    description: 'Diagnóstico, limpieza y micro-filtración de tanques de almacenamiento de diésel. Garantizamos la calidad del combustible para flotas modernas, previniendo daños en inyectores y asegurando el cumplimiento de estándares internacionales ISO 4406.',
+    description: 'Diagnóstico, limpieza y micro-filtración de tanques de diésel. Garantizamos calidad de combustible y cumplimiento ISO 4406.',
     image: 'https://i.imgur.com/eZh9AGz.jpeg', 
     images: [
        'https://i.imgur.com/eZh9AGz.jpeg', 
        'https://i.imgur.com/MYOBl48.jpeg',
-       'https://i.imgur.com/52vI0Sk.jpeg',
-       'https://i.imgur.com/ENyFxia.jpeg',
-       'https://i.imgur.com/TalpuBW.jpeg'
+       'https://i.imgur.com/52vI0Sk.jpeg'
     ],
     features: ['Micro-filtración (2 micras)', 'Limpieza de Tanques', 'Certificación ISO 4406'],
+    detailedFeatures: [
+        { title: "Diagnóstico Clear & Bright", desc: "Pruebas de campo para detección visual de partículas y agua." },
+        { title: "Micro-filtración (2 Micras)", desc: "Tecnología de diálisis que elimina contaminantes microscópicos." },
+        { title: "Limpieza de Tanques", desc: "Remoción de lodos (sludge) y biopelículas del fondo del tanque." },
+        { title: "Certificación ISO 4406", desc: "Análisis de laboratorio y certificado de limpieza de fluidos." }
+    ],
     icon: 'water_drop'
   }
 ];

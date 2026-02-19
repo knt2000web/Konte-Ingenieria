@@ -8,6 +8,7 @@ export interface Service {
   images?: string[];
   features: string[];
   icon: string;
+  detailedFeatures?: { title: string; desc: string }[];
 }
 
 export interface Project {
@@ -25,7 +26,7 @@ export interface Project {
   slug?: string;
   fullDescription?: string;
   seoKeywords?: string;
-  seoH1?: string; // New field for optimized SEO H1
+  seoH1?: string; 
 }
 
 export interface ClientData {
