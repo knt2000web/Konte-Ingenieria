@@ -1,19 +1,14 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Linkedin, Youtube, Twitter, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import { Page } from '../types';
 
 interface FooterProps {
-  setPage: (page: Page) => void;
+  setPage?: (page: Page) => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ setPage }) => {
-  const handleNavigation = (e: React.MouseEvent, page: Page) => {
-    e.preventDefault();
-    setPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+const Footer: React.FC<FooterProps> = () => {
   const generalWaLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20consultor%20sobre%20sus%20servicios%20de%20ingenier%C3%ADa%20y%20construcci%C3%B3n.";
 
   return (
@@ -22,9 +17,9 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2 pr-8">
-            <div className="text-3xl font-extrabold text-primary dark:text-blue-400 tracking-tighter mb-6 cursor-pointer" onClick={(e) => handleNavigation(e, Page.HOME)}>
+            <Link to="/" className="text-3xl font-extrabold text-primary dark:text-blue-400 tracking-tighter mb-6 cursor-pointer block">
               KONTE
-            </div>
+            </Link>
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">
               Líderes en consultoría de ingeniería y construcción. Transformamos visiones en infraestructuras tangibles con los más altos estándares de calidad y cumplimiento normativo.
             </p>
@@ -42,24 +37,24 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
             <h3 className="text-sm font-bold text-gray-900 dark:text-gray-200 uppercase tracking-wider mb-4">Soluciones</h3>
             <ul className="space-y-3">
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.SERVICES)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                <Link to="/servicios" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Consultoría General
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.SERVICE_ANI)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                <Link to="/servicios/gestion-ani" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Proyectos ANI
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.SERVICE_PH)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                <Link to="/servicios/propiedad-horizontal" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Propiedad Horizontal
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.SERVICE_DIESEL)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                <Link to="/servicios/fuel-shield" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Filtración Diésel
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -68,24 +63,24 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
             <h3 className="text-sm font-bold text-gray-900 dark:text-gray-200 uppercase tracking-wider mb-4">Empresa</h3>
             <ul className="space-y-3">
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.ABOUT)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                <Link to="/nosotros" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Quiénes Somos
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.ABOUT)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                <Link to="/nosotros" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Cultura Corporativa
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.ABOUT)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                <Link to="/nosotros" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Sostenibilidad
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={(e) => handleNavigation(e, Page.CONTACT)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                <Link to="/contacto" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Trabaja con nosotros
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

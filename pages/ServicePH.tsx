@@ -1,14 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
 import { ChevronRight, ZoomIn, ArrowRight, ShieldCheck, Paintbrush, Hammer, Building, Droplets, Flower2, Clock, Users, CheckCircle2 } from 'lucide-react';
 
 interface ServicePHProps {
-  setPage: (page: Page) => void;
+  setPage?: (page: Page) => void;
   openLightbox: (index: number, images: string[]) => void;
 }
 
-const ServicePH: React.FC<ServicePHProps> = ({ setPage, openLightbox }) => {
+const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
+  const navigate = useNavigate();
   const [fachadaIndex, setFachadaIndex] = useState(0);
   const [impermeabilizacionIndex, setImpermeabilizacionIndex] = useState(0);
   const [zonasComunesIndex, setZonasComunesIndex] = useState(0);
@@ -78,7 +80,7 @@ const ServicePH: React.FC<ServicePHProps> = ({ setPage, openLightbox }) => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-3xl pointer-events-auto">
               <div className="flex items-center gap-2 text-blue-200 mb-4 text-sm font-bold tracking-wider uppercase">
-                <span onClick={() => setPage(Page.SERVICES)} className="cursor-pointer hover:text-white transition-colors">Servicios</span>
+                <span onClick={() => navigate('/servicios')} className="cursor-pointer hover:text-white transition-colors">Servicios</span>
                 <ChevronRight className="w-4 h-4" />
                 <span>Propiedad Horizontal</span>
               </div>

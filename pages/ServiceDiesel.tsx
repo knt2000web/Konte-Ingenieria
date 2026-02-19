@@ -1,14 +1,16 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
 import { Droplets, AlertTriangle, Search, CheckCircle2, Zap, FileCheck, ShieldCheck, ZoomIn, ArrowRight, Settings } from 'lucide-react';
 
 interface ServiceDieselProps {
-  setPage: (page: Page) => void;
+  setPage?: (page: Page) => void;
   openLightbox: (index: number, images: string[]) => void;
 }
 
-const ServiceDiesel: React.FC<ServiceDieselProps> = ({ setPage, openLightbox }) => {
+const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
+  const navigate = useNavigate();
   // WhatsApp Link for Fuel-Shield
   const waLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20solicito%20el%20Diagn%C3%B3stico%20Clear%20%26%20Bright%20para%20mi%20EDS.";
 
@@ -48,7 +50,7 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ setPage, openLightbox }) 
                 <Search className="w-5 h-5" /> SOLICITAR DIAGNÓSTICO
               </a>
               <button 
-                  onClick={() => setPage(Page.CONTACT)}
+                  onClick={() => navigate('/contacto')}
                   className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg backdrop-blur-sm transition-all"
               >
                 CONTACTAR INGENIERO

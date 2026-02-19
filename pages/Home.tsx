@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SERVICES } from '../constants';
 import { Page } from '../types';
 import { ArrowRight, CheckCircle, Award, Users, Globe, ZoomIn } from 'lucide-react';
 
 interface HomeProps {
-  setPage: (page: Page) => void;
+  setPage?: (page: Page) => void;
   openLightbox: (index: number, images: string[]) => void;
 }
 
@@ -142,7 +143,8 @@ const FUEL_SHIELD_SUB_SERVICES = [
   }
 ];
 
-const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
+const Home: React.FC<HomeProps> = ({ openLightbox }) => {
+  const navigate = useNavigate();
   // State for Specialized Engineering (ID 3)
   const [featureIndex, setFeatureIndex] = useState(0);
   const [bgImageIndex, setBgImageIndex] = useState(0);
@@ -308,13 +310,13 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4" onClick={(e) => e.stopPropagation()}>
                 <button 
-                  onClick={() => setPage(Page.SERVICES)}
+                  onClick={() => navigate('/servicios')}
                   className="px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-lg hover:shadow-primary/50 flex items-center justify-center gap-2"
                 >
                   NUESTROS SERVICIOS <ArrowRight className="w-5 h-5" />
                 </button>
                 <button 
-                  onClick={() => setPage(Page.PROJECTS)}
+                  onClick={() => navigate('/proyectos')}
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-lg font-bold transition-all flex items-center justify-center"
                 >
                   VER PROYECTOS
@@ -415,7 +417,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
             <div className="h-1 w-20 bg-primary dark:bg-blue-500 rounded-full"></div>
           </div>
           <button 
-            onClick={() => setPage(Page.SERVICES)}
+            onClick={() => navigate('/servicios')}
             className="hidden md:flex items-center text-primary dark:text-blue-400 font-bold hover:text-secondary dark:hover:text-blue-300 transition-colors"
           >
             VER TODOS <ArrowRight className="w-5 h-5 ml-1" />
@@ -495,7 +497,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                       </div>
 
                       <button 
-                        onClick={() => setPage(Page.SERVICES)}
+                        onClick={() => navigate('/servicios/ingenieria-especializada')}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         VER DETALLES COMPLETOS
@@ -576,7 +578,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                       </div>
 
                       <button 
-                        onClick={() => setPage(Page.SERVICE_ANI)}
+                        onClick={() => navigate('/servicios/gestion-ani')}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         VER DETALLES COMPLETOS
@@ -657,7 +659,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                       </div>
 
                       <button 
-                        onClick={() => setPage(Page.SERVICE_PH)}
+                        onClick={() => navigate('/servicios/propiedad-horizontal')}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         VER DETALLES COMPLETOS
@@ -738,7 +740,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                       </div>
 
                       <button 
-                        onClick={() => setPage(Page.SERVICES)}
+                        onClick={() => navigate('/servicios/infraestructura-hospitalaria')}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         VER DETALLES COMPLETOS
@@ -819,7 +821,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                       </div>
 
                       <button 
-                        onClick={() => setPage(Page.SERVICES)}
+                        onClick={() => navigate('/servicios/consultoria-tecnica')}
                         className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         VER DETALLES COMPLETOS
@@ -900,7 +902,7 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                       </div>
 
                       <button 
-                        onClick={() => setPage(Page.SERVICE_DIESEL)}
+                        onClick={() => navigate('/servicios/fuel-shield')}
                         className="w-full py-3 bg-orange-600 text-white rounded-lg font-bold hover:bg-orange-700 transition-all text-sm uppercase tracking-wide shadow-md"
                       >
                         VER DETALLES COMPLETOS
@@ -942,8 +944,8 @@ const Home: React.FC<HomeProps> = ({ setPage, openLightbox }) => {
                   <button 
                      onClick={() => {
                         // Logic for redirect if applicable, otherwise services page
-                        if (service.id === '6') setPage(Page.SERVICE_DIESEL);
-                        else setPage(Page.SERVICES);
+                        if (service.id === '6') navigate('/servicios/fuel-shield');
+                        else navigate('/servicios');
                      }}
                      className="w-full py-3 border border-primary dark:border-blue-500 text-primary dark:text-blue-400 rounded-lg font-bold hover:bg-primary dark:hover:bg-blue-600 hover:text-white transition-all text-sm uppercase tracking-wide"
                   >

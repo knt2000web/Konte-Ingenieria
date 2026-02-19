@@ -1,14 +1,16 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
 import { CheckCircle2, AlertTriangle, FileText, Clock, Trophy, ShieldCheck, ArrowRight, ChevronRight, ListChecks, ArrowDown, ZoomIn } from 'lucide-react';
 
 interface ServiceAniProps {
-  setPage: (page: Page) => void;
+  setPage?: (page: Page) => void;
   openLightbox: (index: number, images: string[]) => void;
 }
 
-const ServiceAni: React.FC<ServiceAniProps> = ({ setPage, openLightbox }) => {
+const ServiceAni: React.FC<ServiceAniProps> = ({ openLightbox }) => {
+  const navigate = useNavigate();
   // WhatsApp Link for EDS Design
   const waLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20busco%20asesor%C3%ADa%20en%20dise%C3%B1o%20y%20normativa%20para%20una%20nueva%20Estaci%C3%B3n%20de%20Servicio.";
 
@@ -33,7 +35,7 @@ const ServiceAni: React.FC<ServiceAniProps> = ({ setPage, openLightbox }) => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-3xl pointer-events-auto">
               <div className="flex items-center gap-2 text-blue-200 mb-4 text-sm font-bold tracking-wider uppercase">
-                <span onClick={() => setPage(Page.SERVICES)} className="cursor-pointer hover:text-white transition-colors">Servicios</span>
+                <span onClick={() => navigate('/servicios')} className="cursor-pointer hover:text-white transition-colors">Servicios</span>
                 <ChevronRight className="w-4 h-4" />
                 <span>Gestión Normativa</span>
               </div>
@@ -264,7 +266,7 @@ const ServiceAni: React.FC<ServiceAniProps> = ({ setPage, openLightbox }) => {
                        </div>
                     </div>
                   </div>
-                  <button onClick={() => setPage(Page.PROJECTS)} className="text-white border-b border-white hover:text-primary hover:border-primary transition-colors pb-1 text-sm">
+                  <button onClick={() => navigate('/proyectos')} className="text-white border-b border-white hover:text-primary hover:border-primary transition-colors pb-1 text-sm">
                     Ver Proyectos Realizados &rarr;
                   </button>
                </div>

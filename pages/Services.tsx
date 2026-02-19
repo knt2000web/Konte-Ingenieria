@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SERVICES } from '../constants';
 import { Check, ArrowRight, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { Page } from '../types';
 
 interface ServicesProps {
-  setPage: (page: Page) => void;
+  setPage?: (page: Page) => void;
   openLightbox: (index: number, images: string[]) => void;
 }
 
@@ -80,9 +81,11 @@ const ServiceImageCarousel = ({ images, title, openLightbox }: { images: string[
   );
 };
 
-const Services: React.FC<ServicesProps> = ({ setPage, openLightbox }) => {
+const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="pt-20 pb-12 animate-in fade-in duration-500">
+    <div className="pt-20 pb-12">
       <div className="bg-primary py-20 text-white mb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <h1 className="text-4xl md:text-5xl font-bold mb-4">Nuestros Servicios</h1>
@@ -136,28 +139,28 @@ const Services: React.FC<ServicesProps> = ({ setPage, openLightbox }) => {
                 
                 {service.id === '1' ? (
                   <button 
-                    onClick={() => setPage(Page.SERVICE_ANI)}
+                    onClick={() => navigate('/servicios/gestion-ani')}
                     className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-secondary transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
                   >
                     VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
                 ) : service.id === '5' ? (
                   <button 
-                    onClick={() => setPage(Page.SERVICE_PH)}
+                    onClick={() => navigate('/servicios/propiedad-horizontal')}
                     className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-secondary transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
                   >
                     VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
                 ) : service.id === '6' ? (
                   <button 
-                    onClick={() => setPage(Page.SERVICE_DIESEL)}
+                    onClick={() => navigate('/servicios/fuel-shield')}
                     className="w-full md:w-auto px-8 py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all shadow-lg hover:shadow-orange-500/30 flex items-center justify-center gap-2"
                   >
                     VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
                 ) : (
                   <button 
-                    onClick={() => setPage(Page.CONTACT)}
+                    onClick={() => navigate('/contacto')}
                     className="w-full md:w-auto px-8 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors shadow-sm"
                   >
                     SOLICITAR COTIZACIÓN

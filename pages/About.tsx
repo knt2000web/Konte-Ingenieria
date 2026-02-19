@@ -1,14 +1,17 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
-import { Target, Building2, HardHat, CheckCircle, Truck, Briefcase, Ruler, ArrowRight, ZoomIn } from 'lucide-react';
+import { Target, Building2, HardHat, CheckCircle, Truck, Briefcase, Ruler, ArrowRight, ZoomIn, Layers } from 'lucide-react';
 
 interface AboutProps {
-  setPage: (page: Page) => void;
+  setPage?: (page: Page) => void;
   openLightbox: (index: number, images: string[]) => void;
 }
 
-const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
+const About: React.FC<AboutProps> = ({ openLightbox }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="animate-in fade-in duration-700">
       {/* Hero Section */}
@@ -127,7 +130,7 @@ const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
                   </div>
                </div>
                <button 
-                 onClick={() => setPage(Page.SERVICE_ANI)}
+                 onClick={() => navigate('/servicios/gestion-ani')}
                  className="px-6 py-3 bg-orange-600 text-white font-bold rounded hover:bg-orange-700 transition-colors shrink-0"
                >
                  Ver Detalles Normativos
@@ -186,8 +189,8 @@ const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
                 <ul className="space-y-2">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="mt-1.5 w-1.5 h-1.5 bg-accent rounded-full shrink-0"></span>
-                      {item}
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -195,82 +198,9 @@ const About: React.FC<AboutProps> = ({ setPage, openLightbox }) => {
             ))}
           </div>
         </div>
-
-        {/* Proveeduría */}
-        <div className="bg-slate-50 rounded-3xl p-10 md:p-16 mb-20">
-           <div className="flex flex-col md:flex-row gap-12 items-center">
-             <div className="w-full md:w-1/2">
-               <h2 className="text-3xl font-bold text-gray-900 mb-6">KONTE Como Proveedor</h2>
-               <p className="text-gray-700 mb-8 leading-relaxed">
-                 Ofrecemos la actividad de suministro de materiales y elementos de cualquier clase, cumpliendo con las necesidades de nuestros clientes con excelente calidad y precios competitivos.
-               </p>
-               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                 {[
-                   'Equipos médicos y medicamentos',
-                   'Elementos eléctricos',
-                   'Computadoras y monitoreo',
-                   'Libros y papelería',
-                   'Cortinería hospitalaria',
-                   'Maquinaria de construcción'
-                 ].map((item, i) => (
-                   <div key={i} className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-slate-200">
-                     <CheckCircle className="w-4 h-4 text-green-500" />
-                     <span className="text-sm font-medium text-gray-800">{item}</span>
-                   </div>
-                 ))}
-               </div>
-             </div>
-             <div 
-                className="w-full md:w-1/2 relative cursor-pointer group"
-                onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000"])}
-             >
-               <div className="absolute inset-0 bg-primary/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
-               <img 
-                 src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000" 
-                 alt="Suministros y Logística" 
-                 className="rounded-2xl shadow-lg relative z-10 w-full object-cover"
-               />
-               <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ZoomIn className="text-white w-12 h-12 drop-shadow-xl" />
-               </div>
-             </div>
-           </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">¿Listo para iniciar su proyecto con nosotros?</h2>
-          <button 
-            onClick={() => setPage(Page.CONTACT)}
-            className="px-10 py-4 bg-primary text-white font-bold rounded-full hover:bg-secondary transition-all shadow-xl hover:scale-105 flex items-center gap-2 mx-auto"
-          >
-            CONTÁCTENOS AHORA <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
-
       </div>
     </div>
   );
 };
-
-// Helper component for Icon
-const Layers = ({ className }: { className?: string }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
-    <polygon points="12 2 2 7 12 12 22 7 12 2" />
-    <polyline points="2 17 12 22 22 17" />
-    <polyline points="2 12 12 17 22 12" />
-  </svg>
-);
 
 export default About;

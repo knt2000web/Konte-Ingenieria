@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SEO from './components/SEO';
@@ -10,16 +11,62 @@ import ServiceAni from './pages/ServiceAni';
 import ServicePH from './pages/ServicePH';
 import ServiceDiesel from './pages/ServiceDiesel';
 import Projects from './pages/Projects';
+import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
 import ClientDashboard from './pages/ClientDashboard';
 import LoginModal from './components/LoginModal';
-import { Page } from './types';
-import { MessageCircle, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
+
+// SEO Wrapper Component to handle route-based SEO
+const SEOHandler = () => {
+  const location = useLocation();
+  let title = "Consultoría y Tecnología";
+  let description = "Soluciones integrales de ingeniería y construcción.";
+
+  // Basic route matching
+  const path = location.pathname;
+  if (path === '/') {
+    title = "Inicio - Consultoría y Construcción";
+    description = "KONTE: Líderes en ingeniería, construcción de estaciones de servicio, consultoría normativa ANI y propiedad horizontal en Colombia.";
+  } else if (path === '/nosotros') {
+    title = "Nosotros - Experiencia y Equipo";
+    description = "Conozca a KONTE. Más de 15 años de experiencia en ingeniería civil, infraestructura hospitalaria y soluciones técnicas especializadas.";
+  } else if (path === '/servicios') {
+    title = "Servicios de Ingeniería";
+    description = "Portafolio de servicios: Gestión normativa ANI, construcción hospitalaria, propiedad horizontal, estudios de suelos y topografía.";
+  } else if (path === '/servicios/gestion-ani') {
+    title = "Gestión Normativa ANI y Licencias";
+    description = "Expertos en permisos de ocupación de vía, trámites ante ANI e INVIAS y licenciamiento urbanístico para estaciones de servicio.";
+  } else if (path === '/servicios/propiedad-horizontal') {
+    title = "Mantenimiento Propiedad Horizontal";
+    description = "Restauración de fachadas, impermeabilización de cubiertas y obras civiles para conjuntos residenciales y edificios.";
+  } else if (path === '/servicios/fuel-shield') {
+    title = "KONTE Fuel-Shield - Filtración Diésel";
+    description = "Diagnóstico y limpieza de tanques de combustible. Micro-filtración y certificación ISO 4406 para protección de motores Euro VI.";
+  } else if (path === '/proyectos') {
+    title = "Proyectos Realizados";
+    description = "Galería de proyectos KONTE: Estaciones de servicio, infraestructura clínica, reforzamiento estructural y obras civiles a nivel nacional.";
+  } else if (path === '/contacto') {
+    title = "Contáctenos";
+    description = "Póngase en contacto con nuestros ingenieros. Cotizaciones y asesoría técnica en Duitama, Boyacá y toda Colombia.";
+  } else if (path === '/dashboard') {
+    title = "Panel de Cliente";
+    description = "Área privada para clientes KONTE. Gestión de proyectos y documentos.";
+  }
+  // Note: Individual Project SEO is handled inside ProjectDetail component
+
+  // Don't render SEO here if it's a project detail page to avoid overwriting
+  if (path.startsWith('/proyectos/')) {
+      return null;
+  }
+
+  return <SEO title={title} description={description} />;
+};
 
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<Page>(Page.HOME);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-  
+  const location = useLocation();
+
   // Initialize Login State from LocalStorage
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -31,7 +78,7 @@ const App: React.FC = () => {
   // Scroll to top whenever page changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [location.pathname]);
 
   // Lightbox State
   const [lightboxState, setLightboxState] = useState<{
@@ -69,13 +116,11 @@ const App: React.FC = () => {
   const handleLogin = () => {
     setIsLoggedIn(true);
     localStorage.setItem('konte-auth', 'true'); // Persist Login
-    setCurrentPage(Page.DASHBOARD);
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem('konte-auth'); // Clear Persistence
-    setCurrentPage(Page.HOME);
   };
 
   const openLightbox = (index: number, images: string[]) => {
@@ -122,99 +167,14 @@ const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxState, nextImage, prevImage]);
 
-  // Helper function to get SEO data based on page
-  const getPageSEO = (page: Page) => {
-    switch (page) {
-      case Page.HOME:
-        return { 
-          title: "Inicio - Consultoría y Construcción", 
-          description: "KONTE: Líderes en ingeniería, construcción de estaciones de servicio, consultoría normativa ANI y propiedad horizontal en Colombia."
-        };
-      case Page.ABOUT:
-        return { 
-          title: "Nosotros - Experiencia y Equipo", 
-          description: "Conozca a KONTE. Más de 15 años de experiencia en ingeniería civil, infraestructura hospitalaria y soluciones técnicas especializadas."
-        };
-      case Page.SERVICES:
-        return { 
-          title: "Servicios de Ingeniería", 
-          description: "Portafolio de servicios: Gestión normativa ANI, construcción hospitalaria, propiedad horizontal, estudios de suelos y topografía."
-        };
-      case Page.SERVICE_ANI:
-        return { 
-          title: "Gestión Normativa ANI y Licencias", 
-          description: "Expertos en permisos de ocupación de vía, trámites ante ANI e INVIAS y licenciamiento urbanístico para estaciones de servicio."
-        };
-      case Page.SERVICE_PH:
-        return { 
-          title: "Mantenimiento Propiedad Horizontal", 
-          description: "Restauración de fachadas, impermeabilización de cubiertas y obras civiles para conjuntos residenciales y edificios."
-        };
-      case Page.SERVICE_DIESEL:
-        return { 
-          title: "KONTE Fuel-Shield - Filtración Diésel", 
-          description: "Diagnóstico y limpieza de tanques de combustible. Micro-filtración y certificación ISO 4406 para protección de motores Euro VI."
-        };
-      case Page.PROJECTS:
-        return { 
-          title: "Proyectos Realizados", 
-          description: "Galería de proyectos KONTE: Estaciones de servicio, infraestructura clínica, reforzamiento estructural y obras civiles a nivel nacional."
-        };
-      case Page.CONTACT:
-        return { 
-          title: "Contáctenos", 
-          description: "Póngase en contacto con nuestros ingenieros. Cotizaciones y asesoría técnica en Duitama, Boyacá y toda Colombia."
-        };
-      case Page.DASHBOARD:
-        return { 
-          title: "Panel de Cliente", 
-          description: "Área privada para clientes KONTE. Gestión de proyectos y documentos."
-        };
-      default:
-        return { 
-          title: "Consultoría y Tecnología", 
-          description: "Soluciones integrales de ingeniería y construcción."
-        };
-    }
-  };
-
-  const seoData = getPageSEO(currentPage);
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case Page.HOME:
-        return <Home setPage={setCurrentPage} openLightbox={openLightbox} />;
-      case Page.ABOUT:
-        return <About setPage={setCurrentPage} openLightbox={openLightbox} />;
-      case Page.SERVICES:
-        return <Services setPage={setCurrentPage} openLightbox={openLightbox} />;
-      case Page.SERVICE_ANI:
-        return <ServiceAni setPage={setCurrentPage} openLightbox={openLightbox} />;
-      case Page.SERVICE_PH:
-        return <ServicePH setPage={setCurrentPage} openLightbox={openLightbox} />;
-      case Page.SERVICE_DIESEL:
-        return <ServiceDiesel setPage={setCurrentPage} openLightbox={openLightbox} />;
-      case Page.PROJECTS:
-        return <Projects openLightbox={openLightbox} />;
-      case Page.CONTACT:
-        return <Contact openLightbox={openLightbox} />;
-      case Page.DASHBOARD:
-        return isLoggedIn ? <ClientDashboard onLogout={handleLogout} /> : <Home setPage={setCurrentPage} openLightbox={openLightbox} />;
-      default:
-        return <Home setPage={setCurrentPage} openLightbox={openLightbox} />;
-    }
-  };
-
   const generalWaLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20consultor%20sobre%20sus%20servicios%20de%20ingenier%C3%ADa%20y%20construcci%C3%B3n.";
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${isDarkMode ? 'bg-bg-dark text-gray-100' : 'bg-bg-light text-text-main'} relative`}>
       {/* Inject Dynamic SEO based on current page */}
-      <SEO title={seoData.title} description={seoData.description} />
+      <SEOHandler />
 
       <Navbar 
-        currentPage={currentPage} 
-        setPage={setCurrentPage} 
         onLoginClick={() => setLoginModalOpen(true)}
         isLoggedIn={isLoggedIn}
         isDarkMode={isDarkMode}
@@ -222,10 +182,29 @@ const App: React.FC = () => {
       />
       
       <main className="flex-grow">
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<Home openLightbox={openLightbox} />} />
+          <Route path="/nosotros" element={<About setPage={() => {}} openLightbox={openLightbox} />} />
+          <Route path="/servicios" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />
+          <Route path="/servicios/gestion-ani" element={<ServiceAni setPage={() => {}} openLightbox={openLightbox} />} />
+          <Route path="/servicios/propiedad-horizontal" element={<ServicePH setPage={() => {}} openLightbox={openLightbox} />} />
+          <Route path="/servicios/fuel-shield" element={<ServiceDiesel setPage={() => {}} openLightbox={openLightbox} />} />
+          {/* Fallback routes for specific services to main services page */}
+          <Route path="/servicios/consultoria-tecnica" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />
+          <Route path="/servicios/ingenieria-especializada" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />
+          <Route path="/servicios/infraestructura-hospitalaria" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />
+          
+          <Route path="/proyectos" element={<Projects openLightbox={openLightbox} />} />
+          <Route path="/proyectos/:slug" element={<ProjectDetail openLightbox={openLightbox} />} />
+          <Route path="/contacto" element={<Contact openLightbox={openLightbox} />} />
+          <Route 
+             path="/dashboard" 
+             element={isLoggedIn ? <ClientDashboard onLogout={handleLogout} /> : <Home openLightbox={openLightbox} />} 
+          />
+        </Routes>
       </main>
 
-      <Footer setPage={setCurrentPage} />
+      <Footer />
 
       <LoginModal 
         isOpen={isLoginModalOpen} 

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 import { MapPin, Calendar, Maximize2, Play, X, ZoomIn } from 'lucide-react';
@@ -12,6 +13,7 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const navigate = useNavigate();
   
   const images = project.images && project.images.length > 0 ? project.images : [project.image];
   const isDriveVideo = project.video?.includes('drive.google.com');
@@ -37,8 +39,16 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
     setShowVideo(false); 
   };
 
-  const handleImageClick = (e: React.MouseEvent) => {
-     // If not showing video, open lightbox with current index and ALL images
+  const handleCardClick = (e: React.MouseEvent) => {
+     // If project has slug, navigate to detail page
+     if (project.slug && !showVideo) {
+         // Defensive: remove any 'proyectos/' prefix that might exist in data or from previous issues
+         const cleanSlug = project.slug.replace(/^proyectos\//, '').replace(/\/$/, '');
+         navigate(`/proyectos/${cleanSlug}`);
+         return;
+     }
+
+     // If no slug, just open lightbox
      if (!showVideo) {
         openLightbox(currentImageIndex, images);
      }
@@ -46,15 +56,15 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
 
   return (
     <div 
-      className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
+      className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full cursor-pointer"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
         setIsHovering(false);
         setCurrentImageIndex(0); // Reset to cover image when mouse leaves
       }}
-      onClick={handleImageClick}
+      onClick={handleCardClick}
     >
-      <div className="relative h-64 overflow-hidden shrink-0 bg-gray-100 cursor-pointer">
+      <div className="relative h-64 overflow-hidden shrink-0 bg-gray-100">
         
         {showVideo && project.video ? (
           <div className="relative w-full h-full bg-black">
@@ -111,11 +121,15 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
               </button>
             )}
             
-            {/* Zoom icon hint */}
+            {/* Zoom icon hint or Detail hint */}
             {!project.video && (
                <div className="absolute top-3 right-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-black/30 p-1.5 rounded-full backdrop-blur-sm">
-                      <ZoomIn className="w-4 h-4 text-white" />
+                      {project.slug ? (
+                          <span className="text-white text-xs font-bold px-2">Ver Detalles</span>
+                      ) : (
+                          <ZoomIn className="w-4 h-4 text-white" />
+                      )}
                   </div>
                </div>
             )}
@@ -157,7 +171,12 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
         )}
 
         <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{project.type}</div>
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors leading-tight">{project.title}</h3>
+        <h3 
+            className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors leading-tight cursor-pointer"
+            onClick={handleCardClick}
+        >
+            {project.title}
+        </h3>
         
         {project.description && (
           <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
@@ -182,7 +201,7 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
 
 const Projects: React.FC<ProjectsProps> = ({ openLightbox }) => {
   return (
-    <div className="pt-20 pb-12 animate-in fade-in duration-500">
+    <div className="pt-20 pb-12">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-12">
          <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Portafolio de Proyectos</h1>

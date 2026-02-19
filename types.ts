@@ -22,6 +22,10 @@ export interface Project {
   status: 'Completed' | 'In Progress' | 'Planning';
   description?: string;
   area?: string;
+  slug?: string;
+  fullDescription?: string;
+  seoKeywords?: string;
+  seoH1?: string; // New field for optimized SEO H1
 }
 
 export interface ClientData {

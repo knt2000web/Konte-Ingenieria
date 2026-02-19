@@ -1,20 +1,23 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Page } from '../types';
 import { Menu, X, User, Search, Globe, Phone, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
-  currentPage: Page;
-  setPage: (page: Page) => void;
+  currentPage?: Page; // Deprecated but keeping for prop compatibility if needed
+  setPage?: (page: Page) => void; // Deprecated
   onLoginClick: () => void;
   isLoggedIn: boolean;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isLoggedIn, isDarkMode, toggleDarkMode }) => {
+const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, toggleDarkMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -22,12 +25,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isActive = (path: string) => location.pathname === path;
+
   const navLinks = [
-    { label: 'INICIO', page: Page.HOME },
-    { label: 'NOSOTROS', page: Page.ABOUT },
-    { label: 'SERVICIOS', page: Page.SERVICES },
-    { label: 'PROYECTOS', page: Page.PROJECTS },
-    // Contact removed from here to be a button
+    { label: 'INICIO', path: '/' },
+    { label: 'NOSOTROS', path: '/nosotros' },
+    { label: 'SERVICIOS', path: '/servicios' },
+    { label: 'PROYECTOS', path: '/proyectos' },
   ];
 
   return (
@@ -35,37 +39,37 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo with Slogan */}
-          <div className="flex flex-col cursor-pointer group" onClick={() => setPage(Page.HOME)}>
+          <Link to="/" className="flex flex-col cursor-pointer group">
             <span className="text-3xl font-extrabold text-primary dark:text-blue-400 tracking-tighter leading-none group-hover:text-secondary dark:group-hover:text-blue-300 transition-colors">
               KONTE
             </span>
             <span className="text-[0.6rem] font-bold text-gray-500 dark:text-gray-400 tracking-[0.15em] uppercase -mt-0.5 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
               Construcción, Consultoría & Tecnología
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.label}
-                onClick={() => setPage(link.page)}
+                to={link.path}
                 className={`text-sm font-bold transition-colors ${
-                  currentPage === link.page ? 'text-primary dark:text-blue-400 border-b-2 border-primary dark:border-blue-400' : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400'
+                  isActive(link.path) ? 'text-primary dark:text-blue-400 border-b-2 border-primary dark:border-blue-400' : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400'
                 }`}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
 
             {/* Prominent Contact Button */}
-            <button 
-                onClick={() => setPage(Page.CONTACT)}
+            <Link 
+                to="/contacto"
                 className="px-5 py-2.5 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
             >
                 <Phone className="w-4 h-4 fill-current" />
                 CONTÁCTENOS
-            </button>
+            </Link>
             
             {/* Action Icons */}
             <div className="flex items-center space-x-4 border-l pl-6 border-gray-200 dark:border-gray-700">
@@ -84,7 +88,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
               </div>
               <Search className="w-5 h-5 text-gray-500 dark:text-gray-400 cursor-pointer hover:text-primary dark:hover:text-blue-400" />
               <button 
-                onClick={isLoggedIn ? () => setPage(Page.DASHBOARD) : onLoginClick}
+                onClick={isLoggedIn ? () => navigate('/dashboard') : onLoginClick}
                 className="flex items-center gap-2 bg-primary dark:bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
               >
                 <User className="w-4 h-4" />
@@ -113,32 +117,28 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, onLoginClick, isL
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 absolute w-full shadow-xl">
           <div className="px-4 pt-2 pb-6 space-y-2">
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.label}
-                onClick={() => {
-                  setPage(link.page);
-                  setMobileMenuOpen(false);
-                }}
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
                 className={`block w-full text-left px-3 py-3 rounded-md text-base font-medium ${
-                   currentPage === link.page ? 'bg-primary/10 dark:bg-blue-900/30 text-primary dark:text-blue-400' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                   isActive(link.path) ? 'bg-primary/10 dark:bg-blue-900/30 text-primary dark:text-blue-400' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
-            <button
-                onClick={() => {
-                  setPage(Page.CONTACT);
-                  setMobileMenuOpen(false);
-                }}
+            <Link
+                to="/contacto"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block w-full text-left px-3 py-3 rounded-md text-base font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 dark:text-orange-400 hover:bg-orange-100 dark:hover:bg-orange-900/30"
               >
                 CONTÁCTENOS
-            </button>
+            </Link>
             <div className="border-t border-gray-100 dark:border-gray-800 mt-4 pt-4">
                <button 
                 onClick={() => {
-                  if (isLoggedIn) setPage(Page.DASHBOARD);
+                  if (isLoggedIn) navigate('/dashboard');
                   else onLoginClick();
                   setMobileMenuOpen(false);
                 }}
