@@ -1010,7 +1010,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                 onClick={() => navigate('/servicios/tecnologia')}
                 className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
               >
-                SOLICITAR COTIZACIÓN
+                VER DETALLES COMPLETOS
               </button>
             </div>
           );
