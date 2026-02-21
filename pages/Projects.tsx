@@ -231,7 +231,7 @@ const Projects: React.FC<ProjectsProps> = ({ openLightbox }) => {
     <div className="pt-20 pb-12">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-12">
          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Portafolio de Proyectos</h1>
+            <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Portafolio de Proyectos</h1>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg mb-8">
               Una muestra de nuestra capacidad técnica y compromiso con la excelencia en consultoría estructural, vulnerabilidad sísmica, estaciones de servicio y construcción.
             </p>
