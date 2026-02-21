@@ -54,6 +54,11 @@ const Footer: React.FC<FooterProps> = () => {
                   Filtración Diésel
                 </Link>
               </li>
+                        <li>
+            <Link to="/servicios/tecnologia" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+              Tecnología Digital
+            </Link>
+          </li>
             </ul>
           </div>
 
