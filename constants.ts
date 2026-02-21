@@ -209,7 +209,7 @@ export const PROJECTS: Project[] = [
     area: '12.000 m²',
     description: 'Consultoría y construcción de infraestructura de servicio a gran escala.',
     slug: 'eds-guaimaral-cucuta',
-    seoH1: 'Mega Estación de Servicio Guaimaral en Cúcuta, Norte de Santander',
+    seoH1: 'Estación de Servicio Guaimaral en Cúcuta, Norte de Santander',
     fullDescription: 'La EDS Guaimaral en Cúcuta se erige como una de las infraestructuras de servicio más grandes de la región, con una extensión de 12.000 m². KONTE desarrolló una ingeniería de detalle exhaustiva, priorizando la eficiencia operativa y la seguridad industrial. Se realizó la coordinación BIM de redes complejas de combustible, eléctricas y de datos, eliminando interferencias constructivas. El diseño de drenajes pluviales fue crítico debido a la extensión del área impermeable, implementando sistemas de retención y manejo de escorrentía. La gestión ante planeación municipal fue un éxito rotundo, logrando la aprobación de licencias para un proyecto de alto impacto urbano. La construcción incluyó edificaciones administrativas modernas y zonas de servicios complementarios, consolidando a Guaimaral como un hub de servicios integral en Norte de Santander.',
     seoKeywords: 'EDS Cúcuta, Infraestructura Vial Norte de Santander, Redes Industriales Combustible, Construcción EDS, Coordinación BIM, Drenaje Pluvial'
   },
@@ -232,10 +232,10 @@ export const PROJECTS: Project[] = [
     ],
     status: 'In Progress',
     area: '20.000 m²',
-    description: 'Mega proyecto de estación de servicio: prefactibilidad, diseño integral y construcción.',
+    description: 'Prefactibilidad, diseño integral y construcción de estación de servicio.',
     slug: 'eds-la-llanerita-guamo',
     seoH1: 'Proyecto EDS La Llanerita 4G en Guamo, Tolima',
-    fullDescription: 'La EDS La Llanerita es un mega proyecto de infraestructura de 20.000 m² en Guamo, Tolima, diseñado para atender la demanda de corredores viales de cuarta generación (4G). KONTE está a cargo de la consultoría técnica integral, desplegando un equipo multidisciplinario para abarcar todas las fases del proyecto. Desde levantamientos topográficos de alta precisión hasta el diseño de una Planta de Tratamiento de Aguas Residuales (PTAR) propia. El diseño contempla amplias zonas de parqueo para tractomulas, calculadas para resistir cargas dinámicas severas. Se integraron sistemas de protección contra incendios bajo norma NFPA, con red de hidrantes y monitores. La ingeniería hidrológica fue fundamental para garantizar la seguridad del predio ante eventos climáticos. Este proyecto en ejecución representa la vanguardia en diseño de estaciones de servicio en Colombia.',
+    fullDescription: 'La EDS La Llanerita es un proyecto de infraestructura de 20.000 m² en Guamo, Tolima, diseñado para atender la demanda del corredor vial de cuarta generación (4G). KONTE está a cargo de la consultoría técnica integral, desplegando un equipo multidisciplinario para abarcar todas las fases del proyecto. Desde levantamientos topográficos de alta precisión hasta el diseño de una Planta de Tratamiento de Aguas Residuales (PTAR) propia. El diseño contempla amplias zonas de parqueo para tractomulas, calculadas para resistir cargas dinámicas severas. Se integraron sistemas de protección contra incendios bajo norma NFPA, con red de hidrantes y monitores. La ingeniería hidrológica fue fundamental para garantizar la seguridad del predio ante eventos climáticos. Este proyecto en ejecución representa la vanguardia en diseño de estaciones de servicio en Colombia.',
     seoKeywords: 'Estación de Servicio Guamo, Proyecto 4G Tolima, Parqueaderos Carga Pesada, PTAR EDS, Ingeniería Hidrológica, Sistema Contra Incendios NFPA'
   },
   {
