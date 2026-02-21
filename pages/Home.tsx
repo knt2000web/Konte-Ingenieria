@@ -141,9 +141,30 @@ const FUEL_SHIELD_SUB_SERVICES = [
   }
 ];
 
+// Sub-services specific data for Service 7 (Tecnología)
+const TECH_SUB_SERVICES = [
+  {
+    title: "Desarrollo Web y Aplicaciones",
+    desc: "Portales corporativos, aplicaciones web y plataformas digitales a medida para su empresa."
+  },
+  {
+    title: "Automatización de Procesos",
+    desc: "Digitalización y automatización de flujos de trabajo para aumentar la eficiencia operacional."
+  },
+  {
+    title: "Inteligencia Artificial",
+    desc: "Implementación de soluciones de IA para optimizar operaciones y toma de decisiones empresariales."
+  },
+  {
+    title: "Integración de Sistemas",
+    desc: "Conexión e integración de plataformas y sistemas empresariales existentes."
+  }
+];
+
 const Home: React.FC<HomeProps> = ({ openLightbox }) => {
   const navigate = useNavigate();
 
+  
   // State for Specialized Engineering (ID 3)
   const [featureIndex, setFeatureIndex] = useState(0);
   const [bgImageIndex, setBgImageIndex] = useState(0);
@@ -167,6 +188,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
   // State for Fuel Shield (ID 6)
   const [fuelFeatureIndex, setFuelFeatureIndex] = useState(0);
   const [fuelBgImageIndex, setFuelBgImageIndex] = useState(0);
+  
+  // State for Tecnología Digital (ID 7)
+  const [techDigFeatureIndex, setTechDigFeatureIndex] = useState(0);
+  const [techDigBgImageIndex, setTechDigBgImageIndex] = useState(0);
 
   // Find the services to get their image counts
   const specializedService = SERVICES.find(s => s.id === '3');
@@ -186,11 +211,14 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
 
   const fuelService = SERVICES.find(s => s.id === '6');
   const fuelImagesCount = fuelService?.images?.length || 0;
+    const techDigService = SERVICES.find(s => s.id === '7');
+  const techDigImagesCount = techDigService?.images?.length || 0;
 
   useEffect(() => {
     // --- Service 3 Intervals ---
     const textInterval = setInterval(() => {
       setFeatureIndex((prev) => (prev + 1) % SPECIALIZED_SUB_SERVICES.length);
+      
     }, 4500);
 
     let imageInterval: ReturnType<typeof setInterval>;
@@ -259,10 +287,23 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
         setFuelBgImageIndex((prev) => (prev + 1) % fuelImagesCount);
       }, 3500);
     }
+    
+        // --- Service 7 (Tecnología Digital) Intervals ---
+        const techDigTextInterval = setInterval(() => {
+          setTechDigFeatureIndex((prev) => (prev + 1) % TECH_SUB_SERVICES.length);
+        }, 4500);
+
+        let techDigImageInterval: ReturnType<typeof setInterval>;
+        if (techDigImagesCount > 0) {
+          techDigImageInterval = setInterval(() => {
+            setTechDigBgImageIndex((prev) => (prev + 1) % techDigImagesCount);
+          }, 3500);
+        }
 
     return () => {
       clearInterval(textInterval);
       if (imageInterval) clearInterval(imageInterval);
+      
       clearInterval(aniTextInterval);
       if (aniImageInterval) clearInterval(aniImageInterval);
       clearInterval(healthTextInterval);
@@ -273,10 +314,13 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
       if (techImageInterval) clearInterval(techImageInterval);
       clearInterval(fuelTextInterval);
       if (fuelImageInterval) clearInterval(fuelImageInterval);
+                clearInterval(techDigTextInterval);
+          if (techDigImageInterval) clearInterval(techDigImageInterval);
     };
-  }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount, fuelImagesCount]);
+  }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount, fuelImagesCoun, techDigImagesCount]);
 
   return (
+    
     <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors duration-300">
 
       {/* Hero Section */}
@@ -912,7 +956,66 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
               );
             }
 
-            return null; // Fallback
+        // Logic for Service 7 (Tecnología) - REEL CARD
+        if (service.id === '7') {
+          const currentFeature = TECH_SUB_SERVICES[techDigFeatureIndex];
+          const currentBgImage = service.images && service.images.length > 0 ? service.images[techDigBgImageIndex] : service.image;
+          return (
+            <div key={service.id} className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              {/* Image Carousel Header */}
+              <div
+                className="relative h-48 overflow-hidden cursor-zoom-in bg-gray-900"
+                                onClick={() => openLightbox(techDigBgImageIndex, service.images || [service.image])}
+              >
+                <img
+                  src={currentBgImage}
+                  alt="Tecnología Digital"
+                  className="w-full h-full object-cover transition-all duration-1000"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <ZoomIn className="absolute top-3 right-3 w-5 h-5 text-white/70" />
+              </div>
+              {/* Image Indicators */}
+              <div className="flex gap-1 justify-center mt-2">
+                {service.images?.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`h-1 rounded-full transition-all duration-500 ${idx === techBgImageIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200'}`}
+                  />
+                ))}
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary dark:text-blue-400 mb-1">
+                  <span className="material-symbols-outlined text-sm align-middle mr-1">{service.icon || 'computer'}</span>
+                  {service.category}
+                </p>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{service.title}</h3>
+                {/* Dynamic Content Area */}
+                <div className="flex-grow bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 mb-3 min-h-[100px] flex flex-col justify-center">
+                  <h4 className="text-sm font-bold text-primary dark:text-blue-400 mb-1">{currentFeature.title}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{currentFeature.desc}</p>
+                </div>
+                {/* Text Progress Indicators */}
+                <div className="flex gap-1 mt-2 justify-end">
+                  {TECH_SUB_SERVICES.map((_, i) => (
+                    <div
+                      key={i}
+                      className={`h-1 rounded-full transition-all duration-500 ${i === techFeatureIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200'}`}
+                    />
+                  ))}
+                </div>
+              </div>
+              <button
+                onClick={() => navigate('/servicios/tecnologia')}
+                className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
+              >
+                SOLICITAR COTIZACIÓN
+              </button>
+            </div>
+          );
+        }
+      return null; // Fallback
           })}
         </div>
       </section>
