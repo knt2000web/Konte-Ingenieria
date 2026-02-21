@@ -130,7 +130,7 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
              </div>
           )}
 
-          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm z-10">
+          <div className="absolute top-4 left-4 bg-white backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary shadow-md border border-gray-200 z-10">
             {project.status === 'Completed' ? 'Finalizado' : project.status === 'In Progress' ? 'En Ejecución' : 'Planeación'}
           </div>
           
@@ -168,7 +168,7 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
            <div className="absolute top-0 left-0 h-1 bg-primary animate-[pulse_1.2s_ease-in-out_infinite] w-full" />
       )}
 
-      <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{project.type}</div>
+      <div className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">{project.type}</div>
       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-tight">
           {project.title}
       </h3>
@@ -179,7 +179,7 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
         </p>
       )}
       
-      <div className="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400 mt-auto pt-4 border-t border-gray-50 dark:border-gray-700">
+      <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
         <div className="flex items-center gap-2">
            <MapPin className="w-4 h-4 text-primary shrink-0" />
            <span className="truncate">{project.location}</span>
