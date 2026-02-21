@@ -133,6 +133,26 @@ export const SERVICES: Service[] = [
         { title: "Certificación ISO 4406", desc: "Análisis de laboratorio y certificado de limpieza de fluidos." }
     ],
     icon: 'water_drop'
+  },
+    {
+    id: '7',
+    category: 'TECNOLOGÍA',
+    title: 'Tecnología y Transformación Digital',
+    description: 'Soluciones tecnológicas integrales para empresas: desarrollo web, automatización de procesos, integración de sistemas y transformación digital con IA.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    images: [
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800'
+    ],
+    features: ['Desarrollo Web y Aplicaciones', 'Automatización de Procesos', 'Inteligencia Artificial', 'Integración de Sistemas'],
+    detailedFeatures: [
+      { title: "Desarrollo Web", desc: "Portales corporativos, aplicaciones web y plataformas digitales a medida." },
+      { title: "Automatización de Procesos", desc: "Digitalización y automatización de flujos de trabajo empresariales." },
+      { title: "Inteligencia Artificial", desc: "Implementación de soluciones de IA para optimizar operaciones y toma de decisiones." },
+      { title: "Integración de Sistemas", desc: "Conexión e integración de plataformas y sistemas empresariales existentes." }
+    ],
+    icon: 'computer'
   }
 ];
 
