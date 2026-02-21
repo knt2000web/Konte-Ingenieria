@@ -228,7 +228,7 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
 
 const Projects: React.FC<ProjectsProps> = ({ openLightbox }) => {
   return (
-    <div className="pt-20 pb-12 animate-in fade-in duration-500">
+    <div className="pt-20 pb-12">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-12">
          <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Portafolio de Proyectos</h1>
