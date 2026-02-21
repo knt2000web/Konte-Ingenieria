@@ -317,7 +317,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                 clearInterval(techDigTextInterval);
           if (techDigImageInterval) clearInterval(techDigImageInterval);
     };
-  }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount, fuelImagesCoun, techDigImagesCount]);
+  }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount, fuelImagesCount, techDigImagesCount]);
 
   return (
     
