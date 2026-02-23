@@ -180,6 +180,7 @@ const App: React.FC = () => {
           <Route path="/servicios/gestion-ani" element={<ServiceAni setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/propiedad-horizontal" element={<ServicePH setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/fuel-shield" element={<ServiceDiesel setPage={() => {}} openLightbox={openLightbox} />} />
+                        <Route path="/servicios/tecnologia" element={<ServiceTech setPage={() => {}} openLightbox={openLightbox} />} />
           {/* Fallback routes for specific services to main services page */}
           <Route path="/servicios/consultoria-tecnica" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/ingenieria-especializada" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />
