@@ -9,6 +9,7 @@ import Services from './pages/Services';
 import ServiceAni from './pages/ServiceAni';
 import ServicePH from './pages/ServicePH';
 import ServiceDiesel from './pages/ServiceDiesel';
+import ServiceTech from './pages/ServiceTech';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
