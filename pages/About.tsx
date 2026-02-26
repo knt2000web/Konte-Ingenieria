@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
+import { SEO } from '../components/SEO';
 import { Target, Building2, HardHat, CheckCircle, Truck, Briefcase, Ruler, ArrowRight, ZoomIn, Layers } from 'lucide-react';
 
 interface AboutProps {
@@ -12,16 +13,22 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="animate-in fade-in duration-700">
+    <main className="animate-in fade-in duration-700">
+      <SEO 
+        title="Quiénes Somos | KONTE Ingeniería & Consultoría"
+        description="Líderes en ingeniería civil, consultoría y construcción de infraestructura en Colombia. Más de 15 años de experiencia garantizando calidad, seguridad y cumplimiento normativo."
+        keywords="konte ingenieria, ingenieria civil colombia, consultoria infraestructura, gestion ani, normativa nsr-10, construccion boyaca"
+      />
+
       {/* Hero Section */}
-      <div 
+      <section 
         className="relative h-[400px] w-full overflow-hidden group cursor-pointer"
         onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=2000"])}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-primary/80 z-10 group-hover:from-gray-900/80 transition-all" />
         <img 
-          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=2000" 
-          alt="Ingeniería y Construcción en Colombia - KONTE" 
+          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=2000"
+          alt="Ingeniería y Construcción en Colombia - KONTE Ingeniería"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -37,7 +44,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         
@@ -46,159 +53,171 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="h-1 w-12 bg-primary"></span>
-              <span className="text-primary font-bold tracking-widest text-sm uppercase">NUESTRA ESENCIA</span>
+              <span className="text-primary font-bold tracking-widest text-sm uppercase">Nuestra Esencia</span>
             </div>
-            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Compromiso con la Excelencia en Ingeniería
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
               KONTE es una compañía proyectada para construir futuro basados en procesos de altísima calidad en donde nuestro principal objetivo es mejorar el nivel de vida de las personas o instituciones dándoles seguridad, confianza y respaldo en cada obra.
             </p>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
               En la compañía contamos con la colaboración de los más expertos ingenieros para los procesos de construcción, consultoría, proveeduría y todo aquello en lo concerniente a la ingeniería civil y especializada.
             </p>
             
-            <div className="space-y-4 mt-8">
-              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-100 dark:border-blue-800">
-                <h3 className="font-bold text-primary flex items-center gap-2 mb-2">
-                  <Building2 className="w-5 h-5" /> Sector Público
-                </h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                  Más de 15 años de experiencia en saneamiento básico, construcción y ampliación de instituciones hospitalarias, e instalación de infraestructuras públicas.
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <article className="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-l-4 border-primary">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Sector Público</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Más de 15 años de experiencia en saneamiento básico, construcción hospitalaria e infraestructura pública.
                 </p>
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-                <h3 className="font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-2">
-                  <Briefcase className="w-5 h-5" /> Sector Privado
-                </h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                  Ejecución de vivienda horizontal, mantenimiento de edificios, impermeabilización de cubiertas y reposición integral de redes sanitarias.
+              </article>
+              <article className="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-l-4 border-secondary">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Sector Privado</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Vivienda horizontal, mantenimiento industrial, impermeabilización y reposición de redes.
                 </p>
-              </div>
+              </article>
             </div>
           </div>
-
-          <div className="relative group cursor-pointer" onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=1000"])}>
-            <div className="absolute top-0 right-0 -mr-8 -mt-8 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=1000" 
-              alt="Equipo de Ingenieros expertos en KONTE Ingeniería civil" 
-              className="rounded-2xl shadow-2xl relative z-10 transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-              <ZoomIn className="text-white w-6 h-6 drop-shadow-lg" />
+          
+          <div className="relative">
+            <div 
+              className="relative rounded-2xl overflow-hidden shadow-2xl cursor-pointer group"
+              onClick={() => openLightbox(0, ["https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=1000"])}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=1000" 
+                alt="Equipo de Ingenieros expertos en KONTE Ingeniería civil"
+                className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <div className="absolute bottom-4 right-4 bg-white/90 dark:bg-gray-900/90 p-2 rounded-lg backdrop-blur-sm">
+                <ZoomIn className="w-5 h-5 text-primary" />
+              </div>
             </div>
-            <div className="absolute -bottom-10 -left-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl z-20 max-w-xs border-t-4 border-accent hidden md:block">
-              <p className="text-gray-800 dark:text-gray-200 italic font-medium">
-                "Nuestro principal objetivo es construir, proyectar y crear espacios donde se compartan emociones y se consoliden lazos inquebrantables."
+            <div className="absolute -bottom-6 -left-6 bg-primary p-6 rounded-xl shadow-xl max-w-xs hidden lg:block">
+              <p className="text-white italic font-medium">
+                "Nuestro principal objetivo es construir, proyectar y crear espacios donde se compartan emociones."
               </p>
             </div>
           </div>
         </div>
 
-        {/* Objetivo */}
-        <div className="bg-gray-900 text-white rounded-3xl p-12 mb-20 relative overflow-hidden">
-          <div className="relative z-10 text-center max-w-4xl mx-auto">
-            <Target className="w-16 h-16 text-primary mx-auto mb-6" />
-            <h2 className="text-3xl font-bold mb-6">NUESTRO OBJETIVO ESTRATÉGICO</h2>
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
+        {/* Objetivo Section */}
+        <section className="bg-gray-900 rounded-3xl p-8 md:p-16 mb-24 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Nuestro Objetivo Estratégico</h2>
+            <p className="text-xl text-gray-300 mb-12 leading-relaxed">
               Para KONTE, el objetivo central es construir, proyectar y crear espacios que unan. Basamos nuestros procesos en un alto sentido de ética y profesionalismo, contando con el respaldo de los mejores materiales, maquinaria de vanguardia y el mejor equipo humano.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <span className="px-4 py-2 bg-white/10 rounded-full text-sm font-semibold border border-white/20">Ética Profesional</span>
-              <span className="px-4 py-2 bg-white/10 rounded-full text-sm font-semibold border border-white/20">Maquinaria de Punta</span>
-              <span className="px-4 py-2 bg-white/10 rounded-full text-sm font-semibold border border-white/20">Capital Humano Experto</span>
-            </div>
-          </div>
-          <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        </div>
-
-        {/* ANI & Normativa Callout */}
-        <div className="mb-24">
-          <div className="bg-orange-50 dark:bg-orange-900/20 border-l-8 border-orange-500 dark:border-orange-600 rounded-r-xl p-8 shadow-sm">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Expertos en Gestión ANI y Normativa Vial</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4 max-w-2xl">
-                  Logramos tramitar resoluciones en el menor tiempo posible ante la Agencia Nacional de Infraestructura (ANI). Nuestra experiencia nos permite identificar errores comunes y lograr trámites en menos de 1 año.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="bg-white dark:bg-gray-800 px-3 py-1 rounded border border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-400 font-bold text-xs shadow-sm">
-                    RESOLUCIÓN 1361 DE 2012 (Ubicación EDS)
-                  </span>
-                  <span className="bg-white dark:bg-gray-800 px-3 py-1 rounded border border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-400 font-bold text-xs shadow-sm">
-                    RESOLUCIÓN 716 DE 2015
-                  </span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-primary">
+                  <CheckCircle className="w-6 h-6" />
                 </div>
+                <span className="text-white font-bold">Ética Profesional</span>
               </div>
-              <button 
-                onClick={() => navigate('/servicios/gestion-ani')}
-                className="px-6 py-3 bg-orange-600 text-white font-bold rounded hover:bg-orange-700 transition-colors shrink-0"
-              >
-                Ver Detalles Normativos
-              </button>
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-secondary">
+                  <Building2 className="w-6 h-6" />
+                </div>
+                <span className="text-white font-bold">Maquinaria de Punta</span>
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-orange-400">
+                  <Target className="w-6 h-6" />
+                </div>
+                <span className="text-white font-bold">Capital Humano Experto</span>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Servicios Detallados */}
-        <div className="mb-20">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Portafolio Integral de Servicios de Ingeniería</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Cubrimos todas las áreas dentro de la construcción, reformas y consultoría técnica, garantizando materiales de alta calidad y rapidez en la ejecución.
+        {/* ANI Section Callout */}
+        <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-100 dark:border-orange-800/30 rounded-2xl p-8 flex flex-col md:flex-row gap-8 items-center mb-24">
+          <div className="bg-orange-100 dark:bg-orange-900/40 w-20 h-20 rounded-2xl flex items-center justify-center shrink-0">
+            <Ruler className="w-10 h-10 text-orange-600 dark:text-orange-400" />
+          </div>
+          <div className="flex-grow">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Expertos en Gestión ANI y Normativa Vial</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Logramos tramitar resoluciones en el menor tiempo posible ante la Agencia Nacional de Infraestructura (ANI) e INVIAS.
             </p>
+            <div className="flex flex-wrap gap-4">
+              <span className="px-3 py-1 bg-white dark:bg-gray-800 rounded text-xs font-bold shadow-sm border border-gray-100 dark:border-gray-700">RESOLUCIÓN 1361 DE 2012</span>
+              <span className="px-3 py-1 bg-white dark:bg-gray-800 rounded text-xs font-bold shadow-sm border border-gray-100 dark:border-gray-700">RESOLUCIÓN 716 DE 2015</span>
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Movimiento de Suelos',
-                icon: Truck,
-                items: ['Excavaciones y nivelaciones de precisión', 'Terraplenes y dragados especializados', 'Piletas para tratamiento de aguas residuales', 'Preparación de suelos para naves industriales']
-              },
-              {
-                title: 'Obras Viales y Urbanismo',
-                icon: Ruler,
-                items: ['Alcantarillas, andenes y bordillos', 'Cunetas de hormigón de alta resistencia', 'Pavimentación en Hormigón y Asfalto', 'Caminos rurales y placa huellas técnicas']
-              },
-              {
-                title: 'Extracción y Limpieza de Terrenos',
-                icon: CheckCircle,
-                items: ['Extracción técnica de tocones frutales', 'Limpieza y adecuación de cercos', 'Uso de maquinaria pesada especializada']
-              },
-              {
-                title: 'Excavaciones Mecánicas',
-                icon: HardHat,
-                items: ['Redes subterráneas (Gas y Electricidad)', 'Sistemas de agua potable y alcantarillado', 'Profundidad constante garantizada']
-              },
-              {
-                title: 'Sistematización de Campos',
-                icon: Layers,
-                items: ['Demoliciones en entornos rurales', 'Desmalezado y limpieza de lotes', 'Terrazas y curvas de nivel para drenaje', 'Relleno técnico de lagunas y pantanos']
-              },
-              {
-                title: 'Obras Complementarias',
-                icon: Briefcase,
-                items: ['Movimientos de materiales a gran escala', 'Estructuras metálicas y en acero', 'Instalación de drywall y acabados', 'Trámites ante curaduría y planeación']
-              }
-            ].map((service, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow group">
-                <div className="bg-blue-50 dark:bg-blue-900/20 w-12 h-12 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <service.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
-                <ul className="space-y-2">
-                  {service.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+          <button 
+            onClick={() => navigate('/servicios/gestion-ani')}
+            className="px-6 py-3 bg-orange-600 text-white font-bold rounded-xl hover:bg-orange-700 transition-all shadow-lg hover:shadow-orange-600/20 flex items-center gap-2 group whitespace-nowrap"
+          >
+            Ver Detalles
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+
+        {/* Portfolio Section */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Portafolio Integral de Servicios</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Cubrimos todas las áreas dentro de la construcción y consultoría técnica, garantizando materiales de alta calidad y rapidez en la ejecución.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: 'Movimiento de Suelos',
+              icon: Truck,
+              items: ['Excavaciones de precisión', 'Terraplenes y dragados', 'Tratamiento de aguas', 'Suelos industriales']
+            },
+            {
+              title: 'Obras Viales y Urbanismo',
+              icon: Ruler,
+              items: ['Alcantarillas y bordillos', 'Pavimentación técnica', 'Caminos y placa huellas', 'Urbanismo táctico']
+            },
+            {
+              title: 'Adecuación de Terrenos',
+              icon: CheckCircle,
+              items: ['Limpieza técnica de lotes', 'Extracción de tocones', 'Cercos perimetrales', 'Maquinaria pesada']
+            },
+            {
+              title: 'Excavaciones Mecánicas',
+              icon: HardHat,
+              items: ['Redes de Gas y Electricidad', 'Sistemas de Acueducto', 'Zanjas especializadas', 'Canalizaciones']
+            },
+            {
+              title: 'Sistematización Rural',
+              icon: Layers,
+              items: ['Demoliciones técnicas', 'Curvas de nivel', 'Drenajes de campos', 'Relleno de lagunas']
+            },
+            {
+              title: 'Obras Complementarias',
+              icon: Briefcase,
+              items: ['Estructuras metálicas', 'Acabados y Drywall', 'Trámites ante Planeación', 'Gestión de Curaduría']
+            }
+          ].map((service, idx) => (
+            <article key={idx} className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group">
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                <service.icon className="w-6 h-6" />
               </div>
-            ))}
-          </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
+              <ul className="space-y-3">
+                {service.items.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
