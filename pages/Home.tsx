@@ -21,6 +21,19 @@ const SCROLL_IMAGES = [
   'https://i.imgur.com/ENAIe6r.jpeg'
 ];
 
+// Sub-services labels for ALT text
+const SCROLL_LABELS = [
+  'Consultoría en Duitama',
+  'Construcción de Estación de Servicio Boyacá',
+  'Diseño Estructural Ingeniería',
+  'Gestión Normativa ANI Colombia',
+  'Infraestructura Clínica Sogamoso',
+  'Mantenimiento Propiedad Horizontal',
+  'Limpieza de Tanques Diésel',
+  'Topografía de Precisión',
+  'Desarrollo Web para Ingenierías'
+];
+
 // Sub-services specific data for animation for Service 3
 const SPECIALIZED_SUB_SERVICES = [
   {
@@ -163,7 +176,6 @@ const TECH_SUB_SERVICES = [
 
 const Home: React.FC<HomeProps> = ({ openLightbox }) => {
   const navigate = useNavigate();
-
   
   // State for Specialized Engineering (ID 3)
   const [featureIndex, setFeatureIndex] = useState(0);
@@ -211,7 +223,8 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
 
   const fuelService = SERVICES.find(s => s.id === '6');
   const fuelImagesCount = fuelService?.images?.length || 0;
-    const techDigService = SERVICES.find(s => s.id === '7');
+
+  const techDigService = SERVICES.find(s => s.id === '7');
   const techDigImagesCount = techDigService?.images?.length || 0;
 
   useEffect(() => {
@@ -288,17 +301,17 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
       }, 3500);
     }
     
-        // --- Service 7 (Tecnología Digital) Intervals ---
-        const techDigTextInterval = setInterval(() => {
-          setTechDigFeatureIndex((prev) => (prev + 1) % TECH_SUB_SERVICES.length);
-        }, 4500);
+    // --- Service 7 (Tecnología Digital) Intervals ---
+    const techDigTextInterval = setInterval(() => {
+      setTechDigFeatureIndex((prev) => (prev + 1) % TECH_SUB_SERVICES.length);
+    }, 4500);
 
-        let techDigImageInterval: ReturnType<typeof setInterval>;
-        if (techDigImagesCount > 0) {
-          techDigImageInterval = setInterval(() => {
-            setTechDigBgImageIndex((prev) => (prev + 1) % techDigImagesCount);
-          }, 3500);
-        }
+    let techDigImageInterval: ReturnType<typeof setInterval>;
+    if (techDigImagesCount > 0) {
+      techDigImageInterval = setInterval(() => {
+        setTechDigBgImageIndex((prev) => (prev + 1) % techDigImagesCount);
+      }, 3500);
+    }
 
     return () => {
       clearInterval(textInterval);
@@ -314,15 +327,14 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
       if (techImageInterval) clearInterval(techImageInterval);
       clearInterval(fuelTextInterval);
       if (fuelImageInterval) clearInterval(fuelImageInterval);
-                clearInterval(techDigTextInterval);
-          if (techDigImageInterval) clearInterval(techDigImageInterval);
+      clearInterval(techDigTextInterval);
+      if (techDigImageInterval) clearInterval(techDigImageInterval);
     };
   }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount, fuelImagesCount, techDigImagesCount]);
 
   return (
     
     <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors duration-300">
-
       {/* Hero Section */}
       <div className="relative w-full h-[600px] overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["https://i.imgur.com/gy1Wtmv.jpeg"])}>
         <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-colors" />
@@ -332,7 +344,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
             e.currentTarget.src = "https://images.unsplash.com/photo-1520694478166-daaaaec95b69?auto=format&fit=crop&q=80&w=1600";
             e.currentTarget.onerror = null; // Prevent infinite loop
           }}
-          alt="Estación de Servicio y Construcción"
+          alt="Ingeniería civil y construcción de estaciones de servicio en Duitama, Boyacá"
           className="w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-110"
           referrerPolicy="no-referrer"
         />
@@ -349,7 +361,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                 Consultoría Especializada y Construcción de Estaciones de Servicio
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl font-light">
-                Expertos en normativa (Res. 1361/716), diseño estructural y ejecución de proyectos de alto impacto a nivel nacional.
+                Expertos en normativa (Res. 1361/716), diseño estructural y ejecución de proyectos de alto impacto en Duitama y Boyacá.
               </p>
               <div className="flex flex-col sm:flex-row gap-4" onClick={(e) => e.stopPropagation()}>
                 <button
@@ -376,7 +388,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           {[
             { icon: Award, label: 'Experiencia', value: '+15 Años' },
             { icon: Users, label: 'Profesionales', value: 'Personal Certificado' },
-            { icon: Globe, label: 'Cobertura', value: 'Nivel Nacional' },
+            { icon: Globe, label: 'Cobertura', value: 'Boyacá y Nacional' },
           ].map((stat, idx) => (
             <div key={idx} className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
               <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-full text-primary dark:text-blue-400">
@@ -405,7 +417,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                 >
                   <img
                     src={img}
-                    alt={`Project Gallery ${idx}`}
+                    alt={SCROLL_LABELS[idx] || "Galería de Proyectos KONTE Ingeniería"}
                     className="h-full w-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-300 flex items-center justify-center">
@@ -424,7 +436,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                 >
                   <img
                     src={img}
-                    alt={`Project Gallery ${idx}`}
+                    alt={SCROLL_LABELS[idx] || "Proyectos de Construcción en Boyacá"}
                     className="h-full w-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-300 flex items-center justify-center">
@@ -435,20 +447,19 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
             </div>
           </div>
         </div>
-
         <style>{`
-            @keyframes scroll {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            .animate-scroll {
-                display: flex;
-                width: max-content;
-                animation: scroll 80s linear infinite; /* Slower animation for photos */
-            }
-            .hover\\:pause:hover {
-                animation-play-state: paused;
-            }
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 80s linear infinite; /* Slower animation for photos */
+          }
+          .hover\\:pause:hover {
+            animation-play-state: paused;
+          }
         `}</style>
       </section>
 
@@ -486,7 +497,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <img
                       key={currentBgImage} // Key forces re-render for animation
                       src={currentBgImage}
-                      alt="Ingeniería Especializada"
+                      alt="Consultoría de Ingeniería Especializada en Duitama"
                       className="w-full h-full object-cover animate-in fade-in duration-700"
                       referrerPolicy="no-referrer"
                     />
@@ -494,7 +505,6 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <ZoomIn className="text-white w-6 h-6 drop-shadow-md" />
                     </div>
-
                     {/* Image Indicators */}
                     <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10 pointer-events-none">
                       {service.images?.map((_, idx) => (
@@ -511,11 +521,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                       <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'layers'}</span>
                       <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                     </div>
-
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                       {service.title}
                     </h3>
-
+                    
                     {/* Dynamic Content Area */}
                     <div className="flex-grow flex flex-col mb-4">
                       <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
@@ -567,7 +576,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <img
                       key={currentBgImage}
                       src={currentBgImage}
-                      alt="Gestión ANI y Normativa"
+                      alt="Gestión ANI y Normativa para Estaciones de Servicio"
                       className="w-full h-full object-cover animate-in fade-in duration-700"
                       referrerPolicy="no-referrer"
                     />
@@ -575,7 +584,6 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <ZoomIn className="text-white w-6 h-6 drop-shadow-md" />
                     </div>
-
                     {/* Image Indicators */}
                     <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10 pointer-events-none">
                       {service.images?.map((_, idx) => (
@@ -592,11 +600,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                       <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'verified_user'}</span>
                       <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                     </div>
-
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                       {service.title}
                     </h3>
-
+                    
                     {/* Dynamic Content Area */}
                     <div className="flex-grow flex flex-col mb-4">
                       <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
@@ -648,7 +655,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <img
                       key={currentBgImage}
                       src={currentBgImage}
-                      alt="Propiedad Horizontal"
+                      alt="Mantenimiento de Propiedad Horizontal en Boyacá"
                       className="w-full h-full object-cover animate-in fade-in duration-700"
                       referrerPolicy="no-referrer"
                     />
@@ -656,7 +663,6 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <ZoomIn className="text-white w-6 h-6 drop-shadow-md" />
                     </div>
-
                     {/* Image Indicators */}
                     <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10 pointer-events-none">
                       {service.images?.map((_, idx) => (
@@ -673,11 +679,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                       <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'apartment'}</span>
                       <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                     </div>
-
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                       {service.title}
                     </h3>
-
+                    
                     {/* Dynamic Content Area */}
                     <div className="flex-grow flex flex-col mb-4">
                       <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
@@ -729,7 +734,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <img
                       key={currentBgImage}
                       src={currentBgImage}
-                      alt="Infraestructura Hospitalaria"
+                      alt="Infraestructura Hospitalaria y Clínica en Colombia"
                       className="w-full h-full object-cover animate-in fade-in duration-700"
                       referrerPolicy="no-referrer"
                     />
@@ -737,7 +742,6 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <ZoomIn className="text-white w-6 h-6 drop-shadow-md" />
                     </div>
-
                     {/* Image Indicators */}
                     <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10 pointer-events-none">
                       {service.images?.map((_, idx) => (
@@ -754,11 +758,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                       <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'local_hospital'}</span>
                       <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                     </div>
-
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                       {service.title}
                     </h3>
-
+                    
                     {/* Dynamic Content Area */}
                     <div className="flex-grow flex flex-col mb-4">
                       <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
@@ -810,7 +813,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <img
                       key={currentBgImage}
                       src={currentBgImage}
-                      alt="Estudios Técnicos y Topografía"
+                      alt="Levantamientos Topográficos y Estudios de Suelos Boyacá"
                       className="w-full h-full object-cover animate-in fade-in duration-700"
                       referrerPolicy="no-referrer"
                     />
@@ -818,7 +821,6 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <ZoomIn className="text-white w-6 h-6 drop-shadow-md" />
                     </div>
-
                     {/* Image Indicators: SWITCHED TO PROGRESS BAR due to large number of images */}
                     <div className="absolute bottom-3 left-0 right-0 z-10 px-6 pointer-events-none">
                       <div className="w-full bg-white/30 h-1 rounded-full overflow-hidden backdrop-blur-sm">
@@ -835,11 +837,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                       <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'architecture'}</span>
                       <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                     </div>
-
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                       {service.title}
                     </h3>
-
+                    
                     {/* Dynamic Content Area */}
                     <div className="flex-grow flex flex-col mb-4">
                       <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
@@ -892,7 +893,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <img
                       key={currentBgImage}
                       src={currentBgImage}
-                      alt="Fuel Shield - Filtración Diésel"
+                      alt="Filtración de Diésel y Limpieza de Tanques Fuel-Shield"
                       className="w-full h-full object-cover animate-in fade-in duration-700"
                       referrerPolicy="no-referrer"
                     />
@@ -900,7 +901,6 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <ZoomIn className="text-white w-6 h-6 drop-shadow-md" />
                     </div>
-
                     {/* Image Indicators */}
                     <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 z-10 pointer-events-none">
                       {service.images?.map((_, idx) => (
@@ -917,11 +917,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                       <span className="material-icons text-primary dark:text-blue-400">{service.icon || 'water_drop'}</span>
                       <span className="text-xs font-bold text-primary dark:text-blue-400 tracking-widest uppercase">{service.category}</span>
                     </div>
-
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                       {service.title}
                     </h3>
-
+                    
                     {/* Dynamic Content Area */}
                     <div className="flex-grow flex flex-col mb-4">
                       <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border-l-4 border-primary dark:border-blue-500 h-full">
@@ -956,66 +955,72 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
               );
             }
 
-        // Logic for Service 7 (Tecnología) - REEL CARD
-        if (service.id === '7') {
-          const currentFeature = TECH_SUB_SERVICES[techDigFeatureIndex];
-          const currentBgImage = service.images && service.images.length > 0 ? service.images[techDigBgImageIndex] : service.image;
-          return (
-            <div key={service.id} className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              {/* Image Carousel Header */}
-              <div
-                className="relative h-48 overflow-hidden cursor-zoom-in bg-gray-900"
-                                onClick={() => openLightbox(techDigBgImageIndex, service.images || [service.image])}
-              >
-                <img
-                  src={currentBgImage}
-                  alt="Tecnología Digital"
-                  className="w-full h-full object-cover transition-all duration-1000"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <ZoomIn className="absolute top-3 right-3 w-5 h-5 text-white/70" />
-              </div>
-              {/* Image Indicators */}
-              <div className="flex gap-1 justify-center mt-2">
-                {service.images?.map((_, idx) => (
+            // Logic for Service 7 (Tecnología) - REEL CARD
+            if (service.id === '7') {
+              const currentFeature = TECH_SUB_SERVICES[techDigFeatureIndex];
+              const currentBgImage = service.images && service.images.length > 0 ? service.images[techDigBgImageIndex] : service.image;
+
+              return (
+                <div key={service.id} className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  {/* Image Carousel Header */}
                   <div
-                    key={idx}
-                    className={`h-1 rounded-full transition-all duration-500 ${idx === techBgImageIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200'}`}
-                  />
-                ))}
-              </div>
-              <div className="p-5 flex flex-col flex-grow">
-                <p className="text-xs font-bold uppercase tracking-widest text-primary dark:text-blue-400 mb-1">
-                  <span className="material-symbols-outlined text-sm align-middle mr-1">{service.icon || 'computer'}</span>
-                  {service.category}
-                </p>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{service.title}</h3>
-                {/* Dynamic Content Area */}
-                <div className="flex-grow bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 mb-3 min-h-[100px] flex flex-col justify-center">
-                  <h4 className="text-sm font-bold text-primary dark:text-blue-400 mb-1">{currentFeature.title}</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{currentFeature.desc}</p>
-                </div>
-                {/* Text Progress Indicators */}
-                <div className="flex gap-1 mt-2 justify-end">
-                  {TECH_SUB_SERVICES.map((_, i) => (
-                    <div
-                      key={i}
-                      className={`h-1 rounded-full transition-all duration-500 ${i === techFeatureIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200'}`}
+                    className="relative h-48 overflow-hidden cursor-zoom-in bg-gray-900"
+                    onClick={() => openLightbox(techDigBgImageIndex, service.images || [service.image])}
+                  >
+                    <img
+                      src={currentBgImage}
+                      alt="Soluciones Tecnológicas y Transformación Digital para Empresas"
+                      className="w-full h-full object-cover transition-all duration-1000"
+                      referrerPolicy="no-referrer"
                     />
-                  ))}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <ZoomIn className="absolute top-3 right-3 w-5 h-5 text-white/70" />
+                  </div>
+                  {/* Image Indicators */}
+                  <div className="flex gap-1 justify-center mt-2">
+                    {service.images?.map((_, idx) => (
+                      <div
+                        key={idx}
+                        className={`h-1 rounded-full transition-all duration-500 ${idx === techBgImageIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200'}`}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="p-5 flex flex-col flex-grow">
+                    <p className="text-xs font-bold uppercase tracking-widest text-primary dark:text-blue-400 mb-1">
+                      <span className="material-symbols-outlined text-sm align-middle mr-1">{service.icon || 'computer'}</span>
+                      {service.category}
+                    </p>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{service.title}</h3>
+                    
+                    {/* Dynamic Content Area */}
+                    <div className="flex-grow bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 mb-3 min-h-[100px] flex flex-col justify-center">
+                      <h4 className="text-sm font-bold text-primary dark:text-blue-400 mb-1">{currentFeature.title}</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{currentFeature.desc}</p>
+                    </div>
+
+                    {/* Text Progress Indicators */}
+                    <div className="flex gap-1 mt-2 justify-end">
+                      {TECH_SUB_SERVICES.map((_, i) => (
+                        <div
+                          key={i}
+                          className={`h-1 rounded-full transition-all duration-500 ${i === techFeatureIndex ? 'w-4 bg-primary dark:bg-blue-500' : 'w-1 bg-gray-200'}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => navigate('/servicios/tecnologia')}
+                    className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
+                  >
+                    VER DETALLES COMPLETOS
+                  </button>
                 </div>
-              </div>
-              <button
-                onClick={() => navigate('/servicios/tecnologia')}
-                className="w-full py-3 bg-primary dark:bg-blue-600 text-white rounded-lg font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all text-sm uppercase tracking-wide shadow-md"
-              >
-                VER DETALLES COMPLETOS
-              </button>
-            </div>
-          );
-        }
-      return null; // Fallback
+              );
+            }
+
+            return null; // Fallback
           })}
         </div>
       </section>
