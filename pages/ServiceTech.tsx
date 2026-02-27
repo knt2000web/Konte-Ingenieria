@@ -48,36 +48,36 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-30 mb-20">
-        <div className="bg-white rounded-xl shadow-xl p-8 md:p-12 border-t-4 border-purple-500">
+        <div className="bg-slate-800 rounded-xl shadow-xl p-8 md:p-12 border-t-4 border-purple-500">
           
           <div className="mb-16">
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="w-full md:w-2/3">
                 <span className="text-purple-600 font-bold tracking-widest text-sm uppercase mb-2 block">1. INTRODUCCIÓN</span>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Soluciones Digitales para la Industria</h2>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                <h2 className="text-3xl font-bold text-white mb-6">Soluciones Digitales para la Industria</h2>
+                <p className="text-lg text-slate-300 leading-relaxed mb-6">
                   En KONTE combinamos más de 15 años de experiencia en ingeniería con capacidades avanzadas de desarrollo de software, ingeniería de datos y automatización. Creamos soluciones digitales que transforman la forma en que las empresas operan, reduciendo tiempos de procesamiento hasta en un <strong>90%</strong>.
                 </p>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-400 leading-relaxed">
                   Desde sitios web corporativos de alta calidad hasta pipelines de datos automatizados con Python, nuestro equipo integra la tecnología como herramienta estratégica para la toma de decisiones y el crecimiento empresarial.
                 </p>
               </div>
               <div className="w-full md:w-1/3 bg-purple-50 rounded-xl p-6 border border-purple-100">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="bg-white p-3 rounded-full shadow-sm">
+                  <div className="bg-slate-800 p-3 rounded-full shadow-sm">
                     <Zap className="w-8 h-8 text-purple-500" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-gray-900">90%</div>
+                    <div className="text-3xl font-bold text-white">90%</div>
                     <div className="text-xs text-gray-500 uppercase font-bold">Reducción de Tiempo</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="bg-white p-3 rounded-full shadow-sm">
+                  <div className="bg-slate-800 p-3 rounded-full shadow-sm">
                     <Code className="w-8 h-8 text-purple-500" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-gray-900">Full-Stack</div>
+                    <div className="text-3xl font-bold text-white">Full-Stack</div>
                     <div className="text-xs text-gray-500 uppercase font-bold">Capacidad Técnica</div>
                   </div>
                 </div>
@@ -88,8 +88,8 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
           <div className="mb-20">
             <div className="text-center mb-12">
               <span className="text-purple-600 font-bold tracking-widest text-sm uppercase">2. PORTAFOLIO DIGITAL</span>
-              <h2 className="text-3xl font-bold text-gray-900 mt-2">Nuestras Soluciones</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto mt-4">Cada servicio se adapta a las necesidades específicas de su empresa.</p>
+              <h2 className="text-3xl font-bold text-white mt-2">Nuestras Soluciones</h2>
+              <p className="text-slate-400 max-w-2xl mx-auto mt-4">Cada servicio se adapta a las necesidades específicas de su empresa.</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -137,15 +137,15 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
                   color: 'from-teal-500 to-teal-600'
                 }
               ].map((card, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-xl transition-all duration-300 hover:shadow-xl border border-gray-100 group hover:border-purple-200 hover:-translate-y-1">
+                <div key={idx} className="bg-slate-800 p-6 rounded-xl transition-all duration-300 hover:shadow-xl border border-gray-100 group hover:border-purple-200 hover:-translate-y-1">
                   <div className={`bg-gradient-to-r ${card.color} p-3 rounded-lg inline-block mb-4`}>
                     <card.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">{card.title}</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{card.desc}</p>
+                  <h4 className="text-xl font-bold text-white mb-3">{card.title}</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-4">{card.desc}</p>
                   <ul className="space-y-2">
                     {card.items.map((item, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                      <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
                         <div className="w-1.5 h-1.5 bg-purple-400 rounded-full shrink-0" />
                         {item}
                       </li>
@@ -159,7 +159,7 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
           <div className="mb-20">
             <div className="text-center mb-10">
               <span className="text-purple-600 font-bold tracking-widest text-sm uppercase">3. STACK TECNOLÓGICO</span>
-              <h2 className="text-3xl font-bold text-gray-900 mt-2">Tecnologías que Dominamos</h2>
+              <h2 className="text-3xl font-bold text-white mt-2">Tecnologías que Dominamos</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -172,9 +172,9 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
                 { name: 'Google AI Studio', desc: 'Gemini 2.0', icon: '✨' },
                 { name: 'BIM / Revit', desc: 'Avanzado', icon: '🏗️' },
               ].map((tech, idx) => (
-                <div key={idx} className="bg-gray-50 hover:bg-white p-5 rounded-xl text-center transition-all hover:shadow-md border border-gray-100 group">
+                <div key={idx} className="bg-slate-900/60 hover:bg-slate-800 p-5 rounded-xl text-center transition-all hover:shadow-md border border-gray-100 group">
                   <div className="text-3xl mb-2">{tech.icon}</div>
-                  <h4 className="font-bold text-gray-900">{tech.name}</h4>
+                  <h4 className="font-bold text-white">{tech.name}</h4>
                   <p className="text-xs text-purple-600 font-semibold uppercase">{tech.desc}</p>
                 </div>
               ))}
@@ -184,7 +184,7 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
           <div className="mb-20">
             <div className="text-center mb-10">
                <span className="text-purple-600 font-bold tracking-widest text-sm uppercase">4. METODOLOGÍA</span>
-               <h2 className="text-3xl font-bold text-gray-900 mt-2">Proceso de Trabajo</h2>
+               <h2 className="text-3xl font-bold text-white mt-2">Proceso de Trabajo</h2>
             </div>
             
             <div className="relative border-l-4 border-purple-200 ml-4 md:ml-1/2 md:border-l-0">
@@ -197,18 +197,18 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
                  { fase: 'Fase 4: Entrega y Soporte', time: 'Continuo', items: ['Despliegue en producción', 'Capacitación al equipo del cliente', 'Documentación técnica y de usuario', 'Soporte técnico post-entrega'] }
                ].map((phase, idx) => (
                  <div key={idx} className={`mb-12 relative md:flex items-center justify-between ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                   <div className="absolute left-[-22px] md:left-1/2 md:-translate-x-1/2 w-10 h-10 bg-white border-4 border-purple-500 rounded-full flex items-center justify-center z-10 shadow-sm">
+                   <div className="absolute left-[-22px] md:left-1/2 md:-translate-x-1/2 w-10 h-10 bg-slate-800 border-4 border-purple-500 rounded-full flex items-center justify-center z-10 shadow-sm">
                       <span className="text-purple-600 font-bold text-sm">{idx + 1}</span>
                    </div>
                    
-                   <div className="ml-8 md:ml-0 md:w-[45%] bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                   <div className="ml-8 md:ml-0 md:w-[45%] bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-sm hover:shadow-md transition-shadow">
                      <div className="flex justify-between items-center mb-3">
                        <h4 className="text-lg font-bold text-purple-600">{phase.fase}</h4>
                        <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded text-xs font-bold">{phase.time}</span>
                      </div>
                      <ul className="space-y-2">
                        {phase.items.map((item, i) => (
-                         <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                         <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
                            <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-1.5 shrink-0" /> {item}
                          </li>
                        ))}
@@ -260,18 +260,18 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
                       </li>
                     ))}
                   </ul>
-                  <div className="bg-white/10 rounded-lg p-4 mt-6 backdrop-blur-sm border border-white/10">
+                  <div className="bg-slate-800/10 rounded-lg p-4 mt-6 backdrop-blur-sm border border-white/10">
                     <div className="flex justify-between items-center text-center">
                        <div>
                          <div className="text-2xl font-bold text-white">Python</div>
                          <div className="text-xs text-gray-400">+2 Años</div>
                        </div>
-                       <div className="w-px h-8 bg-white/20"></div>
+                       <div className="w-px h-8 bg-slate-800/20"></div>
                        <div>
                          <div className="text-2xl font-bold text-white">SQL</div>
                          <div className="text-xs text-gray-400">Avanzado</div>
                        </div>
-                       <div className="w-px h-8 bg-white/20"></div>
+                       <div className="w-px h-8 bg-slate-800/20"></div>
                        <div>
                          <div className="text-2xl font-bold text-white">React</div>
                          <div className="text-xs text-gray-400">Full-Stack</div>
@@ -284,7 +284,7 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
           </div>
 
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">7. Próximos Pasos</h3>
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">7. Próximos Pasos</h3>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               {[
                 { step: 1, title: 'Contactar', desc: 'Cuéntanos tu necesidad' },
@@ -294,13 +294,13 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
                 { step: 5, title: 'Entrega', desc: 'Producto funcionando' },
               ].map((item, i) => (
                 <div key={i} className="relative flex flex-col items-center text-center group">
-                   <div className="w-12 h-12 rounded-full bg-white border-2 border-purple-500 text-purple-600 font-bold flex items-center justify-center text-lg mb-3 shadow-md group-hover:bg-purple-600 group-hover:text-white transition-colors z-10">
+                   <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-purple-500 text-purple-600 font-bold flex items-center justify-center text-lg mb-3 shadow-md group-hover:bg-purple-600 group-hover:text-white transition-colors z-10">
                      {item.step}
                    </div>
                    {i < 4 && (
                      <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-gray-200 -z-0"></div>
                    )}
-                   <h4 className="font-bold text-gray-900 text-sm">{item.title}</h4>
+                   <h4 className="font-bold text-white text-sm">{item.title}</h4>
                    <p className="text-xs text-gray-500">{item.desc}</p>
                    {i < 4 && (
                      <div className="md:hidden my-2">
@@ -313,8 +313,8 @@ const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
           </div>
 
           <div className="text-center bg-purple-50 rounded-2xl p-10 border border-purple-100">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">8. ¿Listo para Digitalizar?</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            <h2 className="text-3xl font-bold text-white mb-4">8. ¿Listo para Digitalizar?</h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-8">
               Cuéntenos su proyecto y reciba una cotización personalizada. Diagnóstico técnico inicial sin costo.
             </p>
             <a 
