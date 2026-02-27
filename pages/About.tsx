@@ -2,7 +2,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
-import { SEO } from '../components/SEO';
 import { Target, Building2, HardHat, CheckCircle, Truck, Briefcase, Ruler, ArrowRight, ZoomIn, Layers } from 'lucide-react';
 
 interface AboutProps {
@@ -15,11 +14,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
 
   return (
     <main className="animate-in fade-in duration-700">
-      <SEO 
-        title="Quiénes Somos | KONTE Ingeniería & Consultoría"
-        description="Líderes en ingeniería civil, consultoría y construcción de infraestructura en Colombia. Más de 15 años de experiencia garantizando calidad, seguridad y cumplimiento normativo."
-        keywords="konte ingenieria, ingenieria civil colombia, consultoria infraestructura, gestion ani, normativa nsr-10, construccion boyaca"
-      />
+      
 
       {/* Hero Section */}
       <section 
