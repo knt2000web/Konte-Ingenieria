@@ -130,7 +130,11 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
              </div>
           )}
 
-          <div className="absolute top-4 left-4 bg-white backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary shadow-md border border-gray-200 z-10">
+          <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-semibold text-white shadow-md backdrop-blur-sm z-10 ${
+              project.status === 'Completed' ? 'bg-emerald-500/90' :
+              project.status === 'In Progress' ? 'bg-blue-500/90' :
+              'bg-amber-500/90'
+            }`}>
             {project.status === 'Completed' ? 'Finalizado' : project.status === 'In Progress' ? 'En Ejecución' : 'Planeación'}
           </div>
           
