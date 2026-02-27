@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ZoomIn } from 'lucide-react';
-import { SEO } from '../components/SEO';
 
 interface ContactProps {
   openLightbox?: (index: number, images: string[]) => void;
@@ -19,12 +18,7 @@ const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
 
   return (
     <main className="pt-20 pb-12 animate-in fade-in duration-500 bg-bg-light dark:bg-bg-dark">
-      <SEO 
-        title="Contacto | KONTE Ingeniería & Consultoría"
-        description="Póngase en contacto con KONTE Ingeniería para consultoría de infraestructura, gestión ANI y construcción en Duitama y Boyacá. Respuesta en menos de 24 horas."
-        keywords="contacto konte, ingenieria duitama, oficina ingenieria boyaca, consultoria infraestructura colombia, presupuesto obras civiles"
-      />
-
+      
       {/* High Visibility Hero Header */}
       <section className="relative bg-primary text-white py-20 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" aria-hidden="true"></div>
