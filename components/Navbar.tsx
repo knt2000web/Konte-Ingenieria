@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, Search, Globe, Phone, Sun, Moon } from 'lucide-react';
+import { Menu, X, User, Search, Globe, Phone, Sun, Moon, Zap } from 'lucide-react';
 
 interface NavbarProps {
   currentPage?: any; // Mantenido para compatibilidad temporal
@@ -62,6 +62,17 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
                 {link.label}
               </Link>
             ))}
+
+            {/* StructoPro Destacado Navbar */}
+            <Link
+              to="/servicios/structopro"
+              className={`text-sm font-bold transition-colors flex items-center gap-1.5 ${
+                isActive('/servicios/structopro') ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400' : 'text-blue-600/80 dark:text-blue-400/80 hover:text-blue-700 dark:hover:text-blue-300'
+              }`}
+            >
+              <Zap size={14} className="fill-current" />
+              STRUCTOPRO
+            </Link>
 
             {/* Botón Contacto */}
             <Link 
@@ -139,6 +150,19 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
                 {link.label}
               </Link>
             ))}
+            
+            {/* StructoPro Mobile Link */}
+            <Link
+                to="/servicios/structopro"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block w-full text-left px-3 py-3 rounded-md text-base font-bold flex items-center gap-2 ${
+                   isActive('/servicios/structopro') ? 'bg-primary/10 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-blue-600/90 dark:text-blue-400/90 hover:bg-gray-50 dark:hover:bg-gray-800'
+                }`}
+            >
+              <Zap size={16} className="fill-current" />
+              STRUCTOPRO
+            </Link>
+
             <Link
                 to="/contacto"
                 onClick={() => setMobileMenuOpen(false)}
