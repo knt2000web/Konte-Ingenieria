@@ -403,6 +403,53 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
         </div>
       </div>
 
+      {/* ========== BANNER STRUCTOPRO ========== */}
+      <section className="bg-gradient-to-r from-[#0a1628] to-[#0d2447] border-y border-blue-800/40 py-14 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+
+          {/* Texto izquierda */}
+          <div className="flex-1">
+            <span className="inline-block bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+              ✨ Nuevo Servicio Digital
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+              🧮 StructoPro
+            </h2>
+            <p className="text-blue-200 mt-2 text-base font-medium">
+              Plataforma profesional de cálculo estructural en línea
+            </p>
+            <p className="text-slate-300 mt-3 text-sm max-w-lg leading-relaxed">
+              Diseña zapatas, muros de contención, columnas y más — bajo normativa{' '}
+              <strong className="text-white">NSR-10 / ACI 318</strong>.{' '}
+              Exporta planos DXF, memorias DOCX y cantidades de obra directamente desde el navegador.
+            </p>
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 text-sm text-slate-300">
+              <li>✅ Zapatas y geotecnia (Terzaghi / Meyerhof)</li>
+              <li>✅ Muros de contención y Kontewall</li>
+              <li>✅ Columnas, vigas y losas</li>
+              <li>✅ Exportación DXF + DOCX + APU</li>
+            </ul>
+          </div>
+
+          {/* Botón derecha */}
+          <div className="flex flex-col items-center gap-3 shrink-0">
+            <a
+              href="https://structopro-app.streamlit.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-orange-500 hover:bg-orange-400 active:scale-95 text-white font-bold py-4 px-10 rounded-xl text-lg transition-all shadow-xl shadow-orange-500/20 whitespace-nowrap"
+            >
+              PROBAR GRATIS →
+            </a>
+            <span className="text-slate-400 text-xs text-center">
+              Sin registro requerido • Acceso inmediato
+            </span>
+          </div>
+
+        </div>
+      </section>
+      {/* ======== FIN BANNER STRUCTOPRO ======== */}
+
       {/* Moving Image Gallery Strip - Interactive */}
       <section className="w-full bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 py-10 mb-20 overflow-hidden transition-colors duration-300">
         <div className="relative w-full">
