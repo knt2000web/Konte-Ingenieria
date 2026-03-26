@@ -3,7 +3,7 @@ import {
   Calculator, FileText, Box, Ruler, BarChart3, 
   Layers, TreePine, Zap, ArrowRight, CheckCircle2,
   ShieldCheck, Clock, Download, Laptop, Briefcase, 
-  TrendingUp, Activity
+  TrendingUp, Activity, Users
 } from 'lucide-react';
 
 interface ServiceStructoProProps {
