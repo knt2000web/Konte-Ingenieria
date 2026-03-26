@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { 
   Calculator, FileText, Box, Ruler, BarChart3, 
   Layers, TreePine, Zap, ArrowRight, CheckCircle2,
@@ -18,11 +17,6 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
 
   return (
     <div className="pt-24 pb-16 bg-white dark:bg-gray-900 min-h-screen transition-colors duration-300">
-      <Helmet>
-        <title>StructoPro - Plataforma de Cálculo Estructural | KONTE</title>
-        <meta name="description" content="Diseña zapatas, muros de contención, columnas y vigas bajo norma NSR-10 y ACI 318. Exporta planos DXF y memorias DOCX gratis." />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#071525] via-[#0a1e3a] to-[#0d2647] py-20 overflow-hidden">
         {/* Fondo decorativo SVG */}
