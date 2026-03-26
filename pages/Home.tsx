@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SERVICES } from '../constants';
-import { ArrowRight, CheckCircle, Award, Users, Globe, ZoomIn } from 'lucide-react';
+import { ArrowRight, CheckCircle, Award, Users, Globe, ZoomIn, Calculator, FileText, Box, Ruler, BarChart3, Layers, TreePine, Zap, CheckCircle2 } from 'lucide-react';
 
 interface HomeProps {
   setPage?: any; // Deprecated
@@ -404,48 +404,112 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
       </div>
 
       {/* ========== BANNER STRUCTOPRO ========== */}
-      <section className="bg-gradient-to-r from-[#0a1628] to-[#0d2447] border-y border-blue-800/40 py-14 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-
-          {/* Texto izquierda */}
-          <div className="flex-1">
-            <span className="inline-block bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
-              ✨ Nuevo Servicio Digital
+      <section className="relative bg-gradient-to-br from-[#071525] 
+                          via-[#0a1e3a] to-[#0d2647] 
+                          border-y border-blue-700/30 overflow-hidden">
+      
+        {/* Fondo decorativo */}
+        <div className="absolute inset-0 opacity-5"
+             style={{backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a9eff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`}} />
+      
+        <div className="relative max-w-7xl mx-auto px-6 py-16">
+      
+          {/* Encabezado */}
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 bg-blue-500/15 
+                             border border-blue-500/30 text-blue-300 text-xs 
+                             font-bold uppercase tracking-widest px-4 py-2 
+                             rounded-full mb-5">
+              <Zap size={12} /> Nuevo Servicio Digital
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-              🧮 StructoPro
+            <h2 className="text-4xl md:text-5xl font-black text-white 
+                           tracking-tight leading-tight">
+              Struct<span className="text-blue-400">o</span>Pro
             </h2>
-            <p className="text-blue-200 mt-2 text-base font-medium">
+            <p className="text-blue-200 mt-3 text-lg font-medium max-w-2xl mx-auto">
               Plataforma profesional de cálculo estructural en línea
             </p>
-            <p className="text-slate-300 mt-3 text-sm max-w-lg leading-relaxed">
-              Diseña zapatas, muros de contención, columnas y más — bajo normativa{' '}
-              <strong className="text-white">NSR-10 / ACI 318</strong>.{' '}
-              Exporta planos DXF, memorias DOCX y cantidades de obra directamente desde el navegador.
+            <p className="text-slate-400 mt-2 text-sm max-w-2xl mx-auto">
+              Diseña, verifica y exporta elementos estructurales bajo normativa 
+              <strong className="text-slate-200"> NSR-10 / ACI 318 / Multi-Norma</strong>. 
+              Sin instalaciones, directamente en tu navegador.
             </p>
-            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-1 text-sm text-slate-300">
-              <li>✅ Zapatas y geotecnia (Terzaghi / Meyerhof)</li>
-              <li>✅ Muros de contención y Kontewall</li>
-              <li>✅ Columnas, vigas y losas</li>
-              <li>✅ Exportación DXF + DOCX + APU</li>
-            </ul>
           </div>
-
-          {/* Botón derecha */}
-          <div className="flex flex-col items-center gap-3 shrink-0">
-            <a
-              href="https://structopro-app.streamlit.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-orange-500 hover:bg-orange-400 active:scale-95 text-white font-bold py-4 px-10 rounded-xl text-lg transition-all shadow-xl shadow-orange-500/20 whitespace-nowrap"
-            >
-              PROBAR GRATIS →
-            </a>
-            <span className="text-slate-400 text-xs text-center">
-              Sin registro requerido • Acceso inmediato
-            </span>
+      
+          {/* Grid de módulos */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+      
+            {[
+              { icon: <Layers size={20}/>, titulo: "Cimentaciones", desc: "Zapatas aisladas, capacidad portante, Terzaghi / Meyerhof, DXF" },
+              { icon: <Box size={20}/>, titulo: "Muros de Contención", desc: "Kontewall: diseño completo en voladizo con exportación de planos" },
+              { icon: <Ruler size={20}/>, titulo: "Columnas y Vigas", desc: "Diseño PM, secciones circulares, vigas y losas bajo NSR-10" },
+              { icon: <Calculator size={20}/>, titulo: "Mampostería", desc: "Morteros y albanilería confinada, verificación de muros" },
+              { icon: <TreePine size={20}/>, titulo: "Madera Estructural", desc: "Diseño de estructuras en madera con verificaciones NTC" },
+              { icon: <BarChart3 size={20}/>, titulo: "Análisis Estructural", desc: "Pórticos 2D y 3D, generador maestro de modelos estructurales" },
+              { icon: <Zap size={20}/>, titulo: "Diseño Sísmico", desc: "Irregularidades, espectros NSR-10 y predimensionamiento" },
+              { icon: <FileText size={20}/>, titulo: "Memorias y APU", desc: "Exporta DOCX, planos DXF y cantidades de obra en tiempo real" },
+            ].map((item, i) => (
+              <div key={i} className="bg-white/5 hover:bg-blue-500/10 border 
+                                      border-white/10 hover:border-blue-500/40 
+                                      rounded-xl p-4 transition-all duration-300 
+                                      group cursor-default">
+                <div className="text-blue-400 group-hover:text-blue-300 mb-3 
+                                transition-colors">
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-semibold text-sm mb-1">
+                  {item.titulo}
+                </h3>
+                <p className="text-slate-400 text-xs leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+      
           </div>
-
+      
+          {/* Fila inferior: beneficios + botón */}
+          <div className="flex flex-col md:flex-row items-center 
+                          justify-between gap-8 pt-8 
+                          border-t border-white/10">
+      
+            {/* Checks */}
+            <div className="grid grid-cols-2 gap-x-10 gap-y-2">
+              {[
+                "Exportación de planos DXF",
+                "Memorias de cálculo DOCX",
+                "Cantidades APU en tiempo real",
+                "Normativa NSR-10 / ACI 318",
+                "Visualización 3D interactiva",
+                "Sin instalación requerida",
+              ].map((item, i) => (
+                <span key={i} className="flex items-center gap-2 text-slate-300 
+                                         text-sm">
+                  <CheckCircle2 size={14} className="text-green-400 shrink-0"/>
+                  {item}
+                </span>
+              ))}
+            </div>
+      
+            {/* Botón CTA */}
+            <div className="flex flex-col items-center gap-2 shrink-0">
+              <a href="https://structopro-app.streamlit.app"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="inline-flex items-center gap-3 bg-orange-500 
+                            hover:bg-orange-400 active:scale-95 text-white 
+                            font-bold py-4 px-10 rounded-xl text-base 
+                            transition-all shadow-2xl shadow-orange-500/25">
+                ACCEDER A STRUCTOPRO
+                <ArrowRight size={18}/>
+              </a>
+              <span className="text-slate-500 text-xs">
+                Acceso gratuito • Sin registro
+              </span>
+            </div>
+      
+          </div>
+      
         </div>
       </section>
       {/* ======== FIN BANNER STRUCTOPRO ======== */}
