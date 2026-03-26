@@ -3,7 +3,7 @@ import {
   Calculator, FileText, Box, Ruler, BarChart3, 
   Layers, TreePine, Zap, ArrowRight, CheckCircle2,
   ShieldCheck, Clock, Download, Laptop, Briefcase, 
-  TrendingUp, Activity, Users
+  TrendingUp, Activity, Users, Globe
 } from 'lucide-react';
 
 interface ServiceStructoProProps {
@@ -63,12 +63,16 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
       {/* Franja de Confianza (Trust Strip) */}
       <div className="bg-slate-900 border-b border-slate-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-slate-400 font-bold uppercase tracking-widest text-sm md:text-base">
-            <span className="flex items-center gap-2"><CheckCircle2 size={18} className="text-blue-500"/> NSR-10</span>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-10 lg:gap-14 text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs md:text-sm items-center">
+            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-blue-500"/> NSR-10</span>
             <span className="hidden sm:inline-block text-slate-700">|</span>
-            <span className="flex items-center gap-2"><CheckCircle2 size={18} className="text-blue-500"/> ACI 318</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-blue-500"/> ACI 318</span>
             <span className="hidden sm:inline-block text-slate-700">|</span>
-            <span className="flex items-center gap-2"><FileText size={18} className="text-blue-500"/> DOCX + DXF</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-blue-500"/> NTC / ASCE 7</span>
+            <span className="hidden sm:inline-block text-slate-700">|</span>
+            <span className="flex items-center gap-1.5"><Globe size={16} className="text-blue-500"/> MULTI-NORMA</span>
+            <span className="hidden sm:inline-block text-slate-700">|</span>
+            <span className="flex items-center gap-1.5"><FileText size={16} className="text-blue-500"/> DOCX + DXF</span>
           </div>
         </div>
       </div>
