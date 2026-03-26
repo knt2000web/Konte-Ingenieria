@@ -10,6 +10,7 @@ import ServiceAni from './pages/ServiceAni';
 import ServicePH from './pages/ServicePH';
 import ServiceDiesel from './pages/ServiceDiesel';
 import ServiceTech from './pages/ServiceTech';
+import ServiceStructoPro from './pages/ServiceStructoPro';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
@@ -49,6 +50,9 @@ const SEOHandler = () => {
   } else if (path === '/contacto') {
     title = "Contáctenos";
     description = "Póngase en contacto con nuestros ingenieros. Cotizaciones y asesoría técnica en Duitama, Boyacá y toda Colombia.";
+  } else if (path === '/servicios/structopro') {
+    title = "StructoPro - Cálculo Estructural en Línea | KONTE";
+    description = "La plataforma profesional de diseño y cálculo estructural. Genera planos DXF y memorias DOCX bajo norma NSR-10 directamente en el navegador.";
   } else if (path === '/dashboard') {
     title = "Panel de Cliente";
     description = "Área privada para clientes KONTE. Gestión de proyectos y documentos.";
@@ -180,7 +184,8 @@ const App: React.FC = () => {
           <Route path="/servicios/gestion-ani" element={<ServiceAni setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/propiedad-horizontal" element={<ServicePH setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/fuel-shield" element={<ServiceDiesel setPage={() => {}} openLightbox={openLightbox} />} />
-                        <Route path="/servicios/tecnologia" element={<ServiceTech setPage={() => {}} openLightbox={openLightbox} />} />
+          <Route path="/servicios/tecnologia" element={<ServiceTech setPage={() => {}} openLightbox={openLightbox} />} />
+          <Route path="/servicios/structopro" element={<ServiceStructoPro openLightbox={openLightbox} />} />
           {/* Fallback routes for specific services to main services page */}
           <Route path="/servicios/consultoria-tecnica" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/ingenieria-especializada" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />

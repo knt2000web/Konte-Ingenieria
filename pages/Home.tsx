@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { SERVICES } from '../constants';
 import { ArrowRight, CheckCircle, Award, Users, Globe, ZoomIn, Calculator, FileText, Box, Ruler, BarChart3, Layers, TreePine, Zap, CheckCircle2 } from 'lucide-react';
 
@@ -493,16 +493,14 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
       
             {/* Botón CTA */}
             <div className="flex flex-col items-center gap-2 shrink-0">
-              <a href="https://structopro-app.streamlit.app"
-                 target="_blank"
-                 rel="noopener noreferrer"
+              <Link to="/servicios/structopro"
                  className="inline-flex items-center gap-3 bg-orange-500 
                             hover:bg-orange-400 active:scale-95 text-white 
                             font-bold py-4 px-10 rounded-xl text-base 
                             transition-all shadow-2xl shadow-orange-500/25">
-                ACCEDER A STRUCTOPRO
+                CONOCER STRUCTOPRO
                 <ArrowRight size={18}/>
-              </a>
+              </Link>
               <span className="text-slate-500 text-xs">
                 Acceso gratuito • Sin registro
               </span>
