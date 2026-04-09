@@ -15,7 +15,7 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
   const waLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20solicito%20el%20Diagn%C3%B3stico%20Clear%20%26%20Bright%20para%20mi%20EDS.";
 
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 bg-gray-50 dark:bg-bg-dark">
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 bg-slate-900 dark:bg-bg-dark">
       {/* 1. Hero Section - KONTE Fuel-Shield */}
       <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 dark:to-bg-dark pt-32 pb-12 overflow-hidden relative">
         {/* Abstract Background Pattern */}
@@ -142,8 +142,8 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
         <div className="flex flex-col lg:flex-row gap-12 items-center mb-24">
            <div className="w-full lg:w-1/2">
               <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">DIFERENCIADOR ÉLITE</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Ingeniería de Precisión KONTE</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ingeniería de Precisión KONTE</h2>
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 Implementamos el <strong>Protocolo PRET-24</strong> con tiempos de respuesta inferiores a 4 horas para situaciones críticas.
               </p>
               
@@ -153,8 +153,8 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
                        <Search className="w-6 h-6" />
                     </div>
                     <div>
-                       <h4 className="font-bold text-gray-900 dark:text-white text-lg">Diagnóstico Forense</h4>
-                       <p className="text-sm text-gray-600 dark:text-gray-400">Inspección intrínsecamente segura para identificar picaduras y biopelículas.</p>
+                       <h4 className="font-bold text-white text-lg">Diagnóstico Forense</h4>
+                       <p className="text-sm text-gray-400">Inspección intrínsecamente segura para identificar picaduras y biopelículas.</p>
                     </div>
                  </li>
                  <li className="flex items-start gap-4">
@@ -162,8 +162,8 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
                        <Droplets className="w-6 h-6" />
                     </div>
                     <div>
-                       <h4 className="font-bold text-gray-900 dark:text-white text-lg">Micro-filtración de 2 Micras</h4>
-                       <p className="text-sm text-gray-600 dark:text-gray-400">Tecnología de diálisis de combustible que elimina el 99.9% de contaminantes sólidos y agua emulsionada.</p>
+                       <h4 className="font-bold text-white text-lg">Micro-filtración de 2 Micras</h4>
+                       <p className="text-sm text-gray-400">Tecnología de diálisis de combustible que elimina el 99.9% de contaminantes sólidos y agua emulsionada.</p>
                     </div>
                  </li>
                  <li className="flex items-start gap-4">
@@ -171,8 +171,8 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
                        <FileCheck className="w-6 h-6" />
                     </div>
                     <div>
-                       <h4 className="font-bold text-gray-900 dark:text-white text-lg">Certificación ISO 4406</h4>
-                       <p className="text-sm text-gray-600 dark:text-gray-400">Entrega mensual de certificado de limpieza de fluidos como respaldo legal ante reclamaciones.</p>
+                       <h4 className="font-bold text-white text-lg">Certificación ISO 4406</h4>
+                       <p className="text-sm text-gray-400">Entrega mensual de certificado de limpieza de fluidos como respaldo legal ante reclamaciones.</p>
                     </div>
                  </li>
               </ul>
@@ -199,7 +199,7 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
         {/* 4. Tabla de Impacto Financiero */}
         <div className="mb-24">
            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Análisis de Retorno de Inversión (5 Años)</h2>
+              <h2 className="text-3xl font-bold text-white">Análisis de Retorno de Inversión (5 Años)</h2>
               <div className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-bold mt-2">
                  ROI Estimado: 411%
               </div>
@@ -260,7 +260,7 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
 
         {/* 5. Niveles de Servicio */}
         <div className="mb-24">
-           <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">Planes de Blindaje Técnico</h2>
+           <h2 className="text-3xl font-bold text-white text-center mb-12">Planes de Blindaje Técnico</h2>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Bronce */}
               <div className="bg-white dark:bg-bg-dark-card rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all relative overflow-hidden">
@@ -308,8 +308,8 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
 
         {/* 8. Final CTA - Diagnóstico */}
         <div id="diagnostico" className="text-center max-w-4xl mx-auto mb-12">
-           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">No espere a que fallen sus inyectores</h2>
-           <p className="text-gray-600 dark:text-gray-300 text-lg mb-8">
+           <h2 className="text-3xl font-bold text-white mb-6">No espere a que fallen sus inyectores</h2>
+           <p className="text-gray-300 text-lg mb-8">
              Ofrecemos una prueba de campo "Clear & Bright" gratuita para nuevos clientes corporativos.
            </p>
            <a 
@@ -325,8 +325,8 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
         {/* Legal Footer */}
         <div className="text-center border-t border-gray-200 dark:border-gray-800 pt-8">
             <p className="text-xs text-gray-500 uppercase tracking-widest font-bold">Validación Técnica y Legal</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                Todos los informes y certificaciones son avalados y firmados por ingeniero especialista con Matrícula Profesional No. <span className="font-mono font-bold text-gray-900 dark:text-white">25202-186557 CND</span>. Garantía de respaldo jurídico ante entes de control.
+            <p className="text-sm text-gray-400 mt-2">
+                Todos los informes y certificaciones son avalados y firmados por ingeniero especialista con Matrícula Profesional No. <span className="font-mono font-bold text-white">25202-186557 CND</span>. Garantía de respaldo jurídico ante entes de control.
             </p>
         </div>
 
