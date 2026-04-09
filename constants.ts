@@ -153,6 +153,31 @@ export const SERVICES: Service[] = [
       { title: "Integración de Sistemas", desc: "Conexión e integración de plataformas y sistemas empresariales existentes." }
     ],
     icon: 'computer'
+  },
+  {
+    id: '8',
+    category: 'SOFTWARE Y HERRAMIENTAS DIGITALES',
+    title: 'StructoPro Engineering Suite',
+    description: 'Plataforma profesional en la nube para el diseño y cálculo estructural sismo-resistente, acelerando cientos de horas de ingeniería en minutos.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    images: [
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800'
+    ],
+    features: [
+      '22 Módulos de Cálculo Estructural',
+      'Generación Automática de Memorias (DOCX)',
+      'Exportación Inmediata de Planos (DXF)',
+      'Multi-Norma (NSR-10, ACI 318, NEC, E.060, etc.)'
+    ],
+    detailedFeatures: [
+      { title: "Cimentaciones y Contención", desc: "Zapatas aisladas, muros en voladizo (KonteWall) y cálculo de capacidad portante." },
+      { title: "Diseño Sísmico", desc: "Predimensionamiento, cálculo de irregularidades y espectros de diseño." },
+      { title: "Madera y Mampostería", desc: "Verificación de muros confinados y sistemas constructivos de madera (NTC)." },
+      { title: "Exportación Directa", desc: "Formatos editables listos para radicación técnica sin instalación de software." }
+    ],
+    icon: 'laptop_chromebook'
   }
 ];
 

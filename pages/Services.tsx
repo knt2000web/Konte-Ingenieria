@@ -158,6 +158,20 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
                   >
                     VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
+                ) : service.id === '7' ? (
+                  <button 
+                    onClick={() => navigate('/servicios/tecnologia')}
+                    className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-secondary transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
+                  >
+                    VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
+                  </button>
+                ) : service.id === '8' ? (
+                  <button 
+                    onClick={() => navigate('/servicios/structopro')}
+                    className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30 flex items-center justify-center gap-2"
+                  >
+                    ACCEDER A STRUCTOPRO <ArrowRight className="w-5 h-5" />
+                  </button>
                 ) : (
                   <button 
                     onClick={() => navigate('/contacto')}

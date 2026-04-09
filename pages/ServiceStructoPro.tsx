@@ -60,19 +60,47 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
 
-      {/* Franja de Confianza (Trust Strip) */}
+      {/* Franja de Confianza (Trust Strip) - Normativas */}
       <div className="bg-slate-900 border-b border-slate-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4 md:gap-10 lg:gap-14 text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs md:text-sm items-center">
-            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-blue-500"/> NSR-10</span>
-            <span className="hidden sm:inline-block text-slate-700">|</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-blue-500"/> ACI 318</span>
-            <span className="hidden sm:inline-block text-slate-700">|</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-blue-500"/> NTC / ASCE 7</span>
-            <span className="hidden sm:inline-block text-slate-700">|</span>
-            <span className="flex items-center gap-1.5"><Globe size={16} className="text-blue-500"/> MULTI-NORMA</span>
-            <span className="hidden sm:inline-block text-slate-700">|</span>
-            <span className="flex items-center gap-1.5"><FileText size={16} className="text-blue-500"/> DOCX + DXF</span>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 sm:gap-x-6 lg:gap-x-10 items-center">
+            
+            {/* Destacados Core */}
+            <span className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
+              <CheckCircle2 size={16} className="text-blue-500"/>
+              <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">NSR-10 (COL)</span>
+            </span>
+            <span className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
+              <CheckCircle2 size={16} className="text-blue-500"/>
+              <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">ACI 318 (USA)</span>
+            </span>
+
+            {/* Separador Opcional para Desktop */}
+            <span className="hidden md:inline-block text-slate-700">|</span>
+
+            {/* Resto de Normas Latam */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-5 text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs items-center">
+               <span>NEC (ECU)</span>
+               <span className="text-slate-700">•</span>
+               <span>E.060 (PER)</span>
+               <span className="text-slate-700">•</span>
+               <span>NTC (MEX)</span>
+               <span className="text-slate-700">•</span>
+               <span>COVENIN (VEN)</span>
+               <span className="hidden sm:inline-block text-slate-700">•</span>
+               <span className="hidden sm:inline-block">NB (BOL)</span>
+               <span className="hidden sm:inline-block text-slate-700">•</span>
+               <span className="hidden sm:inline-block">CIRSOC (ARG)</span>
+            </div>
+
+            {/* Separador */}
+            <span className="hidden lg:inline-block text-slate-700">|</span>
+
+            {/* Entregables */}
+            <span className="flex items-center gap-1.5 text-slate-300 font-bold uppercase tracking-widest text-xs">
+              <FileText size={16} className="text-emerald-500"/> DOCX + DXF
+            </span>
+
           </div>
         </div>
       </div>
@@ -111,43 +139,42 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
 
-      {/* Módulos de Cálculo - Grid 23 items */}
+      {/* Módulos de Cálculo - Grid 22 items */}
       <section className="bg-slate-50 dark:bg-[#0c1322] py-24 border-y border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">Módulos de trabajo</h2>
+            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">Módulos de trabajo ({22})</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
               StructoPro integra herramientas para cálculo, verificación y documentación estructural en una sola experiencia de trabajo. Cada módulo está pensado para resolver tareas frecuentes de diseño con más rapidez, orden y consistencia técnica.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
-              { icon: <Activity />, title: "Cimentaciones Superficiales", desc: "Evaluación de capacidad portante, presiones de contacto y criterios básicos de interacción suelo-estructura." },
-              { icon: <Box />, title: "Muros de Contención", desc: "Revisión de estabilidad y dimensionamiento para configuraciones típicas de gravedad y voladizo." },
-              { icon: <Ruler />, title: "Vigas y Losas", desc: "Análisis de flexión, cortante, cuantías y chequeos de servicio en elementos de concreto." },
-              { icon: <Calculator />, title: "Columnas de Concreto", desc: "Apoyo al diseño a flexocompresión con revisión de comportamiento y relaciones de carga." },
-              { icon: <Layers />, title: "Mampostería Estructural", desc: "Herramientas para evaluación y diseño de muros bajo criterios estructurales aplicables." },
-              { icon: <BarChart3 />, title: "Análisis de Cargas", desc: "Organización y estimación de cargas gravitacionales y laterales para etapas preliminares o validación." },
-              { icon: <TreePine />, title: "Madera Estructural", desc: "Verificación de elementos flexionados, columnas y conexiones en madera aserrada." },
-              { icon: <Zap />, title: "Diseño Sísmico Básico", desc: "Generación de espectros elásticos e inelásticos, y evaluación de irregularidades (NSR-10)." },
-              { icon: <ShieldCheck />, title: "Tanques de Almacenamiento", desc: "Verificación de muros y losas bajo empujes hidrostáticos." },
-              { icon: <Box />, title: "Zapatas Aisladas y Combinadas", desc: "Diseño detallado a punzonamiento, cortante ancho y flexión con planos DXF." },
-              { icon: <Layers />, title: "Placas Alveolares", desc: "Verificación de capacidad y deflexiones en losas prefabricadas (Extrusión/Molde)." },
-              { icon: <Ruler />, title: "Nudos Viga-Columna", desc: "Comprobación de cortante en la junta para diseño sismo-resistente (DMO/DES)." },
-              { icon: <Activity />, title: "Vigas T y L", desc: "Diseño a flexión de secciones con aleta colaborante en placa." },
-              { icon: <BarChart3 />, title: "Muros de Cortante (Placas)", desc: "Diseño de elementos de borde y refuerzo del alma para resistencia sísmica lateral." },
-              { icon: <TreePine />, title: "Viguetas Metálicas (Deck)", desc: "Diseño en etapa constructiva y final para tableros metálicos colaborantes." },
-              { icon: <Calculator />, title: "Empalmes y Ganchos", desc: "Cálculo de longitudes de desarrollo y traslapos requeridos por diámetro (ACI 318)." },
-              { icon: <Box />, title: "Escaleras de Concreto", desc: "Análisis longitudinal y diseño a flexión para escaleras ortopoligonales." },
-              { icon: <Layers />, title: "Perfiles Metálicos", desc: "Cálculo de propiedades geométricas y axiales de perfiles tubulares, I y canales." },
-              { icon: <ShieldCheck />, title: "Acero de Estribos", desc: "Determinación de separación máxima y confinamiento en zonas de alta amenaza." },
-              { icon: <Activity />, title: "Losas Macizas", desc: "Cálculo de cuantías en dos direcciones (Coeficientes Marcus o ACI)." },
-              { icon: <FileText />, title: "Cuadro de Columnas", desc: "Exportador de planillas de despiece y tabla consolidada en DXF." },
-              { icon: <Download />, title: "Cantidades de Obra (APU)", desc: "Estimación volumétrica de concreto y peso de acero derivado del cálculo." },
-              { icon: <BarChart3 />, title: "Generador de Cargas de Viento", desc: "Evaluación simplificada de presiones bajo ASCE 7 y NSR-10." },
+              { icon: <Calculator />, title: "Columnas PM", desc: "Diagramas de interacción P-M y flexocompresión." },
+              { icon: <Ruler />, title: "Vigas Losas", desc: "Diseño detallado a flexión y cortante." },
+              { icon: <Layers />, title: "Otras Estructuras", desc: "Resolución para elementos no convencionales." },
+              { icon: <TrendingUp />, title: "APU Mercado", desc: "Precios Unitarios (APU) con valores de mercado." },
+              { icon: <Calculator />, title: "Columnas Circulares", desc: "Diseño biaxial para soportes de sección circular y espirales." },
+              { icon: <Box />, title: "Zapatas", desc: "Dimensionamiento y diseño de cimentaciones superficiales." },
+              { icon: <ShieldCheck />, title: "Muros Contención", desc: "Evaluación de estabilidad, volcamiento y deslizamiento." },
+              { icon: <Layers />, title: "Mamposteria Morteros", desc: "Dosificaciones y mezclas para mampostería no estructural." },
+              { icon: <TreePine />, title: "Madera Estructuras", desc: "Diseño y revisión de elementos en madera aserrada." },
+              { icon: <Zap />, title: "Diseño Sismico", desc: "Espectros de diseño, derivas y parámetros de sitio." },
+              { icon: <Layers />, title: "Estructuras Metalicas", desc: "Propiedades geométricas y elementos de acero." },
+              { icon: <Activity />, title: "Resistencia Materiales", desc: "Mecánica, cálculo de inercias y esfuerzos internos." },
+              { icon: <Briefcase />, title: "Utilidades Comunes", desc: "Herramientas de conversión e interpolación útiles." },
+              { icon: <BarChart3 />, title: "Analisis Estructural 2D", desc: "Análisis matricial de fuerzas en pórticos 2D." },
+              { icon: <BarChart3 />, title: "Analisis Estructural 3D", desc: "Cálculo global de matrices de rigidez espaciales." },
+              { icon: <Globe />, title: "Generador Maestro 3D", desc: "Modelado paramétrico y visualización estructural 3D." },
+              { icon: <Box />, title: "Kontewall", desc: "Suite especializada en muros de retención avanzados." },
+              { icon: <Calculator />, title: "Konte Calculadora", desc: "Estimación rápida volumétrica y cuantía de materiales." },
+              { icon: <Activity />, title: "Viento Simplificado", desc: "Evaluación lineal de empujes sobre fachadas." },
+              { icon: <Layers />, title: "Albanileria Confinada", desc: "Chequeos integrales de muros estructurales." },
+              { icon: <Ruler />, title: "Predimensionamiento", desc: "Reglas rápidas para iteración inicial de vigas y columnas." },
+              { icon: <Activity />, title: "Irregularidades", desc: "Verificación de asimetrías torsionales NSR-10." }
             ].map((mod, i) => (
-              <div key={i} className="bg-white dark:bg-gray-800 flex flex-col p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 hover:shadow-md transition-all group">
+              <div key={i} className="bg-white dark:bg-gray-800 flex flex-col p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 hover:shadow-md transition-all group">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
                     {React.cloneElement(mod.icon as React.ReactElement, { size: 20 })}

@@ -17,7 +17,7 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 bg-gray-50 dark:bg-bg-dark">
       {/* 1. Hero Section - KONTE Fuel-Shield */}
-      <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-gray-50 dark:to-bg-dark pt-32 pb-12 overflow-hidden relative">
+      <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 dark:to-bg-dark pt-32 pb-12 overflow-hidden relative">
         {/* Abstract Background Pattern */}
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         
@@ -85,10 +85,10 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30 mb-20 mt-12">
         
         {/* 2. El Problema Forense - TEXT DETAILS RESTORED */}
-        <div className="bg-white dark:bg-bg-dark-card rounded-xl shadow-xl p-8 md:p-12 border-t-8 border-red-600 mb-16">
+        <div className="bg-slate-900 dark:bg-bg-dark-card rounded-xl shadow-xl p-8 md:p-12 border-t-8 border-red-600 mb-16">
            <div className="text-center mb-12">
-             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">La Amenaza Química Invisible</h2>
-             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto font-medium">
+             <h2 className="text-3xl font-bold text-white mb-4">La Amenaza Química Invisible</h2>
+             <p className="text-lg text-gray-300 max-w-4xl mx-auto font-medium">
                La eliminación del azufre en el Diésel de 15 PPM (ULSD) retiró el biocida natural del combustible, dejando el tanque expuesto.
              </p>
            </div>

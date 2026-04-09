@@ -174,6 +174,26 @@ const TECH_SUB_SERVICES = [
   }
 ];
 
+// Sub-services specific data for Service 8 (StructoPro)
+const STRUCTOPRO_SUB_SERVICES = [
+  {
+    title: "Cimentaciones y Contención",
+    desc: "Zapatas aisladas, muros en voladizo (KonteWall) y cálculo de capacidad portante."
+  },
+  {
+    title: "Vigas, Columnas y Escaleras",
+    desc: "Diseño flexión/cortante de secciones rectangulares, circulares y diagramas de interacción P-M."
+  },
+  {
+    title: "Diseño Sísmico",
+    desc: "Predimensionamiento, cálculo de irregularidades y espectros de diseño elástico."
+  },
+  {
+    title: "Mampostería y Madera",
+    desc: "Verificación de muros confinados y sistemas constructivos en madera (NTC)."
+  }
+];
+
 const Home: React.FC<HomeProps> = ({ openLightbox }) => {
   const navigate = useNavigate();
   
@@ -205,6 +225,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
   const [techDigFeatureIndex, setTechDigFeatureIndex] = useState(0);
   const [techDigBgImageIndex, setTechDigBgImageIndex] = useState(0);
 
+  // State for StructoPro (ID 8)
+  const [structoFeatureIndex, setStructoFeatureIndex] = useState(0);
+  const [structoBgImageIndex, setStructoBgImageIndex] = useState(0);
+
   // Find the services to get their image counts
   const specializedService = SERVICES.find(s => s.id === '3');
   const specializedImagesCount = specializedService?.images?.length || 0;
@@ -226,6 +250,9 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
 
   const techDigService = SERVICES.find(s => s.id === '7');
   const techDigImagesCount = techDigService?.images?.length || 0;
+
+  const structoService = SERVICES.find(s => s.id === '8');
+  const structoImagesCount = structoService?.images?.length || 0;
 
   useEffect(() => {
     // --- Service 3 Intervals ---
@@ -313,6 +340,18 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
       }, 3500);
     }
 
+    // --- Service 8 (StructoPro) Intervals ---
+    const structoTextInterval = setInterval(() => {
+      setStructoFeatureIndex((prev) => (prev + 1) % STRUCTOPRO_SUB_SERVICES.length);
+    }, 4500);
+
+    let structoImageInterval: ReturnType<typeof setInterval>;
+    if (structoImagesCount > 0) {
+      structoImageInterval = setInterval(() => {
+        setStructoBgImageIndex((prev) => (prev + 1) % structoImagesCount);
+      }, 3500);
+    }
+
     return () => {
       clearInterval(textInterval);
       if (imageInterval) clearInterval(imageInterval);
@@ -329,8 +368,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
       if (fuelImageInterval) clearInterval(fuelImageInterval);
       clearInterval(techDigTextInterval);
       if (techDigImageInterval) clearInterval(techDigImageInterval);
+      clearInterval(structoTextInterval);
+      if (structoImageInterval) clearInterval(structoImageInterval);
     };
-  }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount, fuelImagesCount, techDigImagesCount]);
+  }, [specializedImagesCount, aniImagesCount, healthImagesCount, phImagesCount, techImagesCount, fuelImagesCount, techDigImagesCount, structoImagesCount]);
 
   return (
     
@@ -431,7 +472,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
             </p>
             <p className="text-slate-400 mt-2 text-sm max-w-2xl mx-auto">
               Diseña, verifica y exporta elementos estructurales bajo normativa 
-              <strong className="text-slate-200"> NSR-10 / ACI 318 / Multi-Norma</strong>. 
+              <strong className="text-slate-200"> NSR-10 / ACI 318 / Normas Internacionales</strong>. 
               Sin instalaciones, directamente en tu navegador.
             </p>
           </div>
@@ -440,14 +481,14 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
       
             {[
-              { icon: <Layers size={20}/>, titulo: "Cimentaciones", desc: "Zapatas aisladas, capacidad portante, Terzaghi / Meyerhof, DXF" },
-              { icon: <Box size={20}/>, titulo: "Muros de Contención", desc: "Kontewall: diseño completo en voladizo con exportación de planos" },
-              { icon: <Ruler size={20}/>, titulo: "Columnas y Vigas", desc: "Diseño PM, secciones circulares, vigas y losas bajo NSR-10" },
-              { icon: <Calculator size={20}/>, titulo: "Mampostería", desc: "Morteros y albanilería confinada, verificación de muros" },
-              { icon: <TreePine size={20}/>, titulo: "Madera Estructural", desc: "Diseño de estructuras en madera con verificaciones NTC" },
-              { icon: <BarChart3 size={20}/>, titulo: "Análisis Estructural", desc: "Pórticos 2D y 3D, generador maestro de modelos estructurales" },
-              { icon: <Zap size={20}/>, titulo: "Diseño Sísmico", desc: "Irregularidades, espectros NSR-10 y predimensionamiento" },
-              { icon: <FileText size={20}/>, titulo: "Memorias y APU", desc: "Exporta DOCX, planos DXF y cantidades de obra en tiempo real" },
+              { icon: <Layers size={20}/>, titulo: "Zapatas y Cimentación", desc: "Diseño y capacidad portante para zapatas aisladas en DXF" },
+              { icon: <Box size={20}/>, titulo: "Muros de Contención", desc: "Kontewall: estabilidad en voladizo con exportación de planos" },
+              { icon: <Ruler size={20}/>, titulo: "Columnas PM y Vigas", desc: "Diseño a flexión, cortante y diagramas de interacción" },
+              { icon: <Calculator size={20}/>, titulo: "Albañilería Confinada", desc: "Dosificaciones y verificación de muros bajo corte/flexión" },
+              { icon: <TreePine size={20}/>, titulo: "Madera Estructuras", desc: "Diseño de marcos en madera aserrada con normativas" },
+              { icon: <BarChart3 size={20}/>, titulo: "Análisis Estructural", desc: "Resolución de pórticos 2D/3D y generador paramétrico" },
+              { icon: <Zap size={20}/>, titulo: "Diseño Sísmico", desc: "Espectros elásticos, derivas y asimetría de irregularidades" },
+              { icon: <FileText size={20}/>, titulo: "APU y Memorias", desc: "Exporta planillas DOCX y análisis de precios unitarios" },
             ].map((item, i) => (
               <div key={i} className="bg-white/5 hover:bg-blue-500/10 border 
                                       border-white/10 hover:border-blue-500/40 
@@ -1125,6 +1166,72 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                   >
                     VER DETALLES COMPLETOS
                   </button>
+                </div>
+              );
+            }
+
+            // Logic for Service 8 (StructoPro) - REEL CARD
+            if (service.id === '8') {
+              const currentFeature = STRUCTOPRO_SUB_SERVICES[structoFeatureIndex];
+              const currentBgImage = service.images && service.images.length > 0 ? service.images[structoBgImageIndex] : service.image;
+
+              return (
+                <div key={service.id} className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col border border-blue-100 dark:border-blue-900/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-300">
+                  {/* Image Carousel Header */}
+                  <div
+                    className="relative h-48 overflow-hidden cursor-zoom-in bg-gray-900"
+                    onClick={() => openLightbox(structoBgImageIndex, service.images || [service.image])}
+                  >
+                    <img
+                      src={currentBgImage}
+                      alt="Software de Ingeniería StructoPro"
+                      className="w-full h-full object-cover transition-all duration-1000 opacity-90 group-hover:opacity-100"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+                    <ZoomIn className="absolute top-3 right-3 w-5 h-5 text-white/70" />
+                  </div>
+                  {/* Image Indicators */}
+                  <div className="flex gap-1 justify-center mt-2 absolute top-40 w-full z-10">
+                    {service.images?.map((_, idx) => (
+                      <div
+                        key={idx}
+                        className={`h-1.5 rounded-full transition-all duration-500 ${idx === structoBgImageIndex ? 'w-5 bg-blue-400' : 'w-1.5 bg-white/40'}`}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="p-5 flex flex-col flex-grow relative z-20">
+                    <p className="text-xs font-bold uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-1 flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-sm">{service.icon || 'laptop_chromebook'}</span>
+                      {service.category}
+                    </p>
+                    <h3 className="text-lg font-black text-gray-900 dark:text-white mb-3 tracking-tight">{service.title}</h3>
+                    
+                    {/* Dynamic Content Area */}
+                    <div className="flex-grow bg-blue-50 dark:bg-slate-900/60 rounded-xl p-4 mb-3 min-h-[105px] flex flex-col justify-center border-l-4 border-blue-500">
+                      <h4 className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">{currentFeature.title}</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{currentFeature.desc}</p>
+                    </div>
+
+                    {/* Text Progress Indicators */}
+                    <div className="flex gap-1 mt-1 mb-4 justify-end">
+                      {STRUCTOPRO_SUB_SERVICES.map((_, i) => (
+                        <div
+                          key={i}
+                          className={`h-1.5 rounded-full transition-all duration-500 ${i === structoFeatureIndex ? 'w-5 bg-blue-500' : 'w-1.5 bg-slate-200 dark:bg-slate-700'}`}
+                        />
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => navigate('/servicios/structopro')}
+                      className="w-full py-3.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all text-sm uppercase tracking-wider shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2"
+                    >
+                      ACCEDER A STRUCTOPRO
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
                 </div>
               );
             }
