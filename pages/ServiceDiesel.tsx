@@ -272,7 +272,7 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
                     <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-orange-400 shrink-0" /> Micro-filtración puntual</li>
                     <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-orange-400 shrink-0" /> Eliminación de agua libre</li>
                  </ul>
-                 <a href={waLink} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 border border-gray-500 rounded-lg font-bold text-gray-300 hover:bg-slate-700">Solicitar</a>
+                 <a href={waLink} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 border-2 border-orange-400 rounded-lg font-bold text-orange-400 hover:bg-orange-400 hover:text-white transition-all">Solicitar</a>
               </div>
 
               {/* Plata */}
@@ -287,7 +287,7 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
                     <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Lavado de tanques programado</li>
                     <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Certificados trimestrales</li>
                  </ul>
-                 <a href={waLink} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary">Elegir Plan</a>
+                 <a href={waLink} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition-all shadow-lg">Elegir Plan</a>
               </div>
 
               {/* Oro */}
