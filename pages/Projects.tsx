@@ -55,6 +55,15 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
     openLightbox(currentImageIndex, images);
   };
 
+  const getOptimizedUrl = (url: string) => {
+    if (!url) return '';
+    if (url.includes('imgur.com') && url.match(/\.(jpg|jpeg|png)$/i)) {
+      // Agrega 'l' (large thumbnail) antes de la extensión para cargar imágenes de max 640px y poco peso (50kb vs 5MB)
+      return url.replace(/\.(jpg|jpeg|png)$/i, 'l.$1'); 
+    }
+    return url;
+  };
+
   // Contenido de la tarjeta (imagen/video)
   const CardMedia = () => (
     <div className="relative h-64 overflow-hidden shrink-0 bg-gray-100 dark:bg-gray-800">
@@ -93,7 +102,7 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
       ) : (
         <>
           <img 
-            src={images[currentImageIndex]} 
+            src={getOptimizedUrl(images[currentImageIndex])} 
             alt={project.title} 
             loading="lazy"
             decoding="async"
@@ -152,8 +161,8 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
 
       {/* Gallery Navigation Dots */}
       {!showVideo && images.length > 1 && (
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20 pointer-events-auto">
-          {images.map((_, idx) => (
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5 z-20 pointer-events-auto pb-1">
+          {images.slice(0, 10).map((_, idx) => (
             <button
               key={idx}
               onClick={(e) => handleDotClick(idx, e)}
