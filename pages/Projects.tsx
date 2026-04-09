@@ -95,6 +95,8 @@ const ProjectCard: React.FC<{ project: Project; openLightbox: (index: number, im
           <img 
             src={images[currentImageIndex]} 
             alt={project.title} 
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
           />
           
