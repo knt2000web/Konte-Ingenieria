@@ -263,29 +263,29 @@ const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
            <h2 className="text-3xl font-bold text-white text-center mb-12">Planes de Blindaje Técnico</h2>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Bronce */}
-              <div className="bg-white dark:bg-bg-dark-card rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all relative overflow-hidden">
+              <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700 shadow-sm hover:shadow-xl transition-all relative overflow-hidden">
                  <div className="absolute top-0 left-0 w-full h-2 bg-orange-400"></div>
-                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Plan Bronce</h3>
-                 <p className="text-sm text-gray-500 mb-6">Mantenimiento Correctivo</p>
-                 <div className="text-3xl font-bold text-gray-900 dark:text-white mb-6">$8M <span className="text-sm font-normal text-gray-500">/ evento est.</span></div>
+                 <h3 className="text-2xl font-bold text-white mb-2">Plan Bronce</h3>
+                 <p className="text-sm text-gray-400 mb-6">Mantenimiento Correctivo</p>
+                 <div className="text-3xl font-bold text-white mb-6">$8M <span className="text-sm font-normal text-gray-400">/ evento est.</span></div>
                  <ul className="space-y-3 mb-8">
-                    <li className="flex gap-2 text-sm text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-orange-400 shrink-0" /> Micro-filtración puntual</li>
-                    <li className="flex gap-2 text-sm text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-orange-400 shrink-0" /> Eliminación de agua libre</li>
+                    <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-orange-400 shrink-0" /> Micro-filtración puntual</li>
+                    <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-orange-400 shrink-0" /> Eliminación de agua libre</li>
                  </ul>
-                 <a href={waLink} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 border border-gray-300 dark:border-gray-600 rounded-lg font-bold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Solicitar</a>
+                 <a href={waLink} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 border border-gray-500 rounded-lg font-bold text-gray-300 hover:bg-slate-700">Solicitar</a>
               </div>
 
               {/* Plata */}
-              <div className="bg-white dark:bg-bg-dark-card rounded-2xl p-8 border border-gray-300 dark:border-gray-600 shadow-md hover:shadow-2xl transition-all relative overflow-hidden transform md:-translate-y-4">
+              <div className="bg-slate-800 rounded-2xl p-8 border border-slate-600 shadow-md hover:shadow-2xl transition-all relative overflow-hidden transform md:-translate-y-4">
                  <div className="absolute top-0 left-0 w-full h-2 bg-gray-400"></div>
-                 <div className="absolute top-4 right-4 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs font-bold px-3 py-1 rounded-full uppercase">Recomendado</div>
-                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Plan Plata</h3>
-                 <p className="text-sm text-gray-500 mb-6">Preventivo Anual</p>
-                 <div className="text-3xl font-bold text-gray-900 dark:text-white mb-6">$28M <span className="text-sm font-normal text-gray-500">/ anual</span></div>
+                 <div className="absolute top-4 right-4 bg-gray-100 dark:bg-gray-700 text-gray-300 text-xs font-bold px-3 py-1 rounded-full uppercase">Recomendado</div>
+                 <h3 className="text-2xl font-bold text-white mb-2">Plan Plata</h3>
+                 <p className="text-sm text-gray-400 mb-6">Preventivo Anual</p>
+                 <div className="text-3xl font-bold text-white mb-6">$28M <span className="text-sm font-normal text-gray-400">/ anual</span></div>
                  <ul className="space-y-3 mb-8">
-                    <li className="flex gap-2 text-sm text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> <strong>Todo lo del Plan Bronce</strong></li>
-                    <li className="flex gap-2 text-sm text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Lavado de tanques programado</li>
-                    <li className="flex gap-2 text-sm text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Certificados trimestrales</li>
+                    <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> <strong>Todo lo del Plan Bronce</strong></li>
+                    <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Lavado de tanques programado</li>
+                    <li className="flex gap-2 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Certificados trimestrales</li>
                  </ul>
                  <a href={waLink} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary">Elegir Plan</a>
               </div>
