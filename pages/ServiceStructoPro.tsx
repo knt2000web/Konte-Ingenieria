@@ -18,7 +18,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
     document.title = "StructoPro - Plataforma de Cálculo Estructural | KONTE";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Diseña zapatas, muros de contención, columnas y vigas bajo norma NSR-10 y ACI 318. Exporta planos DXF y memorias DOCX.");
+      metaDesc.setAttribute("content", "Diseña zapatas, muros de contención, columnas y vigas bajo norma NSR-10 y ACI 318. Exporta planos DXF, memorias DOCX y modelos IFC 3D.");
     }
   }, []);
 
@@ -42,7 +42,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             Plataforma web de diseño y cálculo estructural para ingenieros que necesitan resultados técnicos confiables, memorias de cálculo claras y planos listos para exportar.
           </p>
           <p className="text-base text-slate-400 max-w-4xl mx-auto mb-10 leading-relaxed font-light">
-            Automatiza procesos de diseño bajo NSR-10 y ACI 318 desde tu navegador. Genera memorias en DOCX, planos en DXF y resultados listos para revisión técnica, sin instalar software pesado.
+            Automatiza procesos de diseño bajo NSR-10 y ACI 318 desde tu navegador. Genera memorias exhaustivas paso a paso en DOCX, planos en DXF y modelos BIM en IFC listos para revisión técnica.
           </p>
           
           <div className="flex flex-col items-center gap-4 relative z-10 mt-12 pb-6">
@@ -99,7 +99,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
 
             {/* Entregables */}
             <span className="flex items-center gap-1.5 text-slate-300 font-bold uppercase tracking-widest text-xs">
-              <FileText size={16} className="text-emerald-500"/> DOCX + DXF
+              <FileText size={16} className="text-emerald-500"/> DOCX + DXF + IFC
             </span>
 
           </div>
@@ -113,7 +113,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             {[
               { value: "22", suffix: "+", label: "Módulos activos", color: "text-blue-600 dark:text-blue-400" },
               { value: "7",  suffix: "",  label: "Normas soportadas", color: "text-orange-500" },
-              { value: "2",  suffix: "",  label: "Formatos de exportación", color: "text-emerald-600 dark:text-emerald-400" },
+              { value: "3",  suffix: "",  label: "Formatos de exportación", color: "text-emerald-600 dark:text-emerald-400" },
               { value: "0",  suffix: " instalaciones", label: "100% en la nube", color: "text-purple-600 dark:text-purple-400" },
             ].map((s, i) => (
               <div key={i} className="flex flex-col items-center">
@@ -136,8 +136,8 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             },
             {
               icon: <Download className="w-10 h-10 text-orange-500" />,
-              title: "2. Entregables profesionales",
-              desc: "Obtén memorias de cálculo en DOCX y planos en DXF listos para complementar tus entregables, revisiones internas o documentación de proyecto."
+              title: "2. Entregables completos y BIM",
+              desc: "Obtén memorias de cálculo exhaustivas paso a paso en DOCX, planos de despiece en DXF y modelos 3D en formato IFC listos para integrar en metodologías BIM."
             },
             {
               icon: <Laptop className="w-10 h-10 text-green-600 dark:text-green-400" />,
@@ -171,7 +171,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             {[
               { step: "01", icon: <MousePointerClick className="w-8 h-8" />, color: "bg-blue-600", title: "Selecciona el módulo", desc: "Elige entre 22 módulos de cálculo: zapatas, columnas, vigas, muros, análisis sísmico y más. Cada uno tiene interfaz dedicada." },
               { step: "02", icon: <Settings2 className="w-8 h-8" />, color: "bg-orange-500", title: "Ingresa los parámetros", desc: "Completa las variables del proyecto: geometría, cargas, materiales y coeficientes normativos. La plataforma valida en tiempo real." },
-              { step: "03", icon: <PackageCheck className="w-8 h-8" />, color: "bg-emerald-600", title: "Exporta los resultados", desc: "Descarga la memoria de cálculo en DOCX y los planos en DXF. Listos para documentación, revisión o entrega al cliente." },
+              { step: "03", icon: <PackageCheck className="w-8 h-8" />, color: "bg-emerald-600", title: "Exporta resultados completos", desc: "Descarga memorias detalladas en DOCX, planos 2D en DXF y el modelo 3D en IFC. Todo listo para documentación, revisión BIM o entrega al cliente." },
             ].map((step, i) => (
               <div key={i} className="flex flex-col items-center text-center group">
                 <div className={`${step.color} w-20 h-20 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
@@ -267,6 +267,57 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
 
+      {/* Planes y Precios */}
+      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800" id="pricing">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Planes diseñados para profesionales</h2>
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Comienza gratis o accede a todas las capacidades BIM y entregables exhaustivos con StructoPro Premium.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Free Plan */}
+            <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col h-full">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Básico</h3>
+              <p className="text-gray-500 dark:text-gray-400 mb-6">Para pruebas y proyectos pequeños.</p>
+              <div className="text-4xl font-black text-gray-900 dark:text-white mb-6">Gratis</div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-center gap-3 text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Acceso a módulos básicos</li>
+                <li className="flex items-center gap-3 text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Cálculos en pantalla</li>
+                <li className="flex items-center gap-3 text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Materiales estándar</li>
+                <li className="flex items-center gap-3 text-gray-400 dark:text-gray-500 line-through opacity-50"><CheckCircle2 className="w-5 h-5" /> Memorias DOCX completas</li>
+                <li className="flex items-center gap-3 text-gray-400 dark:text-gray-500 line-through opacity-50"><CheckCircle2 className="w-5 h-5" /> Exportación DXF y BIM (IFC)</li>
+              </ul>
+              <a href="https://structopro-app.streamlit.app" target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-bold py-4 rounded-xl transition-colors">
+                Probar Gratis
+              </a>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="bg-gradient-to-b from-[#0a1526] to-[#071525] rounded-3xl p-8 border border-blue-500 shadow-2xl shadow-blue-900/20 flex flex-col h-full relative transform md:-translate-y-4">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider shadow-lg">
+                Recomendado
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Premium</h3>
+              <p className="text-blue-200 mb-6">Potencia total para consultoría e ingeniería.</p>
+              <div className="text-4xl font-black text-white mb-2">Consultar <span className="text-lg font-normal text-blue-200">/ mes</span></div>
+              <p className="text-sm text-blue-300 mb-6 italic">Licencias corporativas disponibles</p>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Acceso a los 22+ módulos avanzados</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Memorias DOCX exhaustivas paso a paso</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Exportación de planos de despiece DXF</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Modelos BIM 3D estructurales en IFC</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> APU con valores de mercado actualizados</li>
+              </ul>
+              {/* PAYMENT BUTTON / CONTACT BUTTON */}
+              <a href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20adquirir%20la%20licencia%20Premium%20de%20StructoPro." target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-blue-500/30">
+                Adquirir Premium
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <FAQSection />
 
@@ -300,10 +351,10 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
 const FAQS = [
   { q: "¿StructoPro requiere instalación?", a: "No. Funciona completamente en el navegador web. Solo necesitas conexión a internet. No hay software que instalar ni licencias de sistema operativo." },
   { q: "¿Los resultados cumplen con NSR-10?", a: "StructoPro está desarrollado para apoyar procesos de diseño bajo NSR-10 (Colombia) y ACI 318 (USA). Los módulos incorporan las ecuaciones y factores de la norma vigente. El criterio de aplicación es siempre responsabilidad del ingeniero profesional." },
-  { q: "¿Qué formato tienen los archivos exportados?", a: "Las memorias de cálculo se exportan en formato DOCX (Word) con tablas, ecuaciones y resultados formateados. Los planos se exportan en DXF, compatible con AutoCAD, BricsCAD y otros programas CAD." },
+  { q: "¿Qué formato tienen los archivos exportados?", a: "Las memorias de cálculo se generan de forma exhaustiva paso a paso en formato DOCX (Word). Los planos se exportan en DXF (AutoCAD), y los modelos 3D se exportan en formato abierto IFC (BIM) en la versión Premium." },
   { q: "¿Puedo usar StructoPro desde el celular o tablet?", a: "Sí. La interfaz es responsiva. Sin embargo, para proyectos complejos o uso prolongado se recomienda un monitor de escritorio o portátil para mejor visualización de los módulos de cálculo." },
-  { q: "¿Reemplaza a ETABS, SAP2000 o CYPECAD?", a: "No los reemplaza. StructoPro está diseñado para agilizar tareas frecuentes de diseño de elementos (zapatas, columnas, vigas) y pre-dimensionamiento, complementando el flujo de trabajo con paquetes de análisis global." },
-  { q: "¿Cómo accedo? ¿Hay costo?", a: "Puedes acceder directamente desde el botón de la página. Actualmente la plataforma está disponible para usuarios KONTE y profesionales vinculados. Contáctanos para información sobre acceso y licencias." },
+  { q: "¿Reemplaza a ETABS, SAP2000 o CYPECAD?", a: "No los reemplaza. StructoPro está diseñado para agilizar tareas frecuentes de diseño de elementos individuales (zapatas, columnas, vigas), pre-dimensionamiento y documentación normativa, complementando el flujo de trabajo con paquetes de análisis global." },
+  { q: "¿Cómo accedo? ¿Hay costo?", a: "Contamos con una versión Básica gratuita para pruebas. Para exportar memorias completas DOCX, planos DXF y modelos BIM IFC, se requiere una suscripción Premium. Puedes adquirirla contactándonos directamente desde la página." },
 ];
 
 const FAQSection: React.FC = () => {
