@@ -20,7 +20,7 @@ const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
     <main className="pt-20 pb-12 animate-in fade-in duration-500 bg-bg-light dark:bg-bg-dark">
       
       {/* High Visibility Hero Header */}
-      <section className="relative bg-primary text-white py-20 overflow-hidden">
+      <section className="relative text-white py-20 overflow-hidden" style={{ backgroundColor: '#003399' }}>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" aria-hidden="true"></div>
         <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-white/5 skew-x-12 transform translate-x-20" aria-hidden="true"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">

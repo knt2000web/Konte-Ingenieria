@@ -84,7 +84,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
 
   return (
     <div className="pt-20 pb-12">
-      <div className="bg-primary py-20 text-white mb-12">
+      <div className="py-20 text-white mb-12" style={{ backgroundColor: '#003399' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Servicios Profesionales de Ingeniería</h1>
           <p className="text-xl text-blue-100 max-w-2xl">
@@ -93,7 +93,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 py-8 rounded-2xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-white dark:bg-gray-900">
         <div className="space-y-16">
           {SERVICES.map((service, idx) => (
             <div key={service.id} className={`flex flex-col md:flex-row gap-12 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
