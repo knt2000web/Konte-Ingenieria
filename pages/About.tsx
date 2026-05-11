@@ -197,7 +197,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
             }
           ].map((service, idx) => (
             <article key={idx} className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+              <div className="w-12 h-12 bg-primary/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary dark:text-blue-400 mb-6 group-hover:bg-primary group-hover:text-white transition-all">
                 <service.icon className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>

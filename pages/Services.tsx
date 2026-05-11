@@ -140,14 +140,14 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
                 {service.id === '1' ? (
                   <button 
                     onClick={() => navigate('/servicios/gestion-ani')}
-                    className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-secondary transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
+                    className="w-full md:w-auto px-8 py-3 bg-primary dark:bg-blue-600 text-white font-bold rounded-lg hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-lg flex items-center justify-center gap-2"
                   >
                     VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
                 ) : service.id === '5' ? (
                   <button 
                     onClick={() => navigate('/servicios/propiedad-horizontal')}
-                    className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-secondary transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
+                    className="w-full md:w-auto px-8 py-3 bg-primary dark:bg-blue-600 text-white font-bold rounded-lg hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-lg flex items-center justify-center gap-2"
                   >
                     VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
@@ -161,7 +161,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
                 ) : service.id === '7' ? (
                   <button 
                     onClick={() => navigate('/servicios/tecnologia')}
-                    className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-secondary transition-all shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2"
+                    className="w-full md:w-auto px-8 py-3 bg-primary dark:bg-blue-600 text-white font-bold rounded-lg hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-lg flex items-center justify-center gap-2"
                   >
                     VER DETALLES COMPLETOS <ArrowRight className="w-5 h-5" />
                   </button>
@@ -175,7 +175,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
                 ) : (
                   <button 
                     onClick={() => navigate('/contacto')}
-                    className="w-full md:w-auto px-8 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors shadow-sm"
+                    className="w-full md:w-auto px-8 py-3 border-2 border-primary dark:border-blue-400 text-primary dark:text-blue-400 font-bold rounded-lg hover:bg-primary dark:hover:bg-blue-600 hover:text-white transition-colors shadow-sm"
                   >
                     SOLICITAR COTIZACIÓN
                   </button>
