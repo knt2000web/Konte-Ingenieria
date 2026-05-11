@@ -106,7 +106,10 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary dark:text-blue-400 shrink-0" />
-                <span className="text-sm text-gray-400">konte2000@gmail.com</span>
+                <div className="flex flex-col">
+                  <a href="mailto:contacto@konteingenieria.com" className="text-sm text-white hover:text-blue-300 transition-colors font-semibold">contacto@konteingenieria.com</a>
+                  <a href="mailto:konte2000@gmail.com" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">konte2000@gmail.com</a>
+                </div>
               </li>
             </ul>
 

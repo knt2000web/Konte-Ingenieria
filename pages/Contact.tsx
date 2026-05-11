@@ -56,9 +56,14 @@ const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
             </div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-2">Escríbanos</h3>
             <p className="text-gray-600 dark:text-gray-400 text-center mb-1 text-sm">Consultas técnicas</p>
-            <p className="text-lg font-bold text-primary dark:text-blue-400 text-center truncate">
-              <a href="mailto:konte2000@gmail.com" title="Enviar correo a KONTE" className="hover:underline">konte2000@gmail.com</a>
-            </p>
+            <div className="flex flex-col items-center gap-1">
+              <a href="mailto:contacto@konteingenieria.com" title="Correo corporativo KONTE" className="text-base font-bold text-primary dark:text-blue-400 hover:underline">
+                contacto@konteingenieria.com
+              </a>
+              <a href="mailto:konte2000@gmail.com" title="Correo alternativo KONTE" className="text-xs text-gray-400 dark:text-gray-500 hover:underline">
+                konte2000@gmail.com
+              </a>
+            </div>
           </div>
 
           {/* Location Card */}
@@ -252,7 +257,7 @@ const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
             </div>
 
             {/* Branding Card */}
-            <div className="bg-primary p-8 rounded-2xl shadow-xl text-white">
+            <div className="p-8 rounded-2xl shadow-xl text-white" style={{ backgroundColor: '#003399' }}>
               <h4 className="font-bold text-lg mb-2">KONTE Ingeniería</h4>
               <p className="text-blue-100 text-sm leading-relaxed">
                 Comprometidos con la excelencia técnica y la normativa vigente en todo el territorio nacional. 15 años construyendo confianza.
