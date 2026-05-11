@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Calculator, FileText, Box, Ruler, BarChart3, 
   Layers, TreePine, Zap, ArrowRight, CheckCircle2,
   ShieldCheck, Clock, Download, Laptop, Briefcase, 
-  TrendingUp, Activity, Users, Globe
+  TrendingUp, Activity, Users, Globe, ChevronDown, ChevronUp,
+  MousePointerClick, Settings2, PackageCheck
 } from 'lucide-react';
 
 interface ServiceStructoProProps {
@@ -105,6 +106,25 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </div>
 
+      {/* Stats Strip */}
+      <div className="bg-white dark:bg-gray-900 py-14 border-b border-gray-100 dark:border-gray-800">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { value: "22", suffix: "+", label: "Módulos activos", color: "text-blue-600 dark:text-blue-400" },
+              { value: "7",  suffix: "",  label: "Normas soportadas", color: "text-orange-500" },
+              { value: "2",  suffix: "",  label: "Formatos de exportación", color: "text-emerald-600 dark:text-emerald-400" },
+              { value: "0",  suffix: " instalaciones", label: "100% en la nube", color: "text-purple-600 dark:text-purple-400" },
+            ].map((s, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <span className={`text-5xl font-black ${s.color} leading-none`}>{s.value}<span className="text-2xl">{s.suffix}</span></span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 mt-2 font-medium">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Beneficios */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -139,6 +159,33 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
 
+      {/* Cómo funciona */}
+      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">¿Cómo funciona?</h2>
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Tres pasos para pasar de los datos del proyecto a entregables profesionales.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <div className="hidden md:block absolute top-10 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-orange-400 opacity-30" />
+            {[
+              { step: "01", icon: <MousePointerClick className="w-8 h-8" />, color: "bg-blue-600", title: "Selecciona el módulo", desc: "Elige entre 22 módulos de cálculo: zapatas, columnas, vigas, muros, análisis sísmico y más. Cada uno tiene interfaz dedicada." },
+              { step: "02", icon: <Settings2 className="w-8 h-8" />, color: "bg-orange-500", title: "Ingresa los parámetros", desc: "Completa las variables del proyecto: geometría, cargas, materiales y coeficientes normativos. La plataforma valida en tiempo real." },
+              { step: "03", icon: <PackageCheck className="w-8 h-8" />, color: "bg-emerald-600", title: "Exporta los resultados", desc: "Descarga la memoria de cálculo en DOCX y los planos en DXF. Listos para documentación, revisión o entrega al cliente." },
+            ].map((step, i) => (
+              <div key={i} className="flex flex-col items-center text-center group">
+                <div className={`${step.color} w-20 h-20 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                  {step.icon}
+                </div>
+                <span className="text-xs font-black text-gray-300 dark:text-gray-600 tracking-widest mb-2">PASO {step.step}</span>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{step.title}</h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Módulos de Cálculo - Grid 22 items */}
       <section className="bg-slate-50 dark:bg-[#0c1322] py-24 border-y border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -158,21 +205,21 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               { icon: <Calculator />, title: "Columnas Circulares", desc: "Diseño biaxial para soportes de sección circular y espirales." },
               { icon: <Box />, title: "Zapatas", desc: "Dimensionamiento y diseño de cimentaciones superficiales." },
               { icon: <ShieldCheck />, title: "Muros Contención", desc: "Evaluación de estabilidad, volcamiento y deslizamiento." },
-              { icon: <Layers />, title: "Mamposteria Morteros", desc: "Dosificaciones y mezclas para mampostería no estructural." },
-              { icon: <TreePine />, title: "Madera Estructuras", desc: "Diseño y revisión de elementos en madera aserrada." },
-              { icon: <Zap />, title: "Diseño Sismico", desc: "Espectros de diseño, derivas y parámetros de sitio." },
-              { icon: <Layers />, title: "Estructuras Metalicas", desc: "Propiedades geométricas y elementos de acero." },
-              { icon: <Activity />, title: "Resistencia Materiales", desc: "Mecánica, cálculo de inercias y esfuerzos internos." },
-              { icon: <Briefcase />, title: "Utilidades Comunes", desc: "Herramientas de conversión e interpolación útiles." },
-              { icon: <BarChart3 />, title: "Analisis Estructural 2D", desc: "Análisis matricial de fuerzas en pórticos 2D." },
-              { icon: <BarChart3 />, title: "Analisis Estructural 3D", desc: "Cálculo global de matrices de rigidez espaciales." },
+              { icon: <Layers />, title: "Mampostería y Morteros", desc: "Dosificaciones y mezclas para mampostería no estructural." },
+              { icon: <TreePine />, title: "Madera Estructural", desc: "Diseño y revisión de elementos en madera aserrada." },
+              { icon: <Zap />, title: "Diseño Sísmico", desc: "Espectros de diseño, derivas y parámetros de sitio NSR-10." },
+              { icon: <Layers />, title: "Estructuras Metálicas", desc: "Propiedades geométricas y elementos de acero estructural." },
+              { icon: <Activity />, title: "Resistencia de Materiales", desc: "Mecánica, cálculo de inercias y esfuerzos internos." },
+              { icon: <Briefcase />, title: "Utilidades Comunes", desc: "Herramientas de conversión, interpolación y cálculo rápido." },
+              { icon: <BarChart3 />, title: "Análisis Estructural 2D", desc: "Análisis matricial de fuerzas en pórticos 2D." },
+              { icon: <BarChart3 />, title: "Análisis Estructural 3D", desc: "Cálculo global de matrices de rigidez espaciales." },
               { icon: <Globe />, title: "Generador Maestro 3D", desc: "Modelado paramétrico y visualización estructural 3D." },
               { icon: <Box />, title: "Kontewall", desc: "Suite especializada en muros de retención avanzados." },
               { icon: <Calculator />, title: "Konte Calculadora", desc: "Estimación rápida volumétrica y cuantía de materiales." },
-              { icon: <Activity />, title: "Viento Simplificado", desc: "Evaluación lineal de empujes sobre fachadas." },
-              { icon: <Layers />, title: "Albanileria Confinada", desc: "Chequeos integrales de muros estructurales." },
+              { icon: <Activity />, title: "Viento Simplificado", desc: "Evaluación de empujes de viento sobre fachadas y estructuras." },
+              { icon: <Layers />, title: "Albañilería Confinada", desc: "Chequeos integrales de muros estructurales confinados." },
               { icon: <Ruler />, title: "Predimensionamiento", desc: "Reglas rápidas para iteración inicial de vigas y columnas." },
-              { icon: <Activity />, title: "Irregularidades", desc: "Verificación de asimetrías torsionales NSR-10." }
+              { icon: <Activity />, title: "Irregularidades", desc: "Verificación de asimetrías torsionales según NSR-10." }
             ].map((mod, i) => (
               <div key={i} className="bg-white dark:bg-gray-800 flex flex-col p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 hover:shadow-md transition-all group">
                 <div className="flex items-center gap-3 mb-3">
@@ -220,6 +267,9 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
 
+      {/* FAQ */}
+      <FAQSection />
+
       {/* CTA Final */}
       <section className="py-24 max-w-5xl mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
@@ -244,6 +294,47 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
     </div>
+  );
+};
+
+const FAQS = [
+  { q: "¿StructoPro requiere instalación?", a: "No. Funciona completamente en el navegador web. Solo necesitas conexión a internet. No hay software que instalar ni licencias de sistema operativo." },
+  { q: "¿Los resultados cumplen con NSR-10?", a: "StructoPro está desarrollado para apoyar procesos de diseño bajo NSR-10 (Colombia) y ACI 318 (USA). Los módulos incorporan las ecuaciones y factores de la norma vigente. El criterio de aplicación es siempre responsabilidad del ingeniero profesional." },
+  { q: "¿Qué formato tienen los archivos exportados?", a: "Las memorias de cálculo se exportan en formato DOCX (Word) con tablas, ecuaciones y resultados formateados. Los planos se exportan en DXF, compatible con AutoCAD, BricsCAD y otros programas CAD." },
+  { q: "¿Puedo usar StructoPro desde el celular o tablet?", a: "Sí. La interfaz es responsiva. Sin embargo, para proyectos complejos o uso prolongado se recomienda un monitor de escritorio o portátil para mejor visualización de los módulos de cálculo." },
+  { q: "¿Reemplaza a ETABS, SAP2000 o CYPECAD?", a: "No los reemplaza. StructoPro está diseñado para agilizar tareas frecuentes de diseño de elementos (zapatas, columnas, vigas) y pre-dimensionamiento, complementando el flujo de trabajo con paquetes de análisis global." },
+  { q: "¿Cómo accedo? ¿Hay costo?", a: "Puedes acceder directamente desde el botón de la página. Actualmente la plataforma está disponible para usuarios KONTE y profesionales vinculados. Contáctanos para información sobre acceso y licencias." },
+];
+
+const FAQSection: React.FC = () => {
+  const [open, setOpen] = useState<number | null>(null);
+  return (
+    <section className="py-24 bg-slate-50 dark:bg-[#0c1322] border-y border-gray-200 dark:border-gray-800">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Preguntas frecuentes</h2>
+          <p className="text-gray-500 dark:text-gray-400">Respuestas a las consultas más comunes sobre StructoPro.</p>
+        </div>
+        <div className="space-y-3">
+          {FAQS.map((faq, i) => (
+            <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
+              >
+                <span className="font-bold text-gray-900 dark:text-white text-base">{faq.q}</span>
+                {open === i ? <ChevronUp className="w-5 h-5 text-blue-500 shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />}
+              </button>
+              {open === i && (
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{faq.a}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
