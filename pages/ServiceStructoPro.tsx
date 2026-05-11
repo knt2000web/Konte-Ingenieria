@@ -68,12 +68,12 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             
             {/* Destacados Core */}
             <span className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
-              <CheckCircle2 size={16} className="text-blue-500"/>
-              <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">NSR-10 (COL)</span>
+              <span className="text-lg leading-none">🇨🇴</span>
+              <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">NSR-10</span>
             </span>
             <span className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
-              <CheckCircle2 size={16} className="text-blue-500"/>
-              <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">ACI 318 (USA)</span>
+              <span className="text-lg leading-none">🇺🇸</span>
+              <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">ACI 318</span>
             </span>
 
             {/* Separador Opcional para Desktop */}
@@ -81,17 +81,19 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
 
             {/* Resto de Normas Latam */}
             <div className="flex flex-wrap justify-center gap-3 sm:gap-5 text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs items-center">
-               <span>NEC (ECU)</span>
+               <span className="flex items-center gap-1">🇪🇨 NEC</span>
                <span className="text-slate-700">•</span>
-               <span>E.060 (PER)</span>
+               <span className="flex items-center gap-1">🇵🇪 E.060</span>
                <span className="text-slate-700">•</span>
-               <span>NTC (MEX)</span>
+               <span className="flex items-center gap-1">🇲🇽 NTC</span>
                <span className="text-slate-700">•</span>
-               <span>COVENIN (VEN)</span>
+               <span className="flex items-center gap-1">🇻🇪 COVENIN</span>
                <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:inline-block">NB (BOL)</span>
+               <span className="hidden sm:flex items-center gap-1">🇧🇴 NB</span>
                <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:inline-block">CIRSOC (ARG)</span>
+               <span className="hidden sm:flex items-center gap-1">🇦🇷 CIRSOC</span>
+               <span className="hidden sm:inline-block text-slate-700">•</span>
+               <span className="hidden sm:flex items-center gap-1">🇨🇱 NCh433</span>
             </div>
 
             {/* Separador */}
@@ -112,7 +114,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: "22", suffix: "+", label: "Módulos activos", color: "text-blue-600 dark:text-blue-400" },
-              { value: "7",  suffix: "",  label: "Normas soportadas", color: "text-orange-500" },
+              { value: "8",  suffix: "+", label: "Normas soportadas", color: "text-orange-500" },
               { value: "3",  suffix: "",  label: "Formatos de exportación", color: "text-emerald-600 dark:text-emerald-400" },
               { value: "0",  suffix: " instalaciones", label: "100% en la nube", color: "text-purple-600 dark:text-purple-400" },
             ].map((s, i) => (
@@ -309,10 +311,15 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                 <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Modelos BIM 3D estructurales en IFC</li>
                 <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> APU con valores de mercado actualizados</li>
               </ul>
-              {/* PAYMENT BUTTON / CONTACT BUTTON */}
-              <a href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20adquirir%20la%20licencia%20Premium%20de%20StructoPro." target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-blue-500/30">
-                Adquirir Premium
-              </a>
+              {/* PAYMENT BUTTONS */}
+              <div className="flex flex-col gap-3 mt-auto">
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=cagch2000@hotmail.com&item_name=Suscripcion+Premium+StructoPro&currency_code=USD" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#003087] hover:bg-[#001c56] text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg border border-[#001c56]">
+                  Pagar con PayPal
+                </a>
+                <a href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20adquirir%20la%20licencia%20Premium%20de%20StructoPro." target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3.5 rounded-xl transition-colors border border-slate-600">
+                  Contactar Asesor
+                </a>
+              </div>
             </div>
           </div>
         </div>
