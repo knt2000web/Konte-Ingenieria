@@ -42,7 +42,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white dark:bg-gray-900 rounded-2xl mt-4">
         
         {/* Intro & Sectors */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 items-center">
@@ -51,7 +51,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
               <span className="h-1 w-12 bg-primary"></span>
               <span className="text-primary font-bold tracking-widest text-sm uppercase">Nuestra Esencia</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
               Compromiso con la Excelencia en Ingeniería
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">

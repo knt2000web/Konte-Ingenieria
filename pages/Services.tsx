@@ -93,7 +93,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 py-8 rounded-2xl">
         <div className="space-y-16">
           {SERVICES.map((service, idx) => (
             <div key={service.id} className={`flex flex-col md:flex-row gap-12 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
@@ -118,7 +118,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
 
               <div className="w-full md:w-1/2">
                 <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">{service.category}</span>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">{service.title}</h2>
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">{service.title}</h2>
                 <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-8">
                   {service.description}
                 </p>
