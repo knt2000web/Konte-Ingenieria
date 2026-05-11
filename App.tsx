@@ -92,6 +92,9 @@ const App: React.FC = () => {
 
   // Dark Mode Logic
   const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem('konte-theme') === 'dark');
+  const [cookiesAccepted, setCookiesAccepted] = useState(
+    localStorage.getItem('konte-cookies') === 'true'
+  );
 
   useEffect(() => {
     if (isDarkMode) {
@@ -269,16 +272,22 @@ const App: React.FC = () => {
         </span>
       </a>
 
-      {!isLoggedIn && (
-        <div className="fixed bottom-0 w-full bg-primary text-white p-4 z-30 shadow-lg border-t border-blue-800 animate-in slide-in-from-bottom-full duration-1000 delay-1000 fill-mode-forwards hidden md:block">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs md:text-sm">
-            <p className="mb-3 md:mb-0 md:mr-6 text-center md:text-left">
-              Utilizamos cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra política de privacidad.
-              <a href="#" className="underline hover:text-gray-200 ml-1">Más información</a>
+      {!cookiesAccepted && (
+        <div
+          className="fixed bottom-0 w-full text-white p-4 z-30 shadow-2xl border-t border-blue-700"
+          style={{ backgroundColor: '#003399' }}
+        >
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs md:text-sm">
+            <p className="text-center md:text-left text-white/90 leading-relaxed">
+              Utilizamos cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra política de privacidad.{' '}
+              <a href="#" className="underline hover:text-blue-200 font-semibold transition-colors">Más información</a>
             </p>
-            <button 
-              onClick={(e) => e.currentTarget.parentElement?.parentElement?.remove()}
-              className="px-6 py-2 bg-white text-primary rounded font-bold hover:bg-gray-100 transition-colors whitespace-nowrap shadow-sm text-gray-900"
+            <button
+              onClick={() => {
+                setCookiesAccepted(true);
+                localStorage.setItem('konte-cookies', 'true');
+              }}
+              className="flex-shrink-0 px-6 py-2 bg-white text-blue-900 rounded font-bold hover:bg-blue-50 transition-colors shadow-sm text-sm"
             >
               Acepto
             </button>
