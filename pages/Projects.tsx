@@ -250,8 +250,8 @@ const Projects: React.FC<ProjectsProps> = ({ openLightbox }) => {
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg mb-8">
               Una muestra de nuestra capacidad técnica y compromiso con la excelencia en consultoría estructural, vulnerabilidad sísmica, estaciones de servicio y construcción.
             </p>
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-100 dark:border-blue-800 max-w-4xl mx-auto text-left">
-              <h3 className="text-primary font-bold mb-2 uppercase text-sm tracking-wide">Áreas de Especialización:</h3>
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-100 dark:border-blue-700 max-w-4xl mx-auto text-left">
+              <h3 className="text-primary dark:text-blue-400 font-bold mb-2 uppercase text-sm tracking-wide">Áreas de Especialización:</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base">
                 Diseño estructural, digitalización de planos arquitectónicos y estructurales, modelación y presentación fotorrealista en 3D, visitas y asesoría en etapa de construcción. Estudios de vulnerabilidad sísmica (NSR-10) y consultoría integral para estaciones de servicio (Res. 1361/2012 y 716/2015).
               </p>
