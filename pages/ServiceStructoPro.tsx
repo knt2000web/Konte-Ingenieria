@@ -400,14 +400,14 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                 <a href="https://mpago.li/1hbuwpu" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#009EE3] hover:bg-[#008ACA] text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg border border-[#008ACA]">
                   Suscribirse - Mercado Pago
                 </a>
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=cagch2000@hotmail.com&item_name=Suscripcion+Premium+StructoPro&currency_code=USD" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#003087] hover:bg-[#001c56] text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg border border-[#001c56]">
-                  Pagar con PayPal
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick-subscriptions&business=cagch2000@hotmail.com&item_name=Suscripcion+Premium+StructoPro&a3=6.99&p3=1&t3=M&src=1&sra=1&currency_code=USD" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#003087] hover:bg-[#001c56] text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg border border-[#001c56]">
+                  Suscribirse - PayPal ($6.99 USD)
                 </a>
                 <a href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20adquirir%20la%20licencia%20Premium%20de%20StructoPro." target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3.5 rounded-xl transition-colors border border-slate-600">
                   Contactar Asesor
                 </a>
                 <p className="text-xs text-blue-300 mt-2 text-center opacity-80">
-                  Nota: El enlace de Mercado Pago activa una suscripción automática mensual.
+                  Nota: Tanto Mercado Pago como PayPal activan una suscripción automática mensual. Puedes cancelarla en cualquier momento.
                 </p>
               </div>
             </div>
