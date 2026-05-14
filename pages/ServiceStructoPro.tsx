@@ -188,6 +188,90 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
 
+      {/* Módulos Destacados (Con Imágenes) */}
+      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">El ecosistema definitivo de ingeniería</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Conoce los módulos insignia que están transformando la manera de diseñar, calcular y presupuestar proyectos estructurales.
+            </p>
+          </div>
+
+          <div className="space-y-20">
+            {/* Destacado 1: StructoPro General */}
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide mb-4">PLATAFORMA INTEGRAL</div>
+                <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6">Un entorno centralizado para el ingeniero moderno</h3>
+                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                  StructoPro consolida múltiples disciplinas de la ingeniería estructural en una única plataforma en la nube. Olvídate de alternar entre docenas de hojas de cálculo desactualizadas; aquí toda la data fluye desde la geometría hasta el presupuesto final.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3 text-gray-700 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Exportación universal (DOCX, DXF, IFC)</li>
+                  <li className="flex items-center gap-3 text-gray-700 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Motor en tiempo real con NSR-10 / ACI-318</li>
+                </ul>
+              </div>
+              <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
+                <img src="/images/structopro_all_modules.png" alt="StructoPro Dashboard" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+
+            {/* Destacado 2: Cantidades de Materiales */}
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="inline-block bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide mb-4">MÓDULO ESTRELLA</div>
+                <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6">Cantidades de Materiales y Presupuestos APU</h3>
+                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                  <strong>Control total sobre el costo de tus obras.</strong> Transforma al instante la geometría estructural en métricas exactas. El módulo de Cantidades automatiza el cómputo métrico de volúmenes de concreto, acero de refuerzo, excavaciones y encofrado.
+                  <br/><br/>
+                  Al integrarse con la base de Análisis de Precios Unitarios (APU) en tiempo real, obtienes presupuestos contundentes, precisos y listos para defender ante clientes e interventorías. Asegura la rentabilidad de tus proyectos antes de vaciar la primera gota de concreto.
+                </p>
+              </div>
+              <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
+                <img src="/images/module_cantidades.png" alt="Cantidades de Materiales" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+
+            {/* Destacado 3: Zapatas y Muros */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="group">
+                <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 mb-6">
+                  <img src="/images/module_zapatas.png" alt="Diseño de Zapatas" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Diseño de Zapatas Aisladas</h4>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Evaluación geotécnica y diseño a cortante, flexión y punzonamiento. Obtén los despieces del acero inferior y superior en tiempo récord para cimentaciones superficiales seguras.
+                </p>
+              </div>
+              <div className="group">
+                <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 mb-6">
+                  <img src="/images/module_muros.png" alt="Muros de Contención" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Muros de Contención</h4>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Chequeos rigurosos de estabilidad global (volcamiento y deslizamiento) y diseño DCR estructural. Integración completa de empujes de suelo para muros de gravedad y voladizo.
+                </p>
+              </div>
+            </div>
+
+            {/* Destacado 4: Columnas */}
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6">Diagramas de Interacción P-M</h3>
+                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                  Validación hiper-precisa de flexocompresión biaxial para columnas de concreto reforzado. Genera las curvas de capacidad de la sección transversal al instante, asegurando que el elemento resista las combinaciones de carga más exigentes bajo los requisitos de ductilidad normativa.
+                </p>
+              </div>
+              <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
+                <img src="/images/module_columnas.png" alt="Columnas PM" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Módulos de Cálculo - Grid 22 items */}
       <section className="bg-slate-50 dark:bg-[#0c1322] py-24 border-y border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -302,7 +386,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Premium</h3>
               <p className="text-blue-200 mb-6">Potencia total para consultoría e ingeniería.</p>
-              <div className="text-4xl font-black text-white mb-2">Consultar <span className="text-lg font-normal text-blue-200">/ mes</span></div>
+              <div className="text-4xl font-black text-white mb-2">$26.600 <span className="text-lg font-normal text-blue-200">COP / mes</span></div>
               <p className="text-sm text-blue-300 mb-6 italic">Licencias corporativas disponibles</p>
               <ul className="space-y-4 mb-8 flex-grow">
                 <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Acceso a los 22+ módulos avanzados</li>
@@ -313,12 +397,18 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               </ul>
               {/* PAYMENT BUTTONS */}
               <div className="flex flex-col gap-3 mt-auto">
+                <a href="https://mpago.li/1hbuwpu" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#009EE3] hover:bg-[#008ACA] text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg border border-[#008ACA]">
+                  Suscribirse - Mercado Pago
+                </a>
                 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=cagch2000@hotmail.com&item_name=Suscripcion+Premium+StructoPro&currency_code=USD" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#003087] hover:bg-[#001c56] text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg border border-[#001c56]">
                   Pagar con PayPal
                 </a>
                 <a href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20adquirir%20la%20licencia%20Premium%20de%20StructoPro." target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3.5 rounded-xl transition-colors border border-slate-600">
                   Contactar Asesor
                 </a>
+                <p className="text-xs text-blue-300 mt-2 text-center opacity-80">
+                  Nota: El enlace de Mercado Pago activa una suscripción automática mensual.
+                </p>
               </div>
             </div>
           </div>
