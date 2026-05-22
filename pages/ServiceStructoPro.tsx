@@ -39,10 +39,10 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             StructoPro
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-4 font-normal leading-relaxed">
-            Plataforma web de diseño y cálculo estructural para ingenieros que necesitan resultados técnicos confiables, memorias de cálculo claras y planos listos para exportar.
+            Ingeniería estructural multinorma con gestión operativa y control financiero integrado.
           </p>
           <p className="text-base text-slate-400 max-w-4xl mx-auto mb-10 leading-relaxed font-light">
-            Automatiza procesos de diseño bajo NSR-10 y ACI 318 desde tu navegador. Genera memorias exhaustivas paso a paso en DOCX, planos en DXF y modelos BIM en IFC listos para revisión técnica.
+            La suite definitiva para ingenieros y constructores. Diseña estructuras bajo 14 normativas internacionales, exporta planos BIM/DXF y conecta el presupuesto con el control de obra ERP en tiempo real desde tu navegador.
           </p>
           
           <div className="flex flex-col items-center gap-4 relative z-10 mt-12 pb-6">
@@ -79,7 +79,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             {/* Separador Opcional para Desktop */}
             <span className="hidden md:inline-block text-slate-700">|</span>
 
-            {/* Resto de Normas Latam */}
+            {/* Resto de Normas Latam/UE */}
             <div className="flex flex-wrap justify-center gap-3 sm:gap-5 text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs items-center">
                <span className="flex items-center gap-1">🇪🇨 NEC</span>
                <span className="text-slate-700">•</span>
@@ -93,7 +93,13 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                <span className="hidden sm:inline-block text-slate-700">•</span>
                <span className="hidden sm:flex items-center gap-1">🇦🇷 CIRSOC</span>
                <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1">🇨🇱 NCh433</span>
+               <span className="hidden sm:flex items-center gap-1">🇨🇱 NCh</span>
+               <span className="hidden sm:inline-block text-slate-700">•</span>
+               <span className="hidden sm:flex items-center gap-1">🇪🇸 EHE</span>
+               <span className="hidden lg:inline-block text-slate-700">•</span>
+               <span className="hidden lg:flex items-center gap-1">🇧🇷 ABNT</span>
+               <span className="hidden lg:inline-block text-slate-700">•</span>
+               <span className="hidden lg:flex items-center gap-1">🇪🇺 EUROCÓDIGO 2</span>
             </div>
 
             {/* Separador */}
@@ -113,10 +119,10 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "22", suffix: "+", label: "Módulos activos", color: "text-blue-600 dark:text-blue-400" },
-              { value: "8",  suffix: "+", label: "Normas soportadas", color: "text-orange-500" },
-              { value: "3",  suffix: "",  label: "Formatos de exportación", color: "text-emerald-600 dark:text-emerald-400" },
-              { value: "0",  suffix: " instalaciones", label: "100% en la nube", color: "text-purple-600 dark:text-purple-400" },
+              { value: "33", suffix: "+", label: "Módulos activos", color: "text-blue-600 dark:text-blue-400" },
+              { value: "14", suffix: "", label: "Normas soportadas", color: "text-orange-500" },
+              { value: "ERP",  suffix: "",  label: "Control Financiero", color: "text-emerald-600 dark:text-emerald-400" },
+              { value: "100",  suffix: "%", label: "Cloud Workspace", color: "text-purple-600 dark:text-purple-400" },
             ].map((s, i) => (
               <div key={i} className="flex flex-col items-center">
                 <span className={`text-5xl font-black ${s.color} leading-none`}>{s.value}<span className="text-2xl">{s.suffix}</span></span>
@@ -171,9 +177,9 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <div className="hidden md:block absolute top-10 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-orange-400 opacity-30" />
             {[
-              { step: "01", icon: <MousePointerClick className="w-8 h-8" />, color: "bg-blue-600", title: "Selecciona el módulo", desc: "Elige entre 22 módulos de cálculo: zapatas, columnas, vigas, muros, análisis sísmico y más. Cada uno tiene interfaz dedicada." },
-              { step: "02", icon: <Settings2 className="w-8 h-8" />, color: "bg-orange-500", title: "Ingresa los parámetros", desc: "Completa las variables del proyecto: geometría, cargas, materiales y coeficientes normativos. La plataforma valida en tiempo real." },
-              { step: "03", icon: <PackageCheck className="w-8 h-8" />, color: "bg-emerald-600", title: "Exporta resultados completos", desc: "Descarga memorias detalladas en DOCX, planos 2D en DXF y el modelo 3D en IFC. Todo listo para documentación, revisión BIM o entrega al cliente." },
+              { step: "01", icon: <MousePointerClick className="w-8 h-8" />, color: "bg-blue-600", title: "Diseño Técnico y Normativo", desc: "Elige entre 33 módulos de cálculo: zapatas, columnas, vigas, análisis sísmico y prespuesto. Genera memorias exhaustivas paso a paso." },
+              { step: "02", icon: <Settings2 className="w-8 h-8" />, color: "bg-orange-500", title: "Gestión Operativa de Obra", desc: "Digitaliza el inventario, controla actas de subcontratos y planillas de nómina directamente integrados al presupuesto contractual." },
+              { step: "03", icon: <PackageCheck className="w-8 h-8" />, color: "bg-emerald-600", title: "Tableros de Rentabilidad ERP", desc: "Visualiza el margen de utilidad y las desviaciones de costo en tiempo real con alertas gerenciales para toma de decisiones." },
             ].map((step, i) => (
               <div key={i} className="flex flex-col items-center text-center group">
                 <div className={`${step.color} w-20 h-20 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
@@ -223,9 +229,9 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                 <div className="inline-block bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide mb-4">MÓDULO ESTRELLA</div>
                 <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6">Cantidades de Materiales y Presupuestos APU</h3>
                 <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  <strong>Control total sobre el costo de tus obras.</strong> Transforma al instante la geometría estructural en métricas exactas. El módulo de Cantidades automatiza el cómputo métrico de volúmenes de concreto, acero de refuerzo, excavaciones y encofrado.
+                  <strong>Control total sobre el costo de tus obras.</strong> Transforma al instante la geometría estructural en métricas exactas y conectalas con la ejecución real en sitio. El módulo de Cantidades automatiza el cómputo métrico y alimenta el presupuesto.
                   <br/><br/>
-                  Al integrarse con la base de Análisis de Precios Unitarios (APU) en tiempo real, obtienes presupuestos contundentes, precisos y listos para defender ante clientes e interventorías. Asegura la rentabilidad de tus proyectos antes de vaciar la primera gota de concreto.
+                  Al integrarse con la base de <strong>Control de Desviaciones (ERP)</strong>, cruzas el presupuesto base ofertado contra la "Tríada de Gasto Real" (Inventario, Subcontratos, Nómina). Asegura la rentabilidad de tus proyectos con alertas tempranas y un flujo financiero 100% auditable.
                 </p>
               </div>
               <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
@@ -305,7 +311,11 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               { icon: <Activity />, title: "Viento Simplificado", desc: "Evaluación de empujes de viento sobre fachadas y estructuras." },
               { icon: <Layers />, title: "Albañilería Confinada", desc: "Chequeos integrales de muros estructurales confinados." },
               { icon: <Ruler />, title: "Predimensionamiento", desc: "Reglas rápidas para iteración inicial de vigas y columnas." },
-              { icon: <Activity />, title: "Irregularidades", desc: "Verificación de asimetrías torsionales según NSR-10." }
+              { icon: <Activity />, title: "Irregularidades", desc: "Verificación de asimetrías torsionales según NSR-10." },
+              { icon: <Box />, title: "Inventario y Consumo", desc: "Logística y valoración PPP para control de almacén." },
+              { icon: <Users />, title: "Subcontratos y Actas", desc: "Certificación de cortes de obra y pasivos contractuales." },
+              { icon: <TrendingUp />, title: "Control de Costos", desc: "Tablero ERP de desviaciones y rentabilidad de obra." },
+              { icon: <BarChart3 />, title: "Dashboard Financiero", desc: "Métricas gerenciales de salud del proyecto." }
             ].map((mod, i) => (
               <div key={i} className="bg-white dark:bg-gray-800 flex flex-col p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 hover:shadow-md transition-all group">
                 <div className="flex items-center gap-3 mb-3">
@@ -389,9 +399,9 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               <div className="text-4xl font-black text-white mb-2">$26.600 <span className="text-lg font-normal text-blue-200">COP / mes</span></div>
               <p className="text-sm text-blue-300 mb-6 italic">Licencias corporativas disponibles</p>
               <ul className="space-y-4 mb-8 flex-grow">
-                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Acceso a los 22+ módulos avanzados</li>
-                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Memorias DOCX exhaustivas paso a paso</li>
-                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Exportación de planos de despiece DXF</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Acceso a los 33+ módulos avanzados</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Memorias DOCX y Exportación de planos DXF</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Acceso completo a la Suite ERP de Control de Obra</li>
                 <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Modelos BIM 3D estructurales en IFC</li>
                 <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> APU con valores de mercado actualizados</li>
               </ul>
