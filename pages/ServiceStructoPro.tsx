@@ -290,34 +290,40 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
-              { icon: <Calculator />, title: "Columnas PM", desc: "Diagramas de interacción P-M y flexocompresión." },
-              { icon: <Ruler />, title: "Vigas Losas", desc: "Diseño detallado a flexión y cortante." },
-              { icon: <Layers />, title: "Otras Estructuras", desc: "Resolución para elementos no convencionales." },
-              { icon: <TrendingUp />, title: "APU Mercado", desc: "Precios Unitarios (APU) con valores de mercado." },
-              { icon: <Calculator />, title: "Columnas Circulares", desc: "Diseño biaxial para soportes de sección circular y espirales." },
-              { icon: <Box />, title: "Zapatas", desc: "Dimensionamiento y diseño de cimentaciones superficiales." },
-              { icon: <ShieldCheck />, title: "Muros Contención", desc: "Evaluación de estabilidad, volcamiento y deslizamiento." },
-              { icon: <Layers />, title: "Mampostería y Morteros", desc: "Dosificaciones y mezclas para mampostería no estructural." },
-              { icon: <TreePine />, title: "Madera Estructural", desc: "Diseño y revisión de elementos en madera aserrada." },
-              { icon: <Zap />, title: "Diseño Sísmico", desc: "Espectros de diseño, derivas y parámetros de sitio NSR-10." },
-              { icon: <Layers />, title: "Estructuras Metálicas", desc: "Propiedades geométricas y elementos de acero estructural." },
-              { icon: <Activity />, title: "Resistencia de Materiales", desc: "Mecánica, cálculo de inercias y esfuerzos internos." },
-              { icon: <Briefcase />, title: "Utilidades Comunes", desc: "Herramientas de conversión, interpolación y cálculo rápido." },
-              { icon: <BarChart3 />, title: "Análisis Estructural 2D", desc: "Análisis matricial de fuerzas en pórticos 2D." },
-              { icon: <BarChart3 />, title: "Análisis Estructural 3D", desc: "Cálculo global de matrices de rigidez espaciales." },
-              { icon: <Globe />, title: "Generador Maestro 3D", desc: "Modelado paramétrico y visualización estructural 3D." },
-              { icon: <Box />, title: "Kontewall", desc: "Suite especializada en muros de retención avanzados." },
-              { icon: <Calculator />, title: "Konte Calculadora", desc: "Estimación rápida volumétrica y cuantía de materiales." },
-              { icon: <Activity />, title: "Viento Simplificado", desc: "Evaluación de empujes de viento sobre fachadas y estructuras." },
-              { icon: <Layers />, title: "Albañilería Confinada", desc: "Chequeos integrales de muros estructurales confinados." },
-              { icon: <Ruler />, title: "Predimensionamiento", desc: "Reglas rápidas para iteración inicial de vigas y columnas." },
-              { icon: <Activity />, title: "Irregularidades", desc: "Verificación de asimetrías torsionales según NSR-10." },
-              { icon: <Box />, title: "Inventario y Consumo", desc: "Logística y valoración PPP para control de almacén." },
-              { icon: <Users />, title: "Subcontratos y Actas", desc: "Certificación de cortes de obra y pasivos contractuales." },
-              { icon: <TrendingUp />, title: "Control de Costos", desc: "Tablero ERP de desviaciones y rentabilidad de obra." },
-              { icon: <BarChart3 />, title: "Dashboard Financiero", desc: "Métricas gerenciales de salud del proyecto." }
+              { icon: <Calculator />, title: "Columnas PM", desc: "Diagramas de interacción P-M y flexocompresión.", path: "Columnas_PM" },
+              { icon: <Ruler />, title: "Vigas Losas", desc: "Diseño detallado a flexión y cortante.", path: "Vigas_Losas" },
+              { icon: <Layers />, title: "Otras Estructuras", desc: "Resolución para elementos no convencionales.", path: "Otras_Estructuras" },
+              { icon: <TrendingUp />, title: "APU Mercado", desc: "Precios Unitarios (APU) con valores de mercado.", path: "APU_Mercado" },
+              { icon: <Calculator />, title: "Columnas Circulares", desc: "Diseño biaxial para soportes de sección circular y espirales.", path: "Columnas_Circulares" },
+              { icon: <Box />, title: "Zapatas", desc: "Dimensionamiento y diseño de cimentaciones superficiales.", path: "Zapatas" },
+              { icon: <ShieldCheck />, title: "Muros Contención", desc: "Evaluación de estabilidad, volcamiento y deslizamiento.", path: "Muros_Contencion" },
+              { icon: <Layers />, title: "Mampostería y Morteros", desc: "Dosificaciones y mezclas para mampostería no estructural.", path: "Mamposteria_Morteros" },
+              { icon: <TreePine />, title: "Madera Estructural", desc: "Diseño y revisión de elementos en madera aserrada.", path: "Madera_Estructuras" },
+              { icon: <Zap />, title: "Diseño Sísmico", desc: "Espectros de diseño, derivas y parámetros de sitio NSR-10.", path: "Diseño_Sismico" },
+              { icon: <Layers />, title: "Estructuras Metálicas", desc: "Propiedades geométricas y elementos de acero estructural.", path: "Estructuras_Metalicas" },
+              { icon: <Activity />, title: "Resistencia de Materiales", desc: "Mecánica, cálculo de inercias y esfuerzos internos.", path: "Resistencia_Materiales" },
+              { icon: <Briefcase />, title: "Utilidades Comunes", desc: "Herramientas de conversión, interpolación y cálculo rápido.", path: "Utilidades_Comunes" },
+              { icon: <BarChart3 />, title: "Análisis Estructural 2D", desc: "Análisis matricial de fuerzas en pórticos 2D.", path: "Analisis_Estructural_2D" },
+              { icon: <BarChart3 />, title: "Análisis Estructural 3D", desc: "Cálculo global de matrices de rigidez espaciales.", path: "Analisis_Estructural_3D" },
+              { icon: <Globe />, title: "Generador Maestro 3D", desc: "Modelado paramétrico y visualización estructural 3D.", path: "Generador_Maestro_3D" },
+              { icon: <Box />, title: "Kontewall", desc: "Suite especializada en muros de retención avanzados.", path: "Kontewall" },
+              { icon: <Calculator />, title: "Konte Calculadora", desc: "Estimación rápida volumétrica y cuantía de materiales.", path: "Calculadora_de_Materiales" },
+              { icon: <Activity />, title: "Viento Simplificado", desc: "Evaluación de empujes de viento sobre fachadas y estructuras.", path: "Carga_de_Viento" },
+              { icon: <Layers />, title: "Albañilería Confinada", desc: "Chequeos integrales de muros estructurales confinados.", path: "Mamposteria_Estructural" },
+              { icon: <Ruler />, title: "Predimensionamiento", desc: "Reglas rápidas para iteración inicial de vigas y columnas.", path: "Predimensionamiento" },
+              { icon: <Activity />, title: "Irregularidades", desc: "Verificación de asimetrías torsionales según NSR-10.", path: "Irregularidades" },
+              { icon: <Box />, title: "Inventario y Consumo", desc: "Logística y valoración PPP para control de almacén.", path: "ERP_Inventario_Materiales" },
+              { icon: <Users />, title: "Subcontratos y Actas", desc: "Certificación de cortes de obra y pasivos contractuales.", path: "ERP_Actas_Subcontratos" },
+              { icon: <TrendingUp />, title: "Control de Costos", desc: "Tablero ERP de desviaciones y rentabilidad de obra.", path: "ERP_Control_Desviaciones" },
+              { icon: <BarChart3 />, title: "Dashboard Financiero", desc: "Métricas gerenciales de salud del proyecto.", path: "ERP_Dashboard_Financiero" }
             ].map((mod, i) => (
-              <div key={i} className="bg-white dark:bg-gray-800 flex flex-col p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 hover:shadow-md transition-all group">
+              <a 
+                href={`https://structopro-app.streamlit.app/${mod.path}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={i} 
+                className="bg-white dark:bg-gray-800 flex flex-col p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 hover:shadow-md transition-all group no-underline text-inherit cursor-pointer"
+              >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
                     {React.cloneElement(mod.icon as React.ReactElement, { size: 20 })}
@@ -325,7 +331,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                   <h4 className="font-bold text-gray-900 dark:text-white leading-tight">{mod.title}</h4>
                 </div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{mod.desc}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
