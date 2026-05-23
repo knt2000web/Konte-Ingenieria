@@ -67,12 +67,12 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 sm:gap-x-6 lg:gap-x-10 items-center">
             
             {/* Destacados Core */}
-            <span className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
-              <span className="text-lg leading-none">🇨🇴</span>
+            <span className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
+              <img src="https://flagpedia.net/data/flags/mini/co.png" alt="Colombia" className="h-3 rounded-sm shadow-sm" />
               <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">NSR-10</span>
             </span>
-            <span className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
-              <span className="text-lg leading-none">🇺🇸</span>
+            <span className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
+              <img src="https://flagpedia.net/data/flags/mini/us.png" alt="USA" className="h-3 rounded-sm shadow-sm" />
               <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">ACI 318</span>
             </span>
 
@@ -80,26 +80,26 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             <span className="hidden md:inline-block text-slate-700">|</span>
 
             {/* Resto de Normas Latam/UE */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-5 text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs items-center">
-               <span className="flex items-center gap-1">🇪🇨 NEC</span>
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs items-center">
+               <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/ec.png" alt="Ecuador" className="h-2.5 rounded-sm" /> NEC</span>
                <span className="text-slate-700">•</span>
-               <span className="flex items-center gap-1">🇵🇪 E.060</span>
+               <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/pe.png" alt="Peru" className="h-2.5 rounded-sm" /> E.060</span>
                <span className="text-slate-700">•</span>
-               <span className="flex items-center gap-1">🇲🇽 NTC</span>
+               <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/mx.png" alt="Mexico" className="h-2.5 rounded-sm" /> NTC</span>
                <span className="text-slate-700">•</span>
-               <span className="flex items-center gap-1">🇻🇪 COVENIN</span>
+               <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/ve.png" alt="Venezuela" className="h-2.5 rounded-sm" /> COVENIN</span>
                <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1">🇧🇴 NB</span>
+               <span className="hidden sm:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/bo.png" alt="Bolivia" className="h-2.5 rounded-sm" /> NB</span>
                <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1">🇦🇷 CIRSOC</span>
+               <span className="hidden sm:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/ar.png" alt="Argentina" className="h-2.5 rounded-sm" /> CIRSOC</span>
                <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1">🇨🇱 NCh</span>
+               <span className="hidden sm:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/cl.png" alt="Chile" className="h-2.5 rounded-sm" /> NCh</span>
                <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1">🇪🇸 EHE</span>
+               <span className="hidden sm:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/es.png" alt="España" className="h-2.5 rounded-sm" /> EHE</span>
                <span className="hidden lg:inline-block text-slate-700">•</span>
-               <span className="hidden lg:flex items-center gap-1">🇧🇷 ABNT</span>
+               <span className="hidden lg:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/br.png" alt="Brasil" className="h-2.5 rounded-sm" /> ABNT</span>
                <span className="hidden lg:inline-block text-slate-700">•</span>
-               <span className="hidden lg:flex items-center gap-1">🇪🇺 EUROCÓDIGO 2</span>
+               <span className="hidden lg:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/eu.png" alt="UE" className="h-2.5 rounded-sm" /> EUROCÓDIGO 2</span>
             </div>
 
             {/* Separador */}
@@ -426,6 +426,47 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                   Nota: Tanto Mercado Pago como PayPal activan una suscripción automática mensual. Puedes cancelarla en cualquier momento.
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* Banner de Normativas y Entregables */}
+          <div className="mt-16 bg-gradient-to-br from-slate-900 via-[#0a1e3a] to-slate-900 border border-slate-800 rounded-3xl p-8 text-center shadow-2xl max-w-4xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-4 mb-5">
+              <span className="flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 px-5 py-2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                <img src="https://flagpedia.net/data/flags/mini/co.png" alt="Colombia" className="h-3 rounded-sm shadow-sm" />
+                <span className="text-blue-100 font-bold tracking-widest text-sm sm:text-base">NSR-10</span>
+              </span>
+              <span className="flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 px-5 py-2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                <img src="https://flagpedia.net/data/flags/mini/us.png" alt="USA" className="h-3 rounded-sm shadow-sm" />
+                <span className="text-blue-100 font-bold tracking-widest text-sm sm:text-base">ACI 318</span>
+              </span>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 text-slate-400 font-bold uppercase tracking-widest text-xs sm:text-sm items-center mb-6">
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/ec.png" alt="Ecuador" className="h-3 rounded-sm" /> NEC</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/pe.png" alt="Peru" className="h-3 rounded-sm" /> E.060</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/mx.png" alt="Mexico" className="h-3 rounded-sm" /> NTC</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/ve.png" alt="Venezuela" className="h-3 rounded-sm" /> COVENIN</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/bo.png" alt="Bolivia" className="h-3 rounded-sm" /> NB</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/ar.png" alt="Argentina" className="h-3 rounded-sm" /> CIRSOC</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/cl.png" alt="Chile" className="h-3 rounded-sm" /> NCh</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/es.png" alt="España" className="h-3 rounded-sm" /> EHE</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/br.png" alt="Brasil" className="h-3 rounded-sm" /> ABNT</span>
+              <span className="text-slate-800">•</span>
+              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/eu.png" alt="UE" className="h-3 rounded-sm" /> EUROCÓDIGO 2</span>
+            </div>
+
+            <div className="text-emerald-400 font-black tracking-wider text-base sm:text-lg flex items-center justify-center gap-2">
+              <FileText size={20} className="text-emerald-400" />
+              <span>DOCX + DXF + IFC</span>
             </div>
           </div>
         </div>
