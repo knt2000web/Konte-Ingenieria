@@ -337,13 +337,16 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
       </section>
 
       {/* ── TRUST STRIP — NORMATIVAS ────────────────────────────── */}
-      <div className="bg-[#050b14] border-b border-[#0b1e45]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-wrap justify-center gap-3 items-center">
-            {/* Destacados */}
+      <div className="bg-[#0f1a3a] border-y border-[rgba(20,88,245,0.2)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+          <h3 className="text-white text-lg font-bold uppercase tracking-wider mb-2">Normativas Internacionales Soportadas</h3>
+          <div className="text-[#f5c842] text-xs font-bold uppercase tracking-widest mb-8">LA NORMA ES EL LÍMITE</div>
+          
+          <div className="flex flex-wrap justify-center gap-3 items-center max-w-5xl mx-auto">
             {[
               { flag: 'co', label: 'NSR-10', highlight: true },
               { flag: 'us', label: 'ACI 318', highlight: true },
+              { flag: 'eu', label: 'UE · Eurocódigo', highlight: false },
               { flag: 'ec', label: 'NEC', highlight: false },
               { flag: 'pe', label: 'E.060', highlight: false },
               { flag: 'mx', label: 'NTC', highlight: false },
@@ -353,16 +356,15 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               { flag: 'cl', label: 'NCh', highlight: false },
               { flag: 'es', label: 'EHE', highlight: false },
               { flag: 'br', label: 'ABNT', highlight: false },
-              { flag: 'eu', label: 'EN · Eurocode', highlight: false },
             ].map(n => (
               <span key={n.label}
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-bold tracking-wide transition-all ${
                   n.highlight
                     ? 'bg-[#f5c842]/12 border-[#f5c842]/40 text-white shadow-[0_0_12px_rgba(245,200,66,0.12)]'
-                    : 'bg-[#0b1e45]/40 border-[rgba(20,88,245,0.2)] text-slate-300 hover:border-[#f5c842]/30'
+                    : 'bg-[#0b1e45]/60 border-[rgba(20,88,245,0.3)] text-slate-300 hover:border-[#f5c842]/40 hover:text-white'
                 }`}>
                 <img src={`https://flagpedia.net/data/flags/mini/${n.flag}.png`} alt={n.label}
-                  className="h-3.5 rounded-sm shadow-sm" />
+                  className="h-4 rounded-[2px] shadow-sm" />
                 {n.label}
               </span>
             ))}
