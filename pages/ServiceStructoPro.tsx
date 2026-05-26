@@ -4,41 +4,131 @@ import {
   Layers, TreePine, Zap, ArrowRight, CheckCircle2,
   ShieldCheck, Clock, Download, Laptop, Briefcase, 
   TrendingUp, Activity, Users, Globe, ChevronDown, ChevronUp,
-  MousePointerClick, Settings2, PackageCheck
+  MousePointerClick, Settings2, PackageCheck, X, ExternalLink
 } from 'lucide-react';
 
 interface ServiceStructoProProps {
-  setPage?: any; // Mantenido por compatibilidad
+  setPage?: any;
   openLightbox: (index: number, images: string[]) => void;
 }
 
+// Datos de módulos ampliados para la Ficha de Alcance
+const MODULES_DATA = [
+  { 
+    icon: <Calculator />, title: "Columnas PM", 
+    desc: "Diagramas de interacción P-M y flexocompresión.", path: "Columnas_PM",
+    solves: "Generación de diagramas de interacción P-M en 3D (Superficie de Bresler) para evaluación de capacidad a flexocompresión biaxial.",
+    verifies: "Verificación de esbeltez (efectos de segundo orden kL/r), cuantías y diseño de estribos por confinamiento sísmico según NSR-10 / ACI 318.",
+    delivers: "Memoria DOCX detallada y exportación del modelo 3D estructural en IFC.",
+    forWho: "Ingenieros estructurales revisores y diseñadores de edificios de concreto reforzado."
+  },
+  { 
+    icon: <Ruler />, title: "Vigas y Losas", 
+    desc: "Diseño detallado a flexión y cortante.", path: "Vigas_Losas",
+    solves: "Cálculo del acero longitudinal y transversal requerido para vigas rectangulares, vigas T y losas en una dirección.",
+    verifies: "Requisitos de ductilidad (DES, DMO, DMI), cortante sísmico Vp, y deflexiones inmediatas/diferidas (Método de Branson).",
+    delivers: "Memoria DOCX paso a paso justificando cada ecuación normativa.",
+    forWho: "Calculistas que necesitan optimizar el armado y verificar deflexiones de manera rigurosa."
+  },
+  { 
+    icon: <Layers />, title: "Otras Estructuras", 
+    desc: "Resolución para elementos no convencionales.", path: "Otras_Estructuras",
+    solves: "Diseño de elementos especiales de concreto armado como vigas de acople y ménsulas.",
+    verifies: "Modelos de bielas y tirantes y requisitos específicos de cortante por fricción.",
+    delivers: "Esquemas de armado y memoria técnica justificativa.",
+    forWho: "Especialistas enfrentando configuraciones atípicas en proyectos industriales o comerciales."
+  },
+  { 
+    icon: <TrendingUp />, title: "Presupuesto Pro", 
+    desc: "Armado de licitaciones y APU.", path: "1_Presupuesto_APU",
+    solves: "Creación de presupuestos de obra con Análisis de Precios Unitarios (APU) basados en bases de mercado actualizadas.",
+    verifies: "Desglose estructurado de Materiales, Equipos y Mano de Obra con aplicación automática de A.I.U. e IVA.",
+    delivers: "Exportación nativa a Excel (.xlsx) estructurado y listo para presentar en licitaciones.",
+    forWho: "Directores de obra, licitadores y contratistas."
+  },
+  { 
+    icon: <Calculator />, title: "Columnas Circulares", 
+    desc: "Diseño biaxial para soportes y espirales.", path: "Columnas_Circulares",
+    solves: "Evaluación de capacidad de columnas de sección circular para puentes, silos y estructuras arquitectónicas.",
+    verifies: "Confinamiento mediante espirales/zunchos y capacidad biaxial bajo cargas combinadas.",
+    delivers: "Diagramas de interacción y memoria de diseño.",
+    forWho: "Diseñadores de infraestructura vial civil y arquitectónica."
+  },
+  { 
+    icon: <Box />, title: "Zapatas Aisladas", 
+    desc: "Dimensionamiento y cimentaciones superficiales.", path: "Zapatas",
+    solves: "Dimensionamiento en planta y espesor de cimentaciones superficiales concéntricas y excéntricas.",
+    verifies: "Esfuerzos sobre el terreno, diseño a flexión, cortante unidireccional y punzonamiento biaxial.",
+    delivers: "Planos de despiece automáticos en formato DXF listos para AutoCAD, con rótulo y cuadro de cantidades.",
+    forWho: "Diseñadores de cimentaciones y geotecnistas."
+  },
+  { 
+    icon: <ShieldCheck />, title: "Muros Contención", 
+    desc: "Evaluación de estabilidad y presiones.", path: "Muros_Contencion",
+    solves: "Diseño geométrico y armado de muros en voladizo (gravedad y cantilever) soportando empujes de suelo.",
+    verifies: "Factores de seguridad a volcamiento, deslizamiento y presiones netas bajo teorías de Rankine/Coulomb.",
+    delivers: "Memoria justificativa geotécnica y estructural.",
+    forWho: "Ingenieros civiles en proyectos de urbanismo e infraestructura."
+  },
+  { 
+    icon: <Zap />, title: "Diseño Sísmico", 
+    desc: "Espectros, derivas y FHE.", path: "Diseño_Sismico",
+    solves: "Cálculo del Espectro Elástico de Diseño y la Fuerza Horizontal Equivalente (FHE) basal.",
+    verifies: "Parámetros de amenaza sísmica local (Aa, Av), control de derivas y efectos P-Delta.",
+    delivers: "Curvas espectrales y memorias de parámetros sísmicos base.",
+    forWho: "Calculistas que inician el planteamiento global de una estructura."
+  },
+  { 
+    icon: <Activity />, title: "Irregularidades", 
+    desc: "Verificación de asimetrías torsionales.", path: "Irregularidades",
+    solves: "Evaluación geométrica y de rigidez para clasificar la estructura en planta y elevación.",
+    verifies: "Penalización de redundancia sísmica y ajuste del coeficiente de disipación de energía (R).",
+    delivers: "Reporte de irregularidades para adjuntar al estudio sísmico.",
+    forWho: "Revisores estructurales y calculistas."
+  },
+  { 
+    icon: <BarChart3 />, title: "Dashboard Financiero", 
+    desc: "Métricas gerenciales de salud del proyecto.", path: "ERP_Dashboard_Financiero",
+    solves: "Consolidación de toda la información de costos de la obra en tiempo real (Materiales, Subcontratos, Planillas).",
+    verifies: "Métricas EVM (Earned Value Management), ROI proyectado y CPI/SPI de la obra.",
+    delivers: "Tablero ejecutivo interactivo de rentabilidad y alertas tempranas.",
+    forWho: "Gerentes de proyecto, inversores y directores de obra."
+  }
+];
+
+// Hexagon Icon Wrapper para mantener la identidad de marca
+const HexIcon = ({ icon, colorClass = "text-[#f5c842]", bgClass = "bg-[#f5c842]/10", borderClass = "border-[#f5c842]/30" }: any) => (
+  <div className={`relative flex items-center justify-center w-12 h-12 ${bgClass} ${colorClass} rounded-xl border ${borderClass} shadow-lg backdrop-blur-sm group-hover:scale-110 transition-transform`}>
+    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"></div>
+    {React.cloneElement(icon, { size: 22 })}
+  </div>
+);
+
 const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) => {
+  const [selectedModule, setSelectedModule] = useState<any | null>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "StructoPro - Plataforma de Cálculo Estructural | KONTE";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Diseña zapatas, muros de contención, columnas y vigas bajo norma NSR-10 y ACI 318. Exporta planos DXF, memorias DOCX y modelos IFC 3D.");
-    }
   }, []);
 
   return (
-    <div className="pt-24 pb-16 bg-white dark:bg-gray-900 min-h-screen transition-colors duration-300">
+    <div className="pt-24 pb-16 bg-[#040814] min-h-screen transition-colors duration-300 font-sans">
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#071525] via-[#0a1e3a] to-[#0d2647] py-20 overflow-hidden">
-        {/* Fondo decorativo SVG */}
-        <div className="absolute inset-0 opacity-5"
-             style={{backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a9eff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`}} />
+      <section className="relative bg-gradient-to-br from-[#090b10] via-[#0b1e45] to-[#07122a] py-20 overflow-hidden border-b border-[rgba(245,200,66,0.2)]">
+        {/* Malla Hexagonal de fondo */}
+        <div className="absolute inset-0 opacity-10"
+             style={{backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='103.92304845413263' viewBox='0 0 60 103.92304845413263' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 103.923L0 86.602V51.961L30 34.641l30 17.32v34.641L30 103.923zM30 69.282L15 60.622v-17.32L30 34.641l15 8.66v17.32L30 69.282zM15 25.981L0 17.32V0l15-8.66l15 8.66v17.32L15 25.981zm30 0L30 17.32V0l15-8.66l15 8.66v17.32L45 25.981zM15 77.942L0 69.282V51.961l15-8.66l15 8.66v17.32L15 77.942zm30 0L30 69.282V51.961l15-8.66l15 8.66v17.32L45 77.942z' fill='%23f5c842' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`}} />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8">
-          <span className="inline-flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 text-blue-300 text-sm font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-6 relative z-10">
-            <Zap size={16} /> Ingeniería Digital
+          <span className="inline-flex items-center gap-2 bg-[#f5c842]/10 border border-[#f5c842]/30 text-[#f5c842] text-xs sm:text-sm font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-6 relative z-10 shadow-[0_0_15px_rgba(245,200,66,0.15)]">
+            <Zap size={16} /> LA NORMA ES EL LÍMITE
           </span>
-          <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
-            StructoPro
+          <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight mb-6 uppercase" style={{fontFamily: "'Cabinet Grotesk', 'Inter', sans-serif"}}>
+            STRUCTO<span className="text-[#f5c842]">PRO</span>
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-4 font-normal leading-relaxed">
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-4 font-medium leading-relaxed">
             Ingeniería estructural multinorma con gestión operativa y control financiero integrado.
           </p>
           <p className="text-base text-slate-400 max-w-4xl mx-auto mb-10 leading-relaxed font-light">
@@ -50,7 +140,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               href="https://structopro-app.streamlit.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-400 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-[0_0_40px_-5px_rgba(249,115,22,0.4)] active:scale-95"
+              className="w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-[#c99f24] to-[#f5c842] hover:from-[#f5c842] hover:to-[#ffdf70] text-[#090b10] px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-[0_0_40px_-5px_rgba(245,200,66,0.5)] active:scale-95"
             >
               ACCEDER A STRUCTOPRO <ArrowRight size={24} />
             </a>
@@ -62,71 +152,56 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
       </section>
 
       {/* Franja de Confianza (Trust Strip) - Normativas */}
-      <div className="bg-slate-900 border-b border-slate-800 py-4">
+      <div className="bg-[#050b14] border-b border-[#0b1e45] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 sm:gap-x-6 lg:gap-x-10 items-center">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 items-center">
             
             {/* Destacados Core */}
-            <span className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
-              <img src="https://flagpedia.net/data/flags/mini/co.png" alt="Colombia" className="h-3 rounded-sm shadow-sm" />
-              <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">NSR-10</span>
+            <span className="flex items-center gap-2 bg-[#f5c842]/10 border border-[#f5c842]/30 px-4 py-2 rounded-full shadow-[0_0_15px_rgba(245,200,66,0.1)]">
+              <img src="https://flagpedia.net/data/flags/mini/co.png" alt="Colombia" className="h-3.5 rounded-sm shadow-sm" />
+              <span className="text-white font-bold tracking-widest text-sm">NSR-10</span>
             </span>
-            <span className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
-              <img src="https://flagpedia.net/data/flags/mini/us.png" alt="USA" className="h-3 rounded-sm shadow-sm" />
-              <span className="text-blue-200 font-bold tracking-widest text-xs sm:text-sm">ACI 318</span>
+            <span className="flex items-center gap-2 bg-[#f5c842]/10 border border-[#f5c842]/30 px-4 py-2 rounded-full shadow-[0_0_15px_rgba(245,200,66,0.1)]">
+              <img src="https://flagpedia.net/data/flags/mini/us.png" alt="USA" className="h-3.5 rounded-sm shadow-sm" />
+              <span className="text-white font-bold tracking-widest text-sm">ACI 318</span>
             </span>
 
-            {/* Separador Opcional para Desktop */}
-            <span className="hidden md:inline-block text-slate-700">|</span>
+            <span className="hidden md:inline-block text-[#1458f5]">|</span>
 
-            {/* Resto de Normas Latam/UE */}
-            <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs items-center">
+            {/* Resto de Normas */}
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-slate-400 font-semibold uppercase tracking-widest text-xs items-center">
                <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/ec.png" alt="Ecuador" className="h-2.5 rounded-sm" /> NEC</span>
                <span className="text-slate-700">•</span>
                <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/pe.png" alt="Peru" className="h-2.5 rounded-sm" /> E.060</span>
                <span className="text-slate-700">•</span>
                <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/mx.png" alt="Mexico" className="h-2.5 rounded-sm" /> NTC</span>
                <span className="text-slate-700">•</span>
-               <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/ve.png" alt="Venezuela" className="h-2.5 rounded-sm" /> COVENIN</span>
-               <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/bo.png" alt="Bolivia" className="h-2.5 rounded-sm" /> NB</span>
-               <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/ar.png" alt="Argentina" className="h-2.5 rounded-sm" /> CIRSOC</span>
-               <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/cl.png" alt="Chile" className="h-2.5 rounded-sm" /> NCh</span>
-               <span className="hidden sm:inline-block text-slate-700">•</span>
-               <span className="hidden sm:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/es.png" alt="España" className="h-2.5 rounded-sm" /> EHE</span>
-               <span className="hidden lg:inline-block text-slate-700">•</span>
-               <span className="hidden lg:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/br.png" alt="Brasil" className="h-2.5 rounded-sm" /> ABNT</span>
-               <span className="hidden lg:inline-block text-slate-700">•</span>
-               <span className="hidden lg:flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/eu.png" alt="UE" className="h-2.5 rounded-sm" /> EUROCÓDIGO 2</span>
+               <span className="flex items-center gap-1.5"><img src="https://flagpedia.net/data/flags/mini/eu.png" alt="UE" className="h-2.5 rounded-sm" /> EN (Eurocódigo)</span>
             </div>
 
-            {/* Separador */}
-            <span className="hidden lg:inline-block text-slate-700">|</span>
+            <span className="hidden lg:inline-block text-[#1458f5]">|</span>
 
             {/* Entregables */}
-            <span className="flex items-center gap-1.5 text-slate-300 font-bold uppercase tracking-widest text-xs">
-              <FileText size={16} className="text-emerald-500"/> DOCX + DXF + IFC
+            <span className="flex items-center gap-1.5 text-[#f5c842] font-bold uppercase tracking-widest text-xs">
+              <FileText size={16}/> DOCX + DXF + IFC
             </span>
-
           </div>
         </div>
       </div>
 
       {/* Stats Strip */}
-      <div className="bg-white dark:bg-gray-900 py-14 border-b border-gray-100 dark:border-gray-800">
+      <div className="bg-[#090b10] py-14 border-b border-[#0b1e45]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "33", suffix: "+", label: "Módulos activos", color: "text-blue-600 dark:text-blue-400" },
-              { value: "14", suffix: "", label: "Normas soportadas", color: "text-orange-500" },
-              { value: "ERP",  suffix: "",  label: "Control Financiero", color: "text-emerald-600 dark:text-emerald-400" },
-              { value: "100",  suffix: "%", label: "Cloud Workspace", color: "text-purple-600 dark:text-purple-400" },
+              { value: "33", suffix: "+", label: "Módulos activos", color: "text-white" },
+              { value: "14", suffix: "", label: "Normas soportadas", color: "text-[#f5c842]" },
+              { value: "ERP",  suffix: "",  label: "Control Financiero", color: "text-white" },
+              { value: "100",  suffix: "%", label: "Cloud Workspace", color: "text-[#1458f5]" },
             ].map((s, i) => (
               <div key={i} className="flex flex-col items-center">
-                <span className={`text-5xl font-black ${s.color} leading-none`}>{s.value}<span className="text-2xl">{s.suffix}</span></span>
-                <span className="text-sm text-gray-500 dark:text-gray-400 mt-2 font-medium">{s.label}</span>
+                <span className={`text-5xl font-black ${s.color} leading-none`} style={{fontFamily: "'Rajdhani', sans-serif"}}>{s.value}<span className="text-2xl">{s.suffix}</span></span>
+                <span className="text-sm text-slate-400 mt-2 font-medium tracking-wide uppercase">{s.label}</span>
               </div>
             ))}
           </div>
@@ -138,408 +213,199 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              icon: <ShieldCheck className="w-10 h-10 text-blue-600 dark:text-blue-400" />,
-              title: "1. Diseño con criterio normativo",
-              desc: "Desarrollado para apoyar procesos de cálculo estructural con enfoque en NSR-10 y ACI 318, facilitando memorias trazables y decisiones técnicas mejor documentadas."
+              icon: <ShieldCheck className="text-[#f5c842]" />,
+              title: "Diseño con criterio normativo",
+              desc: "Desarrollado para apoyar procesos de cálculo estructural con enfoque en NSR-10 y ACI 318, garantizando memorias trazables."
             },
             {
-              icon: <Download className="w-10 h-10 text-orange-500" />,
-              title: "2. Entregables completos y BIM",
-              desc: "Obtén memorias de cálculo exhaustivas paso a paso en DOCX, planos de despiece en DXF y modelos 3D en formato IFC listos para integrar en metodologías BIM."
+              icon: <Download className="text-[#1458f5]" />,
+              title: "Entregables completos BIM",
+              desc: "Obtén memorias paso a paso en DOCX, planos de despiece en DXF y modelos 3D en formato abierto IFC."
             },
             {
-              icon: <Laptop className="w-10 h-10 text-green-600 dark:text-green-400" />,
-              title: "3. Trabajo desde la nube",
-              desc: "Ejecuta cálculos desde cualquier navegador, sin depender de instalaciones complejas ni equipos especializados para tareas repetitivas de diseño."
+              icon: <Laptop className="text-[#f5c842]" />,
+              title: "Trabajo desde la nube",
+              desc: "Ejecuta cálculos desde cualquier navegador, sin depender de instalaciones complejas ni equipos especializados."
             },
             {
-              icon: <Clock className="w-10 h-10 text-purple-600 dark:text-purple-400" />,
-              title: "4. Más velocidad, menos retrabajo",
-              desc: "Reduce tiempo en iteraciones, verificaciones y preparación documental para concentrarte en el criterio ingenieril y la toma de decisiones."
+              icon: <Clock className="text-[#1458f5]" />,
+              title: "Velocidad y rentabilidad",
+              desc: "Reduce el tiempo en iteraciones y enlaza directamente los resultados con el presupuesto y control de obra."
             }
           ].map((feature, i) => (
-            <div key={i} className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
-              <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 inline-block rounded-xl">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 pr-4">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">{feature.desc}</p>
+            <div key={i} className="bg-[#0b1e45]/30 p-8 rounded-2xl border border-[rgba(20,88,245,0.2)] hover:border-[#f5c842]/50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-300 group">
+              <div className="mb-6">
+                <HexIcon icon={feature.icon} colorClass={i % 2 === 0 ? "text-[#f5c842]" : "text-[#1458f5]"} bgClass={i % 2 === 0 ? "bg-[#f5c842]/10" : "bg-[#1458f5]/10"} borderClass={i % 2 === 0 ? "border-[#f5c842]/30" : "border-[#1458f5]/30"} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4 pr-4">{feature.title}</h3>
+              <p className="text-slate-400 leading-relaxed text-sm">{feature.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Cómo funciona */}
-      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+      {/* Módulos de Cálculo - FICHAS DE ALCANCE */}
+      <section className="bg-[#07122a] py-24 border-y border-[#0b1e45]" id="modulos">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">¿Cómo funciona?</h2>
-            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Tres pasos para pasar de los datos del proyecto a entregables profesionales.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div className="hidden md:block absolute top-10 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-orange-400 opacity-30" />
-            {[
-              { step: "01", icon: <MousePointerClick className="w-8 h-8" />, color: "bg-blue-600", title: "Diseño Técnico y Normativo", desc: "Elige entre 33 módulos de cálculo: zapatas, columnas, vigas, análisis sísmico y prespuesto. Genera memorias exhaustivas paso a paso." },
-              { step: "02", icon: <Settings2 className="w-8 h-8" />, color: "bg-orange-500", title: "Gestión Operativa de Obra", desc: "Digitaliza el inventario, controla actas de subcontratos y planillas de nómina directamente integrados al presupuesto contractual." },
-              { step: "03", icon: <PackageCheck className="w-8 h-8" />, color: "bg-emerald-600", title: "Tableros de Rentabilidad ERP", desc: "Visualiza el margen de utilidad y las desviaciones de costo en tiempo real con alertas gerenciales para toma de decisiones." },
-            ].map((step, i) => (
-              <div key={i} className="flex flex-col items-center text-center group">
-                <div className={`${step.color} w-20 h-20 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
-                  {step.icon}
-                </div>
-                <span className="text-xs font-black text-gray-300 dark:text-gray-600 tracking-widest mb-2">PASO {step.step}</span>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{step.title}</h3>
-                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Módulos Destacados (Con Imágenes) */}
-      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">El ecosistema definitivo de ingeniería</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Conoce los módulos insignia que están transformando la manera de diseñar, calcular y presupuestar proyectos estructurales.
+            <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-tight">Catálogo de Soluciones</h2>
+            <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+              Selecciona un módulo para explorar su alcance técnico, normativas aplicadas y tipo de entregables generados.
             </p>
           </div>
 
-          <div className="space-y-20">
-            {/* Destacado 1: StructoPro General */}
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              <div className="lg:w-1/2">
-                <div className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide mb-4">PLATAFORMA INTEGRAL</div>
-                <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6">Un entorno centralizado para el ingeniero moderno</h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  StructoPro consolida múltiples disciplinas de la ingeniería estructural en una única plataforma en la nube. Olvídate de alternar entre docenas de hojas de cálculo desactualizadas; aquí toda la data fluye desde la geometría hasta el presupuesto final.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-3 text-gray-700 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Exportación universal (DOCX, DXF, IFC)</li>
-                  <li className="flex items-center gap-3 text-gray-700 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Motor en tiempo real con NSR-10 / ACI-318</li>
-                </ul>
-              </div>
-              <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
-                <img src="/images/structopro_all_modules.png" alt="StructoPro Dashboard" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </div>
-
-            {/* Destacado 2: Cantidades de Materiales */}
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-              <div className="lg:w-1/2">
-                <div className="inline-block bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide mb-4">MÓDULO ESTRELLA</div>
-                <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6">Cantidades de Materiales y Presupuestos APU</h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  <strong>Control total sobre el costo de tus obras.</strong> Transforma al instante la geometría estructural en métricas exactas y conectalas con la ejecución real en sitio. El módulo de Cantidades automatiza el cómputo métrico y alimenta el presupuesto.
-                  <br/><br/>
-                  Al integrarse con la base de <strong>Control de Desviaciones (ERP)</strong>, cruzas el presupuesto base ofertado contra la "Tríada de Gasto Real" (Inventario, Subcontratos, Nómina). Asegura la rentabilidad de tus proyectos con alertas tempranas y un flujo financiero 100% auditable.
-                </p>
-              </div>
-              <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
-                <img src="/images/module_cantidades.png" alt="Cantidades de Materiales" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </div>
-
-            {/* Destacado 3: Zapatas y Muros */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="group">
-                <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 mb-6">
-                  <img src="/images/module_zapatas.png" alt="Diseño de Zapatas" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Diseño de Zapatas Aisladas</h4>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Evaluación geotécnica y diseño a cortante, flexión y punzonamiento. Obtén los despieces del acero inferior y superior en tiempo récord para cimentaciones superficiales seguras.
-                </p>
-              </div>
-              <div className="group">
-                <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 mb-6">
-                  <img src="/images/module_muros.png" alt="Muros de Contención" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Muros de Contención</h4>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Chequeos rigurosos de estabilidad global (volcamiento y deslizamiento) y diseño DCR estructural. Integración completa de empujes de suelo para muros de gravedad y voladizo.
-                </p>
-              </div>
-            </div>
-
-            {/* Destacado 4: Columnas */}
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              <div className="lg:w-1/2">
-                <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6">Diagramas de Interacción P-M</h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  Validación hiper-precisa de flexocompresión biaxial para columnas de concreto reforzado. Genera las curvas de capacidad de la sección transversal al instante, asegurando que el elemento resista las combinaciones de carga más exigentes bajo los requisitos de ductilidad normativa.
-                </p>
-              </div>
-              <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
-                <img src="/images/module_columnas.png" alt="Columnas PM" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Módulos de Cálculo - Grid 22 items */}
-      <section className="bg-slate-50 dark:bg-[#0c1322] py-24 border-y border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">Módulos de trabajo ({22})</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              StructoPro integra herramientas para cálculo, verificación y documentación estructural en una sola experiencia de trabajo. Cada módulo está pensado para resolver tareas frecuentes de diseño con más rapidez, orden y consistencia técnica.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[
-              { icon: <Calculator />, title: "Columnas PM", desc: "Diagramas de interacción P-M y flexocompresión.", path: "Columnas_PM" },
-              { icon: <Ruler />, title: "Vigas Losas", desc: "Diseño detallado a flexión y cortante.", path: "Vigas_Losas" },
-              { icon: <Layers />, title: "Otras Estructuras", desc: "Resolución para elementos no convencionales.", path: "Otras_Estructuras" },
-              { icon: <TrendingUp />, title: "APU Mercado", desc: "Precios Unitarios (APU) con valores de mercado.", path: "APU_Mercado" },
-              { icon: <Calculator />, title: "Columnas Circulares", desc: "Diseño biaxial para soportes de sección circular y espirales.", path: "Columnas_Circulares" },
-              { icon: <Box />, title: "Zapatas", desc: "Dimensionamiento y diseño de cimentaciones superficiales.", path: "Zapatas" },
-              { icon: <ShieldCheck />, title: "Muros Contención", desc: "Evaluación de estabilidad, volcamiento y deslizamiento.", path: "Muros_Contencion" },
-              { icon: <Layers />, title: "Mampostería y Morteros", desc: "Dosificaciones y mezclas para mampostería no estructural.", path: "Mamposteria_Morteros" },
-              { icon: <TreePine />, title: "Madera Estructural", desc: "Diseño y revisión de elementos en madera aserrada.", path: "Madera_Estructuras" },
-              { icon: <Zap />, title: "Diseño Sísmico", desc: "Espectros de diseño, derivas y parámetros de sitio NSR-10.", path: "Diseño_Sismico" },
-              { icon: <Layers />, title: "Estructuras Metálicas", desc: "Propiedades geométricas y elementos de acero estructural.", path: "Estructuras_Metalicas" },
-              { icon: <Activity />, title: "Resistencia de Materiales", desc: "Mecánica, cálculo de inercias y esfuerzos internos.", path: "Resistencia_Materiales" },
-              { icon: <Briefcase />, title: "Utilidades Comunes", desc: "Herramientas de conversión, interpolación y cálculo rápido.", path: "Utilidades_Comunes" },
-              { icon: <BarChart3 />, title: "Análisis Estructural 2D", desc: "Análisis matricial de fuerzas en pórticos 2D.", path: "Analisis_Estructural_2D" },
-              { icon: <BarChart3 />, title: "Análisis Estructural 3D", desc: "Cálculo global de matrices de rigidez espaciales.", path: "Analisis_Estructural_3D" },
-              { icon: <Globe />, title: "Generador Maestro 3D", desc: "Modelado paramétrico y visualización estructural 3D.", path: "Generador_Maestro_3D" },
-              { icon: <Box />, title: "Kontewall", desc: "Suite especializada en muros de retención avanzados.", path: "Kontewall" },
-              { icon: <Calculator />, title: "Konte Calculadora", desc: "Estimación rápida volumétrica y cuantía de materiales.", path: "Calculadora_de_Materiales" },
-              { icon: <Activity />, title: "Viento Simplificado", desc: "Evaluación de empujes de viento sobre fachadas y estructuras.", path: "Carga_de_Viento" },
-              { icon: <Layers />, title: "Albañilería Confinada", desc: "Chequeos integrales de muros estructurales confinados.", path: "Mamposteria_Estructural" },
-              { icon: <Ruler />, title: "Predimensionamiento", desc: "Reglas rápidas para iteración inicial de vigas y columnas.", path: "Predimensionamiento" },
-              { icon: <Activity />, title: "Irregularidades", desc: "Verificación de asimetrías torsionales según NSR-10.", path: "Irregularidades" },
-              { icon: <Box />, title: "Inventario y Consumo", desc: "Logística y valoración PPP para control de almacén.", path: "ERP_Inventario_Materiales" },
-              { icon: <Users />, title: "Subcontratos y Actas", desc: "Certificación de cortes de obra y pasivos contractuales.", path: "ERP_Actas_Subcontratos" },
-              { icon: <TrendingUp />, title: "Control de Costos", desc: "Tablero ERP de desviaciones y rentabilidad de obra.", path: "ERP_Control_Desviaciones" },
-              { icon: <BarChart3 />, title: "Dashboard Financiero", desc: "Métricas gerenciales de salud del proyecto.", path: "ERP_Dashboard_Financiero" }
-            ].map((mod, i) => (
-              <a 
-                href={`https://structopro-app.streamlit.app/${mod.path}`}
-                target="_blank"
-                rel="noopener noreferrer"
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {MODULES_DATA.map((mod, i) => (
+              <div 
                 key={i} 
-                className="bg-white dark:bg-gray-800 flex flex-col p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 hover:shadow-md transition-all group no-underline text-inherit cursor-pointer"
+                onClick={() => setSelectedModule(mod)}
+                className="bg-[#090b10] flex flex-col p-6 rounded-xl border border-[rgba(20,88,245,0.3)] hover:border-[#f5c842] hover:shadow-[0_8px_24px_rgba(245,200,66,0.15)] transition-all group cursor-pointer"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
-                    {React.cloneElement(mod.icon as React.ReactElement, { size: 20 })}
-                  </div>
-                  <h4 className="font-bold text-gray-900 dark:text-white leading-tight">{mod.title}</h4>
+                <div className="flex items-center gap-4 mb-4">
+                  <HexIcon icon={mod.icon} colorClass="text-[#f5c842]" bgClass="bg-[#f5c842]/5" borderClass="border-[#f5c842]/20" />
+                  <h4 className="font-bold text-white leading-tight text-lg">{mod.title}</h4>
                 </div>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{mod.desc}</p>
-              </a>
+                <p className="text-sm text-slate-400 leading-relaxed mb-4 flex-grow">{mod.desc}</p>
+                <div className="text-[#1458f5] text-sm font-bold flex items-center gap-2 group-hover:text-[#f5c842] transition-colors mt-auto">
+                  Ver alcance <ArrowRight size={16} />
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pensado para ingeniería real */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-blue-900 via-slate-900 to-[#0a1526] rounded-3xl overflow-hidden shadow-2xl">
-          <div className="px-8 md:px-16 py-16 md:py-20 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
-              <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Pensado para ingeniería real</h2>
-              <p className="text-lg text-blue-200 leading-relaxed max-w-xl">
-                StructoPro no busca reemplazar el criterio del ingeniero; busca potenciarlo. La plataforma acelera cálculos repetitivos, mejora la presentación técnica de resultados y ayuda a estandarizar procesos de diseño en oficinas, consultorías y trabajo independiente.
-              </p>
+      {/* Modal / Ficha de Alcance */}
+      {selectedModule && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setSelectedModule(null)}>
+          <div className="bg-[#0b1e45] border border-[rgba(245,200,66,0.3)] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-[0_0_50px_rgba(0,0,0,0.8)]" onClick={e => e.stopPropagation()}>
+            {/* Header */}
+            <div className="p-6 border-b border-[rgba(255,255,255,0.05)] flex justify-between items-start bg-gradient-to-r from-[#090b10] to-[#0b1e45]">
+              <div className="flex items-center gap-4">
+                <HexIcon icon={selectedModule.icon} />
+                <div>
+                  <div className="text-xs font-bold text-[#1458f5] tracking-widest uppercase mb-1">Módulo de Ingeniería</div>
+                  <h3 className="text-2xl font-black text-white">{selectedModule.title}</h3>
+                </div>
+              </div>
+              <button onClick={() => setSelectedModule(null)} className="text-slate-400 hover:text-white transition-colors bg-white/5 p-2 rounded-lg">
+                <X size={24} />
+              </button>
             </div>
             
-            <div className="md:w-1/2 flex flex-col gap-6 w-full">
-              {[
-                { icon: <Users size={24}/>, label: "Para quién es", desc: "Ingenieros civiles, estructurales, consultores, diseñadores y equipos técnicos." },
-                { icon: <FileText size={24}/>, label: "Qué genera", desc: "Resultados de cálculo, memorias técnicas y archivos exportables para documentación." },
-                { icon: <TrendingUp size={24}/>, label: "Qué mejora", desc: "Tiempo de respuesta, consistencia de entregables y productividad del flujo de diseño." }
-              ].map((item, i) => (
-                <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 p-6 rounded-2xl flex items-start gap-5">
-                  <div className="bg-blue-500/20 text-blue-400 p-3 rounded-xl shrink-0">
-                    {item.icon}
-                  </div>
-                  <div className="text-left">
-                    <h4 className="text-white font-bold text-lg mb-1">{item.label}</h4>
-                    <p className="text-blue-100/80 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
+            {/* Body */}
+            <div className="p-6 md:p-8 space-y-8">
+              <div>
+                <h4 className="flex items-center gap-2 font-bold text-[#f5c842] mb-3 uppercase tracking-wider text-sm"><CheckCircle2 size={18}/> ¿Qué resuelve?</h4>
+                <p className="text-slate-300 leading-relaxed text-sm md:text-base">{selectedModule.solves}</p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="flex items-center gap-2 font-bold text-[#1458f5] mb-3 uppercase tracking-wider text-sm"><ShieldCheck size={18}/> ¿Qué verifica?</h4>
+                  <p className="text-slate-300 leading-relaxed text-sm">{selectedModule.verifies}</p>
                 </div>
-              ))}
+                <div>
+                  <h4 className="flex items-center gap-2 font-bold text-emerald-400 mb-3 uppercase tracking-wider text-sm"><FileText size={18}/> Entregables</h4>
+                  <p className="text-slate-300 leading-relaxed text-sm">{selectedModule.delivers}</p>
+                </div>
+              </div>
+
+              <div className="bg-[#090b10] p-5 rounded-xl border border-[rgba(255,255,255,0.05)]">
+                <h4 className="flex items-center gap-2 font-bold text-white mb-2 uppercase tracking-wider text-xs"><Users size={16} className="text-slate-400"/> Perfil de usuario</h4>
+                <p className="text-slate-400 text-sm">{selectedModule.forWho}</p>
+              </div>
+              
+              <div className="flex items-center gap-2 pt-2">
+                <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs font-bold text-blue-300">CLOUD WORKSPACE</span>
+                <span className="px-3 py-1 bg-orange-500/10 border border-orange-500/20 rounded-full text-xs font-bold text-orange-300">PLAN PREMIUM</span>
+              </div>
+            </div>
+
+            {/* Footer CTAs */}
+            <div className="p-6 bg-[#090b10] border-t border-[rgba(255,255,255,0.05)] flex flex-col sm:flex-row gap-4">
+              <a 
+                href={`https://structopro-app.streamlit.app/${selectedModule.path}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-[#f5c842] hover:bg-[#c99f24] text-black font-bold py-3 px-6 rounded-xl transition-colors shadow-lg"
+              >
+                Abrir módulo en la App <ExternalLink size={18} />
+              </a>
+              <a 
+                href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20quisiera%20solicitar%20un%20ejemplo%20de%20entregable%20del%20módulo%20estructural."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-transparent border border-slate-600 hover:border-slate-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+              >
+                Solicitar demo documental
+              </a>
             </div>
           </div>
         </div>
-      </section>
+      )}
 
       {/* Planes y Precios */}
-      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800" id="pricing">
+      <section className="py-24 bg-[#040814] border-t border-[#0b1e45]" id="pricing">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Planes diseñados para profesionales</h2>
-            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Comienza gratis o accede a todas las capacidades BIM y entregables exhaustivos con StructoPro Premium.</p>
+            <h2 className="text-4xl font-black text-white mb-4 uppercase tracking-tight">Planes de Suscripción</h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">Comienza gratis o accede a todas las capacidades BIM y entregables exhaustivos con StructoPro Premium.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Free Plan */}
-            <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col h-full">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Básico</h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-6">Para pruebas y proyectos pequeños.</p>
-              <div className="text-4xl font-black text-gray-900 dark:text-white mb-6">Gratis</div>
+            <div className="bg-[#090b10] rounded-3xl p-8 border border-[rgba(20,88,245,0.3)] shadow-sm flex flex-col h-full">
+              <h3 className="text-2xl font-bold text-white mb-2">Evaluación Básico</h3>
+              <p className="text-slate-400 mb-6 text-sm">Para pruebas de la plataforma y revisiones rápidas.</p>
+              <div className="text-4xl font-black text-white mb-6 font-['Rajdhani']">Gratis</div>
               <ul className="space-y-4 mb-8 flex-grow">
-                <li className="flex items-center gap-3 text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Acceso a módulos básicos</li>
-                <li className="flex items-center gap-3 text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Cálculos en pantalla</li>
-                <li className="flex items-center gap-3 text-gray-600 dark:text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Materiales estándar</li>
-                <li className="flex items-center gap-3 text-gray-400 dark:text-gray-500 line-through opacity-50"><CheckCircle2 className="w-5 h-5" /> Memorias DOCX completas</li>
-                <li className="flex items-center gap-3 text-gray-400 dark:text-gray-500 line-through opacity-50"><CheckCircle2 className="w-5 h-5" /> Exportación DXF y BIM (IFC)</li>
+                <li className="flex items-center gap-3 text-slate-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Acceso a módulos básicos</li>
+                <li className="flex items-center gap-3 text-slate-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Cálculos en pantalla</li>
+                <li className="flex items-center gap-3 text-slate-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Materiales estándar</li>
+                <li className="flex items-center gap-3 text-slate-600 line-through"><CheckCircle2 className="w-5 h-5" /> Memorias DOCX completas</li>
+                <li className="flex items-center gap-3 text-slate-600 line-through"><CheckCircle2 className="w-5 h-5" /> Exportación DXF y BIM (IFC)</li>
               </ul>
-              <a href="https://structopro-app.streamlit.app" target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-bold py-4 rounded-xl transition-colors">
-                Probar Gratis
+              <a href="https://structopro-app.streamlit.app" target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-[#0b1e45] hover:bg-[#1458f5] text-white font-bold py-4 rounded-xl transition-colors">
+                Ingresar al Workspace
               </a>
             </div>
 
             {/* Pro Plan */}
-            <div className="bg-gradient-to-b from-[#0a1526] to-[#071525] rounded-3xl p-8 border border-blue-500 shadow-2xl shadow-blue-900/20 flex flex-col h-full relative transform md:-translate-y-4">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider shadow-lg">
+            <div className="bg-gradient-to-b from-[#0b1e45] to-[#090b10] rounded-3xl p-8 border border-[#f5c842] shadow-[0_0_40px_rgba(245,200,66,0.15)] flex flex-col h-full relative transform md:-translate-y-4">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f5c842] text-black font-bold px-6 py-1.5 rounded-full text-xs uppercase tracking-wider shadow-lg">
                 Recomendado
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Premium</h3>
-              <p className="text-blue-200 mb-6">Potencia total para consultoría e ingeniería.</p>
-              <div className="text-4xl font-black text-white mb-2">$26.600 <span className="text-lg font-normal text-blue-200">COP / mes</span></div>
-              <p className="text-sm text-blue-300 mb-6 italic">Licencias corporativas disponibles</p>
+              <h3 className="text-2xl font-bold text-[#f5c842] mb-2">Profesional / Premium</h3>
+              <p className="text-blue-200 mb-6 text-sm">Potencia total para consultoría e ingeniería estructural.</p>
+              <div className="text-4xl font-black text-white mb-2 font-['Rajdhani']">$26.600 <span className="text-lg font-bold text-slate-400 font-sans">COP / mes</span></div>
+              <p className="text-xs text-blue-300 mb-6 italic">Facturación recurrente mensual. Cancela cuando quieras.</p>
+              
               <ul className="space-y-4 mb-8 flex-grow">
-                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Acceso a los 33+ módulos avanzados</li>
-                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Memorias DOCX y Exportación de planos DXF</li>
-                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Acceso completo a la Suite ERP de Control de Obra</li>
-                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> Modelos BIM 3D estructurales en IFC</li>
-                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-blue-400" /> APU con valores de mercado actualizados</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-[#f5c842]" /> Acceso a los 33+ módulos avanzados</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-[#f5c842]" /> Descarga ilimitada de Memorias DOCX</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-[#f5c842]" /> Exportación CAD DXF y modelos BIM 3D</li>
+                <li className="flex items-center gap-3 text-white"><CheckCircle2 className="w-5 h-5 text-[#f5c842]" /> Acceso a Suite ERP de Control de Obra</li>
               </ul>
+              
               {/* PAYMENT BUTTONS */}
               <div className="flex flex-col gap-3 mt-auto">
                 <a href="https://mpago.li/1hbuwpu" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#009EE3] hover:bg-[#008ACA] text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg border border-[#008ACA]">
-                  Suscribirse - Mercado Pago
+                  Suscribirse con Mercado Pago
                 </a>
                 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick-subscriptions&business=cagch2000@hotmail.com&item_name=Suscripcion+Premium+StructoPro&a3=6.99&p3=1&t3=M&src=1&sra=1&currency_code=USD" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#003087] hover:bg-[#001c56] text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg border border-[#001c56]">
-                  Suscribirse - PayPal ($6.99 USD)
+                  Suscribirse con PayPal ($6.99 USD)
                 </a>
-                <a href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20adquirir%20la%20licencia%20Premium%20de%20StructoPro." target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3.5 rounded-xl transition-colors border border-slate-600">
-                  Contactar Asesor
+                <a href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20adquirir%20la%20licencia%20Premium%20de%20StructoPro." target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-transparent hover:bg-white/5 text-white font-bold py-3 rounded-xl transition-colors border border-slate-600">
+                  Contactar Asesor Comercial
                 </a>
-                <p className="text-xs text-blue-300 mt-2 text-center opacity-80">
-                  Nota: Tanto Mercado Pago como PayPal activan una suscripción automática mensual. Puedes cancelarla en cualquier momento.
-                </p>
               </div>
             </div>
           </div>
-
-          {/* Banner de Normativas y Entregables */}
-          <div className="mt-16 bg-gradient-to-br from-slate-900 via-[#0a1e3a] to-slate-900 border border-slate-800 rounded-3xl p-8 text-center shadow-2xl max-w-4xl mx-auto">
-            <div className="flex flex-wrap justify-center gap-4 mb-5">
-              <span className="flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 px-5 py-2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-                <img src="https://flagpedia.net/data/flags/mini/co.png" alt="Colombia" className="h-3 rounded-sm shadow-sm" />
-                <span className="text-blue-100 font-bold tracking-widest text-sm sm:text-base">NSR-10</span>
-              </span>
-              <span className="flex items-center gap-2 bg-blue-500/15 border border-blue-500/30 px-5 py-2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-                <img src="https://flagpedia.net/data/flags/mini/us.png" alt="USA" className="h-3 rounded-sm shadow-sm" />
-                <span className="text-blue-100 font-bold tracking-widest text-sm sm:text-base">ACI 318</span>
-              </span>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 text-slate-400 font-bold uppercase tracking-widest text-xs sm:text-sm items-center mb-6">
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/ec.png" alt="Ecuador" className="h-3 rounded-sm" /> NEC</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/pe.png" alt="Peru" className="h-3 rounded-sm" /> E.060</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/mx.png" alt="Mexico" className="h-3 rounded-sm" /> NTC</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/ve.png" alt="Venezuela" className="h-3 rounded-sm" /> COVENIN</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/bo.png" alt="Bolivia" className="h-3 rounded-sm" /> NB</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/ar.png" alt="Argentina" className="h-3 rounded-sm" /> CIRSOC</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/cl.png" alt="Chile" className="h-3 rounded-sm" /> NCh</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/es.png" alt="España" className="h-3 rounded-sm" /> EHE</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/br.png" alt="Brasil" className="h-3 rounded-sm" /> ABNT</span>
-              <span className="text-slate-800">•</span>
-              <span className="flex items-center gap-2"><img src="https://flagpedia.net/data/flags/mini/eu.png" alt="UE" className="h-3 rounded-sm" /> EUROCÓDIGO 2</span>
-            </div>
-
-            <div className="text-emerald-400 font-black tracking-wider text-base sm:text-lg flex items-center justify-center gap-2">
-              <FileText size={20} className="text-emerald-400" />
-              <span>DOCX + DXF + IFC</span>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <FAQSection />
-
-      {/* CTA Final */}
-      <section className="py-24 max-w-5xl mx-auto px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
-          Convierte horas de trabajo técnico en minutos de producción útil
-        </h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-          Accede a una plataforma creada para agilizar el diseño estructural, reducir tareas repetitivas y fortalecer la calidad de tus entregables profesionales.
-        </p>
-        <div className="flex flex-col items-center gap-4">
-          <a 
-            href="https://structopro-app.streamlit.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-xl font-bold text-xl transition-all shadow-xl shadow-blue-600/20 active:scale-95"
-          >
-            INGRESAR A LA PLATAFORMA
-            <ArrowRight size={24} />
-          </a>
-          <span className="text-sm text-gray-500 dark:text-gray-400 max-w-sm mt-2">
-            Ideal para profesionales que buscan velocidad, orden documental y mejor experiencia de cálculo en la web.
-          </span>
-        </div>
-      </section>
     </div>
-  );
-};
-
-const FAQS = [
-  { q: "¿StructoPro requiere instalación?", a: "No. Funciona completamente en el navegador web. Solo necesitas conexión a internet. No hay software que instalar ni licencias de sistema operativo." },
-  { q: "¿Los resultados cumplen con NSR-10?", a: "StructoPro está desarrollado para apoyar procesos de diseño bajo NSR-10 (Colombia) y ACI 318 (USA). Los módulos incorporan las ecuaciones y factores de la norma vigente. El criterio de aplicación es siempre responsabilidad del ingeniero profesional." },
-  { q: "¿Qué formato tienen los archivos exportados?", a: "Las memorias de cálculo se generan de forma exhaustiva paso a paso en formato DOCX (Word). Los planos se exportan en DXF (AutoCAD), y los modelos 3D se exportan en formato abierto IFC (BIM) en la versión Premium." },
-  { q: "¿Puedo usar StructoPro desde el celular o tablet?", a: "Sí. La interfaz es responsiva. Sin embargo, para proyectos complejos o uso prolongado se recomienda un monitor de escritorio o portátil para mejor visualización de los módulos de cálculo." },
-  { q: "¿Reemplaza a ETABS, SAP2000 o CYPECAD?", a: "No los reemplaza. StructoPro está diseñado para agilizar tareas frecuentes de diseño de elementos individuales (zapatas, columnas, vigas), pre-dimensionamiento y documentación normativa, complementando el flujo de trabajo con paquetes de análisis global." },
-  { q: "¿Cómo accedo? ¿Hay costo?", a: "Contamos con una versión Básica gratuita para pruebas. Para exportar memorias completas DOCX, planos DXF y modelos BIM IFC, se requiere una suscripción Premium. Puedes adquirirla contactándonos directamente desde la página." },
-];
-
-const FAQSection: React.FC = () => {
-  const [open, setOpen] = useState<number | null>(null);
-  return (
-    <section className="py-24 bg-slate-50 dark:bg-[#0c1322] border-y border-gray-200 dark:border-gray-800">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Preguntas frecuentes</h2>
-          <p className="text-gray-500 dark:text-gray-400">Respuestas a las consultas más comunes sobre StructoPro.</p>
-        </div>
-        <div className="space-y-3">
-          {FAQS.map((faq, i) => (
-            <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
-              >
-                <span className="font-bold text-gray-900 dark:text-white text-base">{faq.q}</span>
-                {open === i ? <ChevronUp className="w-5 h-5 text-blue-500 shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />}
-              </button>
-              {open === i && (
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{faq.a}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 };
 
