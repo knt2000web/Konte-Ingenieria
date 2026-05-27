@@ -3,6 +3,27 @@ import { Service, Project } from './types';
 
 export const SERVICES: Service[] = [
   {
+    id: '9',
+    category: 'INFRAESTRUCTURA ESPECIALIZADA',
+    title: 'Construcción de Estaciones de Servicio',
+    description: 'Diseño integral, gestión normativa (Res. 1361 y 716) y construcción llave en mano de Estaciones de Servicio (EDS) seguras y rentables.',
+    image: 'https://i.imgur.com/pXQd2kW.jpeg',
+    images: [
+      'https://i.imgur.com/pXQd2kW.jpeg',
+      'https://i.imgur.com/JtVDBtW.jpeg',
+      'https://i.imgur.com/pKKUadd.jpeg',
+      'https://i.imgur.com/oqjq3w2.jpeg'
+    ],
+    features: ['Cumplimiento Normativo (Res. 1361 MME)', 'Ingeniería Hidráulica y Redes de Combustible', 'Gestión ANI e INVIAS', 'Construcción Llave en Mano'],
+    detailedFeatures: [
+      { title: "Cumplimiento Res. 1361 y 716 MME", desc: "Aseguramos distanciamientos de seguridad y diseño de tanques/tuberías según MME." },
+      { title: "Ingeniería Hidráulica de Redes", desc: "Diseño experto de redes de combustible, separadores de hidrocarburos API y PTAR." },
+      { title: "Permisos de Ocupación de Vía", desc: "Gestión integral ante ANI/INVIAS para diseño geométrico de carriles de aceleración." },
+      { title: "Diseño Estructural de Canopies", desc: "Estructuras metálicas de grandes luces optimizadas para maniobras de vehículos pesados." }
+    ],
+    icon: 'local_gas_station'
+  },
+  {
     id: '1',
     category: 'GESTIÓN NORMATIVA',
     title: 'Licencias de Construcción y Gestión ANI',

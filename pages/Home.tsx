@@ -404,12 +404,18 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
               <p className="text-xl text-gray-100 mb-8 max-w-2xl font-light">
                 Expertos en normativa (Res. 1361/716), diseño estructural y ejecución de proyectos de alto impacto en Duitama y Boyacá.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4" onClick={(e) => e.stopPropagation()}>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4" onClick={(e) => e.stopPropagation()}>
                 <button
                   onClick={() => navigate('/servicios')}
                   className="px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-lg hover:shadow-primary/50 flex items-center justify-center gap-2"
                 >
                   NUESTROS SERVICIOS <ArrowRight className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={() => navigate('/servicios/construccion-estaciones-servicio')}
+                  className="px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white rounded-lg font-bold transition-all shadow-lg hover:shadow-orange-500/50 flex items-center justify-center gap-2"
+                >
+                  ESPECIALISTAS EN EDS <CheckCircle className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => navigate('/proyectos')}

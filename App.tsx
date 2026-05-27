@@ -11,6 +11,7 @@ import ServicePH from './pages/ServicePH';
 import ServiceDiesel from './pages/ServiceDiesel';
 import ServiceTech from './pages/ServiceTech';
 import ServiceStructoPro from './pages/ServiceStructoPro';
+import ServiceEDS from './pages/ServiceEDS';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
@@ -53,6 +54,9 @@ const SEOHandler = () => {
   } else if (path === '/servicios/structopro') {
     title = "StructoPro - Cálculo Estructural en Línea | KONTE";
     description = "La plataforma profesional de diseño y cálculo estructural. Genera planos DXF y memorias DOCX bajo norma NSR-10 directamente en el navegador.";
+  } else if (path === '/servicios/construccion-estaciones-servicio') {
+    title = "Construcción de Estaciones de Servicio en Colombia | Konte Ingeniería";
+    description = "Expertos en diseño y construcción de Estaciones de Servicio (EDS) en Colombia. Cumplimiento Resolución 1361, 716, permisos ANI, e ingeniería llave en mano.";
   } else if (path === '/dashboard') {
     title = "Panel de Cliente";
     description = "Área privada para clientes KONTE. Gestión de proyectos y documentos.";
@@ -189,6 +193,7 @@ const App: React.FC = () => {
           <Route path="/servicios/fuel-shield" element={<ServiceDiesel setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/tecnologia" element={<ServiceTech setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/structopro" element={<ServiceStructoPro openLightbox={openLightbox} />} />
+          <Route path="/servicios/construccion-estaciones-servicio" element={<ServiceEDS openLightbox={openLightbox} />} />
           {/* Fallback routes for specific services to main services page */}
           <Route path="/servicios/consultoria-tecnica" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />
           <Route path="/servicios/ingenieria-especializada" element={<Services setPage={() => {}} openLightbox={openLightbox} />} />

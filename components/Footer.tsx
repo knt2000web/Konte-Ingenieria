@@ -40,6 +40,11 @@ const Footer: React.FC<FooterProps> = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/servicios/construccion-estaciones-servicio" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                  Estaciones de Servicio
+                </Link>
+              </li>
+              <li>
                 <Link to="/servicios/gestion-ani" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Proyectos ANI
                 </Link>
