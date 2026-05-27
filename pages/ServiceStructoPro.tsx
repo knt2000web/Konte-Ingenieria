@@ -363,7 +363,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                     ? 'bg-[#f5c842]/12 border-[#f5c842]/40 text-white shadow-[0_0_12px_rgba(245,200,66,0.12)]'
                     : 'bg-[#0b1e45]/60 border-[rgba(20,88,245,0.3)] text-slate-300 hover:border-[#f5c842]/40 hover:text-white'
                 }`}>
-                <img src={n.flag === 'eu' ? 'https://flagcdn.com/w20/eu.png' : `https://flagpedia.net/data/flags/mini/${n.flag}.png`} alt={n.label}
+                <img src={n.flag === 'eu' ? 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg' : `https://flagpedia.net/data/flags/mini/${n.flag}.png`} alt={n.label}
                   className="h-4 rounded-[2px] shadow-sm" />
                 {n.label}
               </span>
