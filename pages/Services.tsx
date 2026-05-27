@@ -140,7 +140,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
                 {service.id === '9' ? (
                   <button 
                     onClick={() => navigate('/servicios/construccion-estaciones-servicio')}
-                    className="w-full md:w-auto px-8 py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all shadow-lg flex items-center justify-center gap-2"
+                    className="w-full md:w-auto px-8 py-3 bg-primary dark:bg-blue-600 text-white font-bold rounded-lg hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-lg flex items-center justify-center gap-2"
                   >
                     VER DETALLES DE CONSTRUCCIÓN EDS <ArrowRight className="w-5 h-5" />
                   </button>

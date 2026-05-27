@@ -412,12 +412,6 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                   NUESTROS SERVICIOS <ArrowRight className="w-5 h-5" />
                 </button>
                 <button
-                  onClick={() => navigate('/servicios/construccion-estaciones-servicio')}
-                  className="px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white rounded-lg font-bold transition-all shadow-lg hover:shadow-orange-500/50 flex items-center justify-center gap-2"
-                >
-                  ESPECIALISTAS EN EDS <CheckCircle className="w-5 h-5" />
-                </button>
-                <button
                   onClick={() => navigate('/proyectos')}
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-lg font-bold transition-all flex items-center justify-center"
                 >
@@ -1182,59 +1176,67 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
               const currentBgImage = service.images && service.images.length > 0 ? service.images[structoBgImageIndex] : service.image;
 
               return (
-                <div key={service.id} className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col border border-blue-100 dark:border-blue-900/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-300">
-                  {/* Image Carousel Header */}
+                <div key={service.id} className="group relative rounded-2xl shadow-xl overflow-hidden flex flex-col border-2 border-amber-400/40 hover:border-amber-400/70 hover:shadow-2xl hover:shadow-amber-400/10 hover:-translate-y-1 transition-all duration-300" style={{background: 'linear-gradient(145deg, #0f172a 0%, #1e3a5f 60%, #0f172a 100%)'}}>
+                  
+                  {/* Header with image carousel + navy overlay */}
                   <div
-                    className="relative h-48 overflow-hidden cursor-zoom-in bg-gray-900"
+                    className="relative h-44 overflow-hidden cursor-zoom-in"
                     onClick={() => openLightbox(structoBgImageIndex, service.images || [service.image])}
                   >
                     <img
                       src={currentBgImage}
-                      alt="Software de Ingeniería StructoPro"
-                      className="w-full h-full object-cover transition-all duration-1000 opacity-90 group-hover:opacity-100"
+                      alt="Plataforma de cálculo estructural StructoPro"
+                      className="w-full h-full object-cover transition-all duration-1000 opacity-30 group-hover:opacity-40"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
-                    <ZoomIn className="absolute top-3 right-3 w-5 h-5 text-white/70" />
-                  </div>
-                  {/* Image Indicators */}
-                  <div className="flex gap-1 justify-center mt-2 absolute top-40 w-full z-10">
-                    {service.images?.map((_, idx) => (
-                      <div
-                        key={idx}
-                        className={`h-1.5 rounded-full transition-all duration-500 ${idx === structoBgImageIndex ? 'w-5 bg-blue-400' : 'w-1.5 bg-white/40'}`}
-                      />
-                    ))}
-                  </div>
+                    <div className="absolute inset-0" style={{background: 'linear-gradient(to bottom, rgba(15,23,42,0.5), rgba(15,23,42,0.95))'}} />
 
-                  <div className="p-5 flex flex-col flex-grow relative z-20">
-                    <p className="text-xs font-bold uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-1 flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-sm">{service.icon || 'laptop_chromebook'}</span>
-                      {service.category}
-                    </p>
-                    <h3 className="text-lg font-black text-gray-900 dark:text-white mb-3 tracking-tight">{service.title}</h3>
-                    
-                    {/* Dynamic Content Area */}
-                    <div className="flex-grow bg-blue-50 dark:bg-slate-900/60 rounded-xl p-4 mb-3 min-h-[105px] flex flex-col justify-center border-l-4 border-blue-500">
-                      <h4 className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">{currentFeature.title}</h4>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{currentFeature.desc}</p>
+                    {/* StructoPro Wordmark SVG */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                      <svg width="160" height="36" viewBox="0 0 160 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-lg">
+                        <text x="0" y="28" fontFamily="'Georgia', serif" fontSize="26" fontWeight="700" fill="#F59E0B" letterSpacing="-0.5">Structo</text>
+                        <text x="99" y="28" fontFamily="'Georgia', serif" fontSize="26" fontWeight="400" fill="#E2E8F0" letterSpacing="-0.5">Pro</text>
+                      </svg>
+                      <span className="text-amber-400/80 text-[10px] font-bold tracking-[0.2em] uppercase">Engineering Suite</span>
                     </div>
 
-                    {/* Text Progress Indicators */}
-                    <div className="flex gap-1 mt-1 mb-4 justify-end">
+                    <ZoomIn className="absolute top-3 right-3 w-4 h-4 text-amber-400/60" />
+                    {/* Image indicators */}
+                    <div className="flex gap-1 absolute bottom-3 w-full justify-center">
+                      {service.images?.map((_, idx) => (
+                        <div key={idx} className={`h-1 rounded-full transition-all duration-500 ${idx === structoBgImageIndex ? 'w-4 bg-amber-400' : 'w-1 bg-white/20'}`} />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="p-5 flex flex-col flex-grow">
+                    {/* Category badge */}
+                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-amber-400 mb-2 flex items-center gap-1.5">
+                      <span className="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+                      {service.category}
+                    </p>
+
+                    {/* Dynamic feature reel */}
+                    <div className="flex-grow rounded-xl p-4 mb-3 min-h-[100px] flex flex-col justify-center border border-amber-400/20" style={{background: 'rgba(245,158,11,0.06)'}}>
+                      <h4 className="text-sm font-bold text-amber-300 mb-1">{currentFeature.title}</h4>
+                      <p className="text-sm text-slate-300 leading-relaxed">{currentFeature.desc}</p>
+                    </div>
+
+                    {/* Feature dots */}
+                    <div className="flex gap-1 mb-4 justify-end">
                       {STRUCTOPRO_SUB_SERVICES.map((_, i) => (
-                        <div
-                          key={i}
-                          className={`h-1.5 rounded-full transition-all duration-500 ${i === structoFeatureIndex ? 'w-5 bg-blue-500' : 'w-1.5 bg-slate-200 dark:bg-slate-700'}`}
-                        />
+                        <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === structoFeatureIndex ? 'w-4 bg-amber-400' : 'w-1 bg-slate-600'}`} />
                       ))}
                     </div>
 
+                    {/* Product CTA */}
                     <button
                       onClick={() => navigate('/servicios/structopro')}
-                      className="w-full py-3.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all text-sm uppercase tracking-wider shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2"
+                      className="w-full py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02]"
+                      style={{background: 'linear-gradient(90deg, #d97706, #f59e0b)', color: '#0f172a', boxShadow: '0 4px 20px rgba(245,158,11,0.3)'}}
                     >
-                      ACCEDER A STRUCTOPRO
+                      EXPLORAR MÓDULOS
                       <ArrowRight size={16} />
                     </button>
                   </div>
