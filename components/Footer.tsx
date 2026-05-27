@@ -7,7 +7,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = () => {
-  const generalWaLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20consultor%20sobre%20sus%20servicios%20de%20ingenier%C3%ADa%20y%20construcci%C3%B3n.";
+  const generalWaLink = "https://wa.me/573223879193?text=Hola%20KONTE%2C%20deseo%20cotizar%20un%20tr%C3%A1mite%20de%20licencia%20de%20construcci%C3%B3n.";
 
   return (
     <footer className="bg-gray-900 border-t border-gray-700 pt-16 pb-8 transition-colors duration-300">
@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = () => {
               KONTE
             </Link>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-              Líderes en consultoría de ingeniería y construcción. Transformamos visiones en infraestructuras tangibles con los más altos estándares de calidad y cumplimiento normativo.
+              Ingeniería estructural y licencias de construcción en Colombia. Tramitamos licencias, diseñamos estructuras NSR-10 y ejecutamos proyectos desde Duitama, Boyacá para todo el país.
             </p>
             <div className="flex space-x-4">
               {[Facebook, Twitter, Linkedin, Youtube].map((Icon, idx) => (
@@ -34,6 +34,11 @@ const Footer: React.FC<FooterProps> = () => {
           <div>
             <h3 className="text-sm font-bold text-gray-200 uppercase tracking-wider mb-4">Soluciones</h3>
             <ul className="space-y-3">
+              <li>
+                <Link to="/servicios/gestion-ani" className="text-sm font-semibold text-primary dark:text-blue-400 hover:text-secondary dark:hover:text-blue-300 transition-colors text-left">
+                  Licencias de Construcción
+                </Link>
+              </li>
               <li>
                 <Link to="/servicios" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
                   Consultoría General
@@ -107,7 +112,10 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary dark:text-blue-400 shrink-0" />
-                <span className="text-sm text-gray-400">+57 (320) 4468049</span>
+                <div className="flex flex-col">
+                  <a href="https://wa.me/573223879193" className="text-sm text-white font-semibold hover:text-green-400 transition-colors">+57 322 387 9193 <span className="text-xs text-green-400 font-normal">(WhatsApp Principal)</span></a>
+                  <span className="text-xs text-gray-500">+57 (320) 4468049 &ndash; Línea secundaria</span>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary dark:text-blue-400 shrink-0" />

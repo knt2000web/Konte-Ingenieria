@@ -3,31 +3,10 @@ import { Service, Project } from './types';
 
 export const SERVICES: Service[] = [
   {
-    id: '9',
-    category: 'INFRAESTRUCTURA ESPECIALIZADA',
-    title: 'Construcción de Estaciones de Servicio',
-    description: 'Diseño integral, gestión normativa (Res. 1361 y 716) y construcción llave en mano de Estaciones de Servicio (EDS) seguras y rentables.',
-    image: 'https://i.imgur.com/pXQd2kW.jpeg',
-    images: [
-      'https://i.imgur.com/pXQd2kW.jpeg',
-      'https://i.imgur.com/JtVDBtW.jpeg',
-      'https://i.imgur.com/pKKUadd.jpeg',
-      'https://i.imgur.com/oqjq3w2.jpeg'
-    ],
-    features: ['Cumplimiento Normativo (Res. 1361 MME)', 'Ingeniería Hidráulica y Redes de Combustible', 'Gestión ANI e INVIAS', 'Construcción Llave en Mano'],
-    detailedFeatures: [
-      { title: "Cumplimiento Res. 1361 y 716 MME", desc: "Aseguramos distanciamientos de seguridad y diseño de tanques/tuberías según MME." },
-      { title: "Ingeniería Hidráulica de Redes", desc: "Diseño experto de redes de combustible, separadores de hidrocarburos API y PTAR." },
-      { title: "Permisos de Ocupación de Vía", desc: "Gestión integral ante ANI/INVIAS para diseño geométrico de carriles de aceleración." },
-      { title: "Diseño Estructural de Canopies", desc: "Estructuras metálicas de grandes luces optimizadas para maniobras de vehículos pesados." }
-    ],
-    icon: 'local_gas_station'
-  },
-  {
     id: '1',
     category: 'GESTIÓN NORMATIVA',
-    title: 'Licencias de Construcción y Gestión ANI',
-    description: 'Expertos en destrabar procesos administrativos ante Curadurías, ANI e INVIAS. Gestión especializada para Permisos de Ocupación de Vía.',
+    title: 'Licencias de Construcción y Reconocimiento',
+    description: 'Trámite integral de licencias de construcción, reconocimiento, ampliación, modificación y demolición en cualquier ciudad de Colombia. Incluye revisión normativa, coordinación con arquitectura, planos estructurales firmados por ingeniero con matrícula COPNIA, memorias de cálculo NSR-10 y acompañamiento ante curaduría urbana.',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
     images: [
       'https://i.imgur.com/0cakZKT.jpeg',
@@ -36,19 +15,19 @@ export const SERVICES: Service[] = [
       'https://i.imgur.com/DH3xrOm.jpeg',
       'https://i.imgur.com/kFXSUGb.jpeg'
     ],
-    features: ['Permisos de Ocupación de Vía (ANI / INVIAS)', 'Licencias de Construcción (Obra Nueva, Ampliación)', 'Reconocimiento de Edificaciones y Demolición'],
+    features: ['Obra Nueva y Ampliación', 'Reconocimiento de Edificaciones', 'Acompañamiento ante Curadurías', 'Planos y Memorias NSR-10'],
     detailedFeatures: [
-      { title: "Permisos de Ocupación de Vía", desc: "Gestión ante ANI, INVIAS y Concesionarios para accesos y carriles." },
       { title: "Licenciamiento Urbanístico", desc: "Trámite integral de Licencias de Construcción, Reconocimiento y Demolición." },
-      { title: "Gestión ante Curadurías", desc: "Asesoría técnica y legal para destrabar procesos administrativos." }
+      { title: "Gestión ante Curadurías", desc: "Asesoría técnica y legal para destrabar procesos administrativos y evitar devoluciones." },
+      { title: "Coordinación Técnica", desc: "Integración de arquitectura y diseño estructural NSR-10 firmado por ingeniero." }
     ],
     icon: 'verified_user'
   },
   {
     id: '3',
     category: 'INGENIERÍA ESPECIALIZADA',
-    title: 'Ingeniería y Diseño Especializado',
-    description: 'Desarrollamos ingeniería de detalle coordinada para garantizar la viabilidad constructiva y funcional de su proyecto, integrando tecnología BIM.',
+    title: 'Diseño Estructural NSR-10',
+    description: 'Diseño y revisión estructural de edificaciones nuevas y existentes conforme a la NSR-10, cimentaciones, reforzamientos, peritajes y estudios de vulnerabilidad sísmica.',
     image: 'https://i.imgur.com/gy1Wtmv.jpeg',
     images: [
       'https://i.imgur.com/gy1Wtmv.jpeg',
@@ -58,38 +37,60 @@ export const SERVICES: Service[] = [
       'https://i.imgur.com/3N0GclR.jpeg'
     ],
     features: [
-      'Diseño Estructural y Vulnerabilidad',
-      'Diseño de Redes Hidrosanitarias',
-      'Diseños Eléctricos',
-      'Modelado BIM y Visualización 3D'
+      'Análisis y Diseño Sismo-resistente',
+      'Estudios de Vulnerabilidad Sísmica',
+      'Diseño de Cimentaciones',
+      'Reforzamientos Estructurales'
     ],
     detailedFeatures: [
-      { title: "Diseño Estructural y Vulnerabilidad", desc: "Análisis y diseño sismo-resistente optimizado según norma NSR-10." },
-      { title: "Diseño de Redes Hidrosanitarias", desc: "Redes de suministro, desagües y manejo de aguas lluvias optimizados." },
-      { title: "Sistemas Contra Incendio (NFPA)", desc: "Diseño hidráulico bajo norma NSR-10 y NFPA. Incluye tanques y redes." },
-      { title: "Modelado BIM y Visualización 3D", desc: "Renders fotorrealistas y coordinación de redes para prever conflictos." }
+      { title: "Diseño Estructural NSR-10", desc: "Análisis y diseño sismo-resistente optimizado para viviendas y comercio." },
+      { title: "Vulnerabilidad Sísmica", desc: "Evaluación y diagnóstico de estructuras existentes según normativa." },
+      { title: "Reforzamientos", desc: "Proyectos de intervención para aumentar la capacidad portante y sismo-resistencia." },
+      { title: "Memorias de Cálculo", desc: "Entrega de documentos técnicos detallados listos para radicar." }
     ],
     icon: 'layers'
+  },
+  {
+    id: '9',
+    category: 'INFRAESTRUCTURA ESPECIALIZADA',
+    title: 'Estaciones de Servicio y Gestión ANI',
+    description: 'Consultoría estructural y de construcción para estaciones de servicio e infraestructura asociada, con experiencia en gestión normativa ante la ANI y otras entidades.',
+    image: 'https://i.imgur.com/pXQd2kW.jpeg',
+    images: [
+      'https://i.imgur.com/pXQd2kW.jpeg',
+      'https://i.imgur.com/JtVDBtW.jpeg',
+      'https://i.imgur.com/pKKUadd.jpeg',
+      'https://i.imgur.com/oqjq3w2.jpeg'
+    ],
+    features: ['Cumplimiento Normativo (Res. 1361 MME)', 'Permisos de Ocupación de Vía (ANI / INVIAS)', 'Diseño Estructural de Canopies', 'Construcción Llave en Mano'],
+    detailedFeatures: [
+      { title: "Cumplimiento Res. 1361 MME", desc: "Aseguramos distanciamientos de seguridad y diseño normativo de EDS." },
+      { title: "Permisos de Ocupación de Vía", desc: "Gestión ante ANI, INVIAS y concesionarios para accesos y carriles de aceleración." },
+      { title: "Diseño Estructural de Canopies", desc: "Estructuras metálicas de grandes luces optimizadas para vehículos pesados." },
+      { title: "Ingeniería Hidráulica", desc: "Diseño experto de redes de combustible y separadores API." }
+    ],
+    icon: 'local_gas_station'
   },
   {
     id: '2',
     category: 'CONSULTORÍA TÉCNICA',
     title: 'Consultoría Técnica y Estudios de Campo',
-    description: 'Soporte técnico con equipos de precisión. Realizamos Levantamientos Topográficos, Estudios de Suelos y Peritajes Técnicos.',
+    description: 'Visitas técnicas, evaluación de patologías estructurales, estudios de suelos coordinados y soporte para procesos de legalización de obras.',
     image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800',
     images: [
       'https://i.imgur.com/AoBxnOX.jpeg', 'https://i.imgur.com/Y4aW5ud.jpeg', 'https://i.imgur.com/yF6bs24.jpeg',
       'https://i.imgur.com/taxhIth.jpeg', 'https://i.imgur.com/NwW89IY.jpeg'
     ],
-    features: ['Levantamientos Topográficos de Precisión', 'Estudios de Suelos y Geotecnia', 'Peritajes Técnicos y Avalúos Comerciales'],
+    features: ['Levantamientos Topográficos', 'Estudios de Suelos y Geotecnia', 'Peritajes y Patologías Estructurales', 'Soporte de Legalización'],
     detailedFeatures: [
-        { title: "Levantamientos Topográficos", desc: "Alta precisión con GPS y Estación Total, georreferenciación Magna Sirgas." },
-        { title: "Estudios de Suelos y Geotecnia", desc: "Análisis de capacidad portante para cimentaciones seguras." },
-        { title: "Peritajes Técnicos", desc: "Ingeniería forense para determinar causas de fallas y patologías." },
-        { title: "Avalúos Comerciales", desc: "Valoración técnica certificada de inmuebles urbanos y rurales." }
+        { title: "Visitas Técnicas", desc: "Inspección detallada en sitio para evaluar condiciones estructurales." },
+        { title: "Estudios de Suelos Coordinados", desc: "Análisis de capacidad portante para cimentaciones seguras." },
+        { title: "Patologías Estructurales", desc: "Ingeniería forense para determinar causas de fallas y fisuras." },
+        { title: "Soporte de Legalización", desc: "Levantamientos y asesoría técnica para legalizar edificaciones existentes." }
     ],
     icon: 'architecture'
   },
+
   {
     id: '5',
     category: 'PROPIEDAD HORIZONTAL',

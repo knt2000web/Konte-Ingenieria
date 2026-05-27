@@ -376,58 +376,77 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
   return (
     
     <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors duration-300">
-      {/* Hero Section */}
-      <div className="relative w-full h-[600px] overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["https://i.imgur.com/gy1Wtmv.jpeg"])}>
-        <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-colors" />
+            {/* Hero Section */}
+      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["https://i.imgur.com/gy1Wtmv.jpeg"])}>
+        <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/40 transition-colors" />
         <img
           src="https://i.imgur.com/gy1Wtmv.jpeg"
           onError={(e) => {
             e.currentTarget.src = "https://images.unsplash.com/photo-1520694478166-daaaaec95b69?auto=format&fit=crop&q=80&w=1600";
-            e.currentTarget.onerror = null; // Prevent infinite loop
+            e.currentTarget.onerror = null;
           }}
           alt="Ingeniería civil y construcción de estaciones de servicio en Duitama, Boyacá"
-          className="w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-110"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-105"
           referrerPolicy="no-referrer"
         />
         <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
           <ZoomIn className="text-white w-8 h-8 drop-shadow-md" />
         </div>
-        <div className="absolute inset-0 z-20 flex items-center pointer-events-none">
+        <div className="relative z-20 flex flex-col justify-center pt-28 md:pt-36 lg:pt-40 pb-16 md:pb-24 min-h-[90vh]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-auto">
             <div className="max-w-3xl animate-in slide-in-from-bottom-10 duration-700 text-left">
-              <span className="bg-primary text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">
-                Líderes en Infraestructura y EDS
+              <span className="bg-primary text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold tracking-widest uppercase mb-6 inline-block shadow-md">
+                Ingeniería estructural &bull; Licencias de construcción &bull; NSR-10 &bull; Duitama, Boyacá y Colombia
               </span>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-                Consultoría estructural, construcción y soluciones técnicas para proyectos en Colombia
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                Licencias de construcción y consultoría estructural en Colombia
               </h1>
-              <p className="text-xl text-gray-100 mb-8 max-w-2xl font-light">
-                Expertos en normativa (Res. 1361/716), diseño estructural y ejecución de proyectos de alto impacto en Duitama y Boyacá.
+              <p className="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl font-light leading-relaxed">
+                Tramitamos licencias de construcción, reconocimiento, ampliación, modificación y demolición desde Duitama para proyectos en Boyacá, Casanare, Cundinamarca, Tolima y el resto del país, con diseño estructural NSR-10, memorias de cálculo, coordinación con arquitectura y acompañamiento completo ante curaduría urbana.
               </p>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4" onClick={(e) => e.stopPropagation()}>
-                <button
-                  onClick={() => navigate('/servicios')}
-                  className="px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-lg hover:shadow-primary/50 flex items-center justify-center gap-2"
+              
+              <ul className="text-white/90 space-y-3 mb-8 md:mb-12 text-sm md:text-base font-medium">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span>Más de 26 años diseñando estructuras y gestionando licencias de construcción</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span>Experiencia en proyectos residenciales, comerciales, industriales y estaciones de servicio</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span>Entregamos planos, estudios y soportes listos para radicar y responder observaciones</span>
+                </li>
+              </ul>
+
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8 md:mt-10 mb-8 md:mb-12" onClick={(e) => e.stopPropagation()}>
+                <a
+                  href="https://wa.me/573223879193"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-xl hover:shadow-primary/50 flex items-center justify-center gap-2"
                 >
-                  NUESTROS SERVICIOS <ArrowRight className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={() => navigate('/proyectos')}
+                  <ArrowRight className="w-5 h-5 hidden sm:block" />
+                  COTIZAR TRÁMITE DE LICENCIA
+                </a>
+                <a
+                  href="#servicios"
+                  onClick={(e) => { e.preventDefault(); document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' }); }}
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-lg font-bold transition-all flex items-center justify-center"
                 >
-                  VER PROYECTOS
-                </button>
+                  VER SERVICIOS
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       {/* Intro Stats */}
-      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 mb-12">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 md:-mt-12 mb-16">
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8 border-b-4 border-primary dark:border-blue-500 transition-colors duration-300">
           {[
-            { icon: Award, label: 'Experiencia', value: '+15 Años' },
+            { icon: Award, label: 'Experiencia', value: '+26 Años' },
             { icon: Users, label: 'Profesionales', value: 'Personal Certificado' },
             { icon: Globe, label: 'Cobertura', value: 'Boyacá y Nacional' },
           ].map((stat, idx) => (
@@ -443,181 +462,11 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           ))}
         </div>
       </div>
-
-      {/* ========== BANNER STRUCTOPRO ========== */}
-      <section className="relative bg-gradient-to-br from-[#071525] 
-                          via-[#0a1e3a] to-[#0d2647] 
-                          border-y border-blue-700/30 overflow-hidden">
-      
-        {/* Fondo decorativo */}
-        <div className="absolute inset-0 opacity-5"
-             style={{backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a9eff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`}} />
-      
-        <div className="relative max-w-7xl mx-auto px-6 py-16">
-      
-          {/* Encabezado */}
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 bg-blue-500/15 
-                             border border-blue-500/30 text-blue-300 text-xs 
-                             font-bold uppercase tracking-widest px-4 py-2 
-                             rounded-full mb-5">
-              <Zap size={12} /> Nuevo Servicio Digital
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black text-white 
-                           tracking-tight leading-tight">
-              Struct<span className="text-blue-400">o</span>Pro
-            </h2>
-            <p className="text-blue-200 mt-3 text-lg font-medium max-w-2xl mx-auto">
-              Plataforma profesional de cálculo estructural en línea
-            </p>
-            <p className="text-slate-400 mt-2 text-sm max-w-2xl mx-auto">
-              Diseña, verifica y exporta elementos estructurales bajo normativa 
-              <strong className="text-slate-200"> NSR-10 / ACI 318 / Normas Internacionales</strong>. 
-              Sin instalaciones, directamente en tu navegador.
-            </p>
-          </div>
-      
-          {/* Grid de módulos */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-      
-            {[
-              { icon: <Layers size={20}/>, titulo: "Zapatas y Cimentación", desc: "Diseño y capacidad portante para zapatas aisladas en DXF" },
-              { icon: <Box size={20}/>, titulo: "Muros de Contención", desc: "Kontewall: estabilidad en voladizo con exportación de planos" },
-              { icon: <Ruler size={20}/>, titulo: "Columnas PM y Vigas", desc: "Diseño a flexión, cortante y diagramas de interacción" },
-              { icon: <Calculator size={20}/>, titulo: "Albañilería Confinada", desc: "Dosificaciones y verificación de muros bajo corte/flexión" },
-              { icon: <TreePine size={20}/>, titulo: "Madera Estructuras", desc: "Diseño de marcos en madera aserrada con normativas" },
-              { icon: <BarChart3 size={20}/>, titulo: "Análisis Estructural", desc: "Resolución de pórticos 2D/3D y generador paramétrico" },
-              { icon: <Zap size={20}/>, titulo: "Diseño Sísmico", desc: "Espectros elásticos, derivas y asimetría de irregularidades" },
-              { icon: <FileText size={20}/>, titulo: "APU y Memorias", desc: "Exporta planillas DOCX y análisis de precios unitarios" },
-            ].map((item, i) => (
-              <div key={i} className="bg-white/5 hover:bg-blue-500/10 border 
-                                      border-white/10 hover:border-blue-500/40 
-                                      rounded-xl p-4 transition-all duration-300 
-                                      group cursor-default">
-                <div className="text-blue-400 group-hover:text-blue-300 mb-3 
-                                transition-colors">
-                  {item.icon}
-                </div>
-                <h3 className="text-white font-semibold text-sm mb-1">
-                  {item.titulo}
-                </h3>
-                <p className="text-slate-400 text-xs leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-      
-          </div>
-      
-          {/* Fila inferior: beneficios + botón */}
-          <div className="flex flex-col md:flex-row items-center 
-                          justify-between gap-8 pt-8 
-                          border-t border-white/10">
-      
-            {/* Checks */}
-            <div className="grid grid-cols-2 gap-x-10 gap-y-2">
-              {[
-                "Exportación de planos DXF",
-                "Memorias de cálculo DOCX",
-                "Cantidades APU en tiempo real",
-                "Normativa NSR-10 / ACI 318",
-                "Visualización 3D interactiva",
-                "Sin instalación requerida",
-              ].map((item, i) => (
-                <span key={i} className="flex items-center gap-2 text-slate-300 
-                                         text-sm">
-                  <CheckCircle2 size={14} className="text-green-400 shrink-0"/>
-                  {item}
-                </span>
-              ))}
-            </div>
-      
-            {/* Botón CTA */}
-            <div className="flex flex-col items-center gap-2 shrink-0">
-              <Link to="/servicios/structopro"
-                 className="inline-flex items-center gap-3 bg-orange-500 
-                            hover:bg-orange-400 active:scale-95 text-white 
-                            font-bold py-4 px-10 rounded-xl text-base 
-                            transition-all shadow-2xl shadow-orange-500/25">
-                CONOCER STRUCTOPRO
-                <ArrowRight size={18}/>
-              </Link>
-              <span className="text-slate-500 text-xs">
-                Acceso gratuito • Sin registro
-              </span>
-            </div>
-      
-          </div>
-      
-        </div>
-      </section>
-      {/* ======== FIN BANNER STRUCTOPRO ======== */}
-
-      {/* Moving Image Gallery Strip - Interactive */}
-      <section className="w-full bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 py-10 mb-20 overflow-hidden transition-colors duration-300">
-        <div className="relative w-full">
-          <div className="flex animate-scroll hover:pause">
-            {/* Image Set 1 */}
-            <div className="flex gap-8 px-4 items-center min-w-max">
-              {SCROLL_IMAGES.map((img, idx) => (
-                <div
-                  key={`s1-${idx}`}
-                  className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer"
-                  onClick={() => openLightbox(idx, SCROLL_IMAGES)}
-                >
-                  <img
-                    src={img}
-                    alt={SCROLL_LABELS[idx] || "Galería de Proyectos KONTE Ingeniería"}
-                    className="h-full w-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                    <ZoomIn className="text-white opacity-0 group-hover/img:opacity-100 transform scale-50 group-hover/img:scale-100 transition-all duration-300 w-8 h-8 drop-shadow-lg" />
-                  </div>
-                </div>
-              ))}
-            </div>
-            {/* Image Set 2 (Duplicate for infinity) */}
-            <div className="flex gap-8 px-4 items-center min-w-max">
-              {SCROLL_IMAGES.map((img, idx) => (
-                <div
-                  key={`s2-${idx}`}
-                  className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer"
-                  onClick={() => openLightbox(idx, SCROLL_IMAGES)}
-                >
-                  <img
-                    src={img}
-                    alt={SCROLL_LABELS[idx] || "Proyectos de Construcción en Boyacá"}
-                    className="h-full w-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                    <ZoomIn className="text-white opacity-0 group-hover/img:opacity-100 transform scale-50 group-hover/img:scale-100 transition-all duration-300 w-8 h-8 drop-shadow-lg" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <style>{`
-          @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-scroll {
-            display: flex;
-            width: max-content;
-            animation: scroll 80s linear infinite; /* Slower animation for photos */
-          }
-          .hover\\:pause:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
-      </section>
-
-      {/* Services Preview */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+{/* Services Preview */}
+      <section id="servicios" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-0 pb-16">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Servicios de Consultoría y Construcción</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Servicios profesionales de ingeniería y licenciamiento</h2>
             <div className="h-1 w-20 bg-primary dark:bg-blue-500 rounded-full"></div>
           </div>
           <button
@@ -1248,6 +1097,211 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           })}
         </div>
       </section>
+      {/* ========== EXPERIENCIA EN LICENCIAS ========== */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 border-t border-gray-100 dark:border-gray-800">
+        <div className="bg-blue-50/50 dark:bg-gray-800/50 rounded-2xl p-8 md:p-12 border border-blue-100 dark:border-gray-700">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Experiencia comprobada en licencias de construcción
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Hemos gestionado licencias de construcción, ampliación y reconocimiento para proyectos residenciales, comerciales e industriales en diferentes ciudades del país. Cada trámite se soporta con estudios de suelos, planos estructurales, memorias de cálculo y coordinación técnica con arquitectos y curaduría, cumpliendo la normatividad urbana y la NSR-10.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                "Vivienda unifamiliar y multifamiliar",
+                "Locales comerciales y bodegas",
+                "Estaciones de servicio y obras asociadas",
+                "Reforzamientos y ampliaciones de edificaciones existentes"
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-200 font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10">
+              <a
+                href="https://wa.me/573223879193"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-lg hover:shadow-primary/50"
+              >
+                Cuéntanos tu proyecto
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+{/* ========== BANNER STRUCTOPRO ========== */}
+      <section className="relative bg-gradient-to-br from-[#071525] 
+                          via-[#0a1e3a] to-[#0d2647] 
+                          border-y border-blue-700/30 overflow-hidden">
+      
+        {/* Fondo decorativo */}
+        <div className="absolute inset-0 opacity-5"
+             style={{backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a9eff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`}} />
+      
+        <div className="relative max-w-7xl mx-auto px-6 py-16">
+      
+          {/* Encabezado */}
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 bg-blue-500/15 
+                             border border-blue-500/30 text-blue-300 text-xs 
+                             font-bold uppercase tracking-widest px-4 py-2 
+                             rounded-full mb-5">
+              <Zap size={12} /> Nuevo Servicio Digital
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-white 
+                           tracking-tight leading-tight">
+              Struct<span className="text-blue-400">o</span>Pro
+            </h2>
+            <p className="text-blue-200 mt-3 text-lg font-medium max-w-2xl mx-auto">
+              Plataforma profesional de cálculo estructural en línea
+            </p>
+            <p className="text-slate-400 mt-2 text-sm max-w-2xl mx-auto">
+              Diseña, verifica y exporta elementos estructurales bajo normativa 
+              <strong className="text-slate-200"> NSR-10 / ACI 318 / Normas Internacionales</strong>. 
+              Sin instalaciones, directamente en tu navegador.
+            </p>
+          </div>
+      
+          {/* Grid de módulos */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+      
+            {[
+              { icon: <Layers size={20}/>, titulo: "Zapatas y Cimentación", desc: "Diseño y capacidad portante para zapatas aisladas en DXF" },
+              { icon: <Box size={20}/>, titulo: "Muros de Contención", desc: "Kontewall: estabilidad en voladizo con exportación de planos" },
+              { icon: <Ruler size={20}/>, titulo: "Columnas PM y Vigas", desc: "Diseño a flexión, cortante y diagramas de interacción" },
+              { icon: <Calculator size={20}/>, titulo: "Albañilería Confinada", desc: "Dosificaciones y verificación de muros bajo corte/flexión" },
+              { icon: <TreePine size={20}/>, titulo: "Madera Estructuras", desc: "Diseño de marcos en madera aserrada con normativas" },
+              { icon: <BarChart3 size={20}/>, titulo: "Análisis Estructural", desc: "Resolución de pórticos 2D/3D y generador paramétrico" },
+              { icon: <Zap size={20}/>, titulo: "Diseño Sísmico", desc: "Espectros elásticos, derivas y asimetría de irregularidades" },
+              { icon: <FileText size={20}/>, titulo: "APU y Memorias", desc: "Exporta planillas DOCX y análisis de precios unitarios" },
+            ].map((item, i) => (
+              <div key={i} className="bg-white/5 hover:bg-blue-500/10 border 
+                                      border-white/10 hover:border-blue-500/40 
+                                      rounded-xl p-4 transition-all duration-300 
+                                      group cursor-default">
+                <div className="text-blue-400 group-hover:text-blue-300 mb-3 
+                                transition-colors">
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-semibold text-sm mb-1">
+                  {item.titulo}
+                </h3>
+                <p className="text-slate-400 text-xs leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+      
+          </div>
+      
+          {/* Fila inferior: beneficios + botón */}
+          <div className="flex flex-col md:flex-row items-center 
+                          justify-between gap-8 pt-8 
+                          border-t border-white/10">
+      
+            {/* Checks */}
+            <div className="grid grid-cols-2 gap-x-10 gap-y-2">
+              {[
+                "Exportación de planos DXF",
+                "Memorias de cálculo DOCX",
+                "Cantidades APU en tiempo real",
+                "Normativa NSR-10 / ACI 318",
+                "Visualización 3D interactiva",
+                "Sin instalación requerida",
+              ].map((item, i) => (
+                <span key={i} className="flex items-center gap-2 text-slate-300 
+                                         text-sm">
+                  <CheckCircle2 size={14} className="text-green-400 shrink-0"/>
+                  {item}
+                </span>
+              ))}
+            </div>
+      
+            {/* Botón CTA */}
+            <div className="flex flex-col items-center gap-2 shrink-0">
+              <Link to="/servicios/structopro"
+                 className="inline-flex items-center gap-3 bg-orange-500 
+                            hover:bg-orange-400 active:scale-95 text-white 
+                            font-bold py-4 px-10 rounded-xl text-base 
+                            transition-all shadow-2xl shadow-orange-500/25">
+                CONOCER STRUCTOPRO
+                <ArrowRight size={18}/>
+              </Link>
+              <span className="text-slate-500 text-xs">
+                Acceso gratuito • Sin registro
+              </span>
+            </div>
+      
+          </div>
+      
+        </div>
+      </section>
+      {/* ======== FIN BANNER STRUCTOPRO ======== */}\n{/* Moving Image Gallery Strip - Interactive */}
+      <section className="w-full bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 py-10 mb-20 overflow-hidden transition-colors duration-300">
+        <div className="relative w-full">
+          <div className="flex animate-scroll hover:pause">
+            {/* Image Set 1 */}
+            <div className="flex gap-8 px-4 items-center min-w-max">
+              {SCROLL_IMAGES.map((img, idx) => (
+                <div
+                  key={`s1-${idx}`}
+                  className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer"
+                  onClick={() => openLightbox(idx, SCROLL_IMAGES)}
+                >
+                  <img
+                    src={img}
+                    alt={SCROLL_LABELS[idx] || "Galería de Proyectos KONTE Ingeniería"}
+                    className="h-full w-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                    <ZoomIn className="text-white opacity-0 group-hover/img:opacity-100 transform scale-50 group-hover/img:scale-100 transition-all duration-300 w-8 h-8 drop-shadow-lg" />
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Image Set 2 (Duplicate for infinity) */}
+            <div className="flex gap-8 px-4 items-center min-w-max">
+              {SCROLL_IMAGES.map((img, idx) => (
+                <div
+                  key={`s2-${idx}`}
+                  className="relative group/img h-40 w-64 overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer"
+                  onClick={() => openLightbox(idx, SCROLL_IMAGES)}
+                >
+                  <img
+                    src={img}
+                    alt={SCROLL_LABELS[idx] || "Proyectos de Construcción en Boyacá"}
+                    className="h-full w-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                    <ZoomIn className="text-white opacity-0 group-hover/img:opacity-100 transform scale-50 group-hover/img:scale-100 transition-all duration-300 w-8 h-8 drop-shadow-lg" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <style>{`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 80s linear infinite; /* Slower animation for photos */
+          }
+          .hover\\:pause:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+      </section>
+
+      
     </div>
   );
 };
