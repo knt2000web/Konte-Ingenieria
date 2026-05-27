@@ -399,7 +399,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                 Líderes en Infraestructura y EDS
               </span>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-                Consultoría Especializada y Construcción de Estaciones de Servicio
+                Consultoría estructural, construcción y soluciones técnicas para proyectos en Colombia
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl font-light">
                 Expertos en normativa (Res. 1361/716), diseño estructural y ejecución de proyectos de alto impacto en Duitama y Boyacá.

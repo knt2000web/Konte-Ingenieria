@@ -134,8 +134,9 @@ const Footer: React.FC<FooterProps> = () => {
             © KONTE, Todos los Derechos Reservados. Designed By Cesar Giraldo
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400">Política de Privacidad</a>
-            <a href="#" className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400">Términos de Uso</a>
+            {/* TODO: Crear páginas de Política de Privacidad y Términos de Uso y restaurar estos enlaces */}
+            {/* <a href="#" className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400">Política de Privacidad</a> */}
+            {/* <a href="#" className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400">Términos de Uso</a> */}
           </div>
         </div>
       </div>

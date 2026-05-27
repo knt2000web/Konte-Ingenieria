@@ -27,8 +27,8 @@ const SEOHandler = () => {
   // Basic route matching
   const path = location.pathname;
   if (path === '/') {
-    title = "Inicio - Consultoría y Construcción";
-    description = "KONTE: Líderes en ingeniería, construcción de estaciones de servicio, consultoría normativa ANI y propiedad horizontal en Colombia.";
+    title = "Konte Ingeniería | Consultoría estructural y construcción en Colombia";
+    description = "Konte Ingeniería ofrece consultoría estructural, construcción, gestión normativa ANI y soluciones digitales para proyectos en Colombia.";
   } else if (path === '/nosotros') {
     title = "Nosotros - Experiencia y Equipo";
     description = "Conozca a KONTE. Más de 15 años de experiencia en ingeniería civil, infraestructura hospitalaria y soluciones técnicas especializadas.";
