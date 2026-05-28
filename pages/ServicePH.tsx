@@ -15,7 +15,7 @@ const ServicePH: React.FC<ServicePHProps> = ({ openLightbox }) => {
   const [zonasComunesIndex, setZonasComunesIndex] = useState(0);
   
   // WhatsApp Link for Structural/Civil works
-  const waLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20requiero%20consultor%C3%ADa%20t%C3%A9cnica%20para%20un%20proyecto%20de%20Ingenier%C3%ADa%20Estructural%20(NSR-10).";
+  const waLink = "https://wa.me/573223879193?text=Hola%20KONTE%2C%20requiero%20consultor%C3%ADa%20t%C3%A9cnica%20para%20un%20proyecto%20de%20Ingenier%C3%ADa%20Estructural%20(NSR-10).";
 
   const fachadasImages = [
     "https://i.imgur.com/uWQ2lnV.jpeg",

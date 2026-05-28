@@ -21,13 +21,7 @@ const Footer: React.FC<FooterProps> = () => {
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
               Ingeniería estructural y licencias de construcción en Colombia. Tramitamos licencias, diseñamos estructuras NSR-10 y ejecutamos proyectos desde Duitama, Boyacá para todo el país.
             </p>
-            <div className="flex space-x-4">
-              {[Facebook, Twitter, Linkedin, Youtube].map((Icon, idx) => (
-                <a key={idx} href="#" className="text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors">
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+            
           </div>
 
           {/* Links Columns */}
@@ -35,7 +29,7 @@ const Footer: React.FC<FooterProps> = () => {
             <h3 className="text-sm font-bold text-gray-200 uppercase tracking-wider mb-4">Soluciones</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/servicios/gestion-ani" className="text-sm font-semibold text-primary dark:text-blue-400 hover:text-secondary dark:hover:text-blue-300 transition-colors text-left">
+                <Link to="/servicios" className="text-sm font-semibold text-primary dark:text-blue-400 hover:text-secondary dark:hover:text-blue-300 transition-colors text-left">
                   Licencias de Construcción
                 </Link>
               </li>
@@ -86,18 +80,8 @@ const Footer: React.FC<FooterProps> = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/nosotros" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
-                  Cultura Corporativa
-                </Link>
-              </li>
-              <li>
-                <Link to="/nosotros" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
-                  Sostenibilidad
-                </Link>
-              </li>
-              <li>
                 <Link to="/contacto" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
-                  Trabaja con nosotros
+                  Contacto
                 </Link>
               </li>
             </ul>
@@ -110,19 +94,16 @@ const Footer: React.FC<FooterProps> = () => {
                 <MapPin className="w-5 h-5 text-primary dark:text-blue-400 shrink-0" />
                 <span className="text-sm text-gray-400">Calle 14 # 16 48 Ofc 402, Duitama, Boyaca </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary dark:text-blue-400 shrink-0" />
-                <div className="flex flex-col">
-                  <a href="https://wa.me/573223879193" className="text-sm text-white font-semibold hover:text-green-400 transition-colors">+57 322 387 9193 <span className="text-xs text-green-400 font-normal">(WhatsApp Principal)</span></a>
-                  <span className="text-xs text-gray-500">+57 (320) 4468049 &ndash; Línea secundaria</span>
+              <li className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-primary dark:text-blue-400 shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href="https://wa.me/573223879193" className="text-sm text-white font-bold hover:text-green-400 transition-colors">+57 322 387 9193 <span className="text-xs text-green-400 font-normal tracking-wide">(WhatsApp Principal)</span></a>
+                  <a href="tel:+573204468049" className="text-xs text-gray-400 hover:text-white transition-colors">+57 320 446 8049 <span className="font-normal tracking-wide">(Línea alterna)</span></a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary dark:text-blue-400 shrink-0" />
-                <div className="flex flex-col">
-                  <a href="mailto:contacto@konteingenieria.com" className="text-sm text-white hover:text-blue-300 transition-colors font-semibold">contacto@konteingenieria.com</a>
-                  <a href="mailto:konte2000@gmail.com" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">konte2000@gmail.com</a>
-                </div>
+                <a href="mailto:contacto@konteingenieria.com" className="text-sm text-white hover:text-blue-300 transition-colors font-semibold">contacto@konteingenieria.com</a>
               </li>
             </ul>
 

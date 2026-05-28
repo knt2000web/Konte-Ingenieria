@@ -12,7 +12,7 @@ interface ServiceDieselProps {
 const ServiceDiesel: React.FC<ServiceDieselProps> = ({ openLightbox }) => {
   const navigate = useNavigate();
   // WhatsApp Link for Fuel-Shield
-  const waLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20solicito%20el%20Diagn%C3%B3stico%20Clear%20%26%20Bright%20para%20mi%20EDS.";
+  const waLink = "https://wa.me/573223879193?text=Hola%20KONTE%2C%20solicito%20el%20Diagn%C3%B3stico%20Clear%20%26%20Bright%20para%20mi%20EDS.";
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 bg-slate-900 dark:bg-bg-dark">

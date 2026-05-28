@@ -169,7 +169,7 @@ const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxState, nextImage, prevImage]);
 
-  const generalWaLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20consultor%20sobre%20sus%20servicios%20de%20ingenier%C3%ADa%20y%20construcci%C3%B3n.";
+  const generalWaLink = "https://wa.me/573223879193?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20consultor%20sobre%20sus%20servicios%20de%20ingenier%C3%ADa%20y%20construcci%C3%B3n.";
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${isDarkMode ? 'bg-bg-dark text-gray-100' : 'bg-bg-light text-gray-900'} relative`}>
@@ -277,28 +277,6 @@ const App: React.FC = () => {
         </span>
       </a>
 
-      {!cookiesAccepted && (
-        <div
-          className="fixed bottom-0 w-full text-white p-4 z-30 shadow-2xl border-t border-blue-700"
-          style={{ backgroundColor: '#003399' }}
-        >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs md:text-sm">
-            <p className="text-center md:text-left text-white/90 leading-relaxed">
-              Utilizamos cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra política de privacidad.{' '}
-              <a href="#" className="underline hover:text-blue-200 font-semibold transition-colors">Más información</a>
-            </p>
-            <button
-              onClick={() => {
-                setCookiesAccepted(true);
-                localStorage.setItem('konte-cookies', 'true');
-              }}
-              className="flex-shrink-0 px-6 py-2 bg-white text-blue-900 rounded font-bold hover:bg-blue-50 transition-colors shadow-sm text-sm"
-            >
-              Acepto
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

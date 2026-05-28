@@ -10,7 +10,7 @@ interface ServiceTechProps {
 
 const ServiceTech: React.FC<ServiceTechProps> = ({ openLightbox }) => {
   const navigate = useNavigate();
-  const waLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20me%20interesa%20el%20servicio%20de%20Transformaci%C3%B3n%20Digital%20y%20Desarrollo%20Web.";
+  const waLink = "https://wa.me/573223879193?text=Hola%20KONTE%2C%20me%20interesa%20el%20servicio%20de%20Transformaci%C3%B3n%20Digital%20y%20Desarrollo%20Web.";
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">

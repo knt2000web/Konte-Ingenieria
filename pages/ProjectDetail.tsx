@@ -40,7 +40,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ openLightbox }) => {
   
   // Mensaje personalizado para WhatsApp
   const waMessage = `Hola KONTE, estoy viendo el proyecto "${project.title}" en su sitio web y me gustaría cotizar un proyecto similar.`;
-  const waLink = `https://wa.me/573204468049?text=${encodeURIComponent(waMessage)}`;
+  const waLink = `https://wa.me/573223879193?text=${encodeURIComponent(waMessage)}`;
 
   // Imágenes seguras
   const projectImages = project.images && project.images.length > 0 ? project.images : [project.image];

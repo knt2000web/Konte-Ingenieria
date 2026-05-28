@@ -51,10 +51,40 @@ export const SERVICES: Service[] = [
     icon: 'layers'
   },
   {
+    id: '8',
+    category: 'SOFTWARE Y TECNOLOGÍA',
+    title: 'StructoPro y desarrollo de aplicaciones para empresas',
+    description: 'Desarrollamos soluciones digitales a la medida para empresas del sector técnico, constructor e industrial, incluyendo aplicaciones web, herramientas de cálculo, automatización de procesos, trazabilidad de proyectos y plataformas especializadas como StructoPro.',
+    image: '/images/structopro/banner_structopro_cinematico.png',
+    images: [
+      '/images/structopro/banner_structopro_cinematico.png',
+      '/images/structopro/aac42829-9bfb-4e5c-8b15-397f5c2ad8ac.jpg',
+      '/images/structopro/card_vigas_1779200176486.png',
+      '/images/structopro/card_zapatas_1779200406483.png',
+      '/images/structopro/card_columnas_completo_1779201147159.png',
+      '/images/structopro/card_presupuestos_1779200418044.png',
+      '/images/structopro/8ca341e4-7d3b-4c5c-afae-377c81a13b3a.jpg',
+      '/images/structopro/a214d25d-0266-412a-9ce0-f5b9980deec8.jpg'
+    ],
+    features: [
+      'Desarrollo de Software a Medida',
+      'Automatización de Procesos',
+      'Herramientas de Cálculo Online',
+      'StructoPro Engineering Suite'
+    ],
+    detailedFeatures: [
+      { title: "Desarrollo a Medida", desc: "Aplicaciones web y plataformas para automatizar procesos en constructoras y firmas de ingeniería." },
+      { title: "StructoPro Suite", desc: "Plataforma SaaS en la nube para el cálculo estructural sismo-resistente y exportación de memorias." },
+      { title: "Herramientas de Cálculo", desc: "Digitalización de hojas de cálculo complejas en aplicaciones interactivas y seguras." },
+      { title: "Integración de Sistemas", desc: "Conexión de sistemas empresariales, facturación y gestión técnica de proyectos." }
+    ],
+    icon: 'laptop_chromebook'
+  },
+  {
     id: '9',
     category: 'INFRAESTRUCTURA ESPECIALIZADA',
-    title: 'Estaciones de Servicio y Gestión ANI',
-    description: 'Consultoría estructural y de construcción para estaciones de servicio e infraestructura asociada, con experiencia en gestión normativa ante la ANI y otras entidades.',
+    title: 'Experiencia en gestión normativa y trámites técnicos',
+    description: 'Contamos con experiencia en acompañamiento técnico y gestión documental para proyectos que requieren interacción con ANI, INVIAS y otras entidades, incluyendo resoluciones, permisos y soporte regulatorio para infraestructura y movilidad.',
     image: 'https://i.imgur.com/pXQd2kW.jpeg',
     images: [
       'https://i.imgur.com/pXQd2kW.jpeg',
@@ -62,40 +92,52 @@ export const SERVICES: Service[] = [
       'https://i.imgur.com/pKKUadd.jpeg',
       'https://i.imgur.com/oqjq3w2.jpeg'
     ],
-    features: ['Cumplimiento Normativo (Res. 1361 MME)', 'Permisos de Ocupación de Vía (ANI / INVIAS)', 'Diseño Estructural de Canopies', 'Construcción Llave en Mano'],
+    features: [
+      'Tramitología ANI e INVIAS',
+      'Permisos de Uso de Vía',
+      'Ingeniería de Accesos',
+      'Cumplimiento de Resoluciones'
+    ],
     detailedFeatures: [
-      { title: "Cumplimiento Res. 1361 MME", desc: "Aseguramos distanciamientos de seguridad y diseño normativo de EDS." },
+      { title: "Soporte Normativo", desc: "Acompañamiento experto en trámites de infraestructura frente a entidades nacionales." },
       { title: "Permisos de Ocupación de Vía", desc: "Gestión ante ANI, INVIAS y concesionarios para accesos y carriles de aceleración." },
-      { title: "Diseño Estructural de Canopies", desc: "Estructuras metálicas de grandes luces optimizadas para vehículos pesados." },
-      { title: "Ingeniería Hidráulica", desc: "Diseño experto de redes de combustible y separadores API." }
+      { title: "Estudios Técnicos", desc: "Elaboración de expedientes técnicos exigidos por los concesionarios viales." },
+      { title: "Aplicación de Resoluciones", desc: "Cumplimiento estricto de lineamientos técnicos vigentes." }
     ],
     icon: 'local_gas_station'
   },
   {
     id: '2',
-    category: 'CONSULTORÍA TÉCNICA',
+    category: 'INSPECCIÓN Y DIAGNÓSTICO',
     title: 'Consultoría Técnica y Estudios de Campo',
-    description: 'Visitas técnicas, evaluación de patologías estructurales, estudios de suelos coordinados y soporte para procesos de legalización de obras.',
+    description: 'Servicios de inspección técnica, evaluación de patologías, levantamientos topográficos y estudios preliminares para viabilidad de proyectos.',
     image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800',
     images: [
-      'https://i.imgur.com/AoBxnOX.jpeg', 'https://i.imgur.com/Y4aW5ud.jpeg', 'https://i.imgur.com/yF6bs24.jpeg',
-      'https://i.imgur.com/taxhIth.jpeg', 'https://i.imgur.com/NwW89IY.jpeg'
+      'https://i.imgur.com/AoBxnOX.jpeg',
+      'https://i.imgur.com/Y4aW5ud.jpeg',
+      'https://i.imgur.com/yF6bs24.jpeg',
+      'https://i.imgur.com/taxhIth.jpeg',
+      'https://i.imgur.com/NwW89IY.jpeg'
     ],
-    features: ['Levantamientos Topográficos', 'Estudios de Suelos y Geotecnia', 'Peritajes y Patologías Estructurales', 'Soporte de Legalización'],
+    features: [
+      'Inspección de Obra',
+      'Evaluación de Patologías',
+      'Levantamientos',
+      'Estudios Preliminares'
+    ],
     detailedFeatures: [
-        { title: "Visitas Técnicas", desc: "Inspección detallada en sitio para evaluar condiciones estructurales." },
-        { title: "Estudios de Suelos Coordinados", desc: "Análisis de capacidad portante para cimentaciones seguras." },
-        { title: "Patologías Estructurales", desc: "Ingeniería forense para determinar causas de fallas y fisuras." },
-        { title: "Soporte de Legalización", desc: "Levantamientos y asesoría técnica para legalizar edificaciones existentes." }
+      { title: "Visitas Técnicas", desc: "Inspección detallada en sitio para evaluar condiciones estructurales." },
+      { title: "Estudios de Suelos Coordinados", desc: "Análisis de capacidad portante para cimentaciones seguras." },
+      { title: "Patologías Estructurales", desc: "Ingeniería forense para determinar causas de fallas y fisuras." },
+      { title: "Soporte de Legalización", desc: "Levantamientos y asesoría técnica para legalizar edificaciones existentes." }
     ],
     icon: 'architecture'
   },
-
   {
     id: '5',
-    category: 'PROPIEDAD HORIZONTAL',
+    category: 'MANTENIMIENTO INSTITUCIONAL',
     title: 'Mantenimiento y Gestión de Propiedad Horizontal',
-    description: 'Soluciones integrales para la valorización de copropiedades. Restauración de fachadas, impermeabilización y obras civiles.',
+    description: 'Soluciones integrales de mantenimiento preventivo y correctivo para conjuntos residenciales, edificios comerciales e institucionales.',
     image: 'https://i.imgur.com/uWQ2lnV.jpeg',
     images: [
       'https://i.imgur.com/uWQ2lnV.jpeg',
@@ -104,15 +146,16 @@ export const SERVICES: Service[] = [
       'https://i.imgur.com/VzAhdFh.jpeg'
     ],
     features: [
-      'Mantenimiento y Restauración de Fachadas',
-      'Impermeabilización Técnica de Cubiertas',
-      'Remodelación de Zonas Comunes'
+      'Mantenimiento de Fachadas',
+      'Impermeabilización',
+      'Mantenimiento Hidrosanitario',
+      'Obras Civiles Menores'
     ],
     detailedFeatures: [
-        { title: "Mantenimiento de Fachadas", desc: "Limpieza técnica, pintura y restauración de acabados." },
-        { title: "Impermeabilización de Cubiertas", desc: "Sistemas técnicos garantizados para techos y terrazas." },
-        { title: "Obras Civiles en Zonas Comunes", desc: "Reparación y modernización de áreas de alto tráfico y porterías." },
-        { title: "Paisajismo y Porterías", desc: "Diseño de jardines sostenibles y adecuación de accesos seguros." }
+      { title: "Mantenimiento de Fachadas", desc: "Limpieza técnica, pintura y restauración de acabados." },
+      { title: "Impermeabilización de Cubiertas", desc: "Sistemas técnicos garantizados para techos y terrazas." },
+      { title: "Obras Civiles en Zonas Comunes", desc: "Reparación y modernización de áreas de alto tráfico y porterías." },
+      { title: "Paisajismo y Porterías", desc: "Diseño de jardines sostenibles y adecuación de accesos seguros." }
     ],
     icon: 'apartment'
   },
@@ -120,7 +163,7 @@ export const SERVICES: Service[] = [
     id: '4',
     category: 'INFRAESTRUCTURA DE SALUD',
     title: 'Diseño y Construcción Hospitalario',
-    description: 'Expertos en infraestructura clínica. Diseñamos entornos que fusionan el cumplimiento normativo (Res. 3100) con la humanización de espacios.',
+    description: 'Especialistas en diseño y construcción de infraestructura de salud cumpliendo los estándares de habilitación (Res. 3100).',
     image: 'https://i.imgur.com/2MSg8r8.jpeg',
     images: [
       'https://i.imgur.com/ufW0oT0.jpeg',
@@ -128,78 +171,43 @@ export const SERVICES: Service[] = [
       'https://i.imgur.com/QdUq7DJ.jpeg',
       'https://i.imgur.com/NMAw6HO.jpeg'
     ],
-    features: ['Habilitación en Salud y Normativa 3100', 'Redes de Gases Medicinales', 'Arquitectura Humanizada'],
+    features: [
+      'Adecuación de Quirófanos',
+      'Redes de Gases Medicinales',
+      'Habilitación Res. 3100',
+      'Blindaje de Salas RX'
+    ],
     detailedFeatures: [
-        { title: "Normativa y Habilitación (Res. 3100)", desc: "Diseño riguroso cumpliendo estándares de habilitación en salud." },
-        { title: "Redes Especializadas", desc: "Gases medicinales, aire acondicionado hospitalario y redes de soporte." },
-        { title: "Arquitectura Humanizada", desc: "Espacios diseñados para el bienestar del paciente y eficiencia médica." }
+      { title: "Normativa y Habilitación (Res. 3100)", desc: "Diseño riguroso cumpliendo estándares de habilitación en salud." },
+      { title: "Redes Especializadas", desc: "Gases medicinales, aire acondicionado hospitalario y redes de soporte." },
+      { title: "Arquitectura Humanizada", desc: "Espacios diseñados para el bienestar del paciente y eficiencia médica." }
     ],
     icon: 'local_hospital'
   },
   {
     id: '6',
-    category: 'SOLUCIONES ESPECIALIZADAS',
+    category: 'MANTENIMIENTO INDUSTRIAL',
     title: 'KONTE Fuel-Shield',
-    description: 'Diagnóstico, limpieza y micro-filtración de tanques de diésel. Garantizamos calidad de combustible y cumplimiento ISO 4406.',
-    image: 'https://i.imgur.com/eZh9AGz.jpeg', 
+    description: 'Servicio especializado de micro-filtración de diésel y limpieza técnica de tanques de almacenamiento para garantizar la pureza del combustible.',
+    image: 'https://i.imgur.com/eZh9AGz.jpeg',
     images: [
-       'https://i.imgur.com/eZh9AGz.jpeg', 
-       'https://i.imgur.com/MYOBl48.jpeg',
-       'https://i.imgur.com/52vI0Sk.jpeg'
-    ],
-    features: ['Micro-filtración (2 micras)', 'Limpieza de Tanques', 'Certificación ISO 4406'],
-    detailedFeatures: [
-        { title: "Diagnóstico Clear & Bright", desc: "Pruebas de campo para detección visual de partículas y agua." },
-        { title: "Micro-filtración (2 Micras)", desc: "Tecnología de diálisis que elimina contaminantes microscópicos." },
-        { title: "Limpieza de Tanques", desc: "Remoción de lodos (sludge) y biopelículas del fondo del tanque." },
-        { title: "Certificación ISO 4406", desc: "Análisis de laboratorio y certificado de limpieza de fluidos." }
-    ],
-    icon: 'water_drop'
-  },
-    {
-    id: '7',
-    category: 'TECNOLOGÍA',
-    title: 'Tecnología y Transformación Digital',
-    description: 'Soluciones tecnológicas integrales para empresas: desarrollo web, automatización de procesos, integración de sistemas y transformación digital con IA.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
-    images: [
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800'
-    ],
-    features: ['Desarrollo Web y Aplicaciones', 'Automatización de Procesos', 'Inteligencia Artificial', 'Integración de Sistemas'],
-    detailedFeatures: [
-      { title: "Desarrollo Web", desc: "Portales corporativos, aplicaciones web y plataformas digitales a medida." },
-      { title: "Automatización de Procesos", desc: "Digitalización y automatización de flujos de trabajo empresariales." },
-      { title: "Inteligencia Artificial", desc: "Implementación de soluciones de IA para optimizar operaciones y toma de decisiones." },
-      { title: "Integración de Sistemas", desc: "Conexión e integración de plataformas y sistemas empresariales existentes." }
-    ],
-    icon: 'computer'
-  },
-  {
-    id: '8',
-    category: 'SOFTWARE Y HERRAMIENTAS DIGITALES',
-    title: 'StructoPro Engineering Suite',
-    description: 'Plataforma profesional en la nube para el diseño y cálculo estructural sismo-resistente, acelerando cientos de horas de ingeniería en minutos.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
-    images: [
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800'
+      'https://i.imgur.com/eZh9AGz.jpeg',
+      'https://i.imgur.com/MYOBl48.jpeg',
+      'https://i.imgur.com/52vI0Sk.jpeg'
     ],
     features: [
-      '22 Módulos de Cálculo Estructural',
-      'Generación Automática de Memorias (DOCX)',
-      'Exportación Inmediata de Planos (DXF)',
-      'Multi-Norma (NSR-10, ACI 318, NEC, E.060, etc.)'
+      'Filtración a 2 Micras',
+      'Remoción de Agua',
+      'Limpieza de Tanques',
+      'Certificación de Calidad'
     ],
     detailedFeatures: [
-      { title: "Cimentaciones y Contención", desc: "Zapatas aisladas, muros en voladizo (KonteWall) y cálculo de capacidad portante." },
-      { title: "Diseño Sísmico", desc: "Predimensionamiento, cálculo de irregularidades y espectros de diseño." },
-      { title: "Madera y Mampostería", desc: "Verificación de muros confinados y sistemas constructivos de madera (NTC)." },
-      { title: "Exportación Directa", desc: "Formatos editables listos para radicación técnica sin instalación de software." }
+      { title: "Diagnóstico Clear & Bright", desc: "Pruebas de campo para detección visual de partículas y agua." },
+      { title: "Micro-filtración (2 Micras)", desc: "Tecnología de diálisis que elimina contaminantes microscópicos." },
+      { title: "Limpieza de Tanques", desc: "Remoción de lodos (sludge) y biopelículas del fondo del tanque." },
+      { title: "Certificación ISO 4406", desc: "Análisis de laboratorio y certificado de limpieza de fluidos." }
     ],
-    icon: 'laptop_chromebook'
+    icon: 'water_drop'
   }
 ];
 

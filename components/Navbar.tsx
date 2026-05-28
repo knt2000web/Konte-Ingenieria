@@ -88,32 +88,26 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
               <button 
                 onClick={toggleDarkMode}
                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-300 transition-colors"
-                aria-label="Alternar modo oscuro"
+                title="Modo Oscuro"
               >
                 {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
-
-              <div className="flex items-center text-gray-500 dark:text-gray-400 cursor-pointer hover:text-primary dark:hover:text-blue-400 text-xs font-medium">
-                <Globe className="w-4 h-4 mr-1" />
-                <span>ES</span>
-              </div>
-              <Search className="w-5 h-5 text-gray-500 dark:text-gray-400 cursor-pointer hover:text-primary dark:hover:text-blue-400" />
               
               {isLoggedIn ? (
                  <Link 
                    to="/dashboard"
-                   className="flex items-center gap-2 bg-primary dark:bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
+                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-primary dark:text-blue-400 transition-colors"
+                   title="Mi Cuenta"
                  >
-                   <User className="w-4 h-4" />
-                   MI CUENTA
+                   <User className="w-5 h-5" />
                  </Link>
               ) : (
                 <button 
                   onClick={onLoginClick}
-                  className="flex items-center gap-2 bg-primary dark:bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-secondary dark:hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
+                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-300 transition-colors"
+                  title="Acceso Clientes"
                 >
-                  <User className="w-4 h-4" />
-                  ACCESO
+                  <User className="w-5 h-5" />
                 </button>
               )}
             </div>
@@ -186,10 +180,10 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, isDarkMode, t
                       onLoginClick();
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full bg-primary dark:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2"
+                    className="w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-4 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
                   >
                     <User className="w-4 h-4" />
-                    ACCESO CLIENTES
+                    Acceso
                   </button>
                )}
             </div>

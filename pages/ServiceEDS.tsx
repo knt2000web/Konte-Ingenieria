@@ -16,7 +16,7 @@ const ServiceEDS: React.FC<ServiceEDSProps> = ({ openLightbox }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const generalWaLink = "https://wa.me/573204468049?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20ingeniero%20sobre%20el%20dise%C3%B1o%20o%20construcci%C3%B3n%20de%20una%20Estaci%C3%B3n%20de%20Servicio.";
+  const generalWaLink = "https://wa.me/573223879193?text=Hola%20KONTE%2C%20deseo%20hablar%20con%20un%20ingeniero%20sobre%20el%20dise%C3%B1o%20o%20construcci%C3%B3n%20de%20una%20Estaci%C3%B3n%20de%20Servicio.";
 
   return (
     <div className="pt-20 pb-12 animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors">

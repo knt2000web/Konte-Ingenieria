@@ -312,8 +312,12 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
 
       {/* ── HERO ────────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-[#090b10] via-[#0b1e45] to-[#07122a] py-20 border-b border-[rgba(245,200,66,0.2)] overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='104' viewBox='0 0 60 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 104L0 87V53L30 35l30 18v34L30 104zm0-35L15 61V43L30 35l15 8v18L30 69zM15 26L0 17V0l15-9 15 9v17L15 26zm30 0L30 17V0l15-9 15 9v17L45 26zM15 78L0 69V52l15-9 15 9v17L15 78zm30 0L30 69V52l15-9 15 9v17L45 78z' fill='%23f5c842'/%3E%3C/svg%3E")` }}
+        <div className="absolute inset-0 opacity-[0.25]"
+          style={{ 
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.5' fill='%231458f5'/%3E%3C/svg%3E")`,
+            maskImage: 'radial-gradient(circle at center, black, transparent 75%)',
+            WebkitMaskImage: 'radial-gradient(circle at center, black, transparent 75%)'
+          }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-flex items-center gap-2 bg-[#f5c842]/10 border border-[#f5c842]/30 text-[#f5c842] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-8 shadow-[0_0_20px_rgba(245,200,66,0.15)]">
@@ -344,8 +348,8 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
           
           <div className="flex flex-wrap justify-center gap-3 items-center max-w-5xl mx-auto">
             {[
-              { flag: 'co', label: 'NSR-10', highlight: true },
-              { flag: 'us', label: 'ACI 318', highlight: true },
+              { flag: 'co', label: ' NSR-10 ', highlight: true },
+              { flag: 'us', label: ' ACI 318 ', highlight: true },
               { flag: 'eu', label: 'UE · Eurocódigo', highlight: false },
               { flag: 'ec', label: 'NEC', highlight: false },
               { flag: 'pe', label: 'E.060', highlight: false },
@@ -363,7 +367,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                     ? 'bg-[#f5c842]/12 border-[#f5c842]/40 text-white shadow-[0_0_12px_rgba(245,200,66,0.12)]'
                     : 'bg-[#0b1e45]/60 border-[rgba(20,88,245,0.3)] text-slate-300 hover:border-[#f5c842]/40 hover:text-white'
                 }`}>
-                <img src={n.flag === 'eu' ? 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg' : `https://flagpedia.net/data/flags/mini/${n.flag}.png`} alt={n.label}
+                <img src={n.flag === 'eu' ? 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg' : `https://flagpedia.net/data/flags/mini/${n.flag}.png`} alt=""
                   className="h-4 rounded-[2px] shadow-sm" />
                 {n.label}
               </span>
@@ -533,61 +537,118 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
 
       {/* ── PRICING ─────────────────────────────────────────────── */}
       <section className="py-24 bg-[#07122a] border-t border-[#0b1e45]" id="pricing">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-4xl font-black text-white uppercase tracking-tight mb-4">Planes de Acceso</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-base">Explora la plataforma gratis o accede a los cálculos avanzados y entregables profesionales con el plan Premium.</p>
+            <h2 className="text-4xl font-black text-white uppercase tracking-tight mb-4">Planes y opciones de pago</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-base">
+              Elige el método de pago que mejor se adapte a tu operación. StructoPro mantiene una tarifa de lanzamiento para usuarios fundadores, con diferentes medios habilitados para facilitar el acceso desde Colombia y otros contextos digitales.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Free */}
-            <div className="bg-[#090b10] rounded-2xl p-8 border border-[rgba(20,88,245,0.3)] flex flex-col">
-              <h3 className="text-xl font-bold text-white mb-1">Evaluación Gratuita</h3>
-              <p className="text-slate-400 text-sm mb-6">Prueba la plataforma sin compromiso.</p>
-              <div className="text-4xl font-black text-white mb-6">Gratis</div>
-              <ul className="space-y-3 mb-8 flex-grow">
-                <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2 className="text-emerald-500 shrink-0" size={17}/> Acceso a módulos básicos de cálculo</li>
-                <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2 className="text-emerald-500 shrink-0" size={17}/> Resultados numéricos en pantalla</li>
-                <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2 className="text-emerald-500 shrink-0" size={17}/> Catálogo completo de módulos visible</li>
-                <li className="flex items-center gap-3 text-slate-600 text-sm line-through"><X className="shrink-0" size={17}/> Descarga de Memorias DOCX</li>
-                <li className="flex items-center gap-3 text-slate-600 text-sm line-through"><X className="shrink-0" size={17}/> Exportación DXF y BIM (IFC)</li>
-                <li className="flex items-center gap-3 text-slate-600 text-sm line-through"><X className="shrink-0" size={17}/> Módulos ERP de Control de Obra</li>
-              </ul>
-              <a href="https://structopro-app.streamlit.app" target="_blank" rel="noopener noreferrer"
-                className="w-full text-center bg-[#0b1e45] hover:bg-[#1458f5] text-white font-bold py-3.5 rounded-xl transition-colors block">
-                Explorar Plataforma
-              </a>
+
+          <div className="bg-gradient-to-b from-[#0b1e45] to-[#090b10] rounded-2xl p-8 md:p-10 border border-[#f5c842] shadow-[0_0_40px_rgba(245,200,66,0.12)] relative">
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#f5c842] text-black font-black px-5 py-1.5 rounded-full text-xs uppercase tracking-widest shadow-lg">Lanzamiento</div>
+            
+            <div className="text-center mb-10 border-b border-[#1458f5]/30 pb-10">
+              <h3 className="text-2xl font-bold text-[#f5c842] mb-3">Plan Fundadores</h3>
+              <div className="text-5xl font-black text-white mb-5">$26.600 <span className="text-xl font-bold text-slate-400">COP/mes</span></div>
+              <p className="text-blue-100 text-sm max-w-lg mx-auto leading-relaxed">
+                Tarifa preferencial de lanzamiento para la etapa inicial de StructoPro. Las futuras altas podrán ingresar con una tarifa actualizada.
+              </p>
             </div>
-            {/* Premium */}
-            <div className="bg-gradient-to-b from-[#0b1e45] to-[#090b10] rounded-2xl p-8 border border-[#f5c842] shadow-[0_0_40px_rgba(245,200,66,0.12)] flex flex-col relative">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#f5c842] text-black font-black px-5 py-1 rounded-full text-xs uppercase tracking-wider shadow-lg">Recomendado</div>
-              <h3 className="text-xl font-bold text-[#f5c842] mb-1">Profesional Premium</h3>
-              <p className="text-blue-200 text-sm mb-5">Potencia total para consultoría e ingeniería estructural.</p>
-              <div className="text-4xl font-black text-white mb-1">$26.600 <span className="text-base font-bold text-slate-400">COP/mes</span></div>
-              <p className="text-xs text-blue-300 mb-6 italic">Equivale a ~$6.99 USD · Cancela cuando quieras.</p>
-              <ul className="space-y-3 mb-8 flex-grow">
-                <li className="flex items-center gap-3 text-white text-sm"><CheckCircle2 className="text-[#f5c842] shrink-0" size={17}/> Todo del plan Gratuito</li>
-                <li className="flex items-center gap-3 text-white text-sm"><CheckCircle2 className="text-[#f5c842] shrink-0" size={17}/> Acceso completo a los 33+ módulos avanzados</li>
-                <li className="flex items-center gap-3 text-white text-sm"><CheckCircle2 className="text-[#f5c842] shrink-0" size={17}/> Memorias DOCX ilimitadas listas para revisión</li>
-                <li className="flex items-center gap-3 text-white text-sm"><CheckCircle2 className="text-[#f5c842] shrink-0" size={17}/> Planos DXF con rótulo ICONTEC y modelos IFC</li>
-                <li className="flex items-center gap-3 text-white text-sm"><CheckCircle2 className="text-[#f5c842] shrink-0" size={17}/> Suite ERP completa de Control de Obra</li>
-              </ul>
-              <div className="flex flex-col gap-2.5 mt-auto">
+
+            <div className="mb-8 text-center">
+              <h4 className="text-white font-bold text-lg mb-6">Paga con el método que prefieras</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                
+                {/* Mercado Pago */}
                 <a href="https://mpago.li/1hbuwpu" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#009EE3] hover:bg-[#0085c5] text-white font-bold py-3 rounded-xl transition-colors text-sm">
-                  Suscribirse con Mercado Pago
+                  className="md:col-span-2 flex items-center gap-4 bg-[#009EE3] hover:bg-[#0085c5] text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 group">
+                  <div className="bg-white p-1.5 rounded-full shrink-0 w-9 h-9 flex items-center justify-center">
+                    <img src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.19.1/mercadopago/logo__small.png" alt="Mercado Pago" className="w-full object-contain" />
+                  </div>
+                  <div className="text-left flex-grow">
+                    <div className="text-[15px]">Pagar con Mercado Pago</div>
+                    <div className="text-xs text-blue-100 font-medium">Pago en línea inmediato</div>
+                  </div>
+                  <ArrowRight className="w-5 h-5 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0" />
                 </a>
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick-subscriptions&business=cagch2000@hotmail.com&item_name=StructoPro+Premium&a3=6.99&p3=1&t3=M&src=1&currency_code=USD"
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#003087] hover:bg-[#001c56] text-white font-bold py-3 rounded-xl transition-colors text-sm">
-                  Suscribirse con PayPal ($6.99 USD)
+
+                {/* Nequi */}
+                <a href="https://wa.me/573204468049?text=Hola%2C%20ya%20hice%20el%20pago%20por%20Nequi%20del%20Plan%20Fundadores%20de%20StructoPro." target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-4 bg-[#1A0E2A] border border-[#E90A6C]/50 hover:bg-[#25153A] hover:border-[#E90A6C] text-white font-bold py-3.5 px-6 rounded-xl transition-all group">
+                  <div className="bg-white rounded-lg px-2 py-1 shrink-0 w-14 h-9 flex items-center justify-center shadow-sm">
+                    <img src="https://cdn.worldvectorlogo.com/logos/nequi.svg" alt="Nequi" className="w-full h-full object-contain" />
+                  </div>
+                  <div className="text-left flex-grow">
+                    <div className="text-[15px]">Pagar por Nequi</div>
+                    <div className="text-xs text-[#E90A6C] font-medium tracking-wide">320 446 8049</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#E90A6C] transition-all shrink-0" />
                 </a>
-                <a href="https://wa.me/573204468049?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20el%20plan%20Premium%20de%20StructoPro."
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 border border-slate-600 hover:border-slate-400 text-white font-bold py-3 rounded-xl transition-colors text-sm">
-                  Hablar con un Asesor
+
+                {/* Daviplata */}
+                <a href="https://wa.me/573204468049?text=Hola%2C%20ya%20hice%20el%20pago%20por%20Daviplata%20del%20Plan%20Fundadores%20de%20StructoPro." target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-4 bg-[#ED1C24]/10 border border-[#ED1C24]/30 hover:bg-[#ED1C24]/20 hover:border-[#ED1C24]/60 text-white font-bold py-3.5 px-6 rounded-xl transition-all group">
+                  <div className="bg-white rounded-lg px-2 py-1 shrink-0 w-14 h-9 flex items-center justify-center shadow-sm">
+                    <img src="https://cdn.worldvectorlogo.com/logos/daviplata.svg" alt="Daviplata" className="w-full h-full object-contain" />
+                  </div>
+                  <div className="text-left flex-grow">
+                    <div className="text-[15px]">Pagar por Daviplata</div>
+                    <div className="text-xs text-red-300 font-medium tracking-wide">320 446 8049</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-red-400 transition-all shrink-0" />
                 </a>
+
+                {/* PayPal */}
+                <a href="https://paypal.me/cagch" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-4 bg-[#003087] hover:bg-[#001C53] border border-[#0079C1]/30 hover:border-[#0079C1]/80 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 group">
+                  <div className="bg-white rounded-lg px-2 py-1 shrink-0 w-14 h-9 flex items-center justify-center shadow-sm">
+                    <img src="https://cdn.worldvectorlogo.com/logos/paypal-3.svg" alt="PayPal" className="w-full h-full object-contain" />
+                  </div>
+                  <div className="text-left flex-grow">
+                    <div className="text-[15px]">Pagar por PayPal</div>
+                    <div className="text-xs text-[#00a6ff] font-medium tracking-wide">@cagch / Cesar Augusto Chaparro</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#00a6ff] transition-all shrink-0" />
+                </a>
+
+                {/* Binance */}
+                <a href="https://wa.me/573204468049?text=Hola%2C%20quiero%20hacer%20el%20pago%20del%20Plan%20Fundadores%20por%20Binance%20Pay." target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-4 bg-[#181A20] border border-[#FCD535]/30 hover:border-[#FCD535]/80 hover:bg-[#1f222a] text-white font-bold py-3.5 px-6 rounded-xl transition-all group">
+                  <div className="shrink-0 w-9 h-9 flex items-center justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Binance_Logo.svg" alt="Binance" className="w-7 object-contain" />
+                  </div>
+                  <div className="text-left flex-grow">
+                    <div className="text-[15px]">Solicitar pago por Binance</div>
+                    <div className="text-xs text-[#FCD535] font-medium">Solicitar pago digital</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#FCD535] transition-all shrink-0" />
+                </a>
+
+                {/* Telegram */}
+                <a href="https://t.me/konte2000" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-4 bg-[#24A1DE]/10 border border-[#24A1DE]/30 hover:bg-[#24A1DE]/20 hover:border-[#24A1DE]/60 text-white font-bold py-3.5 px-6 rounded-xl transition-all group mt-2">
+                  <div className="shrink-0 w-9 h-9 flex items-center justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" className="w-8 object-contain" />
+                  </div>
+                  <div className="text-left flex-grow">
+                    <div className="text-[15px]">Escribir por Telegram</div>
+                    <div className="text-xs text-[#24A1DE] font-medium">Soporte y coordinación</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#24A1DE] transition-all shrink-0" />
+                </a>
+
               </div>
             </div>
+
+            <div className="bg-[#07122a] p-6 rounded-xl border border-blue-900/40 shadow-inner">
+              <p className="text-[13px] text-slate-400 leading-relaxed text-center">
+                <span className="font-bold text-white block mb-1">Nota Importante:</span> 
+                Mercado Pago es el canal principal habilitado para pago en línea. 
+                Para pagos mediante Nequi, Daviplata o Binance, recuerda enviar tu comprobante por WhatsApp o Telegram para validar y activar tu acceso.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>

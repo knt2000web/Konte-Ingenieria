@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structo Pro — Identity Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 60px;
+    }
+
+    h1.section-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8b949e;
+      text-align: center;
+      margin-bottom: -40px;
+    }
+
+    /* ─── GRID LIKE THE REFERENCE IMAGE ─── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 220px);
+      gap: 32px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px 20px 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+    }
+
+    /* ─── ICON CONTAINER ─── */
+    .icon-wrap {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ─── SOFTWARE NAME ─── */
+    .card-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0d1117;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    /* ─── DESCRIPTION ─── */
+    .card-desc {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: #57606a;
+      line-height: 1.6;
+    }
+
+
+    /* ══════════════════════════════════════
+       STRUCTO PRO — HERO CARD (large)
+    ══════════════════════════════════════ */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 48px 52px 40px;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 340px;
+    }
+
+    .hero-icon-wrap {
+      width: 130px;
+      height: 130px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-name {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #0d1117;
+      margin-bottom: 10px;
+    }
+
+    .hero-name span {
+      color: #1458f5;
+    }
+
+    .hero-slogan {
+      font-size: 13px;
+      font-weight: 500;
+      color: #57606a;
+      line-height: 1.65;
+      max-width: 260px;
+    }
+
+    .hero-badge {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #1458f5 0%, #0e3bbf 100%);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 99px;
+    }
+
+    .divider {
+      width: 100%;
+      max-width: 700px;
+      height: 1px;
+      background: #e1e4e8;
+    }
+
+
+    /* ─────────── SVG ICONS ─────────── */
+
+    /* Icon 1: Structure + S (main logo) */
+    .icon-structo-hero svg,
+    .icon-structo svg { width: 100%; height: 100%; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HERO CARD ═══ -->
+  <div class="hero-section">
+    <p class="section-title">Identidad de Marca</p>
+    <div class="hero-card">
+      <div class="hero-icon-wrap">
+        <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background circle -->
+          <circle cx="65" cy="65" r="62" fill="url(#bg_grad)"/>
+
+          <!-- Structural grid lines (blueprint) -->
+          <line x1="25" y1="65" x2="105" y2="65" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <line x1="65" y1="25" x2="65" y2="105" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+          <!-- Main "S" formed by structural beams -->
+          <!-- Top horizontal beam -->
+          <rect x="34" y="33" width="52" height="10" rx="3" fill="white"/>
+          <!-- Middle horizontal beam -->
+          <rect x="34" y="60" width="52" height="10" rx="3" fill="white"/>
+          <!-- Bottom horizontal beam -->
+          <rect x="34" y="87" width="52" height="10" rx="3" fill="white"/>
+          <!-- Left-top vertical connector -->
+          <rect x="34" y="33" width="10" height="37" rx="3" fill="rgba(255,255,255,0.7)"/>
+          <!-- Right-bottom vertical connector -->
+          <rect x="76" y="60" width="10" height="37" rx="3" fill="rgba(255,255,255,0.7)"/>
+
+          <!-- Corner bolts / nodes -->
+          <circle cx="34" cy="33" r="4.5" fill="#f5c842"/>
+          <circle cx="86" cy="33" r="4.5" fill="#f5c842"/>
+          <circle cx="34" cy="97" r="4.5" fill="#f5c842"/>
+          <circle cx="86" cy="97" r="4.5" fill="#f5c842"/>
+          <circle cx="65" cy="65" r="5" fill="#f5c842"/>
+
+          <defs>
+            <linearGradient id="bg_grad" x1="0" y1="0" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#1458f5"/>
+              <stop offset="100%" stop-color="#0a2d99"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="hero-name">Structo<span> Pro</span></div>
+      <p class="hero-slogan">Calcula lo que otros estiman.<br>La navaja suiza de la ingeniería civil.</p>
+      <div class="hero-badge">
+        <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="white" opacity="0.3"/><circle cx="5" cy="5" r="2.5" fill="white"/></svg>
+        NSR-10 · IFC · DXF · APU · BIM
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ VARIATIONS GRID (estilo AutoCAD/SolidWorks) ═══ -->
+  <p class="section-title">Variaciones de Color</p>
+  <div class="grid">
+
+    <!-- Variante A: Azul eléctrico -->
+    <div class="card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="88" height="88" rx="18" fill="url(#blue_g)"/>
+          <rect x="22" y="22" width="36" height="7" rx="2" fill="white"/>
+          <rect x="22" y="40.5" width="36" height="7" rx="2" fill="white"/>
+          <rect x="22" y="59" width="36" height="7" rx="2" fill="white"/>
+          <rect x="22" y="22" width="7" height="25.5" rx="2" fill="rgba(255,255,255,0.7)"/>
+          <rect x="51" y="40.5" width="7" height="25.5" rx="2" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="22" cy="22" r="3.5" fill="#f5c842"/>
+          <circle cx="58" cy="22" r="3.5" fill="#f5c842"/>
+          <circle cx="22" cy="66" r="3.5" fill="#f5c842"/>
+          <circle cx="58" cy="66" r="3.5" fill="#f5c842"/>
+          <defs>
+            <linearGradient id="blue_g" x1="0" y1="0" x2="88" y2="88" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1458f5"/>
+              <stop offset="1" stop-color="#0a2d99"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="card-name">Structo Pro</div>
+      <p class="card-desc">Análisis estructural, presupuestos y modelos BIM en una sola plataforma.</p>
+    </div>
+
+    <!-- Variante B: Navy + Gold -->
+    <div class="card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="88" height="88" rx="18" fill="url(#navy_g)"/>
+          <rect x="22" y="22" width="36" height="7" rx="2" fill="url(#gold_g)"/>
+          <rect x="22" y="40.5" width="36" height="7" rx="2" fill="url(#gold_g)"/>
+          <rect x="22" y="59" width="36" height="7" rx="2" fill="url(#gold_g)"/>
+          <rect x="22" y="22" width="7" height="25.5" rx="2" fill="rgba(245,200,66,0.6)"/>
+          <rect x="51" y="40.5" width="7" height="25.5" rx="2" fill="rgba(245,200,66,0.6)"/>
+          <circle cx="22" cy="22" r="3.5" fill="white"/>
+          <circle cx="58" cy="22" r="3.5" fill="white"/>
+          <circle cx="22" cy="66" r="3.5" fill="white"/>
+          <circle cx="58" cy="66" r="3.5" fill="white"/>
+          <defs>
+            <linearGradient id="navy_g" x1="0" y1="0" x2="88" y2="88" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#0b1e45"/>
+              <stop offset="1" stop-color="#0d1b38"/>
+            </linearGradient>
+            <linearGradient id="gold_g" x1="0" y1="0" x2="88" y2="0" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f5c842"/>
+              <stop offset="1" stop-color="#e0a800"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="card-name">Structo Pro</div>
+      <p class="card-desc">Precisión milimétrica y rigor normativo. La herramienta que certifica con confianza.</p>
+    </div>
+
+    <!-- Variante C: Grafito oscuro -->
+    <div class="card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="88" height="88" rx="18" fill="url(#dark_g)"/>
+          <rect x="22" y="22" width="36" height="7" rx="2" fill="white"/>
+          <rect x="22" y="40.5" width="36" height="7" rx="2" fill="white"/>
+          <rect x="22" y="59" width="36" height="7" rx="2" fill="white"/>
+          <rect x="22" y="22" width="7" height="25.5" rx="2" fill="rgba(255,255,255,0.5)"/>
+          <rect x="51" y="40.5" width="7" height="25.5" rx="2" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="22" cy="22" r="3.5" fill="#1458f5"/>
+          <circle cx="58" cy="22" r="3.5" fill="#1458f5"/>
+          <circle cx="22" cy="66" r="3.5" fill="#1458f5"/>
+          <circle cx="58" cy="66" r="3.5" fill="#1458f5"/>
+          <defs>
+            <linearGradient id="dark_g" x1="0" y1="0" x2="88" y2="88" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1c2128"/>
+              <stop offset="1" stop-color="#0d1117"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="card-name">Structo Pro</div>
+      <p class="card-desc">Del cálculo a la obra. Sin salir del programa.</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SLOGAN VARIANTS ═══ -->
+  <p class="section-title">Slogans Candidatos</p>
+  <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; max-width:720px;">
+    <div style="background:white;border-radius:12px;padding:14px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.07);font-size:14px;font-weight:600;color:#0d1117;border-left:4px solid #1458f5">"Calcula lo que otros estiman."</div>
+    <div style="background:white;border-radius:12px;padding:14px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.07);font-size:14px;font-weight:600;color:#0d1117;border-left:4px solid #e0a800">"Construye con inteligencia. Certifica con confianza."</div>
+    <div style="background:white;border-radius:12px;padding:14px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.07);font-size:14px;font-weight:600;color:#0d1117;border-left:4px solid #1c2128">"Del cálculo a la obra. Sin salir del programa."</div>
+    <div style="background:white;border-radius:12px;padding:14px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.07);font-size:14px;font-weight:600;color:#0d1117;border-left:4px solid #1458f5">"La norma es el límite. Structo Pro es la herramienta."</div>
+    <div style="background:white;border-radius:12px;padding:14px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.07);font-size:14px;font-weight:600;color:#0d1117;border-left:4px solid #e0a800">"Un solo software. Todo lo que necesita la obra."</div>
+  </div>
+
+</body>
+</html>

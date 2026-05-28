@@ -44,9 +44,14 @@ const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
             </div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-2">Llámenos Ahora</h3>
             <p className="text-gray-600 dark:text-gray-400 text-center mb-1 text-sm">Atención inmediata</p>
-            <p className="text-xl font-bold text-primary dark:text-blue-400 text-center">
-              <a href="tel:+573204468049" title="Llamar a KONTE Ingeniería" className="hover:underline">+57 320 446 8049</a>
-            </p>
+            <div className="flex flex-col items-center gap-1 mt-2">
+              <a href="tel:+573223879193" title="Llamar a KONTE Ingeniería" className="text-xl font-bold text-primary dark:text-blue-400 hover:underline">+57 322 387 9193</a>
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide">WhatsApp Principal</span>
+            </div>
+            <div className="flex flex-col items-center mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+              <a href="tel:+573204468049" title="Línea Alterna KONTE" className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors">+57 320 446 8049</a>
+              <span className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">Línea alterna</span>
+            </div>
           </div>
 
           {/* Email Card */}
