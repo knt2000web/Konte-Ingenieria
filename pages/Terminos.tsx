@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FileText, Shield, CheckCircle } from 'lucide-react';
+import { FileText, Shield } from 'lucide-react';
 
 const Terminos: React.FC = () => {
   useEffect(() => {
