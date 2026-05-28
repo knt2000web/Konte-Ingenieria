@@ -543,7 +543,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
           <div className="text-center mb-14">
             <h2 className="text-4xl font-black text-white uppercase tracking-tight mb-4">Planes y opciones de pago</h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-base">
-              Elige el método de pago que mejor se adapte a tu operación. StructoPro mantiene una tarifa de lanzamiento para tarifa preferencial de lanzamiento, con diferentes medios habilitados para facilitar el acceso desde Colombia y otros contextos digitales.
+              Elige el método de pago que mejor se adapte a tu operación. StructoPro mantiene una tarifa preferencial de lanzamiento, con diferentes medios habilitados para facilitar el acceso desde Colombia y otros contextos digitales.
             </p>
           </div>
 
