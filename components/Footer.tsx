@@ -128,12 +128,12 @@ const Footer: React.FC<FooterProps> = () => {
             © KONTE, Todos los Derechos Reservados. Designed By Cesar Giraldo
           </p>
           <div className="flex flex-wrap justify-end gap-x-6 gap-y-2">
-            <a href="#" onClick={(e) => { e.preventDefault(); window.alert('Términos de uso: El acceso y uso de StructoPro implica la aceptación de sus condiciones de uso, alcance funcional y limitaciones técnicas. La plataforma se ofrece como herramienta de apoyo profesional y no como sustituto de la revisión experta, la validación normativa ni la responsabilidad técnica del usuario.'); }} className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors">
-              Términos de Uso
-            </a>
-            <a href="#" onClick={(e) => { e.preventDefault(); window.alert('Política de privacidad: StructoPro y KONTE Ingeniería podrán utilizar la información suministrada por el usuario para fines de contacto, soporte, mejora del servicio, seguimiento comercial y gestión operativa de la plataforma. La información no será utilizada para fines ajenos a la prestación del servicio sin causa justificada o autorización aplicable.'); }} className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors">
-              Política de Privacidad
-            </a>
+            <Link to="/terminos" className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors">
+                Términos de Uso
+              </Link>
+            <Link to="/privacidad" className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors">
+                Política de Privacidad
+              </Link>
             <Link to="/servicios/structopro#aviso-legal-structopro" className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors">
               Aviso Legal
             </Link>

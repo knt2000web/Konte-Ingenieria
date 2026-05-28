@@ -15,6 +15,8 @@ import ServiceEDS from './pages/ServiceEDS';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
+import Terminos from './pages/Terminos';
+import Privacidad from './pages/Privacidad';
 import ClientDashboard from './pages/ClientDashboard';
 import LoginModal from './components/LoginModal';
 import { X, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
@@ -202,6 +204,8 @@ const App: React.FC = () => {
           <Route path="/proyectos" element={<Projects openLightbox={openLightbox} />} />
           <Route path="/proyectos/:slug" element={<ProjectDetail openLightbox={openLightbox} />} />
           <Route path="/contacto" element={<Contact openLightbox={openLightbox} />} />
+          <Route path="/terminos" element={<Terminos />} />
+          <Route path="/privacidad" element={<Privacidad />} />
           <Route 
              path="/dashboard" 
              element={isLoggedIn ? <ClientDashboard onLogout={handleLogout} /> : <Home openLightbox={openLightbox} />} 
