@@ -63,6 +63,9 @@ const SEOHandler = () => {
   } else if (path === '/dashboard') {
     title = "Panel de Cliente";
     description = "Área privada para clientes KONTE. Gestión de proyectos y documentos.";
+  } else if (path === '/spae') {
+    title = "Portal de Seguimiento SPAE | KONTE";
+    description = "Plataforma de seguimiento y control de proyectos SPAE.";
   }
   } else if (path === '/spae') {
       title = "Portal SPAE - Seguimiento de Proyectos";
@@ -211,6 +214,7 @@ const App: React.FC = () => {
           <Route path="/contacto" element={<Contact openLightbox={openLightbox} />} />
           <Route path="/terminos" element={<Terminos />} />
           <Route path="/privacidad" element={<Privacidad />} />
+          <Route path="/spae" element={<PortalSPAE />} />
           <Route 
              path="/dashboard" 
              element={isLoggedIn ? <ClientDashboard onLogout={handleLogout} /> : <Home openLightbox={openLightbox} />} 
