@@ -67,10 +67,6 @@ const SEOHandler = () => {
     title = "Portal de Seguimiento SPAE | KONTE";
     description = "Plataforma de seguimiento y control de proyectos SPAE.";
   }
-  } else if (path === '/spae') {
-      title = "Portal SPAE - Seguimiento de Proyectos";
-      description = "Sistema de seguimiento y apoyo a la ejecución de proyectos KONTE.";
-    }
   // Note: Individual Project SEO is handled inside ProjectDetail component
 
   // Don't render SEO here if it's a project detail page to avoid overwriting
