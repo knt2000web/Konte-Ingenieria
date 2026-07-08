@@ -18,6 +18,7 @@ import Contact from './pages/Contact';
 import Terminos from './pages/Terminos';
 import Privacidad from './pages/Privacidad';
 import ClientDashboard from './pages/ClientDashboard';
+import PortalSPAE from './pages/PortalSPAE';
 import LoginModal from './components/LoginModal';
 import { X, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
 
@@ -63,6 +64,10 @@ const SEOHandler = () => {
     title = "Panel de Cliente";
     description = "Área privada para clientes KONTE. Gestión de proyectos y documentos.";
   }
+  } else if (path === '/spae') {
+      title = "Portal SPAE - Seguimiento de Proyectos";
+      description = "Sistema de seguimiento y apoyo a la ejecución de proyectos KONTE.";
+    }
   // Note: Individual Project SEO is handled inside ProjectDetail component
 
   // Don't render SEO here if it's a project detail page to avoid overwriting
@@ -210,7 +215,9 @@ const App: React.FC = () => {
              path="/dashboard" 
              element={isLoggedIn ? <ClientDashboard onLogout={handleLogout} /> : <Home openLightbox={openLightbox} />} 
           />
+                        <Route path="/spae" element={<PortalSPAE />} />
         </Routes>
+                    
       </main>
 
       <Footer />
