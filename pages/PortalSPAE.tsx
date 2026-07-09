@@ -16,7 +16,7 @@ const PortalSPAE: React.FC = () => {
         </div>
 
         <a 
-          href="https://structopro-app.streamlit.app"
+          href="https://structopro-app.streamlit.app/Registro_y_Seguimiento_ISC_SPAE"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-all hover:scale-105 shadow-lg shadow-blue-500/30"
