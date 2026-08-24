@@ -215,7 +215,6 @@ const App: React.FC = () => {
              path="/dashboard" 
              element={isLoggedIn ? <ClientDashboard onLogout={handleLogout} /> : <Home openLightbox={openLightbox} />} 
           />
-                        <Route path="/spae" element={<PortalSPAE />} />
         </Routes>
                     
       </main>
