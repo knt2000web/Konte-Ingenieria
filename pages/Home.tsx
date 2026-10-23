@@ -418,7 +418,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8 md:mt-10 mb-8 md:mb-12" onClick={(e) => e.stopPropagation()}>
                 <a
-                  href="https://wa.me/573223879193"
+                  href="https://wa.me/573227696769"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-xl hover:shadow-primary/50 flex items-center justify-center gap-2"
@@ -504,7 +504,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
             </div>
             <div className="mt-10">
               <a
-                href="https://wa.me/573223879193"
+                href="https://wa.me/573227696769"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-lg hover:shadow-primary/50"

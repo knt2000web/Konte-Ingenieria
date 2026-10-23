@@ -34,7 +34,7 @@ const ServiceAni: React.FC<ServiceAniProps> = ({ openLightbox }) => {
           </p>
 
           <a
-            href="https://wa.me/573223879193"
+            href="https://wa.me/573227696769"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-xl hover:shadow-primary/50 text-lg"
@@ -120,7 +120,7 @@ const ServiceAni: React.FC<ServiceAniProps> = ({ openLightbox }) => {
       <section className="py-20 text-center px-4">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">¿Listo para destrabar su proyecto?</h2>
         <a
-          href="https://wa.me/573223879193"
+          href="https://wa.me/573227696769"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-10 py-5 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold transition-all shadow-xl hover:shadow-green-500/30 text-lg"

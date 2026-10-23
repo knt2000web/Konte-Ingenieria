@@ -7,7 +7,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = () => {
-  const generalWaLink = "https://wa.me/573223879193?text=Hola%20KONTE%2C%20deseo%20cotizar%20un%20tr%C3%A1mite%20de%20licencia%20de%20construcci%C3%B3n.";
+  const generalWaLink = "https://wa.me/573227696769?text=Hola%20KONTE%2C%20deseo%20cotizar%20un%20tr%C3%A1mite%20de%20licencia%20de%20construcci%C3%B3n.";
 
   return (
     <footer className="bg-gray-900 border-t border-gray-700 pt-16 pb-8 transition-colors duration-300">
@@ -97,7 +97,7 @@ const Footer: React.FC<FooterProps> = () => {
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-primary dark:text-blue-400 shrink-0 mt-0.5" />
                 <div className="flex flex-col gap-1">
-                  <a href="https://wa.me/573223879193" className="text-sm text-white font-bold hover:text-green-400 transition-colors">+57 322 387 9193 <span className="text-xs text-green-400 font-normal tracking-wide">(WhatsApp Principal)</span></a>
+                  <a href="https://wa.me/573227696769" className="text-sm text-white font-bold hover:text-green-400 transition-colors">+57 322 769 6769 <span className="text-xs text-green-400 font-normal tracking-wide">(WhatsApp Principal)</span></a>
                   <a href="tel:+573204468049" className="text-xs text-gray-400 hover:text-white transition-colors">+57 320 446 8049 <span className="font-normal tracking-wide">(Línea alterna)</span></a>
                 </div>
               </li>
