@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ZoomIn } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ZoomIn, QrCode } from 'lucide-react';
 
 interface ContactProps {
   openLightbox?: (index: number, images: string[]) => void;
@@ -36,7 +36,7 @@ const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
         {/* Quick Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {/* Phone Card */}
           <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl border-b-4 border-orange-500 hover:-translate-y-1 transition-transform">
             <div className="bg-orange-100 dark:bg-orange-900/30 w-14 h-14 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 mx-auto">
@@ -81,6 +81,35 @@ const Contact: React.FC<ContactProps> = ({ openLightbox }) => {
               Calle 14 # 16 48 Ofc 402 <br />
               Duitama, Boyacá, Colombia
             </p>
+          </div>
+
+          {/* QR Contact Card (Oficial con Casco) */}
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl border-b-4 border-[#f5c842] hover:-translate-y-1 transition-transform flex flex-col items-center justify-between text-center">
+            <div>
+              <div className="bg-amber-100 dark:bg-amber-900/30 w-14 h-14 rounded-full flex items-center justify-center text-[#c99f24] dark:text-[#f5c842] mb-3 mx-auto">
+                <QrCode className="w-7 h-7" aria-hidden="true" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">Escanear QR</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-xs mb-3">Llévanos en tu celular</p>
+            </div>
+            
+            <div className="bg-white p-2 rounded-xl shadow border border-gray-200 dark:border-gray-700 my-1">
+              <img 
+                src="/images/QR_Konte_Oficial_Casco.png" 
+                alt="QR KONTE Ingeniería Oficial con Casco" 
+                className="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div className="mt-3">
+              <a 
+                href="/images/QR_Konte_Oficial_Casco.png" 
+                download="QR_Konte_Oficial_Casco.png"
+                className="text-xs font-bold text-primary dark:text-blue-400 hover:underline"
+              >
+                Descargar QR (300 DPI) &darr;
+              </a>
+            </div>
           </div>
         </div>
 

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StructoPro - Kit WhatsApp & Redes Sociales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Montserrat:wght@800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #030712;
+      color: #f8fafc;
+      font-family: 'Inter', sans-serif;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .header-info {
+      text-align: center;
+      max-width: 700px;
+    }
+    .header-info h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .header-info h1 span { color: #f5c842; }
+    .header-info p {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .section-title {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #64748b;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .asset-card {
+      background: #090e1a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* 1. PERFIL WHATSAPP (1:1 CON MÁSCARA CIRCULAR) */
+    .wa-profile-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #0b1e45 0%, #07122a 65%, #030712 100%);
+      border: 4px solid #1e3a8a;
+      box-shadow: 0 0 30px rgba(20, 88, 245, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .wa-profile-container svg {
+      width: 72%;
+      height: 72%;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+    }
+
+    /* 2. BANNER WHATSAPP BUSINESS / LINKEDIN (16:9 / HORIZONTAL) */
+    .wa-banner-container {
+      width: 680px;
+      max-width: 95vw;
+      height: 220px;
+      background: radial-gradient(circle at 30% 50%, #0b1e45 0%, #07122a 50%, #02050d 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      padding: 0 45px;
+      gap: 36px;
+      border-left: 6px solid #f5c842;
+      position: relative;
+      overflow: hidden;
+    }
+    .wa-banner-container::after {
+      content: '';
+      position: absolute;
+      right: -50px;
+      top: -50px;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(20,88,245,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wa-banner-icon {
+      width: 130px;
+      height: 130px;
+      flex-shrink: 0;
+    }
+    .wa-banner-icon svg { width: 100%; height: 100%; }
+    .wa-banner-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .wa-banner-text h2 span { color: #f5c842; }
+    .wa-banner-text p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: #94a3b8;
+      text-transform: uppercase;
+    }
+    .wa-banner-text .sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 6px;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    /* 3. POST CUADRADO PARA CATÁLOGO WHATSAPP (1:1) */
+    .catalog-card {
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle at 50% 40%, #0b1e45 0%, #07122a 60%, #02050d 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      border-bottom: 4px solid #f5c842;
+    }
+    .catalog-card .cat-icon {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 16px;
+    }
+    .catalog-card .cat-icon svg { width:100%; height:100%; }
+    .catalog-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .catalog-card h3 span { color: #f5c842; }
+    .catalog-card p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .badge-tag {
+      background: rgba(20, 88, 245, 0.15);
+      border: 1px solid rgba(20, 88, 245, 0.3);
+      color: #60a5fa;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .instructions-box {
+      max-width: 680px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px 30px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+    .instructions-box h4 {
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .instructions-box ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .instructions-box li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-info">
+    <h1>Kit Oficial Structo<span>Pro</span></h1>
+    <p>Diseño Hexagonal Enterprise (S Dorada Continua) optimizado con márgenes seguros para WhatsApp Business, Web y Redes Sociales.</p>
+  </div>
+
+  <!-- 1. FOTO DE PERFIL WHATSAPP -->
+  <div class="asset-card">
+    <div class="section-title">1. Foto de Perfil WhatsApp (Ajuste Circular 1:1)</div>
+    <div class="wa-profile-container">
+      <svg viewBox="0 0 140 140">
+        <defs>
+          <linearGradient id='bg_d' x1='0' y1='0' x2='140' y2='140' gradientUnits='userSpaceOnUse'>
+            <stop offset='0%' stop-color='#0b1e45'/>
+            <stop offset='100%' stop-color='#07122a'/>
+          </linearGradient>
+          <linearGradient id='gold' x1='0' y1='0' x2='140' y2='140' gradientUnits='userSpaceOnUse'>
+            <stop offset='0%' stop-color='#f5c842'/>
+            <stop offset='100%' stop-color='#c99f24'/>
+          </linearGradient>
+        </defs>
+        <polygon points="70,4 127,37 127,103 70,136 13,103 13,37" fill="url(#bg_d)" stroke="#1e3a8a" stroke-width="1.5"/>
+        <line x1="70" y1="4" x2="70" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <line x1="127" y1="103" x2="70" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <line x1="13" y1="103" x2="70" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <path d='M 94,36 L 56,36 C 41,36 38,48 38,58 C 38,68 49,70 60,70 L 80,70 C 91,70 102,72 102,82 C 102,92 99,104 84,104 L 46,104' fill='none' stroke='url(#gold)' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/>
+        <polygon points="94,26 104,36 94,46 84,36" fill="white"/>
+        <polygon points="38,48 48,58 38,68 28,58" fill="white"/>
+        <polygon points="70,60 80,70 70,80 60,70" fill="white"/>
+        <polygon points="102,72 112,82 102,92 92,82" fill="white"/>
+        <polygon points="46,94 56,104 46,114 36,104" fill="white"/>
+      </svg>
+    </div>
+    <span class="badge-tag">Márgenes exactos para que el círculo de WhatsApp no corte los vértices</span>
+  </div>
+
+  <!-- 2. BANNER DE PORTADA -->
+  <div class="asset-card">
+    <div class="section-title">2. Portada para WhatsApp Business / Banner LinkedIn</div>
+    <div class="wa-banner-container">
+      <div class="wa-banner-icon">
+        <svg viewBox="0 0 140 140">
+          <defs>
+            <linearGradient id='bg_b' x1='0' y1='0' x2='140' y2='140' gradientUnits='userSpaceOnUse'>
+              <stop offset='0%' stop-color='#0b1e45'/>
+              <stop offset='100%' stop-color='#07122a'/>
+            </linearGradient>
+            <linearGradient id='gold_b' x1='0' y1='0' x2='140' y2='140' gradientUnits='userSpaceOnUse'>
+              <stop offset='0%' stop-color='#f5c842'/>
+              <stop offset='100%' stop-color='#c99f24'/>
+            </linearGradient>
+          </defs>
+          <polygon points="70,4 127,37 127,103 70,136 13,103 13,37" fill="url(#bg_b)"/>
+          <line x1="70" y1="4" x2="70" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <line x1="127" y1="103" x2="70" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <line x1="13" y1="103" x2="70" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <path d='M 94,36 L 56,36 C 41,36 38,48 38,58 C 38,68 49,70 60,70 L 80,70 C 91,70 102,72 102,82 C 102,92 99,104 84,104 L 46,104' fill='none' stroke='url(#gold_b)' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/>
+          <polygon points="94,26 104,36 94,46 84,36" fill="white"/>
+          <polygon points="38,48 48,58 38,68 28,58" fill="white"/>
+          <polygon points="70,60 80,70 70,80 60,70" fill="white"/>
+          <polygon points="102,72 112,82 102,92 92,82" fill="white"/>
+          <polygon points="46,94 56,104 46,114 36,104" fill="white"/>
+        </svg>
+      </div>
+      <div class="wa-banner-text">
+        <h2>STRUCTO<span>PRO</span></h2>
+        <p>LA NORMA ES EL LÍMITE</p>
+        <div class="sub">Software de Ingeniería Estructural & Geotécnica · NSR-10 / ACI-318</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. TARJETA DE CATÁLOGO / POST -->
+  <div class="asset-card">
+    <div class="section-title">3. Imagen para Catálogo de Productos en WhatsApp Business</div>
+    <div class="catalog-card">
+      <div class="cat-icon">
+        <svg viewBox="0 0 140 140">
+          <use href="#bg_d"/>
+          <polygon points="70,4 127,37 127,103 70,136 13,103 13,37" fill="url(#bg_d)" stroke="#1e3a8a" stroke-width="1.5"/>
+          <path d='M 94,36 L 56,36 C 41,36 38,48 38,58 C 38,68 49,70 60,70 L 80,70 C 91,70 102,72 102,82 C 102,92 99,104 84,104 L 46,104' fill='none' stroke='url(#gold)' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/>
+          <polygon points="94,26 104,36 94,46 84,36" fill="white"/>
+          <polygon points="38,48 48,58 38,68 28,58" fill="white"/>
+          <polygon points="70,60 80,70 70,80 60,70" fill="white"/>
+          <polygon points="102,72 112,82 102,92 92,82" fill="white"/>
+          <polygon points="46,94 56,104 46,114 36,104" fill="white"/>
+        </svg>
+      </div>
+      <h3>STRUCTO<span>PRO</span></h3>
+      <p>MEMORIAS DOCX · DESPIECES DXF · BIM 3D</p>
+    </div>
+  </div>
+
+  <!-- GUÍA PRÁCTICA -->
+  <div class="instructions-box">
+    <h4>Cómo colocarlos en WhatsApp:</h4>
+    <ol>
+      <li><strong>Foto de Perfil</strong>: Abra WhatsApp Business en su teléfono &rarr; Ajustes &rarr; Perfil de empresa &rarr; Editar foto de perfil &rarr; Seleccione la imagen circular (Elemento 1). Quedará exactamente centrada sin cortarse.</li>
+      <li><strong>Foto de Portada</strong>: En el mismo perfil de empresa de WhatsApp Business, toque el icono de la cámara en la parte superior del banner y cargue el Banner horizontal (Elemento 2).</li>
+      <li><strong>Catálogo</strong>: En Herramientas de empresa &rarr; Catálogo &rarr; Añadir artículo ("Licencia StructoPro") &rarr; Agregue la tarjeta cuadrada (Elemento 3).</li>
+      <li><strong>Estados de WhatsApp (Historias)</strong>: La animación vertical 9:16 se publica en los estados como video para dar a conocer la marca.</li>
+    </ol>
+  </div>
+
+</body>
+</html>

@@ -120,6 +120,28 @@ const Footer: React.FC<FooterProps> = () => {
                 <span className="text-sm whitespace-nowrap">Contactar por WhatsApp</span>
               </div>
             </a>
+
+            {/* Acceso Rápido QR KONTE Oficial con Casco */}
+            <div className="mt-5 p-3.5 bg-gray-950/80 border border-gray-800 rounded-xl flex items-center gap-3.5 hover:border-gray-700 transition-colors">
+              <div className="bg-white p-1 rounded-lg shrink-0 border border-[#f5c842]/40 shadow-sm">
+                <img 
+                  src="/images/QR_Konte_Oficial_Casco.png" 
+                  alt="QR Oficial KONTE Ingeniería con Casco" 
+                  className="w-14 h-14 object-contain"
+                />
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-bold text-white">
+                  KONTE en tu Móvil
+                </div>
+                <div className="text-[11px] text-[#f5c842] font-semibold mt-0.5">
+                  Escanea para contacto directo
+                </div>
+                <div className="text-[10px] text-gray-400 mt-0.5 leading-tight">
+                  Acceso a web oficial y soporte
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

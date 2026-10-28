@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Código QR Oficial - KONTE Ingeniería</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #030712;
+      color: #f8fafc;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+
+    .qr-card {
+      background: radial-gradient(circle at 50% 30%, #0b1e45 0%, #07122a 50%, #030712 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 40px 36px;
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .brand-header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .brand-header h1 span { color: #f5c842; }
+
+    .brand-header p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .qr-frame {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      border: 3px solid #f5c842;
+      display: inline-block;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .qr-image {
+      width: 280px;
+      height: 280px;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .scan-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(20, 88, 245, 0.15);
+      border: 1px solid rgba(20, 88, 245, 0.3);
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .url-badge {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #f5c842;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s;
+    }
+    .url-badge:hover { color: #ffffff; }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .btn {
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #c99f24 0%, #f5c842 100%);
+      color: #030712;
+      box-shadow: 0 8px 20px rgba(245, 200, 66, 0.3);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(245, 200, 66, 0.45);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .specs {
+      margin-top: 24px;
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="qr-card">
+    <div class="brand-header">
+      <h1>KONTE <span>INGENIERÍA</span></h1>
+      <p>Construcción · Consultoría · Tecnología</p>
+    </div>
+
+    <!-- CÓDIGO QR EN ALTA DEFINICIÓN -->
+    <div class="qr-frame">
+      <img src="QR_Konte_Oficial_Casco.png" alt="Código QR KONTE Ingeniería con Casco" class="qr-image" id="qr-img">
+    </div>
+
+    <div class="scan-hint">
+      Escanee con la cámara de su celular
+    </div>
+
+    <a href="https://www.konteingenieria.com/" target="_blank" class="url-badge">
+      www.konteingenieria.com &rarr;
+    </a>
+
+    <div class="actions">
+      <a href="QR_Konte_Oficial_Casco.png" download="QR_Konte_Oficial_Casco.png" class="btn btn-gold">
+        Descargar Imagen PNG (2048 x 2048 px · 300 DPI)
+      </a>
+      <a href="https://www.konteingenieria.com/" target="_blank" class="btn btn-outline">
+        Abrir Sitio Web Oficial
+      </a>
+    </div>
+
+    <div class="specs">
+      Corrección de error: Nivel H (30%) · Formato: PNG Ultra HD<br>
+      Apto para: Planos estructurales, hojas membretadas, tarjetas y WhatsApp.
+    </div>
+  </div>
+
+</body>
+</html>

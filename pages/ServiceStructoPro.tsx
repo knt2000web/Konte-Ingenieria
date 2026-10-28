@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import StructoProAnimatedLogo from '../components/StructoProAnimatedLogo';
 import {
   MessageCircle, ShieldAlert, Calculator, FileText, Box, Ruler, BarChart3,
   Layers, Zap, ArrowRight, CheckCircle2, ShieldCheck,
@@ -319,7 +320,10 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             WebkitMaskImage: 'radial-gradient(circle at center, black, transparent 75%)'
           }}
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <div className="mb-6 flex justify-center">
+            <StructoProAnimatedLogo size={145} />
+          </div>
           <span className="inline-flex items-center gap-2 bg-[#f5c842]/10 border border-[#f5c842]/30 text-[#f5c842] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-8 shadow-[0_0_20px_rgba(245,200,66,0.15)]">
             <Zap size={14} /> LA NORMA ES EL LÍMITE
           </span>
@@ -337,6 +341,28 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             ACCEDER A STRUCTOPRO <ArrowRight size={22} />
           </a>
           <p className="text-slate-500 text-xs mt-4">Acceso en línea · Sin instalación · Workspace profesional</p>
+          {/* Tarjeta de Acceso QR StructoPro */}
+          <div className="mt-10 inline-flex flex-col sm:flex-row items-center gap-6 bg-[#07122a]/95 backdrop-blur-md border border-[rgba(245,200,66,0.3)] rounded-2xl p-5 shadow-2xl hover:border-[#f5c842]/60 transition-all max-w-lg mx-auto text-left">
+            <div className="bg-white p-2.5 rounded-xl shadow-lg border border-[#f5c842]/40 shrink-0">
+              <img 
+                src="/images/QR_StructoPro_Oficial.png" 
+                alt="Código QR StructoPro Oficial" 
+                className="w-24 h-24 object-contain rounded-lg"
+              />
+            </div>
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest text-[#f5c842] mb-1 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#f5c842] animate-pulse"></span>
+                Acceso Móvil en Obra
+              </div>
+              <div className="text-sm font-bold text-white mb-1">
+                Lleva StructoPro a tus inspecciones de campo
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Escanea este código con tu celular o tablet para abrir la suite directamente en obra sin necesidad de instalar software.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
