@@ -46,7 +46,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ openLightbox }) => {
   const projectImages = project.images && project.images.length > 0 ? project.images : [project.image];
 
   return (
-    <div className="animate-in fade-in duration-500">
+    <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300">
       {/* Meta Tags Dinámicas para Google */}
       <SEO 
         title={`${project.title} | Proyectos KONTE`}
