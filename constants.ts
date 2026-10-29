@@ -186,32 +186,92 @@ export const SERVICES: Service[] = [
   },
   {
     id: '6',
-    category: 'MANTENIMIENTO INDUSTRIAL',
-    title: 'KONTE Fuel-Shield',
-    description: 'Servicio especializado de micro-filtración de diésel y limpieza técnica de tanques de almacenamiento para garantizar la pureza del combustible.',
-    image: 'https://i.imgur.com/eZh9AGz.jpeg',
+    category: 'INGENIERIA INDUSTRIAL Y FLUIDOS',
+    title: 'Diseño y Suministro de Tanques de Almacenamiento Industrial',
+    description: 'Ingeniería estructural de cimentaciones, cálculo sismorresistente bajo NSR-10 y suministro integral de tanques modulares pernados en acero galvanizado con liner y tanques vitrificados de gran capacidad (hasta 4.000 m³). Cumplimiento de normas AWWA D103, NFPA 22 y RAS 2000.',
+    image: '/images/projects/tanque_industrial_master.jpg',
     images: [
-      'https://i.imgur.com/eZh9AGz.jpeg',
-      'https://i.imgur.com/MYOBl48.jpeg',
-      'https://i.imgur.com/52vI0Sk.jpeg'
+      '/images/projects/tanque_industrial_master.jpg',
+      '/images/projects/tanque_industrial_vitrificado.jpg',
+      '/images/projects/tanque_industrial_montaje.jpg'
     ],
     features: [
-      'Filtración a 2 Micras',
-      'Remoción de Agua',
-      'Limpieza de Tanques',
-      'Certificación de Calidad'
+      'Tanques Pernados y Vitrificados',
+      'Normativa AWWA D103 y NFPA 22',
+      'Capacidades de 4 a 4.000 m³',
+      'Calculo Estructural de Cimentacion'
     ],
     detailedFeatures: [
-      { title: "Diagnóstico Clear & Bright", desc: "Pruebas de campo para detección visual de partículas y agua." },
-      { title: "Micro-filtración (2 Micras)", desc: "Tecnología de diálisis que elimina contaminantes microscópicos." },
-      { title: "Limpieza de Tanques", desc: "Remoción de lodos (sludge) y biopelículas del fondo del tanque." },
-      { title: "Certificación ISO 4406", desc: "Análisis de laboratorio y certificado de limpieza de fluidos." }
+      { title: "Tanques Pernados (AWWA D103)", desc: "Sistemas modulares en acero galvanizado en caliente con geomembrana interna para agua potable y redes contra incendio." },
+      { title: "Tanques Vitrificados", desc: "Acero fusionado con vidrio a 750°C para resistencia quimica extrema, fluidos corrosivos y maxima vida util." },
+      { title: "Ingenieria de Cimentacion NSR-10", desc: "Diseño estructural de losa de fondo y anillo perimetral de concreto reforzado con verificacion geotecnica." },
+      { title: "Suministro y Montaje Integral", desc: "Provision de componentes certificados, escaleras marinas con linea de vida, domo geodesico y pruebas de estanqueidad." }
     ],
     icon: 'water_drop'
   }
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: '2026-bailey',
+    title: 'Diseño Estructural de Puentes Bailey',
+    location: 'Tolima, Colombia',
+    type: 'Infraestructura Vial y Puentes',
+    year: '2026',
+    image: '/images/projects/puente_bailey_4k.jpg',
+    images: [
+      '/images/projects/puente_bailey_4k.jpg',
+      '/images/projects/puente_bailey_monograph.jpg'
+    ],
+    status: 'Completed',
+    area: '42 m Luz',
+    description: 'Analisis y diseño estructural de puente vehicular metalico modular tipo Bailey bajo la norma colombiana CCP-14, estribos en concreto y modelado OpenBIM LOD 400.',
+    slug: 'diseno-estructural-puentes-bailey',
+    seoH1: 'Diseño Estructural de Puentes Bailey bajo Norma CCP-14 en Colombia',
+    fullDescription: 'KONTE desarrollo la ingenieria estructural de detalle y modelado OpenBIM LOD 400 para puente vehicular metalico de configuracion modular tipo Bailey con una luz de 42 metros en el departamento del Tolima. El proyecto integro el analisis sismo-resistente y de cargas vivas vehiculares bajo la Norma Colombiana de Diseño de Puentes CCP-14, verificacion de deflexiones dinamicas, conexiones apernadas de alta resistencia y diseño geotecnico-estructural de los estribos en concreto reforzado. Se elaboraron memorias de calculo de alta precision, despiece de armaduras y planos de taller listos para fabricacion y montaje en sitio.',
+    seoKeywords: 'Diseño Puentes Bailey Colombia, Estructuras Metalicas Viales, Norma CCP-14, Puentes Vehiculares Tolima, OpenBIM LOD 400, Calculo Estructural Puentes'
+  },
+  {
+    id: '2026-guamal',
+    title: 'EDS Guamal - Infraestructura y Accesos Viales',
+    location: 'Guamal, Meta',
+    type: 'Estacion de Servicio e Infraestructura Vial',
+    year: '2026',
+    image: '/images/projects/eds_guamal_estacion.jpg',
+    images: [
+      '/images/projects/eds_guamal_estacion.jpg',
+      '/images/projects/eds_guamal_canopy.jpg',
+      '/images/projects/eds_guamal_muro_rx.png',
+      '/images/projects/eds_guamal_carriles_rx.png'
+    ],
+    status: 'In Progress',
+    area: '25.000 m²',
+    description: 'Diseño geometrico de carriles de aceleracion LOD 400, muros cantilever y ciclopeos de contencion, cruces de via 36 pulgadas, ingenieria hidrosanitaria, electrica y canopy.',
+    slug: 'eds-guamal-infraestructura-vial',
+    seoH1: 'Ingenieria Integral y Accesos Viales EDS Guamal, Meta',
+    fullDescription: 'Desarrollo de ingenieria multidisciplinaria para la Estacion de Servicio La Llanerita en Guamal, Meta, sobre corredor vial nacional. KONTE lidero el diseño geometrico y estructural de los carriles de aceleracion y desaceleracion bajo lineamientos INVIAS/ANI con modelado OpenBIM en nivel de detalle LOD 400. Se proyectaron muros de contencion en voladizo (cantilever) de concreto reforzado y tipologias ciclopeas con filtros franceses para estabilizacion de taludes, asi como obras de drenaje mayor con cruces de calzada en tuberia de 36 pulgadas. El alcance comprendio adicionalmente la ingenieria hidrosanitaria con trampas de grasas y manejo de vertimientos, el diseño de redes electricas de media/baja tension y el calculo estructural del canopy de grandes luces.',
+    seoKeywords: 'EDS Guamal Meta, Carriles Aceleracion INVIAS, Muros Contencion Cantilever, Drenaje Vial 36 pulgadas, Canopy EDS, OpenBIM LOD 400'
+  },
+  {
+    id: '2026-cabana',
+    title: 'Cabaña Campestre Estilo Suizo (Swiss Chalet A-Frame)',
+    location: 'Cundinamarca / Meta, Colombia',
+    type: 'Arquitectura y Estructuras Especiales',
+    year: '2026',
+    image: '/images/projects/cabana_suiza_exterior.png',
+    images: [
+      '/images/projects/cabana_suiza_exterior.png',
+      '/images/projects/cabana_suiza_interior.png',
+      '/images/projects/cabana_suiza_plantas.png'
+    ],
+    status: 'Completed',
+    area: '240 m²',
+    description: 'Diseño arquitectonico contemporaneo y calculo estructural NSR-10 para chalet de montaña en 3 niveles, estructura mixta acero-concreto y cimentacion en ladera.',
+    slug: 'cabana-campestre-estilo-suizo',
+    seoH1: 'Diseño Arquitectonico y Estructural de Chalet Suizo A-Frame',
+    fullDescription: 'Proyecto residencial de alta gama que fusiona la tipologia alpina clasica Swiss Chalet con ingenieria estructural sismorresistente bajo norma NSR-10. La edificacion se estructura en 3 niveles habitables aprovechando la pendiente natural del terreno: primer nivel social y servicios en mamposteria estructural y concreto, segundo nivel habitacional con amplios balcones en voladizo, y tercer nivel en master loft abuhardillado con cerchas trianguladas a la vista. El diseño incluyo calculo de cimentaciones profundas para ladera, conexiones mixtas acero-concreto, envolvente termica y visualizacion arquitectonica 3D fotorrealista.',
+    seoKeywords: 'Chalet Suizo Colombia, Cabaña Alpina A-Frame, Diseño Arquitectonico Campestre, Estructuras Mixtas NSR-10, Visualizacion 3D Chalet'
+  },
   {
     id: '8',
     title: 'EDS El Triángulo',

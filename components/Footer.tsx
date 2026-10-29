@@ -54,8 +54,8 @@ const Footer: React.FC<FooterProps> = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/servicios/fuel-shield" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
-                  Filtración Diésel
+                <Link to="/servicios" className="text-sm text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors text-left">
+                  Tanques de Almacenamiento
                 </Link>
               </li>
           <li>

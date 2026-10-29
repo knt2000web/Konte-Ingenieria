@@ -149,7 +149,7 @@ const Services: React.FC<ServicesProps> = ({ openLightbox }) => {
                       const paths: Record<string, string> = {
                         '1': '/servicios/gestion-ani',
                         '5': '/servicios/propiedad-horizontal',
-                        '6': '/servicios/fuel-shield',
+                        '6': '/contacto',
                         '7': '/servicios/tecnologia',
                         '8': '/servicios/structopro',
                         '9': '/servicios/construccion-estaciones-servicio'

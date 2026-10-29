@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { SERVICES } from '../constants';
+import { SERVICES, PROJECTS } from '../constants';
 import ServiceCard from '../components/ServiceCard';
 import { ArrowRight, CheckCircle, Award, Users, Globe, ZoomIn, Calculator, FileText, Box, Ruler, BarChart3, Layers, TreePine, Zap, CheckCircle2 } from 'lucide-react';
 
@@ -11,28 +11,28 @@ interface HomeProps {
 
 // Images for the infinite scroll marquee
 const SCROLL_IMAGES = [
-  'https://i.imgur.com/CzPNg3d.jpeg',
-  'https://i.imgur.com/ZZ38mcw.jpeg',
-  'https://i.imgur.com/CZQu5sM.jpeg',
-  'https://i.imgur.com/lBlvGSZ.jpeg',
-  'https://i.imgur.com/NFBT5CW.jpeg',
-  'https://i.imgur.com/7KWWM9h.jpeg',
-  'https://i.imgur.com/bVuWh08.jpeg',
-  'https://i.imgur.com/5EheDic.jpeg',
-  'https://i.imgur.com/ENAIe6r.jpeg'
+  '/images/projects/puente_bailey_4k.jpg',
+  '/images/projects/eds_guamal_estacion.jpg',
+  '/images/projects/cabana_suiza_exterior.png',
+  '/images/projects/tanque_industrial_master.jpg',
+  '/images/projects/puente_bailey_monograph.jpg',
+  '/images/projects/eds_guamal_canopy.jpg',
+  '/images/projects/cabana_suiza_interior.png',
+  '/images/projects/eds_guamal_muro_rx.png',
+  '/images/projects/tanque_industrial_vitrificado.jpg'
 ];
 
 // Sub-services labels for ALT text
 const SCROLL_LABELS = [
-  'Consultoría en Duitama',
-  'Construcción de Estación de Servicio Boyacá',
-  'Diseño Estructural Ingeniería',
-  'Gestión Normativa ANI Colombia',
-  'Infraestructura Clínica Sogamoso',
-  'Mantenimiento Propiedad Horizontal',
-  'Limpieza de Tanques Diésel',
-  'Topografía de Precisión',
-  'Desarrollo Web para Ingenierías'
+  'Diseño Estructural Puentes Bailey CCP-14',
+  'EDS Guamal - Infraestructura y Accesos Viales',
+  'Cabaña Campestre Estilo Suizo NSR-10',
+  'Tanques de Almacenamiento Industrial AWWA D103',
+  'Monografía Técnica Puentes OpenBIM LOD 400',
+  'Canopy Estructuras Metálicas Grandes Luces',
+  'Visualización Arquitectónica 3D Fotorrealista',
+  'Muros de Contención y Obras de Drenaje 36"',
+  'Suministro y Montaje de Tanques Vitrificados'
 ];
 
 // Sub-services specific data for animation for Service 3
@@ -378,10 +378,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
     
     <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors duration-300">
             {/* Hero Section */}
-      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/home/knt_infrae_clean.jpg"])}>
-        <div className="absolute inset-0 bg-slate-900/80 z-10 group-hover:bg-slate-900/70 transition-colors" />
+      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/projects/puente_bailey_4k.jpg"])}>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/80 to-slate-900/35 z-10 transition-colors" />
         <img
-          src="/images/home/knt_infrae_clean.jpg"
+          src="/images/projects/puente_bailey_4k.jpg"
           alt="Ingeniería civil y consultoría en Duitama, Boyacá"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-105"
         />
@@ -395,7 +395,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                 Ingeniería estructural &bull; Licencias &bull; Tecnología
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-                Ingeniería estructural, licencias y tecnología para obras de alto impacto
+                Ingeniería estructural, puentes, estaciones de servicio y software avanzado
               </h1>
               <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl font-light leading-relaxed">
                 KONTE es una firma híbrida. Evolucionamos la ingeniería tradicional combinando ejecución en campo, consultoría normativa y desarrollo de software para el sector técnico industrial.
@@ -458,6 +458,172 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           ))}
         </div>
       </div>
+
+      {/* ── PROYECTOS INSIGNIA 2026 ─────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-gray-100 dark:border-gray-800">
+          <div>
+            <div className="inline-flex items-center gap-2 bg-blue-500/10 dark:bg-blue-900/30 text-primary dark:text-blue-400 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
+              Portafolio Técnico 2026
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+              Proyectos Insignia y Casos de Estudio
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base mt-2 max-w-2xl">
+              Evidencia de nuestra capacidad técnica en infraestructura vial, cálculo sismorresistente y consultoría de gran escala.
+            </p>
+          </div>
+          <button
+            onClick={() => navigate('/proyectos')}
+            className="mt-4 md:mt-0 inline-flex items-center gap-2 text-primary dark:text-blue-400 font-bold hover:gap-3 transition-all"
+          >
+            Ver todos los proyectos <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Proyecto 1: Puentes Bailey */}
+          <div 
+            onClick={() => navigate('/proyectos/diseno-estructural-puentes-bailey')}
+            className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col cursor-pointer"
+          >
+            <div className="relative h-52 overflow-hidden">
+              <img 
+                src="/images/projects/puente_bailey_4k.jpg" 
+                alt="Diseño Estructural de Puentes Bailey" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                Norma CCP-14
+              </div>
+              <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-slate-200 text-[10px] font-semibold px-2 py-0.5 rounded">
+                Tolima
+              </div>
+            </div>
+            <div className="p-5 flex flex-col flex-grow">
+              <span className="text-[10px] font-bold text-primary dark:text-blue-400 uppercase tracking-widest mb-1">
+                Infraestructura Vial
+              </span>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
+                Diseño Estructural de Puentes Bailey
+              </h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-3 mb-4 leading-relaxed flex-grow">
+                Modelado OpenBIM LOD 400, cálculo sismorresistente bajo norma CCP-14, estribos de concreto y despiece de armaduras para puente de 42 m de luz.
+              </p>
+              <div className="pt-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between text-xs font-bold text-primary dark:text-blue-400">
+                <span>Ver Detalles</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+
+          {/* Proyecto 2: EDS Guamal */}
+          <div 
+            onClick={() => navigate('/proyectos/eds-guamal-infraestructura-vial')}
+            className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col cursor-pointer"
+          >
+            <div className="relative h-52 overflow-hidden">
+              <img 
+                src="/images/projects/eds_guamal_estacion.jpg" 
+                alt="EDS Guamal Infraestructura" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                En Ejecución
+              </div>
+              <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-slate-200 text-[10px] font-semibold px-2 py-0.5 rounded">
+                Guamal, Meta
+              </div>
+            </div>
+            <div className="p-5 flex flex-col flex-grow">
+              <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-1">
+                Estación de Servicio 4G
+              </span>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
+                EDS Guamal: Carriles y Muros
+              </h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-3 mb-4 leading-relaxed flex-grow">
+                Diseño vial de aceleración LOD 400, muros en voladizo (cantilever) de contención, cruces de drenaje en 36" y canopy de grandes luces.
+              </p>
+              <div className="pt-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between text-xs font-bold text-primary dark:text-blue-400">
+                <span>Ver Detalles</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+
+          {/* Proyecto 3: Tanques de Almacenamiento */}
+          <div 
+            onClick={() => navigate('/servicios')}
+            className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col cursor-pointer"
+          >
+            <div className="relative h-52 overflow-hidden">
+              <img 
+                src="/images/projects/tanque_industrial_master.jpg" 
+                alt="Tanques de Almacenamiento Industrial" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                AWWA D103 / NFPA 22
+              </div>
+              <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-slate-200 text-[10px] font-semibold px-2 py-0.5 rounded">
+                Industrial
+              </div>
+            </div>
+            <div className="p-5 flex flex-col flex-grow">
+              <span className="text-[10px] font-bold text-primary dark:text-blue-400 uppercase tracking-widest mb-1">
+                Almacenamiento y Fluidos
+              </span>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
+                Tanques de Almacenamiento Industrial
+              </h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-3 mb-4 leading-relaxed flex-grow">
+                Diseño estructural de losas de fondo NSR-10 y suministro de tanques pernados y vitrificados de 4 a 4.000 m³ para agua potable y redes contra incendio.
+              </p>
+              <div className="pt-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between text-xs font-bold text-primary dark:text-blue-400">
+                <span>Ver Servicios</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+
+          {/* Proyecto 4: Cabaña Tato */}
+          <div 
+            onClick={() => navigate('/proyectos/cabana-campestre-estilo-suizo')}
+            className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col cursor-pointer"
+          >
+            <div className="relative h-52 overflow-hidden">
+              <img 
+                src="/images/projects/cabana_suiza_exterior.png" 
+                alt="Cabaña Campestre Estilo Suizo" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute top-3 left-3 bg-purple-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                Arquitectura
+              </div>
+              <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-slate-200 text-[10px] font-semibold px-2 py-0.5 rounded">
+                Campestre
+              </div>
+            </div>
+            <div className="p-5 flex flex-col flex-grow">
+              <span className="text-[10px] font-bold text-purple-600 dark:text-purple-400 uppercase tracking-widest mb-1">
+                Estructuras Especiales
+              </span>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
+                Chalet Suizo A-Frame en 3 Niveles
+              </h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-3 mb-4 leading-relaxed flex-grow">
+                Diseño arquitectónico y cálculo estructural NSR-10 para chalet de montaña, estructura mixta acero-concreto y cimentación en ladera.
+              </p>
+              <div className="pt-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between text-xs font-bold text-primary dark:text-blue-400">
+                <span>Ver Detalles</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 {/* Services Preview */}
       <section id="servicios" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-0 pb-16">
         <div className="flex justify-between items-end mb-12">

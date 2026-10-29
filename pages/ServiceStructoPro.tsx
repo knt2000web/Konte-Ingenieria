@@ -563,6 +563,139 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
 
+            {/* ── MÓDULOS ESPECIALIZADOS Y CORPORATIVOS (ACCESO POR SOLICITUD) ── */}
+      <section className="py-20 bg-[#060c1d] border-t border-[rgba(20,88,245,0.2)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full inline-block mb-3">
+              Ingeniería Avanzada · Acceso Privado
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight mb-4">
+              Módulos Especializados y Corporativos
+            </h2>
+            <p className="text-slate-400 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+              Herramientas de cálculo de alta precisión desarrolladas para proyectos de infraestructura mayor. Disponibles bajo licencia corporativa o consultoría a medida (no incluidas en el plan estándar).
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1: Puentes Bailey */}
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
+              <div className="relative h-44 overflow-hidden">
+                <img src="/images/projects/puente_bailey_4k.jpg" alt="Módulo Puentes Bailey" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                  Norma CCP-14
+                </span>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <h4 className="text-lg font-bold text-white mb-2">Puentes Bailey 3S</h4>
+                <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
+                  Diseño estructural completo de puentes metálicos vehiculares tipo Bailey, verificación de cargas dinámicas y exportación OpenBIM LOD 400.
+                </p>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
+                  <a
+                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20del%20M%C3%B3dulo%20de%20Puentes%20Bailey%20en%20StructoPro."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-blue-400 hover:text-white flex items-center gap-1 transition-colors"
+                  >
+                    Preguntar &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Canopy y Estaciones */}
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
+              <div className="relative h-44 overflow-hidden">
+                <img src="/images/projects/eds_guamal_canopy.jpg" alt="Módulo Canopy Estaciones" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                  Grandes Luces
+                </span>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <h4 className="text-lg font-bold text-white mb-2">Canopy Estaciones EDS</h4>
+                <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
+                  Cálculo de estructuras metálicas de cubierta para estaciones de servicio y áreas industriales bajo NSR-10 (viento y sismo).
+                </p>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
+                  <a
+                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20el%20M%C3%B3dulo%20de%20Canopy%20y%20Estaciones%20de%20Servicio%20en%20StructoPro."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-blue-400 hover:text-white flex items-center gap-1 transition-colors"
+                  >
+                    Preguntar &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: CAD a OpenBIM */}
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
+              <div className="relative h-44 overflow-hidden">
+                <img src="/images/projects/eds_guamal_muro_rx.png" alt="Módulo CAD a BIM" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                  BIM Automation
+                </span>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <h4 className="text-lg font-bold text-white mb-2">CAD a OpenBIM ("Captubin")</h4>
+                <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
+                  Motor de conversión que transforma trazos CAD 2D (DWG/DXF) en geometrías IFC 3D enriquecidas con metadatos para interoperabilidad.
+                </p>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
+                  <a
+                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20el%20M%C3%B3dulo%20CAD%20a%20OpenBIM%20en%20StructoPro."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-blue-400 hover:text-white flex items-center gap-1 transition-colors"
+                  >
+                    Preguntar &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4: Cabañas Alpinas */}
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
+              <div className="relative h-44 overflow-hidden">
+                <img src="/images/projects/cabana_suiza_exterior.png" alt="Módulo Cabañas Alpinas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                  Arquitectura Alpina
+                </span>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <h4 className="text-lg font-bold text-white mb-2">Cabañas Alpinas y Chalets</h4>
+                <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
+                  Modelado paramétrico y cálculo sismorresistente de cabañas campestres A-Frame y chalets suizos en 3 niveles con pendiente.
+                </p>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
+                  <a
+                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20el%20M%C3%B3dulo%20de%20Caba%C3%B1as%20Alpinas%20en%20StructoPro."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-blue-400 hover:text-white flex items-center gap-1 transition-colors"
+                  >
+                    Preguntar &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 p-4 rounded-xl bg-blue-900/10 border border-blue-500/20 text-center max-w-3xl mx-auto">
+            <p className="text-xs text-slate-400 leading-relaxed">
+              <strong className="text-white">Nota importante:</strong> Estos programas no están incluidos dentro del plan de suscripción mensual estándar de StructoPro. Si tienes interés en utilizar cualquiera de estos módulos para tus proyectos, pulsa en "Preguntar" para consultar condiciones de acceso y cotización personalizada.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── PRICING ─────────────────────────────────────────────── */}
       <section className="py-24 bg-[#07122a] border-t border-[#0b1e45]" id="pricing">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
