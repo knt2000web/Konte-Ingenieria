@@ -609,7 +609,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             {/* Card 2: Canopy y Estaciones */}
             <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
               <div className="relative h-44 overflow-hidden">
-                <img src="/images/projects/eds_guamal_canopy.jpg" alt="Módulo Canopy Estaciones" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/images/projects/canopy_guamal_lod400.jpg" alt="Módulo Canopy Estaciones" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
                   Grandes Luces
                 </span>

@@ -12,11 +12,11 @@ interface HomeProps {
 // Images for the infinite scroll marquee
 const SCROLL_IMAGES = [
   '/images/projects/puente_bailey_4k.jpg',
-  '/images/projects/eds_guamal_estacion.jpg',
+  '/images/projects/canopy_guamal_lod400.jpg',
   '/images/projects/cabana_suiza_exterior.png',
   '/images/projects/tanque_industrial_master.jpg',
   '/images/projects/puente_bailey_monograph.jpg',
-  '/images/projects/eds_guamal_canopy.jpg',
+  '/images/projects/canopy_guamal_lod400.jpg',
   '/images/projects/cabana_suiza_interior.png',
   '/images/projects/eds_guamal_muro_rx.png',
   '/images/projects/tanque_industrial_vitrificado.jpg'
@@ -524,7 +524,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           >
             <div className="relative h-52 overflow-hidden">
               <img 
-                src="/images/projects/eds_guamal_estacion.jpg" 
+                src="/images/projects/canopy_guamal_lod400.jpg" 
                 alt="EDS Guamal Infraestructura" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
