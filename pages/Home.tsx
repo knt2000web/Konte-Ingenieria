@@ -18,7 +18,7 @@ const SCROLL_IMAGES = [
   '/images/projects/puente_bailey_monograph.jpg',
   '/images/projects/canopy_guamal_lod400.jpg',
   '/images/projects/cabana_suiza_interior.png',
-  '/images/projects/eds_guamal_muro_rx.png',
+  '/images/projects/cad_to_bim_composite.jpg',
   '/images/projects/tanque_industrial_vitrificado.jpg'
 ];
 

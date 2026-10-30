@@ -640,7 +640,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             {/* Card 3: CAD a OpenBIM */}
             <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300 shadow-lg hover:shadow-blue-900/30">
               <div className="relative h-44 overflow-hidden">
-                <img src="/images/projects/eds_guamal_muro_rx.png" alt="Módulo CAD a BIM" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/images/projects/cad_to_bim_composite.jpg" alt="Módulo CAD a BIM" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
                   BIM Automation
                 </span>
