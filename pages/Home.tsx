@@ -13,26 +13,28 @@ interface HomeProps {
 const SCROLL_IMAGES = [
   '/images/projects/puente_bailey_4k.jpg',
   '/images/projects/canopy_guamal_lod400.jpg',
+  '/images/projects/structopro_oficinas_lod400.jpg',
   '/images/projects/cabana_tato_exterior_angular_4k.jpg',
-  '/images/projects/tanque_industrial_master.jpg',
   '/images/projects/puente_bailey_monograph.jpg',
-  '/images/projects/canopy_guamal_lod400.jpg',
-  '/images/projects/cabana_tato_nocturno_glow_4k.jpg',
+  '/images/projects/eds_guamal_estacion.jpg',
   '/images/projects/cad_to_bim_composite.jpg',
-  '/images/projects/tanque_industrial_vitrificado.jpg'
+  '/images/projects/cabana_tato_nocturno_glow_4k.jpg',
+  '/images/projects/tanque_industrial_master.jpg',
+  '/images/projects/cad_to_bim_carriles_lod400.jpg'
 ];
 
 // Sub-services labels for ALT text
 const SCROLL_LABELS = [
   'Diseño Estructural Puentes Bailey CCP-14',
-  'EDS Guamal - Infraestructura y Accesos Viales',
+  'Canopy Metálico en Voladizo Grandes Luces',
+  'Edificaciones Multi-Piso en Concreto LOD 400',
   'Cabaña Campestre Estilo Suizo NSR-10',
-  'Tanques de Almacenamiento Industrial AWWA D103',
   'Monografía Técnica Puentes OpenBIM LOD 400',
-  'Canopy Estructuras Metálicas Grandes Luces',
-  'Visualización Arquitectónica 3D Fotorrealista',
+  'EDS Guamal - Infraestructura y Accesos Viales',
   'Conversor CAD a OpenBIM IFC (LOD 400)',
-  'Suministro y Montaje de Tanques Vitrificados'
+  'Visualización Arquitectónica 3D Fotorrealista',
+  'Tanques de Almacenamiento AWWA D103',
+  'Pavimentos Multicapa y Accesos Viales 5D'
 ];
 
 // Sub-services specific data for animation for Service 3
@@ -205,6 +207,7 @@ const STRUCTOPRO_SUB_SERVICES = [
 
 const Home: React.FC<HomeProps> = ({ openLightbox }) => {
   const navigate = useNavigate();
+  const [heroTab, setHeroTab] = useState<'guamo' | 'guamal'>('guamo');
   
   // State for Specialized Engineering (ID 3)
   const [featureIndex, setFeatureIndex] = useState(0);
@@ -386,12 +389,13 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
     
     <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors duration-300">
             {/* Hero Section */}
-      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/projects/canopy_guamal_lod400.jpg"])}>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-900/60 z-10 transition-colors" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/30 z-10 pointer-events-none" />
+      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/projects/eds_guamal_estacion.jpg", "/images/projects/canopy_guamal_lod400.jpg"])}>
+        {/* Gradiente balanceado: protege la legibilidad a la izquierda y deja ver la ingenieria iluminada al centro y derecha */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-900/25 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 z-10 pointer-events-none" />
         <img
-          src="/images/projects/canopy_guamal_lod400.jpg"
-          alt="Diseño y cálculo estructural de canopy y estaciones de servicio - KONTE"
+          src="/images/projects/eds_guamal_estacion.jpg"
+          alt="Ingeniería estructural, estaciones de servicio y tecnología - KONTE"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-105"
         />
         <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -441,49 +445,126 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
                 </div>
               </div>
 
-              {/* Columna Derecha: Tarjeta Técnica Flotante HUD (Llena el espacio y exhibe ingeniería real) */}
+              {/* Columna Derecha: Tarjeta Técnica Flotante HUD (El Guamo ejecutado vs Guamal Innovación) */}
               <div className="lg:col-span-5 animate-in slide-in-from-right-10 duration-700" onClick={(e) => e.stopPropagation()}>
                 <div className="bg-slate-900/85 backdrop-blur-xl border border-white/15 rounded-2xl p-6 sm:p-7 shadow-2xl text-white hover:border-blue-400/40 transition-all">
-                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
-                    <span className="text-[11px] font-bold tracking-wider uppercase text-blue-400 bg-blue-500/15 border border-blue-500/30 px-3 py-1 rounded-full">
-                      Obra Insignia 2026
-                    </span>
-                    <span className="text-xs text-gray-400 font-mono">Guamal, Meta</span>
+                  
+                  {/* Pestañas selectoras HUD */}
+                  <div className="flex rounded-lg bg-black/40 p-1 mb-4 border border-white/10">
+                    <button
+                      type="button"
+                      onClick={() => setHeroTab('guamo')}
+                      className={`flex-1 py-1.5 px-3 rounded-md text-[11px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
+                        heroTab === 'guamo'
+                          ? 'bg-blue-600 text-white shadow-md'
+                          : 'text-gray-400 hover:text-white'
+                      }`}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      Obra Concluida
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setHeroTab('guamal')}
+                      className={`flex-1 py-1.5 px-3 rounded-md text-[11px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
+                        heroTab === 'guamal'
+                          ? 'bg-gradient-to-r from-blue-700 to-indigo-600 text-white shadow-md border border-blue-400/30'
+                          : 'text-gray-400 hover:text-white'
+                      }`}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                      Innovación LOD 400
+                    </button>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-snug">
-                    EDS La Llanerita: Infraestructura & Canopy
-                  </h3>
-                  <p className="text-xs text-gray-300 leading-relaxed mb-4">
-                    Ingeniería de detalle integral: cálculo estructural de cubierta de gran luz, accesos viales RN6509, muros de contención y gemelo digital OpenBIM.
-                  </p>
+                  {heroTab === 'guamo' ? (
+                    <>
+                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
+                        <span className="text-[11px] font-bold tracking-wider uppercase text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full">
+                          Proyecto Terminado · 20.000 m²
+                        </span>
+                        <span className="text-xs text-gray-400 font-mono">Guamo, Tolima</span>
+                      </div>
 
-                  <div className="space-y-2 mb-5 text-xs font-mono">
-                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
-                      <span className="text-gray-400">Predio El Challet</span>
-                      <span className="font-semibold text-white">5.624 m² Área Total</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
-                      <span className="text-gray-400">Cubierta Metálica</span>
-                      <span className="font-semibold text-white">Canopy en V 37.00 m (322 m²)</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
-                      <span className="text-gray-400">Modelado BIM</span>
-                      <span className="font-semibold text-blue-400">OpenBIM IFC LOD 400</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
-                      <span className="text-gray-400">Ingeniería Integral</span>
-                      <span className="font-semibold text-white">Hidrosanitaria & Eléctrica</span>
-                    </div>
-                  </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-snug">
+                        EDS La Llanerita: Corredor 4G
+                      </h3>
+                      <p className="text-xs text-gray-300 leading-relaxed mb-4">
+                        Infraestructura de gran escala ejecutada sobre corredor vial nacional 4G: consultoría técnica integral, PTAR propia, zonas de parqueo pesado y sistemas contra incendio NFPA.
+                      </p>
 
-                  <Link
-                    to="/proyectos/eds-guamal-infraestructura-vial"
-                    className="w-full py-3 px-4 bg-primary hover:bg-secondary text-white text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg"
-                  >
-                    <span>Ver Ficha Técnica y Renders del Proyecto</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                      <div className="space-y-2 mb-5 text-xs font-mono">
+                        <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                          <span className="text-gray-400">Área del Predio</span>
+                          <span className="font-semibold text-white">20.000 m² Corredor 4G</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                          <span className="text-gray-400">Transporte Pesado</span>
+                          <span className="font-semibold text-white">Parqueo Tractomulas & Pista</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                          <span className="text-gray-400">Saneamiento y Redes</span>
+                          <span className="font-semibold text-blue-400">PTAR Propia + NFPA</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                          <span className="text-gray-400">Estado Técnico</span>
+                          <span className="font-semibold text-emerald-400">Proyecto Terminado</span>
+                        </div>
+                      </div>
+
+                      <Link
+                        to="/proyectos/eds-la-llanerita-guamo"
+                        className="w-full py-3 px-4 bg-primary hover:bg-secondary text-white text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg"
+                      >
+                        <span>Ver Ficha Técnica EDS El Guamo</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
+                        <span className="text-[11px] font-bold tracking-wider uppercase text-cyan-400 bg-cyan-500/15 border border-cyan-500/30 px-3 py-1 rounded-full">
+                          Innovación OpenBIM · SSOT
+                        </span>
+                        <span className="text-xs text-gray-400 font-mono">Guamal, Meta</span>
+                      </div>
+
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-snug">
+                        EDS Guamal: Gemelo Digital LOD 400
+                      </h3>
+                      <p className="text-xs text-gray-300 leading-relaxed mb-4">
+                        Ingeniería de vanguardia con Single Source of Truth (SSOT): modelado algorítmico OpenBIM IFC4, canopy en V de 37 m, accesos viales RN6509 y muros cantilever.
+                      </p>
+
+                      <div className="space-y-2 mb-5 text-xs font-mono">
+                        <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                          <span className="text-gray-400">Predio El Challet</span>
+                          <span className="font-semibold text-white">5.624 m² Área Total</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                          <span className="text-gray-400">Cubierta Metálica</span>
+                          <span className="font-semibold text-white">Canopy en V 37.00 m (322 m²)</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                          <span className="text-gray-400">Interoperabilidad</span>
+                          <span className="font-semibold text-cyan-400">OpenBIM IFC4 · LOD 400</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                          <span className="text-gray-400">Metodología</span>
+                          <span className="font-semibold text-white">Gemelo Digital & SSOT</span>
+                        </div>
+                      </div>
+
+                      <Link
+                        to="/proyectos/eds-guamal-infraestructura-vial"
+                        className="w-full py-3 px-4 bg-primary hover:bg-secondary text-white text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg"
+                      >
+                        <span>Ver Ficha Técnica y Renders Guamal</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </>
+                  )}
+
                 </div>
               </div>
 
@@ -699,39 +780,110 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
         </div>
       </section>
       {/* ========== EXPERIENCIA EN LICENCIAS ========== */}
+      {/* Licencias de Construcción & Consultoría Técnica NSR-10 */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 border-t border-gray-100 dark:border-gray-800">
-        <div className="bg-blue-50/50 dark:bg-gray-800/50 rounded-2xl p-8 md:p-12 border border-blue-100 dark:border-gray-700">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              Experiencia comprobada en licencias de construcción
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Hemos gestionado licencias de construcción, ampliación y reconocimiento para proyectos residenciales, comerciales e industriales en diferentes ciudades del país. Cada trámite se soporta con estudios de suelos, planos estructurales, memorias de cálculo y coordinación técnica con arquitectos y curaduría, cumpliendo la normatividad urbana y la NSR-10.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                "Vivienda unifamiliar y multifamiliar",
-                "Locales comerciales y bodegas",
-                "Estaciones de servicio y obras asociadas",
-                "Reforzamientos y ampliaciones de edificaciones existentes"
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
-                  <span className="text-gray-700 dark:text-gray-200 font-medium">{item}</span>
+        <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white rounded-3xl p-8 md:p-12 shadow-2xl border border-white/10 overflow-hidden relative">
+          
+          {/* Luz de acento sutil de fondo */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+            
+            {/* Columna Izquierda: Mensaje, Autoridad y KPIs */}
+            <div className="lg:col-span-7">
+              <span className="px-3.5 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase bg-blue-500/15 border border-blue-500/30 text-blue-400 inline-flex items-center gap-2 mb-4">
+                <CheckCircle2 size={14} className="text-blue-400" />
+                Viabilidad Técnica ante Curadurías & Planeación
+              </span>
+              
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 leading-tight">
+                Gestión de Licencias de Construcción, Memorias y Peritajes NSR-10
+              </h2>
+              
+              <p className="text-sm sm:text-base text-gray-300 mb-6 leading-relaxed">
+                Aseguramos la viabilidad jurídica y técnica de tu proyecto. Elaboramos y radicamos el expediente completo ante curadurías urbanas y secretarías de planeación en todo el país: estudios de suelos certificados, cálculo sismorresistente NSR-10, planos hidrosanitarios, eléctricos, redes contra incendio y coordinación técnica integral.
+              </p>
+
+              {/* Mini KPIs de Confianza */}
+              <div className="grid grid-cols-3 gap-3 mb-6 py-4 px-4 rounded-xl bg-white/5 border border-white/10">
+                <div>
+                  <div className="text-2xl font-black text-white">+100</div>
+                  <div className="text-[11px] text-gray-400 uppercase tracking-wider font-semibold">Trámites Exitosos</div>
                 </div>
-              ))}
+                <div>
+                  <div className="text-2xl font-black text-blue-400">100%</div>
+                  <div className="text-[11px] text-gray-400 uppercase tracking-wider font-semibold">Alineación NSR-10</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-black text-white">LOD 400</div>
+                  <div className="text-[11px] text-gray-400 uppercase tracking-wider font-semibold">Planos ICONTEC</div>
+                </div>
+              </div>
+
+              {/* Tipologías */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                {[
+                  "Vivienda unifamiliar, bifamiliar y multifamiliar",
+                  "Locales comerciales, centros logísticos y bodegas",
+                  "Estaciones de servicio (EDS) y obras viales",
+                  "Reforzamientos estructurales y peritajes forenses"
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs text-gray-200">
+                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20requiero%20asesor%C3%ADa%20y%20gesti%C3%B3n%20para%20un%20tr%C3%A1mite%20de%20Licencia%20de%20Construcci%C3%B3n."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-secondary text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-primary/50 text-sm"
+                >
+                  Consultar Trámite de Licencia
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
-            <div className="mt-10">
-              <a
-                href="https://wa.me/573227696769"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-lg hover:shadow-primary/50"
+
+            {/* Columna Derecha: Tarjeta Visual de Proyecto Aprobado */}
+            <div className="lg:col-span-5">
+              <div 
+                className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group cursor-pointer bg-slate-950"
+                onClick={() => openLightbox(0, ["/images/projects/structopro_oficinas_lod400.jpg"])}
               >
-                Cuéntanos tu proyecto
-                <ArrowRight className="w-5 h-5" />
-              </a>
+                <div className="h-80 sm:h-96 relative overflow-hidden">
+                  <img
+                    src="/images/projects/structopro_oficinas_lod400.jpg"
+                    alt="Edificio corporativo con pantallas C.21 aprobado en curaduría - KONTE"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+                  
+                  {/* Badge superior */}
+                  <div className="absolute top-3 left-3 bg-blue-600/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                    Expediente Curaduría Aprobado
+                  </div>
+
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 p-2 rounded-lg">
+                    <ZoomIn className="text-white w-5 h-5 drop-shadow-md" />
+                  </div>
+
+                  {/* Ficha técnica flotante al pie */}
+                  <div className="absolute bottom-3 left-3 right-3 p-4 bg-slate-950/90 backdrop-blur-md rounded-xl border border-white/10 text-xs">
+                    <div className="font-bold text-white text-sm mb-1">
+                      Edificación Aporticada & Pantallas C.21
+                    </div>
+                    <p className="text-gray-300 text-[11px] leading-relaxed">
+                      Despiece estructural completo, memorias de cálculo modal espectral, control de derivas y radicación exitosa en curaduría urbana.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
