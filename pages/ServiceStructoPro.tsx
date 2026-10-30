@@ -647,7 +647,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               </div>
               <div className="p-5 flex flex-col flex-grow">
                 <h4 className="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                  CAD a OpenBIM ("Captubin")
+                  CAD a OpenBIM (LOD 400)
                 </h4>
                 <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
                   Motor de conversión que transforma trazos CAD 2D (DWG/DXF) en geometrías IFC 3D enriquecidas con metadatos para interoperabilidad.
@@ -655,7 +655,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                 <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                   <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
                   <a
-                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20el%20M%C3%B3dulo%20CAD%20a%20OpenBIM%20en%20StructoPro."
+                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20el%20M%C3%B3dulo%20CAD%20a%20OpenBIM%20LOD%20400%20en%20StructoPro."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-bold text-blue-400 hover:text-white flex items-center gap-1 transition-colors"
