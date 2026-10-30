@@ -31,7 +31,7 @@ const SCROLL_LABELS = [
   'Monografía Técnica Puentes OpenBIM LOD 400',
   'Canopy Estructuras Metálicas Grandes Luces',
   'Visualización Arquitectónica 3D Fotorrealista',
-  'Muros de Contención y Obras de Drenaje 36"',
+  'Conversor CAD a OpenBIM IFC (LOD 400)',
   'Suministro y Montaje de Tanques Vitrificados'
 ];
 

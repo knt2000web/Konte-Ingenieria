@@ -640,9 +640,9 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             {/* Card 3: CAD a OpenBIM */}
             <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300 shadow-lg hover:shadow-blue-900/30">
               <div className="relative h-44 overflow-hidden">
-                <img src="/images/projects/cad_to_bim_composite.jpg" alt="Módulo CAD a BIM" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/images/projects/cad_to_bim_composite.jpg" alt="Módulo CAD a OpenBIM LOD 400" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
-                  BIM Automation
+                  OpenBIM IFC · LOD 400
                 </span>
               </div>
               <div className="p-5 flex flex-col flex-grow">
@@ -650,7 +650,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                   CAD a OpenBIM (LOD 400)
                 </h4>
                 <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
-                  Motor de conversión que transforma trazos CAD 2D (DWG/DXF) en geometrías IFC 3D enriquecidas con metadatos para interoperabilidad.
+                  Motor algorítmico que transforma planimetría 2D (DWG/DXF) en modelos OpenBIM IFC4 en LOD 400. Reconstruye pavimentos multicapa (subrasante, crudo de río, bases y losas MR-45), ejes viales con curvatura continua y georreferenciación MAGNA-SIRGAS para Archicad, Revit y cubicación QTO 5D.
                 </p>
                 <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                   <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
