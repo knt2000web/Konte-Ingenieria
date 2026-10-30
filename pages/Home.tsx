@@ -179,19 +179,27 @@ const TECH_SUB_SERVICES = [
 const STRUCTOPRO_SUB_SERVICES = [
   {
     title: "Cimentaciones y Contención",
-    desc: "Zapatas aisladas, muros en voladizo (KonteWall) y cálculo de capacidad portante."
+    desc: "Zapatas aisladas, pilotes, encepados y muros de contención en ladera (KonteWall)."
   },
   {
-    title: "Vigas, Columnas y Escaleras",
-    desc: "Diseño flexión/cortante de secciones rectangulares, circulares y diagramas de interacción P-M."
+    title: "Hormigón Armado y Multi-Piso",
+    desc: "Edificaciones aporticadas y duales con pantallas C.21, columnas P-M biaxiales y vigas."
   },
   {
-    title: "Diseño Sísmico",
-    desc: "Predimensionamiento, cálculo de irregularidades y espectros de diseño elástico."
+    title: "Puentes e Infraestructura Vial",
+    desc: "Puentes metálicos modulares Bailey CCP-14, canopies EDS y accesos viales Invías."
   },
   {
-    title: "Mampostería y Madera",
-    desc: "Verificación de muros confinados y sistemas constructivos en madera (NTC)."
+    title: "Diseño Sísmico y Viento",
+    desc: "Espectros elásticos NSR-10, control de derivas al 1%, irregularidades y presiones de viento B.6."
+  },
+  {
+    title: "Estructuras Especiales y Madera",
+    desc: "Cubiertas de coliseos, cerchas espaciales, estructuras metálicas AISC y madera Título G."
+  },
+  {
+    title: "Gestión ERP & Control de Obra",
+    desc: "Bitácora inteligente con IA, control presupuestal, valor ganado EVM y cortes de obra."
   }
 ];
 

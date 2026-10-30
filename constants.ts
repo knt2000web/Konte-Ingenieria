@@ -74,9 +74,9 @@ export const SERVICES: Service[] = [
     ],
     detailedFeatures: [
       { title: "Desarrollo a Medida", desc: "Aplicaciones web y plataformas para automatizar procesos en constructoras y firmas de ingeniería." },
-      { title: "StructoPro Suite", desc: "Plataforma SaaS en la nube para el cálculo estructural sismo-resistente y exportación de memorias." },
-      { title: "Herramientas de Cálculo", desc: "Digitalización de hojas de cálculo complejas en aplicaciones interactivas y seguras." },
-      { title: "Integración de Sistemas", desc: "Conexión de sistemas empresariales, facturación y gestión técnica de proyectos." }
+      { title: "StructoPro Suite", desc: "Plataforma SaaS en la nube para cálculo estructural sismo-resistente, puentes CCP-14 y exportación OpenBIM." },
+      { title: "Suite ERP Civil", desc: "Control financiero, bitácora IA, inventarios y actas de obra en tiempo real para constructoras." },
+      { title: "Modelado OpenBIM LOD 400", desc: "Conversión algorítmica de planimetría a IFC, memorias DOCX y planos DXF automáticos." }
     ],
     icon: 'laptop_chromebook'
   },

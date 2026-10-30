@@ -139,6 +139,56 @@ const IconBarChart = () => (
     <rect x="15" y="4" width="4" height="18"/><line x1="3" y1="22" x2="21" y2="22"/>
   </svg>
 );
+const IconBridge = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M3 18v-4a9 9 0 0 1 18 0v4"/>
+    <path d="M3 14h18"/>
+    <path d="M6 14v4M10 14v4M14 14v4M18 14v4"/>
+  </svg>
+);
+const IconFuel = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M3 22V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v17"/>
+    <path d="M15 10h2a2 2 0 0 1 2 2v3a2 2 0 0 0 2 2 2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 4"/>
+    <circle cx="9" cy="9" r="2"/>
+    <path d="M3 22h12"/>
+  </svg>
+);
+const IconRoof = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M2 20h20"/>
+    <path d="M5 20V10l7-6 7 6v10"/>
+    <path d="M9 20v-6h6v6"/>
+  </svg>
+);
+const IconElevator = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
+    <rect x="5" y="3" width="14" height="18" rx="2"/>
+    <path d="M9 10l3-3 3 3M9 14l3 3 3-3"/>
+  </svg>
+);
+const IconPenTool = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+    <path d="M2 2l7.586 7.586"/>
+    <circle cx="11" cy="11" r="2"/>
+  </svg>
+);
+const IconStethoscope = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
+    <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/>
+    <circle cx="20" cy="10" r="2"/>
+  </svg>
+);
+const IconBox3D = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+    <line x1="12" y1="22.08" x2="12" y2="12"/>
+  </svg>
+);
 
 // ─── COMPLETE MODULE CATALOG ──────────────────────────────────────
 interface Module {
@@ -168,7 +218,15 @@ const MODULES: Module[] = [
     solves: "Diseño del acero longitudinal y transversal de vigas (rectangular y T) y losas en una dirección.",
     verifies: "Ductilidad DES/DMO/DMI, cortante sísmico Vp y deflexiones (Branson).",
     delivers: "Memoria DOCX detallada por ecuación normativa.", forWho: "Calculistas de edificios residenciales e industriales.", tags: ["Viga T", "Deflexión Branson"] },
-  { icon: <IconPuzzle/>, title: "Otras Estructuras", desc: "Vigas de acople, ménsulas y elementos no convencionales.", path: "Otras_Estructuras", category: "Hormigón Armado",
+  { icon: <IconBuilding/>, title: "Edificaciones Multi-Piso", desc: "Sistemas aporticados y duales con pantallas C.21.9. Derivas, espectro y planos.", path: "Sistema_Aporticado_y_Dual", category: "Hormigón Armado",
+    solves: "Modelado y diseño integral de edificios de varios niveles combinando pórticos resistentes a momentos y muros estructurales (pantallas de cortante).",
+    verifies: "Análisis modal espectral, control estricto de derivas inelásticas al 1.0%, cortante basal y detallado sísmico C.21.",
+    delivers: "Planos DXF de despiece estructural con rótulo ICONTEC y memoria de cálculo completa para radicación en curadurías.", forWho: "Calculistas y constructoras de edificaciones residenciales, comerciales e institucionales.", tags: ["Curadurías", "Pantallas C.21", "LOD 400"] },
+  { icon: <IconPuzzle/>, title: "Pórticos y Nudos C.21", desc: "Confinamiento y cortante en uniones sísmicas viga-columna NSR-10 C.21.7.", path: "Porticos_Nudos", category: "Hormigón Armado",
+    solves: "Verificación y diseño del nudo viga-columna para disipación especial (DES) y moderada (DMO) de energía.",
+    verifies: "Cortante horizontal Vn, capacidad del concreto Vj, confinamiento transversal y anclaje de barras (NSR-10 C.21.7).",
+    delivers: "Esquema de confinamiento de nudo y memoria de ductilidad.", forWho: "Calculistas de edificaciones en zonas de amenaza sísmica alta e intermedia.", tags: ["Nudos C.21", "DES / DMO"] },
+  { icon: <IconPuzzle/>, title: "Otras Estructuras", desc: "Vigas de acople, ménsulas cortas y elementos no convencionales.", path: "Otras_Estructuras", category: "Hormigón Armado",
     solves: "Resolución de elementos especiales de concreto armado como vigas de acople y ménsulas cortas.",
     verifies: "Bielas y tirantes y cortante por fricción.",
     delivers: "Esquemas de armado y memoria justificativa.", forWho: "Especialistas en proyectos industriales o comerciales.", tags: ["Bielas", "Ménsulas"] },
@@ -176,7 +234,8 @@ const MODULES: Module[] = [
     solves: "Estimaciones iniciales de secciones transversales para facilitar el planteamiento estructural.",
     verifies: "Reglas empíricas de la NSR-10 y ACI 318 para altura de vigas y espesor de losas.",
     delivers: "Tabla comparativa de secciones sugeridas.", forWho: "Calculistas en fase de anteproyecto.", tags: ["NSR-10", "Rápido"] },
-  // ── CIMENTACIONES
+
+  // ── CIMENTACIONES & CONTENCIÓN
   { icon: <IconLayers/>, title: "Zapatas Aisladas", desc: "Concéntricas y excéntricas. Punzonamiento y despiece DXF ICONTEC.", path: "Zapatas", category: "Cimentaciones",
     solves: "Dimensionamiento en planta y espesor de cimentaciones superficiales bajo cargas combinadas.",
     verifies: "Esfuerzos sobre terreno, flexión, cortante unidireccional y punzonamiento biaxial.",
@@ -193,6 +252,33 @@ const MODULES: Module[] = [
     solves: "Diseño geométrico y estructural de muros en voladizo con empujes de suelo.",
     verifies: "FS a volcamiento y deslizamiento, presiones netas bajo teorías de Rankine/Coulomb.",
     delivers: "Memoria geotécnica y estructural justificativa.", forWho: "Ingenieros civiles en proyectos de urbanismo.", tags: ["Estabilidad", "Rankine"] },
+  { icon: <IconRows/>, title: "KonteWall (Laderas)", desc: "Muros de contención en laderas, tacón estabilizador y laderas de montaña.", path: "Kontewall", category: "Cimentaciones",
+    solves: "Diseño estructural y geotécnico de muros de contención escalonados y en voladizo para laderas y sótanos.",
+    verifies: "Factores de seguridad a volcamiento, deslizamiento, capacidad portante y drenajes (NSR-10 C.11 y Título H).",
+    delivers: "Plano de despiece DXF con tacón y drenajes + memoria técnica de empujes de tierras.", forWho: "Geotecnistas, urbanizadores y calculistas de vías y sótanos.", tags: ["Muros Voladizo", "Laderas", "Título H"] },
+  { icon: <IconElevator/>, title: "Fosos de Ascensores", desc: "Cajones bajo nivel freático, subpresión hidrostática e impacto dinámico.", path: "Foso_Ascensores", category: "Cimentaciones",
+    solves: "Diseño estructural de fosos de elevadores enterrados bajo nivel freático y cargas dinámicas de amortiguador.",
+    verifies: "Flotación (up-lift), impermeabilización, empuje hidrostático y punzonamiento por impacto de pistón.",
+    delivers: "Plano de despiece de losa y muros de foso con sellado waterstop.", forWho: "Constructores de edificios residenciales y comerciales con sótanos.", tags: ["Hidrostático", "Ascensores"] },
+
+  // ── INFRAESTRUCTURA & PUENTES
+  { icon: <IconBridge/>, title: "Puentes Bailey / Acrow", desc: "Puentes metálicos modulares CCP-14 e Invías. Configuraciones SS a TD.", path: "Puentes_Bailey", category: "Infraestructura & Puentes",
+    solves: "Modelado y dimensionamiento integral de puentes metálicos modulares de emergencia y definitivos para vías nacionales y terciarias.",
+    verifies: "Líneas de influencia camión C-40-95 y militar, deflexión L/800, nariz de lanzamiento y combinaciones CCP-14 / AASHTO LRFD.",
+    delivers: "Modelo OpenBIM IFC LOD 400, protocolo de prueba de carga, APU Invías y memoria de cálculo de 48+ páginas.", forWho: "Consorcios viales, alcaldías, gobernaciones y contratistas de infraestructura.", tags: ["CCP-14", "Invías", "IFC LOD 400"] },
+  { icon: <IconFuel/>, title: "Canopy Estaciones EDS", desc: "Cubiertas en voladizo de grandes luces para estaciones de servicio e industrias.", path: "Canopy_Estaciones", category: "Infraestructura & Puentes",
+    solves: "Diseño estructural de cubiertas de grandes luces en voladizo para estaciones de servicio con columnas tubulares y losas de pista.",
+    verifies: "Acción de viento NSR-10 B.6 (succión de cubierta abierta), control de vibraciones y estabilidad sísmica.",
+    delivers: "Planos de taller de estructura metálica, despiece de fundaciones y memoria estructural.", forWho: "Diseñadores de estaciones de servicio, distribuidoras de combustible e industrias.", tags: ["Grandes Luces", "Viento B.6", "EDS"] },
+  { icon: <IconRuler/>, title: "Carriles de Acceso y Giro", desc: "Diseño geométrico vial, radios de giro y faja de retiro según Invías / ANI.", path: "Carriles_Administrador", category: "Infraestructura & Puentes",
+    solves: "Trazado y verificación de accesos vehiculares, carriles de aceleración/desaceleración y conos de aproximación.",
+    verifies: "Radios de giro de vehículos pesados (WB-15 / WB-20), visibilidad de frenado y normas de concesión vial.",
+    delivers: "Planos de señalización y demarcación vial con radios de curvatura.", forWho: "Ingenieros de vías, urbanizadores comerciales y estaciones de servicio.", tags: ["Invías", "Accesos Viales", "WB-15"] },
+  { icon: <IconFuel/>, title: "Fosas y Redes MEP", desc: "Contención de fosa de tanques NFPA 30 / Res. 40198 y redes de combustible.", path: "EDS_Guamal_MEP", category: "Infraestructura & Puentes",
+    solves: "Diseño estructural y electromecánico de fosas subterráneas de combustible con muros de retención herméticos.",
+    verifies: "Subpresión por nivel freático, tuberías de doble pared y protocolos NFPA 30 / Res. 40198 de MinMinas.",
+    delivers: "Planos de redes hidrosanitarias, contención de derrames y memoria técnica.", forWho: "Ingenieros de hidrocarburos y estaciones de servicio.", tags: ["NFPA 30", "Fosa Tanques", "MEP"] },
+
   // ── SISMO Y VIENTO
   { icon: <IconGlobe/>, title: "Diseño Sísmico", desc: "Espectros de diseño, FHE, derivas y parámetros de sitio.", path: "Diseño_Sismico", category: "Sismo & Viento",
     solves: "Cálculo del espectro elástico de diseño y la Fuerza Horizontal Equivalente basal.",
@@ -206,6 +292,21 @@ const MODULES: Module[] = [
     solves: "Evaluación de irregularidades en planta y elevación para clasificar la estructura.",
     verifies: "Ajuste del coeficiente R y redundancia sísmica, NSR-10 A.3.3.",
     delivers: "Reporte de irregularidades para anexo al estudio sísmico.", forWho: "Revisores estructurales.", tags: ["Torsión", "Ajuste R"] },
+
+  // ── ESTRUCTURAS ESPECIALES
+  { icon: <IconRoof/>, title: "Cubiertas de Coliseos y Arcos", desc: "Cerchas espaciales 3D, arcos parabólicos y polideportivos bajo NSR-10.", path: "Cubiertas_Coliseos", category: "Estructuras Especiales",
+    solves: "Análisis y dimensionamiento de mallas espaciales de dos capas y arcos tubulares para polideportivos y coliseos.",
+    verifies: "Cargas de viento asimétricas (NSR-10 B.6), granizo, pandeo local de barras tubulares y placas de nudo.",
+    delivers: "Lista de despiece de perfiles tubulares, reacciones en apoyos y memoria técnica.", forWho: "Ingenieros de escenarios deportivos y grandes naves industriales.", tags: ["Coliseos", "Mallas Espaciales"] },
+  { icon: <IconHBeam/>, title: "Estructuras Metálicas", desc: "Propiedades de perfiles de acero y diseño de conexiones AISC LRFD.", path: "Estructuras_Metalicas", category: "Estructuras Especiales",
+    solves: "Propiedades geométricas de secciones de acero y diseño de conexiones a momento y cortante.",
+    verifies: "AISC LRFD y NSR-10 Título F para conexiones soldadas y empernadas.",
+    delivers: "Tabla de propiedades y cálculo de la conexión.", forWho: "Calculistas de naves industriales y pasarelas.", tags: ["AISC", "Conexiones"] },
+  { icon: <IconGrid2/>, title: "Madera Estructural", desc: "Pórticos y cubiertas en madera aserrada — NSR-10 Título G.", path: "Madera_Estructuras", category: "Estructuras Especiales",
+    solves: "Diseño de elementos de madera aserrada bajo flexión, compresión y conexiones.",
+    verifies: "Capacidades por especie y grado de madera, NSR-10 Título G.",
+    delivers: "Memoria y especificaciones de perfil.", forWho: "Especialistas en arquitectura en madera.", tags: ["Madera", "Título G"] },
+
   // ── MAMPOSTERÍA Y SISTEMAS ALTERNATIVOS
   { icon: <IconGridLines/>, title: "Mampostería Estructural", desc: "Muros de bloque a corte, flexocompresión y cuantías mínimas.", path: "Mamposteria_Estructural", category: "Mampostería & Alt.",
     solves: "Cálculo de muros en bloque estructural para edificios de baja altura.",
@@ -219,19 +320,8 @@ const MODULES: Module[] = [
     solves: "Diseño de losas aligeradas unidireccionales con el sistema Placa Fácil.",
     verifies: "Cargas de servicio, deflexiones y resistencia del perfil de apoyo.",
     delivers: "Esquema de armado y especificaciones del perfil.", forWho: "Calculistas de vivienda masiva.", tags: ["Bloquelón", "Perfiles"] },
-  { icon: <IconGrid2/>, title: "Kontewall", desc: "Paneles prefabricados EPS y mallas electrosoldadas (Emmedue).", path: "Kontewall", category: "Mampostería & Alt.",
-    solves: "Diseño de paneles prefabricados de poliestireno expandido con mallas electrosoldadas.",
-    verifies: "Capacidad a corte, flexión y confinamiento sísmico del panel.",
-    delivers: "Memoria y plano de modulación del panel.", forWho: "Constructores de vivienda industrializada.", tags: ["EPS", "Paneles 3D"] },
-  { icon: <IconGrid2/>, title: "Madera Estructural", desc: "Pórticos y cubiertas en madera aserrada — NSR-10 Título G.", path: "Madera_Estructuras", category: "Mampostería & Alt.",
-    solves: "Diseño de elementos de madera aserrada bajo flexión, compresión y conexiones.",
-    verifies: "Capacidades por especie y grado de madera, NSR-10 Título G.",
-    delivers: "Memoria y especificaciones de perfil.", forWho: "Especialistas en arquitectura en madera.", tags: ["Madera", "Título G"] },
-  { icon: <IconGrid2/>, title: "Estructuras Metálicas", desc: "Propiedades de perfiles de acero y diseño de conexiones.", path: "Estructuras_Metalicas", category: "Mampostería & Alt.",
-    solves: "Propiedades geométricas de secciones de acero y diseño de conexiones a momento y cortante.",
-    verifies: "AISC LRFD y NSR-10 Título F para conexiones soldadas y empernadas.",
-    delivers: "Tabla de propiedades y cálculo de la conexión.", forWho: "Calculistas de naves industriales y pasarelas.", tags: ["AISC", "Conexiones"] },
-  // ── PRESUPUESTO
+
+  // ── PRESUPUESTO & APU
   { icon: <IconDoc/>, title: "Calculadora Materiales", desc: "Estimaciones rápidas de cemento, acero y agregados.", path: "Calculadora_de_Materiales", category: "Presupuesto",
     solves: "Cálculo rápido de consumos de materiales básicos por metro cúbico de concreto.",
     verifies: "Relaciones de mezcla estándar ACI 211.",
@@ -252,34 +342,42 @@ const MODULES: Module[] = [
     solves: "Supervisión integral del presupuesto general de la obra.", verifies: "Márgenes de contribución y utilidad esperada.", delivers: "Dashboard de control presupuestal.", forWho: "Gerentes de empresa constructora.", tags: ["Control Total", "Márgenes"] },
   { icon: <IconDoc/>, title: "Explosión de Insumos", desc: "Consolidado total de compras por materiales, MOD y equipos.", path: "PRE_Explosion_Insumos", category: "Presupuesto",
     solves: "Generación del consolidado global de insumos requeridos para toda la obra.", verifies: "Coherencia con la explosión de APUs.", delivers: "Lista de compras en Excel.", forWho: "Logística y compras de obra.", tags: ["Logística", "Compras"] },
-  // ── ANÁLISIS ESTRUCTURAL
+
+  // ── ANÁLISIS ESTRUCTURAL & MODELADO
   { icon: <IconMatrix2D/>, title: "Análisis 2D", desc: "Solucionador matricial para pórticos planos — M, V y deflexión.", path: "Analisis_Estructural_2D", category: "Análisis Estructural",
     solves: "Análisis matricial de vigas continuas y pórticos planos con cargas arbitrarias.", verifies: "Equilibrio nodal y compatibilidad de deformaciones.", delivers: "Diagramas M, V y deflexión.", forWho: "Calculistas y docentes.", tags: ["Matricial 2D", "Pórticos"] },
   { icon: <IconBarChart/>, title: "Análisis 3D", desc: "Motor espacial con 6 GDL por nodo. Matrices globales y reacciones.", path: "Analisis_Estructural_3D", category: "Análisis Estructural",
     solves: "Análisis matricial espacial de estructuras tridimensionales con 6 GDL/nodo.", verifies: "Matrices de rigidez global y reacciones en apoyos.", delivers: "Tabla de desplazamientos y reacciones.", forWho: "Calculistas avanzados.", tags: ["Espacial 3D", "Matrices"] },
   { icon: <IconGrid2/>, title: "Generador 3D", desc: "Pórticos espaciales paramétricos — definición de mallas de nodos.", path: "Generador_Maestro_3D", category: "Análisis Estructural",
     solves: "Generación interactiva de mallas de nodos para pórticos espaciales 3D.", verifies: "Coherencia de la malla con las condiciones de apoyo.", delivers: "Archivo de nodos y elementos para el solver.", forWho: "Calculistas e investigadores estructurales.", tags: ["Paramétrico", "Mallas"] },
+  { icon: <IconPenTool/>, title: "StructoDraw (Lienzo)", desc: "Lienzo vectorial interactivo en tiempo real para esquematización estructural.", path: "StructoDraw", category: "Análisis Estructural",
+    solves: "Entorno interactivo para bosquejar pórticos, armaduras y diagramas de momentos directamente en el navegador.", verifies: "Conectividad de nodos, longitudes de barras y escalas gráficas.", delivers: "Archivos vectoriales SVG y datos de geometría.", forWho: "Calculistas para conceptualización rápida y docencia técnica.", tags: ["Canvas Vectorial", "Esquemas"] },
+  { icon: <IconBox3D/>, title: "Gemelo Digital OpenBIM 3D", desc: "Visualizador IFC interactivo con metadatos y capas de obra.", path: "Gemelo_Digital_3D", category: "Análisis Estructural",
+    solves: "Inspección y visualización interactiva de modelos OpenBIM IFC en 3D con filtrado de elementos.", verifies: "Compatibilidad geométrica y propiedades paramétricas de elementos estructurales.", delivers: "Vista 3D interactiva en el navegador.", forWho: "Modeladores BIM, revisores e interventores.", tags: ["OpenBIM", "Visor 3D"] },
   { icon: <IconGlobe/>, title: "Resistencia Materiales", desc: "Inercias, centroides de secciones compuestas y Círculo de Mohr.", path: "Resistencia_Materiales", category: "Análisis Estructural",
     solves: "Cálculo de propiedades geométricas de secciones compuestas y estados de tensión.", verifies: "Eje neutro, momento de inercia y radios principales (Mohr).", delivers: "Diagrama de Mohr y tabla de propiedades.", forWho: "Estudiantes e ingenieros en formación.", tags: ["Mohr", "Centroides"] },
   { icon: <IconApps/>, title: "Utilidades Comunes", desc: "Conversión de unidades y utilidades matemáticas de ingeniería.", path: "Utilidades_Comunes", category: "Análisis Estructural",
     solves: "Herramientas de apoyo: conversión de unidades, interpolaciones y fórmulas frecuentes.", verifies: "Consistencia dimensional.", delivers: "Resultados numéricos en pantalla.", forWho: "Cualquier profesional del sector.", tags: ["Unidades", "Matemáticas"] },
-  // ── GESTIÓN DE OBRA
-  { icon: <IconDoc/>, title: "Registro Fotográfico", desc: "Control visual con geolocalización y reportes DOCX.", path: "Registro_Fotografico", category: "Gestión de Obra",
-    solves: "Control visual de avance de obra con trazabilidad por fecha y ubicación.", verifies: "Consistencia de la documentación fotográfica por frente de trabajo.", delivers: "Reporte DOCX con fotos y comentarios.", forWho: "Residentes e interventores de obra.", tags: ["Fotos", "DOCX"] },
-  { icon: <IconBarChart/>, title: "Estimador BIM 4D/5D", desc: "Cronograma (4D) y costos en el tiempo (5D).", path: "Estimador_4D_5D", category: "Gestión de Obra",
-    solves: "Asociación de actividades al cronograma e integración de costos en el tiempo.", verifies: "Coherencia entre cronograma Gantt y presupuesto de actividades.", delivers: "Simulación BIM 4D/5D.", forWho: "Gerentes de proyecto y directores BIM.", tags: ["Cronograma", "BIM 5D"] },
-  { icon: <IconGrid2/>, title: "Bitácora IA", desc: "Diario de obra inteligente asistido por IA.", path: "Bitacora_IA", category: "Gestión de Obra",
-    solves: "Registro automático del diario de obra y procesamiento de minutas de reunión con IA.", verifies: "Consistencia de actas y compromisos.", delivers: "Actas DOCX estructuradas.", forWho: "Directores y residentes de obra.", tags: ["IA", "Diario de Obra"] },
-  { icon: <IconGrid2/>, title: "Inventario y Consumo", desc: "Kardex valorizado, entradas PPP e imputación a frentes.", path: "ERP_Inventario_Materiales", category: "Gestión de Obra",
-    solves: "Control de inventario valorizado de materiales de construcción en bodega.", verifies: "Precio Promedio Ponderado (PPP) y consumos por frente.", delivers: "Kardex mensual y alerta de stock mínimo.", forWho: "Jefes de bodega y directores de compras.", tags: ["Kardex", "PPP"] },
-  { icon: <IconDoc/>, title: "Actas y Subcontratos", desc: "Cortes de obra, actas de pago y amortizaciones.", path: "ERP_Actas_Subcontratos", category: "Gestión de Obra",
-    solves: "Gestión de contratos de subcontratistas, cortes de obra y generación de actas.", verifies: "Amortizaciones de anticipo y retenciones.", delivers: "Actas de pago en DOCX.", forWho: "Directores de obra y coordinadores jurídicos.", tags: ["Actas", "Contratos"] },
+
+  // ── GESTIÓN DE OBRA (MÓDULOS ADMINISTRATIVOS & ERP CORPORATIVO)
+  { icon: <IconGrid2/>, title: "Bitácora IA", desc: "Diario de obra inteligente asistido por IA. Actas y minutas automatizadas.", path: "Bitacora_IA", category: "Gestión de Obra",
+    solves: "Registro automático del diario de obra y procesamiento de minutas de reunión con IA.", verifies: "Consistencia de actas y compromisos de obra.", delivers: "Actas DOCX estructuradas y trazables.", forWho: "Directores y residentes de obra de constructoras.", tags: ["IA", "Diario de Obra", "ERP Civil"] },
+  { icon: <IconGrid2/>, title: "Inventario y Consumo", desc: "Kardex valorizado, entradas PPP e imputación a frentes de obra.", path: "ERP_Inventario_Materiales", category: "Gestión de Obra",
+    solves: "Control de inventario valorizado de materiales de construcción en bodega y almacén.", verifies: "Precio Promedio Ponderado (PPP) y consumos por frente.", delivers: "Kardex mensual y alerta de stock mínimo.", forWho: "Jefes de bodega y directores de compras de constructoras.", tags: ["Kardex", "PPP", "ERP Civil"] },
+  { icon: <IconDoc/>, title: "Actas y Subcontratos", desc: "Cortes de obra, actas de pago y amortización de anticipos.", path: "ERP_Actas_Subcontratos", category: "Gestión de Obra",
+    solves: "Gestión de contratos de subcontratistas, cortes de obra y generación de actas.", verifies: "Amortizaciones de anticipo y retenciones de garantía.", delivers: "Actas de pago en DOCX y reporte financiero.", forWho: "Directores de obra y coordinadores jurídicos.", tags: ["Actas", "Contratos", "ERP Civil"] },
   { icon: <IconGrid2/>, title: "Personal y Equipos", desc: "Nómina, jornales, horas extras y reportes de maquinaria.", path: "ERP_Personal_Equipos", category: "Gestión de Obra",
-    solves: "Control de nómina diaria de trabajadores y registro de uso de maquinaria.", verifies: "Horas laboradas vs. contratadas, tarifas legales.", delivers: "Reporte semanal de nómina y horas máquina.", forWho: "Directores de recursos humanos y obra.", tags: ["Nómina", "Maquinaria"] },
-  { icon: <IconTrend/>, title: "Control de Desviaciones", desc: "EVM, curva S comparativa y análisis de desviaciones.", path: "ERP_Control_Desviaciones", category: "Gestión de Obra",
-    solves: "Aplicación del método del Valor Ganado (EVM) para medir el desempeño de la obra.", verifies: "CPI y SPI reales vs. planificados, curva S.", delivers: "Tablero de alertas EVM.", forWho: "Gerentes y patrocinadores de proyecto.", tags: ["EVM", "Curva S"] },
-  { icon: <IconTrend/>, title: "Dashboard Financiero", desc: "Consolidación financiera de la obra en tiempo real.", path: "ERP_Dashboard_Financiero", category: "Gestión de Obra",
-    solves: "Consolidación de todos los flujos financieros de la obra (costos vs. ingresos).", verifies: "ROI proyectado, CPI/SPI y rentabilidad del contrato.", delivers: "Tablero ejecutivo interactivo.", forWho: "Gerentes de empresa y directores de proyecto.", tags: ["KPIs", "Rentabilidad"] },
+    solves: "Control de nómina diaria de trabajadores y registro de uso de maquinaria pesada.", verifies: "Horas laboradas vs. contratadas, tarifas legales y horas máquina.", delivers: "Reporte semanal de nómina y costos de equipo.", forWho: "Directores de recursos humanos y gerentes de obra.", tags: ["Nómina", "Maquinaria", "ERP Civil"] },
+  { icon: <IconTrend/>, title: "Control de Desviaciones", desc: "EVM, curva S comparativa y análisis de desviaciones de costo y plazo.", path: "ERP_Control_Desviaciones", category: "Gestión de Obra",
+    solves: "Aplicación del método del Valor Ganado (EVM) para medir el desempeño de la obra.", verifies: "CPI y SPI reales vs. planificados, curva S de avance.", delivers: "Tablero de alertas EVM y proyecciones EAC.", forWho: "Gerentes y patrocinadores de proyecto.", tags: ["EVM", "Curva S", "ERP Civil"] },
+  { icon: <IconTrend/>, title: "Dashboard Financiero", desc: "Consolidación financiera de la obra en tiempo real (costos vs. ingresos).", path: "ERP_Dashboard_Financiero", category: "Gestión de Obra",
+    solves: "Consolidación de todos los flujos financieros de la obra (costos vs. ingresos).", verifies: "ROI proyectado, margen de contribución y rentabilidad del contrato.", delivers: "Tablero ejecutivo interactivo.", forWho: "Gerentes de constructora y directores financieros.", tags: ["KPIs", "Rentabilidad", "ERP Civil"] },
+  { icon: <IconDoc/>, title: "Registro Fotográfico", desc: "Control visual de obra con geolocalización y reportes DOCX ejecutivos.", path: "Registro_Fotografico", category: "Gestión de Obra",
+    solves: "Control visual de avance de obra con trazabilidad por fecha y ubicación geográfica.", verifies: "Consistencia de la documentación fotográfica por frente de trabajo.", delivers: "Reporte DOCX con fotos y comentarios técnicos.", forWho: "Residentes e interventores de obra.", tags: ["Fotos", "DOCX", "Interventoría"] },
+  { icon: <IconBarChart/>, title: "Estimador BIM 4D/5D", desc: "Cronograma de obra (4D) e integración de costos en el tiempo (5D).", path: "Estimador_4D_5D", category: "Gestión de Obra",
+    solves: "Asociación de actividades al cronograma e integración de costos en el tiempo.", verifies: "Coherencia entre cronograma Gantt y presupuesto de actividades.", delivers: "Simulación de flujo de caja y avance temporal.", forWho: "Gerentes de proyecto y directores BIM.", tags: ["Cronograma", "BIM 5D", "Gantt"] },
+  { icon: <IconStethoscope/>, title: "Inspección Patológica", desc: "Evaluación de patología estructural, fisuras y vulnerabilidad pericial.", path: "Inspeccion_Visual", category: "Gestión de Obra",
+    solves: "Fichas técnicas de diagnóstico patológico en edificaciones con mapeo de daños.", verifies: "Criterios AIS-410, índice de daño, corrosión y pérdida de sección de acero.", delivers: "Informe pericial patológico en DOCX con registro clasificado.", forWho: "Peritos estructurales, aseguradoras y consultores de rehabilitación.", tags: ["Patología", "Peritaje", "DOCX"] },
 ];
 
 // ─── Agrupación por categoría ─────────────────────────────────────
@@ -408,7 +506,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
       <div className="bg-[#090b10] py-14 border-b border-[#0b1e45]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            { v: '33', s: '+', l: 'Módulos activos', c: 'text-white' },
+            { v: `${MODULES.length}`, s: '+', l: 'Módulos activos', c: 'text-white' },
             { v: '14', s: '', l: 'Normas soportadas', c: 'text-[#f5c842]' },
             { v: 'ERP', s: '', l: 'Control Financiero', c: 'text-white' },
             { v: '100', s: '%', l: 'Cloud Workspace', c: 'text-[#1458f5]' },
@@ -427,7 +525,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-white uppercase tracking-tight mb-4">Catálogo Completo de Soluciones</h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
-              {MODULES.length} módulos en 6 áreas de trabajo. Haz clic en cualquier tarjeta para ver su alcance técnico, normativas y entregables antes de abrir la app.
+              {MODULES.length} módulos distribuidos en ingeniería estructural, geotecnia, infraestructura y ERP de obra. Haz clic en cualquier tarjeta para ver su alcance técnico y opciones de acceso.
             </p>
           </div>
 
@@ -447,98 +545,151 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
 
           {/* Grid de tarjetas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {displayedModules.map((mod, i) => (
-              <div key={i} onClick={() => setSelectedModule(mod)}
-                className="bg-[#090b10] flex flex-col p-5 rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-[#f5c842] hover:shadow-[0_6px_24px_rgba(245,200,66,0.12)] transition-all group cursor-pointer">
-                <div className="flex items-center gap-3 mb-3">
-                  <HexIcon>{mod.icon}</HexIcon>
-                  <div>
-                    <div className="text-[10px] font-bold text-[#1458f5] uppercase tracking-widest">{mod.category}</div>
-                    <h4 className="font-bold text-white text-sm leading-tight">{mod.title}</h4>
+            {displayedModules.map((mod, i) => {
+              const isCorporate = mod.category === 'Gestión de Obra';
+              return (
+                <div key={i} onClick={() => setSelectedModule(mod)}
+                  className={`bg-[#090b10] flex flex-col p-5 rounded-xl border transition-all group cursor-pointer ${
+                    isCorporate
+                      ? 'border-blue-900/40 hover:border-blue-400 hover:shadow-[0_6px_24px_rgba(20,88,245,0.2)]'
+                      : 'border-[rgba(20,88,245,0.25)] hover:border-[#f5c842] hover:shadow-[0_6px_24px_rgba(245,200,66,0.12)]'
+                  }`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <HexIcon gold={!isCorporate}>{mod.icon}</HexIcon>
+                    <div>
+                      <div className={`text-[10px] font-bold uppercase tracking-widest ${isCorporate ? 'text-blue-400' : 'text-[#1458f5]'}`}>
+                        {mod.category}
+                      </div>
+                      <h4 className="font-bold text-white text-sm leading-tight">{mod.title}</h4>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed flex-grow line-clamp-3">{mod.desc}</p>
+                  <div className="flex flex-wrap gap-1.5 mt-3 mb-3">
+                    {isCorporate && (
+                      <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30 uppercase tracking-wider">
+                        Demo Corporativa
+                      </span>
+                    )}
+                    {mod.tags.map(t => (
+                      <span key={t} className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#1458f5]/10 border border-[rgba(20,88,245,0.2)] text-slate-300">{t}</span>
+                    ))}
+                  </div>
+                  <div className={`text-xs font-bold flex items-center gap-1.5 transition-colors ${
+                    isCorporate ? 'text-blue-400 group-hover:text-white' : 'text-[#1458f5] group-hover:text-[#f5c842]'
+                  }`}>
+                    {isCorporate ? 'Ver alcance y agendar demo' : 'Ver alcance'} <ArrowRight size={13} />
                   </div>
                 </div>
-                <p className="text-xs text-slate-400 leading-relaxed flex-grow line-clamp-3">{mod.desc}</p>
-                <div className="flex flex-wrap gap-1.5 mt-3 mb-3">
-                  {mod.tags.map(t => (
-                    <span key={t} className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#1458f5]/10 border border-[rgba(20,88,245,0.2)] text-slate-300">{t}</span>
-                  ))}
-                </div>
-                <div className="text-xs text-[#1458f5] font-bold flex items-center gap-1.5 group-hover:text-[#f5c842] transition-colors">
-                  Ver alcance <ArrowRight size={13} />
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ── MODAL: FICHA DE ALCANCE ─────────────────────────────── */}
-      {selectedModule && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-          onClick={() => setSelectedModule(null)}>
-          <div className="bg-[#0b1e45] border border-[rgba(245,200,66,0.3)] rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-[0_0_60px_rgba(0,0,0,0.9)]"
-            onClick={e => e.stopPropagation()}>
-            {/* Header */}
-            <div className="p-6 flex justify-between items-start bg-gradient-to-r from-[#090b10] to-[#0b1e45] rounded-t-2xl border-b border-[rgba(255,255,255,0.05)]">
-              <div className="flex items-center gap-4">
-                <HexIcon>{selectedModule.icon}</HexIcon>
-                <div>
-                  <div className="text-[10px] font-bold text-[#1458f5] tracking-widest uppercase">{selectedModule.category}</div>
-                  <h3 className="text-xl font-black text-white">{selectedModule.title}</h3>
+      {selectedModule && (() => {
+        const isCorporate = selectedModule.category === 'Gestión de Obra';
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedModule(null)}>
+            <div className="bg-[#0b1e45] border border-[rgba(245,200,66,0.3)] rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-[0_0_60px_rgba(0,0,0,0.9)]"
+              onClick={e => e.stopPropagation()}>
+              {/* Header */}
+              <div className="p-6 flex justify-between items-start bg-gradient-to-r from-[#090b10] to-[#0b1e45] rounded-t-2xl border-b border-[rgba(255,255,255,0.05)]">
+                <div className="flex items-center gap-4">
+                  <HexIcon gold={!isCorporate}>{selectedModule.icon}</HexIcon>
+                  <div>
+                    <div className={`text-[10px] font-bold tracking-widest uppercase ${isCorporate ? 'text-blue-400' : 'text-[#1458f5]'}`}>
+                      {selectedModule.category}
+                    </div>
+                    <h3 className="text-xl font-black text-white">{selectedModule.title}</h3>
+                  </div>
                 </div>
+                <button onClick={() => setSelectedModule(null)} className="text-slate-400 hover:text-white bg-white/5 p-2 rounded-lg transition-colors">
+                  <X size={20} />
+                </button>
               </div>
-              <button onClick={() => setSelectedModule(null)} className="text-slate-400 hover:text-white bg-white/5 p-2 rounded-lg transition-colors">
-                <X size={20} />
-              </button>
-            </div>
-            {/* Body */}
-            <div className="p-6 space-y-6">
-              <div>
-                <h4 className="flex items-center gap-2 text-[#f5c842] font-bold uppercase tracking-wider text-xs mb-2">
-                  <CheckCircle2 size={15}/> ¿Qué resuelve?
-                </h4>
-                <p className="text-slate-300 text-sm leading-relaxed">{selectedModule.solves}</p>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {/* Body */}
+              <div className="p-6 space-y-6">
                 <div>
-                  <h4 className="flex items-center gap-2 text-[#1458f5] font-bold uppercase tracking-wider text-xs mb-2">
-                    <ShieldCheck size={15}/> ¿Qué verifica?
+                  <h4 className="flex items-center gap-2 text-[#f5c842] font-bold uppercase tracking-wider text-xs mb-2">
+                    <CheckCircle2 size={15}/> ¿Qué resuelve?
                   </h4>
-                  <p className="text-slate-300 text-sm leading-relaxed">{selectedModule.verifies}</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">{selectedModule.solves}</p>
                 </div>
-                <div>
-                  <h4 className="flex items-center gap-2 text-emerald-400 font-bold uppercase tracking-wider text-xs mb-2">
-                    <Download size={15}/> Entregables
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <h4 className="flex items-center gap-2 text-[#1458f5] font-bold uppercase tracking-wider text-xs mb-2">
+                      <ShieldCheck size={15}/> ¿Qué verifica?
+                    </h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">{selectedModule.verifies}</p>
+                  </div>
+                  <div>
+                    <h4 className="flex items-center gap-2 text-emerald-400 font-bold uppercase tracking-wider text-xs mb-2">
+                      <Download size={15}/> Entregables
+                    </h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">{selectedModule.delivers}</p>
+                  </div>
+                </div>
+                <div className="bg-[#090b10] p-4 rounded-xl border border-[rgba(255,255,255,0.04)]">
+                  <h4 className="flex items-center gap-2 text-slate-400 font-bold uppercase tracking-wider text-xs mb-1.5">
+                    <Users size={13}/> Para quién
                   </h4>
-                  <p className="text-slate-300 text-sm leading-relaxed">{selectedModule.delivers}</p>
+                  <p className="text-slate-400 text-sm">{selectedModule.forWho}</p>
+                </div>
+
+                {isCorporate ? (
+                  <div className="p-4 bg-blue-950/40 border border-blue-500/25 rounded-xl text-xs text-slate-300 leading-relaxed">
+                    <strong className="text-white block mb-1">Módulo Administrativo para Empresas:</strong>
+                    Esta herramienta forma parte de la suite ERP civil de KONTE para control de obras. Se habilita previa solicitud y demostración ejecutiva personalizada adaptada al flujo de costos de su empresa.
+                  </div>
+                ) : null}
+
+                <div className="flex flex-wrap gap-2">
+                  {isCorporate ? (
+                    <>
+                      <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-[10px] font-bold text-blue-300 uppercase tracking-wider">Suite ERP Civil</span>
+                      <span className="px-3 py-1 bg-[#f5c842]/10 border border-[#f5c842]/30 rounded-full text-[10px] font-bold text-[#f5c842] uppercase tracking-wider">Acceso Corporativo</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="px-3 py-1 bg-[#1458f5]/10 border border-[#1458f5]/20 rounded-full text-[10px] font-bold text-blue-300 uppercase tracking-wider">Cloud Workspace</span>
+                      <span className="px-3 py-1 bg-[#f5c842]/10 border border-[#f5c842]/20 rounded-full text-[10px] font-bold text-[#f5c842] uppercase tracking-wider">Plan Fundadores</span>
+                    </>
+                  )}
                 </div>
               </div>
-              <div className="bg-[#090b10] p-4 rounded-xl border border-[rgba(255,255,255,0.04)]">
-                <h4 className="flex items-center gap-2 text-slate-400 font-bold uppercase tracking-wider text-xs mb-1.5">
-                  <Users size={13}/> Para quién
-                </h4>
-                <p className="text-slate-400 text-sm">{selectedModule.forWho}</p>
+              {/* Footer CTAs */}
+              <div className="p-5 bg-[#090b10] rounded-b-2xl border-t border-[rgba(255,255,255,0.04)] flex flex-col sm:flex-row gap-3">
+                {isCorporate ? (
+                  <>
+                    <a href={`https://wa.me/573204468049?text=Hola%20KONTE%2C%20deseo%20agendar%20una%20demostraci%C3%B3n%20corporativa%20del%20m%C3%B3dulo%20ERP%20de%20${encodeURIComponent(selectedModule.title)}%20para%20mi%20empresa.`} target="_blank" rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-[#f5c842] hover:bg-[#c99f24] text-black font-black py-3 px-5 rounded-xl transition-colors text-sm shadow-md">
+                      Agendar Demostración Corporativa <ExternalLink size={16}/>
+                    </a>
+                    <a href={`mailto:contacto@konteingenieria.com?subject=Solicitud%20Demostracion%20ERP%20-%20${encodeURIComponent(selectedModule.title)}`}
+                      className="flex-1 flex items-center justify-center gap-2 bg-transparent border border-slate-600 hover:border-slate-400 text-white font-bold py-3 px-5 rounded-xl transition-colors text-sm">
+                      Contactar a un Ingeniero
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <a href={`https://structopro-app.streamlit.app/${selectedModule.path}`} target="_blank" rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-[#f5c842] hover:bg-[#c99f24] text-black font-black py-3 px-5 rounded-xl transition-colors text-sm">
+                      Abrir módulo <ExternalLink size={16}/>
+                    </a>
+                    <a href={`https://wa.me/573204468049?text=Hola%20KONTE%2C%20quisiera%20un%20ejemplo%20de%20entregable%20del%20m%C3%B3dulo%20${encodeURIComponent(selectedModule.title)}.`}
+                      target="_blank" rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-transparent border border-slate-600 hover:border-slate-400 text-white font-bold py-3 px-5 rounded-xl transition-colors text-sm">
+                      Solicitar demo documental
+                    </a>
+                  </>
+                )}
               </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-[#1458f5]/10 border border-[#1458f5]/20 rounded-full text-[10px] font-bold text-blue-300 uppercase tracking-wider">Cloud Workspace</span>
-                <span className="px-3 py-1 bg-[#f5c842]/10 border border-[#f5c842]/20 rounded-full text-[10px] font-bold text-[#f5c842] uppercase tracking-wider">Plan Premium</span>
-              </div>
-            </div>
-            {/* Footer CTAs */}
-            <div className="p-5 bg-[#090b10] rounded-b-2xl border-t border-[rgba(255,255,255,0.04)] flex flex-col sm:flex-row gap-3">
-              <a href={`https://structopro-app.streamlit.app/${selectedModule.path}`} target="_blank" rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 bg-[#f5c842] hover:bg-[#c99f24] text-black font-black py-3 px-5 rounded-xl transition-colors text-sm">
-                Abrir módulo <ExternalLink size={16}/>
-              </a>
-              <a href={`https://wa.me/573204468049?text=Hola%20KONTE%2C%20quisiera%20un%20ejemplo%20de%20entregable%20del%20módulo%20${encodeURIComponent(selectedModule.title)}.`}
-                target="_blank" rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 bg-transparent border border-slate-600 hover:border-slate-400 text-white font-bold py-3 px-5 rounded-xl transition-colors text-sm">
-                Solicitar demo documental
-              </a>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* ── BENEFICIOS ──────────────────────────────────────────── */}
       <section className="py-20 bg-[#040814]">
@@ -563,7 +714,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
         </div>
       </section>
 
-            {/* ── MÓDULOS ESPECIALIZADOS Y CORPORATIVOS (ACCESO POR SOLICITUD) ── */}
+      {/* ── MÓDULOS ESPECIALIZADOS Y CORPORATIVOS (ACCESO POR SOLICITUD) ── */}
       <section className="py-20 bg-[#060c1d] border-t border-[rgba(20,88,245,0.2)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -748,9 +899,15 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             
             <div className="text-center mb-10 border-b border-[#1458f5]/30 pb-10">
               <h3 className="text-2xl font-bold text-[#f5c842] mb-3">Plan Fundadores</h3>
-              <div className="text-5xl font-black text-white mb-5">$26.600 <span className="text-xl font-bold text-slate-400">COP/mes</span></div>
+              <div className="text-5xl font-black text-white mb-3">$26.600 <span className="text-xl font-bold text-slate-400">COP/mes</span></div>
+              <span className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold rounded-full mb-4">
+                Cálculo Estructural Sismorresistente
+              </span>
               <p className="text-blue-100 text-sm max-w-lg mx-auto leading-relaxed">
-                Tarifa preferencial de lanzamiento para la etapa inicial de StructoPro. Las futuras altas podrán ingresar con una tarifa actualizada.
+                Tarifa preferencial de lanzamiento para calculistas e ingenieros civiles independientes. Incluye acceso completo a los motores de diseño de columnas, vigas, zapatas, muros, mampostería y sismo NSR-10.
+              </p>
+              <p className="text-slate-400 text-xs max-w-md mx-auto mt-2 italic">
+                * Los módulos administrativos de obra, ERP y proyectos especializados se gestionan bajo demostración corporativa y cotización a medida.
               </p>
             </div>
 
