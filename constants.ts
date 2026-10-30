@@ -255,11 +255,12 @@ export const PROJECTS: Project[] = [
     location: 'Cundinamarca / Meta, Colombia',
     type: 'Arquitectura y Estructuras Especiales',
     year: '2026',
-    image: '/images/projects/cabana_suiza_exterior.png',
+    image: '/images/projects/cabana_tato_exterior_angular_4k.jpg',
     images: [
-      '/images/projects/cabana_suiza_exterior.png',
-      '/images/projects/cabana_suiza_interior.png',
-      '/images/projects/cabana_suiza_plantas.png'
+      '/images/projects/cabana_tato_exterior_angular_4k.jpg',
+      '/images/projects/cabana_tato_nocturno_glow_4k.jpg',
+      '/images/projects/cabana_tato_interior_chimenea_4k.jpg',
+      '/images/projects/cabana_tato_urbanismo_acceso_4k.jpg'
     ],
     status: 'Completed',
     area: '240 m²',

@@ -13,11 +13,11 @@ interface HomeProps {
 const SCROLL_IMAGES = [
   '/images/projects/puente_bailey_4k.jpg',
   '/images/projects/canopy_guamal_lod400.jpg',
-  '/images/projects/cabana_suiza_exterior.png',
+  '/images/projects/cabana_tato_exterior_angular_4k.jpg',
   '/images/projects/tanque_industrial_master.jpg',
   '/images/projects/puente_bailey_monograph.jpg',
   '/images/projects/canopy_guamal_lod400.jpg',
-  '/images/projects/cabana_suiza_interior.png',
+  '/images/projects/cabana_tato_nocturno_glow_4k.jpg',
   '/images/projects/cad_to_bim_composite.jpg',
   '/images/projects/tanque_industrial_vitrificado.jpg'
 ];
@@ -594,7 +594,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           >
             <div className="relative h-52 overflow-hidden">
               <img 
-                src="/images/projects/cabana_suiza_exterior.png" 
+                src="/images/projects/cabana_tato_exterior_angular_4k.jpg" 
                 alt="Cabaña Campestre Estilo Suizo" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
