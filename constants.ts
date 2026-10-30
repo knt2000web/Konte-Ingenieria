@@ -242,7 +242,7 @@ export const PROJECTS: Project[] = [
       '/images/projects/canopy_guamal_lod400.jpg'
     ],
     status: 'In Progress',
-    area: '25.000 m²',
+    area: '5.624 m²',
     description: 'Diseño geometrico de carriles de aceleracion LOD 400, muros cantilever y ciclopeos de contencion, cruces de via 36 pulgadas, ingenieria hidrosanitaria, electrica y canopy.',
     slug: 'eds-guamal-infraestructura-vial',
     seoH1: 'Ingenieria Integral y Accesos Viales EDS Guamal, Meta',

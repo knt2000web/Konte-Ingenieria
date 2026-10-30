@@ -452,12 +452,12 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
 
                   <div className="space-y-2 mb-5 text-xs font-mono">
                     <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
-                      <span className="text-gray-400">Cubierta Metálica</span>
-                      <span className="font-semibold text-white">Canopy Tipo Mariposa 42m</span>
+                      <span className="text-gray-400">Predio El Challet</span>
+                      <span className="font-semibold text-white">5.624 m² Área Total</span>
                     </div>
                     <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
-                      <span className="text-gray-400">Infraestructura Vial</span>
-                      <span className="font-semibold text-white">Carriles & Muros Contención</span>
+                      <span className="text-gray-400">Cubierta Metálica</span>
+                      <span className="font-semibold text-white">Canopy en V 37.00 m (322 m²)</span>
                     </div>
                     <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
                       <span className="text-gray-400">Modelado BIM</span>
