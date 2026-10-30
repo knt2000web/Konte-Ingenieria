@@ -378,11 +378,11 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
     
     <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors duration-300">
             {/* Hero Section */}
-      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/projects/puente_bailey_4k.jpg"])}>
+      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/projects/canopy_guamal_lod400.jpg"])}>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/80 to-slate-900/35 z-10 transition-colors" />
         <img
-          src="/images/projects/puente_bailey_4k.jpg"
-          alt="Ingeniería civil y consultoría en Duitama, Boyacá"
+          src="/images/projects/canopy_guamal_lod400.jpg"
+          alt="Diseño y cálculo estructural de canopy y estaciones de servicio - KONTE"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-105"
         />
         <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -392,10 +392,10 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-auto">
             <div className="max-w-3xl animate-in slide-in-from-bottom-10 duration-700 text-left">
               <span className="bg-primary text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold tracking-widest uppercase mb-6 inline-block shadow-md">
-                Ingeniería estructural &bull; Licencias &bull; Tecnología
+                Ingeniería estructural &bull; Estaciones de servicio &bull; Tecnología
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-                Ingeniería estructural, puentes, estaciones de servicio y software avanzado
+                Ingeniería estructural, estaciones de servicio y tecnología para obras de alto impacto
               </h1>
               <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl font-light leading-relaxed">
                 KONTE es una firma híbrida. Evolucionamos la ingeniería tradicional combinando ejecución en campo, consultoría normativa y desarrollo de software para el sector técnico industrial.
@@ -489,7 +489,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           >
             <div className="relative h-52 overflow-hidden">
               <img 
-                src="/images/projects/puente_bailey_4k.jpg" 
+                src="/images/projects/canopy_guamal_lod400.jpg" 
                 alt="Diseño Estructural de Puentes Bailey" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
