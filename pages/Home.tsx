@@ -379,7 +379,8 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
     <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors duration-300">
             {/* Hero Section */}
       <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/projects/canopy_guamal_lod400.jpg"])}>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/80 to-slate-900/35 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-900/60 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/30 z-10 pointer-events-none" />
         <img
           src="/images/projects/canopy_guamal_lod400.jpg"
           alt="Diseño y cálculo estructural de canopy y estaciones de servicio - KONTE"
@@ -390,50 +391,94 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
         </div>
         <div className="relative z-20 flex flex-col justify-center pt-28 md:pt-36 lg:pt-40 pb-16 md:pb-24 min-h-[90vh]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-auto">
-            <div className="max-w-3xl animate-in slide-in-from-bottom-10 duration-700 text-left">
-              <span className="bg-primary text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold tracking-widest uppercase mb-6 inline-block shadow-md">
-                Ingeniería estructural &bull; Estaciones de servicio &bull; Tecnología
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-                Ingeniería estructural, estaciones de servicio y tecnología para obras de alto impacto
-              </h1>
-              <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl font-light leading-relaxed">
-                KONTE es una firma híbrida. Evolucionamos la ingeniería tradicional combinando ejecución en campo, consultoría normativa y desarrollo de software para el sector técnico industrial.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-white">
-                <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-                  <h3 className="font-bold text-blue-400">26+ Años</h3>
-                  <p className="text-sm text-gray-300">De experiencia comprobada</p>
+              {/* Columna Izquierda: Mensaje y Conversión */}
+              <div className="lg:col-span-7 animate-in slide-in-from-bottom-10 duration-700 text-left">
+                <span className="bg-primary text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold tracking-widest uppercase mb-5 inline-block shadow-md">
+                  Ingeniería estructural &bull; Estaciones de servicio &bull; Tecnología
+                </span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-5 leading-tight drop-shadow-lg">
+                  Ingeniería estructural, estaciones de servicio y tecnología para obras de alto impacto
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 font-light leading-relaxed">
+                  KONTE es una firma híbrida. Evolucionamos la ingeniería tradicional combinando ejecución en campo, consultoría normativa y desarrollo de software para el sector técnico industrial.
+                </p>
+                
+                {/* Pilares técnicos destacados */}
+                <div className="flex flex-wrap gap-2.5 mb-8 text-xs text-gray-300">
+                  <span className="px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 font-medium">Norma NSR-10 (Títulos A, B, C, H)</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 font-medium">OpenBIM IFC LOD 400</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 font-medium">Tanques Industriales AWWA / NFPA</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 font-medium">Diseño Viales & Contención</span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-                  <h3 className="font-bold text-blue-400">Nacional</h3>
-                  <p className="text-sm text-gray-300">Cobertura en todo el país</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-                  <h3 className="font-bold text-blue-400">Firma Híbrida</h3>
-                  <p className="text-sm text-gray-300">Construcción y tecnología</p>
+
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-4" onClick={(e) => e.stopPropagation()}>
+                  <a
+                    href="https://wa.me/573227696769"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-7 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-xl hover:shadow-primary/50 flex items-center justify-center gap-2"
+                  >
+                    <ArrowRight className="w-5 h-5 hidden sm:block" />
+                    COTIZAR PROYECTO O LICENCIA
+                  </a>
+                  <a
+                    href="#servicios"
+                    onClick={(e) => { e.preventDefault(); document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' }); }}
+                    className="px-7 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-lg font-bold transition-all flex items-center justify-center"
+                  >
+                    VER SERVICIOS
+                  </a>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8 md:mt-10 mb-8 md:mb-12" onClick={(e) => e.stopPropagation()}>
-                <a
-                  href="https://wa.me/573227696769"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 bg-primary hover:bg-secondary text-white rounded-lg font-bold transition-all shadow-xl hover:shadow-primary/50 flex items-center justify-center gap-2"
-                >
-                  <ArrowRight className="w-5 h-5 hidden sm:block" />
-                  COTIZAR TRÁMITE DE LICENCIA
-                </a>
-                <a
-                  href="#servicios"
-                  onClick={(e) => { e.preventDefault(); document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' }); }}
-                  className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-lg font-bold transition-all flex items-center justify-center"
-                >
-                  VER SERVICIOS
-                </a>
+              {/* Columna Derecha: Tarjeta Técnica Flotante HUD (Llena el espacio y exhibe ingeniería real) */}
+              <div className="lg:col-span-5 animate-in slide-in-from-right-10 duration-700" onClick={(e) => e.stopPropagation()}>
+                <div className="bg-slate-900/85 backdrop-blur-xl border border-white/15 rounded-2xl p-6 sm:p-7 shadow-2xl text-white hover:border-blue-400/40 transition-all">
+                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-blue-400 bg-blue-500/15 border border-blue-500/30 px-3 py-1 rounded-full">
+                      Obra Insignia 2026
+                    </span>
+                    <span className="text-xs text-gray-400 font-mono">Guamal, Meta</span>
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-snug">
+                    EDS La Llanerita: Infraestructura & Canopy
+                  </h3>
+                  <p className="text-xs text-gray-300 leading-relaxed mb-4">
+                    Ingeniería de detalle integral: cálculo estructural de cubierta de gran luz, accesos viales RN6509, muros de contención y gemelo digital OpenBIM.
+                  </p>
+
+                  <div className="space-y-2 mb-5 text-xs font-mono">
+                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                      <span className="text-gray-400">Cubierta Metálica</span>
+                      <span className="font-semibold text-white">Canopy Tipo Mariposa 42m</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                      <span className="text-gray-400">Infraestructura Vial</span>
+                      <span className="font-semibold text-white">Carriles & Muros Contención</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                      <span className="text-gray-400">Modelado BIM</span>
+                      <span className="font-semibold text-blue-400">OpenBIM IFC LOD 400</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-white/5 border border-white/5">
+                      <span className="text-gray-400">Ingeniería Integral</span>
+                      <span className="font-semibold text-white">Hidrosanitaria & Eléctrica</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    to="/proyectos/eds-guamal-infraestructura-vial"
+                    className="w-full py-3 px-4 bg-primary hover:bg-secondary text-white text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg"
+                  >
+                    <span>Ver Ficha Técnica y Renders del Proyecto</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
