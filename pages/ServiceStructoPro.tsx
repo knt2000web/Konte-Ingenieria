@@ -574,28 +574,30 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               Módulos Especializados y Corporativos
             </h2>
             <p className="text-slate-400 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
-              Herramientas de cálculo de alta precisión desarrolladas para proyectos de infraestructura mayor. Disponibles bajo licencia corporativa o consultoría a medida (no incluidas en el plan estándar).
+              Herramientas de cálculo estructural y modelado de alta precisión desarrolladas para proyectos de infraestructura y edificación. Disponibles bajo licencia corporativa o consultoría a medida (no incluidas en el plan estándar).
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1: Puentes Bailey */}
-            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+            {/* Card 1: StructoPro Multi-Piso (Aporticado y Dual) */}
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300 shadow-lg hover:shadow-blue-900/30">
               <div className="relative h-44 overflow-hidden">
-                <img src="/images/projects/puente_bailey_4k.jpg" alt="Módulo Puentes Bailey" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/images/projects/structopro_oficinas_lod400.jpg" alt="Módulo StructoPro Multi-Piso" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
-                  Norma CCP-14
+                  NSR-10 · +10 Curadurías
                 </span>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <h4 className="text-lg font-bold text-white mb-2">Puentes Bailey 3S</h4>
+                <h4 className="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  StructoPro: Edificaciones Multi-Piso
+                </h4>
                 <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
-                  Diseño estructural completo de puentes metálicos vehiculares tipo Bailey, verificación de cargas dinámicas y exportación OpenBIM LOD 400.
+                  Motor paramétrico para sistemas aporticados y duales con pantallas de concreto (C.21.9). Análisis modal espectral, control de derivas, geotecnia, despiece LOD 400, planos DXF y memorias legales (con este motor se diseñaron las oficinas de Guamal y más de 10 proyectos aprobados en curaduría).
                 </p>
                 <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                   <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
                   <a
-                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20del%20M%C3%B3dulo%20de%20Puentes%20Bailey%20en%20StructoPro."
+                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20el%20M%C3%B3dulo%20de%20Dise%C3%B1o%20Estructural%20Multi-Piso%20en%20StructoPro."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-bold text-blue-400 hover:text-white flex items-center gap-1 transition-colors"
@@ -607,7 +609,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             </div>
 
             {/* Card 2: Canopy y Estaciones */}
-            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300 shadow-lg hover:shadow-blue-900/30">
               <div className="relative h-44 overflow-hidden">
                 <img src="/images/projects/canopy_guamal_lod400.jpg" alt="Módulo Canopy Estaciones" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
@@ -615,9 +617,11 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                 </span>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <h4 className="text-lg font-bold text-white mb-2">Canopy Estaciones EDS</h4>
+                <h4 className="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  Canopy Estaciones EDS
+                </h4>
                 <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
-                  Cálculo de estructuras metálicas de cubierta para estaciones de servicio y áreas industriales bajo NSR-10 (viento y sismo).
+                  Cálculo de estructuras metálicas de cubierta y columnas tubulares para estaciones de servicio e industrias bajo NSR-10 (viento y sismo).
                 </p>
                 <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                   <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
@@ -634,7 +638,7 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
             </div>
 
             {/* Card 3: CAD a OpenBIM */}
-            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300 shadow-lg hover:shadow-blue-900/30">
               <div className="relative h-44 overflow-hidden">
                 <img src="/images/projects/eds_guamal_muro_rx.png" alt="Módulo CAD a BIM" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
@@ -642,7 +646,9 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                 </span>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <h4 className="text-lg font-bold text-white mb-2">CAD a OpenBIM ("Captubin")</h4>
+                <h4 className="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  CAD a OpenBIM ("Captubin")
+                </h4>
                 <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
                   Motor de conversión que transforma trazos CAD 2D (DWG/DXF) en geometrías IFC 3D enriquecidas con metadatos para interoperabilidad.
                 </p>
@@ -660,8 +666,37 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
               </div>
             </div>
 
-            {/* Card 4: Cabañas Alpinas */}
-            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300">
+            {/* Card 4: Puentes Bailey */}
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300 shadow-lg hover:shadow-blue-900/30">
+              <div className="relative h-44 overflow-hidden">
+                <img src="/images/projects/puente_bailey_4k.jpg" alt="Módulo Puentes Bailey" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                  Norma CCP-14
+                </span>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <h4 className="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  Puentes Bailey 3S
+                </h4>
+                <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
+                  Diseño estructural de puentes metálicos vehiculares tipo Bailey, verificación de cargas dinámicas vehiculares y exportación OpenBIM LOD 400.
+                </p>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
+                  <a
+                    href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20estoy%20interesado%20en%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20del%20M%C3%B3dulo%20de%20Puentes%20Bailey%20en%20StructoPro."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-blue-400 hover:text-white flex items-center gap-1 transition-colors"
+                  >
+                    Preguntar &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 5: Cabañas Alpinas */}
+            <div className="bg-[#090b10] rounded-xl border border-[rgba(20,88,245,0.25)] hover:border-blue-500 overflow-hidden flex flex-col group transition-all duration-300 shadow-lg hover:shadow-blue-900/30">
               <div className="relative h-44 overflow-hidden">
                 <img src="/images/projects/cabana_suiza_exterior.png" alt="Módulo Cabañas Alpinas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
@@ -669,9 +704,11 @@ const ServiceStructoPro: React.FC<ServiceStructoProProps> = ({ openLightbox }) =
                 </span>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <h4 className="text-lg font-bold text-white mb-2">Cabañas Alpinas y Chalets</h4>
+                <h4 className="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  Cabañas Alpinas y Chalets
+                </h4>
                 <p className="text-xs text-slate-400 mb-4 leading-relaxed flex-grow">
-                  Modelado paramétrico y cálculo sismorresistente de cabañas campestres A-Frame y chalets suizos en 3 niveles con pendiente.
+                  Modelado paramétrico y cálculo sismorresistente de cabañas campestres A-Frame y chalets suizos en 3 niveles adaptados a ladera.
                 </p>
                 <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                   <span className="text-[11px] text-slate-400 font-semibold">Acceso Especial</span>
