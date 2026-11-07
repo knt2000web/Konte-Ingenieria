@@ -17,7 +17,7 @@ const SCROLL_IMAGES = [
   '/images/projects/cabana_tato_exterior_angular_4k.jpg',
   '/images/projects/puente_bailey_monograph.jpg',
   '/images/projects/eds_guamal_estacion.jpg',
-  '/images/projects/cad_to_bim_composite.jpg',
+  '/images/projects/cad_to_bim_clear_composite.jpg',
   '/images/projects/cabana_tato_nocturno_glow_4k.jpg',
   '/images/projects/tanque_industrial_master.jpg',
   '/images/projects/cad_to_bim_carriles_lod400.jpg'
