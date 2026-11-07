@@ -567,7 +567,7 @@ export const PROJECTS: Project[] = [
       'https://i.imgur.com/bGuF8HF.jpeg',
       'https://i.imgur.com/jz8fDRR.jpeg'
     ],
-    status: 'In Progress',
+    status: 'Completed',
     description: 'Consultoría para el reforzamiento estructural de estación existente.',
     slug: 'reforzamiento-eds-pena-blanca'
   },
@@ -602,7 +602,7 @@ export const PROJECTS: Project[] = [
       'https://i.imgur.com/shPqQQw.jpeg',
       'https://i.imgur.com/sk5gWw8.jpeg'
     ],
-    status: 'In Progress',
+    status: 'Completed',
     description: 'Diseño estructural para vivienda recreacional.',
     slug: 'cabana-campestre-villavicencio'
   }
