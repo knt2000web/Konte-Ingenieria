@@ -207,7 +207,7 @@ const STRUCTOPRO_SUB_SERVICES = [
 
 const Home: React.FC<HomeProps> = ({ openLightbox }) => {
   const navigate = useNavigate();
-  const [heroTab, setHeroTab] = useState<'guamo' | 'guamal'>('guamo');
+  const [heroTab, setHeroTab] = useState<'guamo' | 'guamal'>('guamal');
   
   // State for Specialized Engineering (ID 3)
   const [featureIndex, setFeatureIndex] = useState(0);
@@ -389,12 +389,12 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
     
     <div className="animate-in fade-in duration-500 bg-white dark:bg-gray-900 transition-colors duration-300">
             {/* Hero Section */}
-      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/projects/eds_guamal_estacion.jpg", "/images/projects/canopy_guamal_lod400.jpg"])}>
+      <div className="relative w-full overflow-hidden group cursor-pointer" onClick={() => openLightbox(0, ["/images/projects/06_EDS_Guamal_Panoramica_Vial_4K.png", "/images/projects/canopy_guamal_lod400.jpg"])}>
         {/* Gradiente balanceado: protege la legibilidad a la izquierda y deja ver la ingenieria iluminada al centro y derecha */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-900/25 z-10 transition-colors" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-slate-900/10 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/15 z-10 pointer-events-none" />
         <img
-          src="/images/projects/eds_guamal_estacion.jpg"
+          src="/images/projects/06_EDS_Guamal_Panoramica_Vial_4K.png"
           alt="Ingeniería estructural, estaciones de servicio y tecnología - KONTE"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-105"
         />
@@ -623,7 +623,7 @@ const Home: React.FC<HomeProps> = ({ openLightbox }) => {
           >
             <div className="relative h-52 overflow-hidden">
               <img 
-                src="/images/projects/canopy_guamal_lod400.jpg" 
+                src="/images/projects/puente_bailey_4k.jpg" 
                 alt="Diseño Estructural de Puentes Bailey" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />

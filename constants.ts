@@ -237,8 +237,9 @@ export const PROJECTS: Project[] = [
     location: 'Guamal, Meta',
     type: 'Estacion de Servicio e Infraestructura Vial',
     year: '2026',
-    image: '/images/projects/canopy_guamal_lod400.jpg',
+    image: '/images/projects/06_EDS_Guamal_Panoramica_Vial_4K.png',
     images: [
+      '/images/projects/06_EDS_Guamal_Panoramica_Vial_4K.png',
       '/images/projects/canopy_guamal_lod400.jpg'
     ],
     status: 'In Progress',
