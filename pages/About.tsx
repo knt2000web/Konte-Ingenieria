@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
-import { Building, Globe, Shield, MapPin, Target, Users } from 'lucide-react';
+import { Building, Globe, Shield, MapPin, Target, Users, ArrowRight } from 'lucide-react';
 
 interface AboutProps {
   setPage?: (page: Page) => void;
@@ -71,38 +71,158 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
         </div>
       </section>
 
-      {/* Trayectoria & Cobertura */}
+      {/* Trayectoria & Cobertura Estratégica */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Cobertura Estratégica</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">
-              Nuestra base de operaciones en Duitama nos ha permitido consolidar una fuerte presencia en el centro y oriente del país, ejecutando obras y resolviendo cuellos de botella normativos para las empresas más exigentes.
-            </p>
-            <ul className="space-y-4">
-              {['Boyacá (Sede principal)', 'Casanare', 'Cundinamarca', 'Tolima', 'Operación a nivel nacional para proyectos especiales'].map((region, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-slate-700 dark:text-slate-200 font-medium">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
-                  {region}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-slate-900 rounded-3xl p-10 text-white relative overflow-hidden">
-            <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl" />
-            <Globe className="w-12 h-12 text-blue-400 mb-6" />
-            <h3 className="text-2xl font-bold mb-4">Nuestra Promesa</h3>
-            <p className="text-slate-300 leading-relaxed mb-8">
-              "Trascendemos el rol tradicional del contratista. Somos una firma de ingeniería dedicada a resolver desafíos técnicos complejos, integrando ejecución impecable, rigor normativo y desarrollo tecnológico."
-            </p>
-            <div className="flex items-center gap-4 pt-8 border-t border-slate-700">
-              <Users className="w-6 h-6 text-slate-400" />
-              <span className="text-sm font-medium text-slate-300">Equipo Directivo KONTE</span>
+        <div className="mb-12">
+          <span className="text-primary dark:text-blue-400 font-bold tracking-widest text-xs uppercase mb-3 inline-block bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
+            Despliegue Territorial & Operación Nacional
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Cobertura Estratégica de Ingeniería
+          </h2>
+          <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 mt-3 max-w-3xl leading-relaxed">
+            Desde nuestra base central en Boyacá hasta los corredores viales, agroindustriales y de hidrocarburos más exigentes de Colombia, desplegamos ingeniería de precisión, cálculo sismorresistente y gestión técnica in situ.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Columna Izquierda: Grid de Departamentos y Alcance Operativo (7 cols) */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            {/* Boyacá */}
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-blue-500 transition-all shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-primary dark:text-blue-400 uppercase tracking-wider">Sede Central</span>
+                <span className="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-full font-bold">Base Matriz</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">Boyacá (Duitama / Tunja / Sogamoso)</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Diseño estructural NSR-10, consultoría de licencias, urbanismo y centro de I+D para el software StructoPro.
+              </p>
             </div>
+
+            {/* Meta */}
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition-all shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Llanos Orientales</span>
+                <span className="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold">En Ejecución</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">Meta (Guamal / Villavicencio)</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Estaciones de servicio 4G, canopies metálicos de 37 m, accesos viales RN6509, muros de contención y redes técnicas.
+              </p>
+            </div>
+
+            {/* Santander */}
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-blue-500 transition-all shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-primary dark:text-blue-400 uppercase tracking-wider">Corredor Nororiente</span>
+                <span className="text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded font-semibold">Región Andina</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">Santander (Bucaramanga / San Gil)</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Cálculo de estructuras en ladera, adecuaciones industriales y validación normativa para curadurías y entes territoriales.
+              </p>
+            </div>
+
+            {/* Cundinamarca */}
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-blue-500 transition-all shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-primary dark:text-blue-400 uppercase tracking-wider">Centro del País</span>
+                <span className="text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded font-semibold">Sabana & Región</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">Cundinamarca & Bogotá D.C.</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Cabañas campestres alpinas sismorresistentes, modelado BIM LOD 400 y consultoría técnica de edificaciones complejas.
+              </p>
+            </div>
+
+            {/* Tolima */}
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-blue-500 transition-all shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-primary dark:text-blue-400 uppercase tracking-wider">Corredor Vial 4G</span>
+                <span className="text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded font-semibold">Infraestructura</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">Tolima (El Guamo / Corredor Neiva)</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Puentes vehiculares modulares Bailey (CCP-14), estaciones de servicio de alto tráfico y cruces de infraestructura.
+              </p>
+            </div>
+
+            {/* Casanare y Operación Nacional */}
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-blue-500 transition-all shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-primary dark:text-blue-400 uppercase tracking-wider">Sector Agroindustrial</span>
+                <span className="text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded font-semibold">Nacional</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">Casanare & Proyectos Especiales</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Tanques de almacenamiento industrial (AWWA D103 / NFPA 22), obras hidráulicas y cimentaciones para proyectos en todo el país.
+              </p>
+            </div>
+
           </div>
+
+          {/* Columna Derecha: Panel de Autoridad, Métricas y Capacidad de Ejecución (5 cols) */}
+          <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 rounded-3xl p-7 sm:p-8 text-white relative overflow-hidden border border-slate-800 shadow-2xl">
+            <div className="absolute -right-10 -top-10 w-44 h-44 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="flex items-center gap-3 mb-5">
+              <div className="bg-blue-500/20 p-3 rounded-xl border border-blue-500/30 text-blue-400">
+                <Globe className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold text-blue-400 tracking-wider uppercase block">Capacidad Certificada</span>
+                <h3 className="text-lg font-bold text-white">Ingeniería sin Fronteras</h3>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+              No somos un contratista tradicional ni un intermediario pasivo. Integramos modelado matricial algorítmico, verificación geotécnica y presencia técnica in situ para desatar nudos normativos y constructivos de alta complejidad.
+            </p>
+
+            {/* Matriz de Indicadores de Autoridad */}
+            <div className="grid grid-cols-2 gap-3 mb-6 font-mono text-xs">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-3">
+                <span className="text-gray-400 block text-[10px] uppercase">Experiencia</span>
+                <span className="text-lg font-bold text-white">+26 Años</span>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-3">
+                <span className="text-gray-400 block text-[10px] uppercase">Presencia Activa</span>
+                <span className="text-lg font-bold text-blue-400">6 Dptos.</span>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-3">
+                <span className="text-gray-400 block text-[10px] uppercase">Normativa</span>
+                <span className="text-sm font-bold text-white">NSR-10 / CCP-14</span>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-3">
+                <span className="text-gray-400 block text-[10px] uppercase">Entregables BIM</span>
+                <span className="text-sm font-bold text-emerald-400">LOD 400 IFC</span>
+              </div>
+            </div>
+
+            <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row gap-3 items-center justify-between">
+              <div className="flex items-center gap-2 text-xs text-slate-400">
+                <Users className="w-4 h-4 text-blue-400" />
+                <span>Equipo Directivo KONTE</span>
+              </div>
+              <a
+                href="https://wa.me/573227696769?text=Hola%20KONTE%2C%20quisiera%20consultar%20la%20viabilidad%20y%20cobertura%20de%20un%20proyecto."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-white text-xs font-bold py-2.5 px-4 rounded-lg transition-colors shadow-lg"
+              >
+                <span>Consultar Proyecto</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+          </div>
+
         </div>
       </section>
-
+      
     </main>
   );
 };
